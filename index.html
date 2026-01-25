@@ -5,74 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RIYU THE FLASHER | THE KING PLACE</title>
 
-    <meta name="google-site-verification" content="google93a5fc9573221cf2.html" />
+    <meta name="google-site-verification" content="93a5fc9573221cf2" />
 
-    <meta name="description" content="Official RIYU THE FLASHER - Authorized Xiaomi, Oppo, and OnePlus flashing and unbricking services.">
-    <meta name="keywords" content="Riyu The Flasher, Xiaomi Auth, HyperOS Unlock, OnePlus Unbrick, Oppo Region Unlock">
-    
     <script>
         if (location.protocol !== 'https:' && location.hostname !== 'localhost') {
             location.replace(`https:${location.href.substring(location.protocol.length)}`);
         }
     </script>
-    
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        :root {
-            --primary: #ff004f;
-            --bg: #0a0a0a;
-            --card-bg: #111111;
-            --text-main: #ffffff;
-            --text-dim: #999999;
-            --border: #222222;
-        }
-
+        :root { --primary: #ff004f; --bg: #0a0a0a; --card-bg: #111111; --text-main: #ffffff; --text-dim: #999999; --border: #222222; }
         body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text-main); line-height: 1.6; }
-
-        /* ===== ADMIN ANNOUNCEMENT BAR ===== */
-        #publicPost {
-            background: linear-gradient(90deg, #ff004f, #b30037);
-            color: white; text-align: center; padding: 12px;
-            font-size: 14px; font-weight: 800; display: none;
-            letter-spacing: 1px; text-transform: uppercase;
-        }
-
+        #publicPost { background: linear-gradient(90deg, #ff004f, #b30037); color: white; text-align: center; padding: 12px; font-size: 14px; font-weight: 800; display: none; letter-spacing: 1px; text-transform: uppercase; }
         header { padding: 80px 20px 40px; text-align: center; border-bottom: 1px solid var(--border); }
         .profile-pic { width: 110px; height: 110px; border-radius: 50%; border: 2px solid var(--primary); padding: 5px; margin-bottom: 20px; }
-        
         .king-title { font-family: 'Bebas Neue', sans-serif; font-size: 4.5rem; color: var(--primary); margin: 0; letter-spacing: 4px; line-height: 1; }
         .sub-header { color: var(--text-dim); letter-spacing: 5px; font-size: 14px; text-transform: uppercase; font-weight: 800; margin-top: 10px; }
-        
         .cta { display: flex; justify-content: center; gap: 15px; margin-top: 30px; flex-wrap: wrap; }
         .cta a { padding: 12px 25px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 13px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--border); transition: 0.3s; color: white; }
         .cta a:hover { background: white; color: black; transform: translateY(-3px); }
-
         section { max-width: 900px; margin: auto; padding: 50px 20px; }
         .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 12px; color: var(--primary); text-transform: uppercase; letter-spacing: 3px; margin-bottom: 25px; display: block; border-left: 3px solid var(--primary); padding-left: 12px; }
-
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        .price-card {
-            background: var(--card-bg); border: 1px solid var(--border);
-            padding: 22px; border-radius: 12px; display: flex;
-            justify-content: space-between; align-items: center; transition: 0.3s;
-        }
+        .price-card { background: var(--card-bg); border: 1px solid var(--border); padding: 22px; border-radius: 12px; display: flex; justify-content: space-between; align-items: center; transition: 0.3s; }
         .price-card:hover { border-color: var(--primary); background: #150005; }
         .service-info b { font-size: 16px; display: block; color: #fff; text-transform: uppercase; }
-        .service-info span { color: var(--text-dim); font-size: 13px; }
         .price-tag { color: var(--primary); font-family: 'Space Grotesk'; font-weight: 800; font-size: 18px; }
-
         .box { background: var(--card-bg); padding: 30px; border-radius: 15px; border: 1px solid var(--border); }
-        input, textarea { width: 100%; background: #000; border: 1px solid var(--border); padding: 12px; color: #fff; border-radius: 8px; margin-bottom: 12px; font-family: inherit; box-sizing: border-box; }
         .btn { width: 100%; background: var(--primary); color: #fff; border: none; padding: 14px; border-radius: 8px; font-weight: 800; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
-        .btn:hover { background: #ff3377; }
-
-        .admin-link { cursor: pointer; opacity: 0.05; font-size: 10px; margin-top: 100px; text-align: center; color: white; transition: 0.5s; }
-        .admin-link:hover { opacity: 0.8; color: var(--primary); }
+        .admin-link { cursor: pointer; opacity: 0.05; font-size: 10px; margin-top: 50px; text-align: center; color: white; }
         #adminPanel { display: none; background: #1a1a1a; padding: 30px; border-radius: 15px; border: 2px solid var(--primary); margin: 20px auto; max-width: 500px; }
-
-        footer { text-align: center; padding: 80px 20px; color: var(--text-dim); font-size: 12px; border-top: 1px solid var(--border); }
+        footer { text-align: center; padding: 60px 20px; color: var(--text-dim); font-size: 13px; border-top: 1px solid var(--border); }
+        input, textarea { width: 100%; background: #000; border: 1px solid var(--border); padding: 12px; color: #fff; border-radius: 8px; margin-bottom: 12px; box-sizing: border-box; }
     </style>
 </head>
 <body>
@@ -83,119 +50,59 @@
     <img src="profile.png" alt="RIYU" class="profile-pic">
     <div class="king-title">YOU'RE IN THE KING PLACE</div>
     <div class="sub-header">FLASH • UNBRICK • UNLOCK</div>
-    
     <div class="cta">
         <a href="https://wa.me/8801861845006" target="_blank" style="border-color: #25d366;"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         <a href="https://t.me/RIYUAUTHSERVICES" target="_blank" style="border-color: #0088cc;"><i class="fab fa-telegram"></i> Telegram</a>
-        <a href="https://www.youtube.com/@riyutheflasher" target="_blank" style="border-color: #ff0000;"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 </header>
 
 <section>
-    <span class="section-title">Xiaomi Authorized Services</span>
+    <span class="section-title">Services & Pricing</span>
     <div class="grid">
         <div class="price-card">
-            <div class="service-info"><b>Global Unlock</b><span>Official Bootloader</span></div>
+            <div class="service-info"><b>Xiaomi Global Unlock</b><span>Bootloader</span></div>
             <div class="price-tag">$30-$65</div>
         </div>
         <div class="price-card">
-            <div class="service-info"><b>Global Unbrick</b><span>Recovery Service</span></div>
-            <div class="price-tag">$15-$30</div>
-        </div>
-        <div class="price-card">
-            <div class="service-info"><b>China Unlock</b><span>HyperOS Series</span></div>
-            <div class="price-tag">$80</div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <span class="section-title">Oppo & OnePlus</span>
-    <div class="grid">
-        <div class="price-card">
-            <div class="service-info"><b>Flash Unbrick</b><span>Software Fix</span></div>
+            <div class="service-info"><b>Oppo/OnePlus Unbrick</b><span>Remote Fix</span></div>
             <div class="price-tag">$65-$110</div>
-        </div>
-        <div class="price-card">
-            <div class="service-info"><b>ROM Convert</b><span>China to Global</span></div>
-            <div class="price-tag">$30-$70</div>
-        </div>
-        <div class="price-card">
-            <div class="service-info"><b>Region Unlock</b><span>Network/Carrier</span></div>
-            <div class="price-tag">$20-$50</div>
-        </div>
-    </div>
-</section>
-
-<section>
-    <span class="section-title">How It Works</span>
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
-        <div class="box">
-            <h3 style="color: var(--primary);">1. Contact Me</h3>
-            <p>Reach out via WhatsApp or Telegram with your device model.</p>
-        </div>
-        <div class="box">
-            <h3 style="color: var(--primary);">2. Remote Connection</h3>
-            <p>I will connect to your PC via UltraViewer or AnyDesk.</p>
-        </div>
-        <div class="box">
-            <h3 style="color: var(--primary);">3. Device Fixed</h3>
-            <p>Sit back while I flash or unlock your device officially.</p>
         </div>
     </div>
 </section>
 
 <div class="admin-link" onclick="toggleLogin()">Admin Control</div>
-
 <div id="loginForm" style="display:none; max-width: 320px; margin: 20px auto;" class="box">
     <h3 style="text-align: center; color: var(--primary);">Secure Login</h3>
     <input type="text" id="adminId" placeholder="Admin ID">
     <input type="password" id="adminPass" placeholder="Password">
-    <button class="btn" onclick="processLogin()">Enter Dashboard</button>
+    <button class="btn" onclick="processLogin()">Login</button>
 </div>
 
 <div id="adminPanel">
     <h3 style="color: var(--primary);">Admin Dashboard</h3>
     <textarea id="adminInput" rows="3" placeholder="Post a message..."></textarea>
-    <button class="btn" onclick="publishPost()">Post to Homepage</button>
-    <button class="btn" onclick="adminLogout()" style="background:#333; margin-top:10px;">Logout</button>
+    <button class="btn" onclick="publishPost()">Post Update</button>
 </div>
 
 <footer>
-    <p>&copy; 2024 - 2026 RIYU THE FLASHER | <a href="https://www.riyutheflasher.com" style="color: var(--primary); text-decoration: none;">riyutheflasher.com</a></p>
-    <p style="font-size: 10px; margin-top: 5px; opacity: 0.5;">LICENSE #RTF-2024-880</p>
+    <p>&copy; 2024 - 2026 RIYU THE FLASHER | <a href="https://riyutheflasher.com" style="color: var(--primary); text-decoration: none;">riyutheflasher.com</a></p>
 </footer>
 
 <script>
-    function toggleLogin() {
-        var form = document.getElementById('loginForm');
-        form.style.display = (form.style.display === 'none') ? 'block' : 'none';
-    }
-
+    function toggleLogin() { document.getElementById('loginForm').style.display = 'block'; }
     function processLogin() {
-        var user = document.getElementById('adminId').value;
-        var pass = document.getElementById('adminPass').value;
-        if(user === "riyu123" && pass === "523889") {
+        if(document.getElementById('adminId').value === "riyu123" && document.getElementById('adminPass').value === "523889") {
             document.getElementById('loginForm').style.display = 'none';
             document.getElementById('adminPanel').style.display = 'block';
-        } else {
-            alert("Access Denied.");
-        }
+        } else { alert("Wrong password."); }
     }
-
     function publishPost() {
         var text = document.getElementById('adminInput').value;
-        var banner = document.getElementById('publicPost');
         if(text.trim() !== "") {
-            banner.innerHTML = '<i class="fas fa-bullhorn"></i> ' + text;
-            banner.style.display = 'block';
+            document.getElementById('publicPost').innerText = text;
+            document.getElementById('publicPost').style.display = 'block';
         }
     }
-
-    function adminLogout() {
-        location.reload();
-    }
 </script>
-
 </body>
 </html>

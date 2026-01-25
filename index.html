@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RIYU THE FLASHER | Official Dashboard</title>
-    <meta name="description" content="Official RIYU THE FLASHER - Specialist in Xiaomi, OnePlus, and Oppo software services.">
     
+    <title>RIYU THE FLASHER | Official Xiaomi, OnePlus & Oppo Auth Services</title>
+    <meta name="title" content="RIYU THE FLASHER | Official Xiaomi, OnePlus & Oppo Auth Services">
+    <meta name="description" content="Professional software specialist. Authorized Xiaomi bootloader unlock, OnePlus EDL unbrick, and Oppo region changes. Fast, reliable, and expert flashing services.">
+    <meta name="keywords" content="Riyu the flasher, Xiaomi Auth Flash, OnePlus Unbrick, Bootloader Unlock, HyperOS Unlock, EDL Flashing, Global ROM Convert">
+    <meta name="robots" content="index, follow">
+    
+    <meta name="google-site-verification" content="93a5fc9573221cf2">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://riyutheflasher.com/"> <meta property="og:title" content="RIYU THE FLASHER | Authorized Software Specialist">
+    <meta property="og:description" content="Expert Unbricking & Bootloader Unlocking for Xiaomi, OnePlus, and more.">
+    <meta property="og:image" content="profile.png">
+
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -13,7 +24,7 @@
         :root{
             --primary:#ff004f;
             --secondary:#ff6a00;
-            --glow:rgba(255,0,79,.6);
+            --glow:rgba(255,0,79,.9);
             --bg:radial-gradient(circle at top,#1a0005,#000);
             --card:linear-gradient(145deg,#111,#090009);
             --text:#fff;
@@ -21,16 +32,14 @@
             --border:rgba(255,0,79,.25);
         }
 
-        *{box-sizing:border-box; scroll-behavior: smooth;}
+        *{box-sizing:border-box}
         body{
             margin:0;
             font-family:'Plus Jakarta Sans',sans-serif;
             background:var(--bg);
             color:var(--text);
-            overflow-x: hidden;
         }
 
-        /* KING BAR */
         .king-bar{
             background:linear-gradient(90deg,#120008,#ff004f,#120008);
             color: white;
@@ -40,168 +49,127 @@
             font-weight:900;
             letter-spacing:3px;
             text-transform: uppercase;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(255,0,79,0.3);
         }
 
-        header{ padding:60px 20px 40px; text-align:center; }
-        
+        header{ padding:70px 20px 50px; text-align:center; }
         .profile-pic{
-            width:130px; height:130px;
+            width:130px;height:130px;
             border-radius:50%;
             border:4px solid var(--primary);
             padding:3px;
-            box-shadow:0 0 25px var(--glow);
+            box-shadow:0 0 30px var(--glow);
             object-fit: cover;
-            animation: pulse 2s infinite ease-in-out;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 20px var(--glow); }
-            50% { transform: scale(1.02); box-shadow: 0 0 40px var(--primary); }
-            100% { transform: scale(1); box-shadow: 0 0 20px var(--glow); }
         }
 
         .brand-name{
-            margin:15px 0;
+            margin:20px 0 10px;
             font-family:'Bebas Neue',sans-serif;
-            font-size: clamp(40px, 8vw, 70px);
+            font-size:65px;
             font-weight:900;
-            letter-spacing:2px;
+            letter-spacing:4px;
             background:linear-gradient(90deg,#ff004f,#ffffff,#ff004f);
             background-size: 200% auto;
             -webkit-background-clip:text;
             -webkit-text-fill-color:transparent;
-            animation: glowMove 3s linear infinite;
+            animation:glowMove 3s linear infinite;
         }
-
         @keyframes glowMove{
             to{background-position:200% center}
         }
 
-        .btn-group{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:20px; }
+        .btn-group{ display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-top:30px; }
         .btn{
-            padding:12px 24px;
-            border-radius:6px;
-            font-size:12px;
+            padding:14px 28px;
+            border-radius:4px;
+            font-size:13px;
             font-weight:800;
             text-decoration:none;
             color:#fff;
             text-transform: uppercase;
-            transition:.3s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            transition:.3s;
         }
         .whatsapp { background: #25d366; }
         .telegram { background: #0088cc; }
         .youtube { background: #ff0000; }
-        .btn:hover{ transform:translateY(-4px); filter: brightness(1.2); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+        .btn:hover{ transform:translateY(-3px); filter: brightness(1.2); }
 
-        .container{ max-width:1100px; margin:auto; padding:0 20px; }
-        
+        .container{ max-width:1100px; margin:auto; padding:20px; }
         .section-title{
             text-align:center;
             font-family:'Space Grotesk';
-            font-size:24px;
-            margin: 60px 0 30px;
+            font-size:26px;
+            margin: 50px 0 30px;
             color: var(--primary);
             text-transform: uppercase;
-            letter-spacing: 3px;
-            position: relative;
+            letter-spacing: 2px;
+            border-bottom: 2px solid var(--border);
+            display: inline-block;
+            width: 100%;
         }
 
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background: var(--primary);
-            margin: 10px auto;
-        }
-
-        /* UPDATES BOX */
         .updates-box {
             background: var(--card);
-            border: 1px solid var(--border);
-            border-left: 5px solid var(--primary);
-            border-radius: 8px;
+            border: 1px dashed var(--primary);
+            border-radius: 12px;
             padding: 25px;
             margin-bottom: 40px;
-            white-space: pre-line;
-            font-size: 14px;
-            line-height: 1.6;
         }
         .update-tag {
             background: var(--primary);
-            padding: 3px 10px;
-            border-radius: 3px;
-            font-size: 10px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
             font-weight: 900;
-            margin-bottom: 10px;
-            display: inline-block;
+            margin-right: 10px;
         }
 
-        /* GRID SYSTEM */
-        .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+        .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:25px; }
         .card{
             background:var(--card);
             border:1px solid var(--border);
             border-radius:12px;
-            padding:25px;
-            transition: 0.3s;
+            padding:28px;
         }
-        .card:hover { border-color: var(--primary); transform: scale(1.01); }
-        .card h3 { font-family: 'Space Grotesk'; color: var(--primary); margin: 0 0 15px; }
-
+        .card h3 { font-family: 'Space Grotesk'; color: var(--primary); margin-top: 0; text-transform: uppercase; }
+        
         .price-row{
             display:flex;
             justify-content:space-between;
             align-items: center;
-            padding:12px 0;
+            padding:15px 0;
             border-bottom:1px solid rgba(255,255,255,0.05);
         }
-        .price-info b { display: block; font-size: 14px; color: #fff; }
-        .price-info span { font-size: 11px; color: #888; }
+        .price-info b { display: block; font-size: 15px; color: #fff; }
+        .price-info span { font-size: 12px; color: #888; }
         .price-val{
-            background: rgba(255,0,79,0.15);
-            color: var(--primary);
-            border: 1px solid var(--primary);
-            padding: 4px 10px;
+            background: var(--primary);
+            padding: 5px 12px;
             border-radius: 4px;
             font-weight: 800;
-            font-size: 13px;
+            font-size: 14px;
         }
 
-        /* VLOGS */
-        .vlog-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
-        .vlog-item{
-            border-radius:10px;
-            overflow:hidden;
-            border:1px solid var(--border);
-            background:var(--card);
+        .contact-tag {
+            background: #ff004f;
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 900;
+            text-decoration: none;
+            margin-left: 5px;
+            transition: 0.2s;
         }
+
+        .vlog-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:25px; }
+        .vlog-item{ border-radius:12px; overflow:hidden; border:1px solid var(--border); background:var(--card); }
         .video-wrapper{ position:relative; padding-bottom:56.25%; height:0; }
         .video-wrapper iframe{ position:absolute; width:100%; height:100%; border: none; }
-        .vlog-info{ padding:15px; text-align:center; font-size:11px; font-weight: 700; text-transform: uppercase; }
+        .vlog-info{ padding:18px; text-align:center; font-size:12px; font-weight: 800; text-transform: uppercase; }
 
-        footer{
-            margin-top:80px;
-            padding:40px 20px;
-            border-top:1px solid var(--border);
-            text-align:center;
-            font-size:12px;
-            color:#777;
-            letter-spacing: 1px;
-        }
+        footer{ margin-top:90px; padding:60px 20px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:#555; }
         footer b { color: var(--primary); }
-
-        /* MOBILE FIXES */
-        @media (max-width: 600px) {
-            header { padding: 40px 10px; }
-            .btn { width: 100%; justify-content: center; }
-        }
     </style>
 </head>
 
@@ -210,8 +178,8 @@
 <div class="king-bar">👑 YOU ARE IN THE KING PLACE 👑</div>
 
 <header>
-    <img src="profile.png" class="profile-pic" alt="RIYU">
-    <h1 class="brand-name">RIYU THE FLASHER</h1>
+    <img src="profile.png" class="profile-pic" alt="RIYU THE FLASHER">
+    <div class="brand-name">RIYU THE FLASHER</div>
     <div class="btn-group">
         <a href="https://wa.me/8801861845006" class="btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
@@ -220,76 +188,58 @@
 </header>
 
 <div class="container">
-
-    <h2 class="section-title">Latest Updates</h2>
+    <h2 class="section-title">Authorized Updates</h2>
     <div class="updates-box">
-        <span class="update-tag">LIVE NOW</span>
-        <b>💎 XIAOMI QUALCOMM FLASH (CHINA SUPPORT)</b>
-        ⚡️ Xiaomi 15 | 15 Pro | 13 Ultra | 12 Pro
-        ⚡️ Redmi K80 Pro | K70 | K60 | K50 Gaming
-        ⚡️ Pad 6S Pro | MIX Fold 3
-
-        <b>🔓 CHINA BOOTLOADER UNLOCK (NO DOWNGRADE)</b>
-        ✨ Full HyperOS / OS2 / OS3 Support
-        ✨ Xiaomi 13/12 Series & Redmi K60/K50 Series Supported!
+        <p><span class="update-tag">LIVE</span> <b>XIAOMI & REDMI AUTH SERVICES</b></p>
+        <p style="font-size: 14px; color: var(--text-gray);">
+            ✅ Xiaomi 15/15 Pro Support Added<br>
+            ✅ China HyperOS 2.0 & 3.0 Bootloader Unlock (No Wait)<br>
+            ✅ Global ROM Conversion for MIX Fold 3 & 13 Ultra
+        </p>
     </div>
 
-    <h2 class="section-title">Authorized Price List</h2>
     <div class="grid">
         <div class="card">
             <h3>Xiaomi Services</h3>
             <div class="price-row">
-                <div class="price-info"><b>Global Unlock</b><span>Official Bootloader</span></div>
-                <div class="price-val">$30 - $65</div>
+                <div class="price-info"><b>Global Unlock</b><span>Instant Bootloader</span></div>
+                <div class="price-val">$30-$65</div>
             </div>
             <div class="price-row">
-                <div class="price-info"><b>HyperOS Unlock</b><span>China/Global (No Wait)</span></div>
-                <div class="price-val">$80</div>
-            </div>
-            <div class="price-row">
-                <div class="price-info"><b>Unbrick / Convert</b><span>Hardbrick Recovery</span></div>
-                <div class="price-val">$20 - $90</div>
+                <div class="price-info"><b>Unbrick Service</b><span>Dead/Bootloop Fix</span></div>
+                <div class="price-val">$20-$40</div>
             </div>
         </div>
 
         <div class="card">
             <h3>OnePlus & Oppo</h3>
             <div class="price-row">
-                <div class="price-info"><b>EDL Unbrick</b><span>Dead / Bootloop Fix</span></div>
-                <div class="price-val">$65 - $110</div>
+                <div class="price-info"><b>Auth Flash</b><span>All Software Crashes</span></div>
+                <div class="price-val">$60+</div>
             </div>
             <div class="price-row">
                 <div class="price-info"><b>Region Change</b><span>ColorOS to OxygenOS</span></div>
-                <div class="price-val">$30 - $70</div>
-            </div>
-            <div class="price-row">
-                <div class="price-info"><b>Samsung / Vivo</b><span>Auth Flash & Frp</span></div>
-                <div class="price-val">Contact Dev</div>
+                <div class="price-val">$40</div>
             </div>
         </div>
     </div>
 
-    <h2 class="section-title">Latest Video Guides</h2>
+    <h2 class="section-title">Latest Tutorials</h2>
     <div class="vlog-grid">
         <div class="vlog-item">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/cAQb2ODRAKA" loading="lazy" allowfullscreen></iframe></div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/cAQb2ODRAKA" allowfullscreen loading="lazy"></iframe></div>
             <div class="vlog-info">Xiaomi 13 Ultra China to Global</div>
         </div>
         <div class="vlog-item">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/7zHZ4wQJQRc" loading="lazy" allowfullscreen></iframe></div>
-            <div class="vlog-info">OnePlus System Destroyed Fix</div>
-        </div>
-        <div class="vlog-item">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/s3Q0BVqvr6M" loading="lazy" allowfullscreen></iframe></div>
-            <div class="vlog-info">Redmi K60 Pro EU Rom Guide</div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/7zHZ4wQJQRc" allowfullscreen loading="lazy"></iframe></div>
+            <div class="vlog-info">OnePlus EDL Unbrick Guide</div>
         </div>
     </div>
-
 </div>
 
 <footer>
     © 2026 <b>RIYU THE FLASHER</b> • THE KING PLACE<br>
-    PROFESSIONAL SOFTWARE SOLUTIONS
+    AUTHORIZED SOFTWARE SPECIALIST
 </footer>
 
 </body>

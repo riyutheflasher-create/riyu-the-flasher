@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
   <url>
     <loc>http://riyutheflasher.com/</loc>
     <lastmod>2026-01-25</lastmod>
@@ -18,6 +20,26 @@
     <loc>http://riyutheflasher.com/contact</loc>
     <lastmod>2026-01-25</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
+    <priority>0.7</priority>
   </url>
+
+  <url>
+    <loc>http://riyutheflasher.com/blog</loc>
+    <lastmod>2026-01-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>http://riyutheflasher.com/gallery</loc>
+    <lastmod>2026-01-25</lastmod>
+    <image:image>
+      <image:loc>http://riyutheflasher.com/images/featured-work.jpg</image:loc>
+      <image:title>Riyu The Flasher Featured Work</image:title>
+      <image:caption>High-quality flash photography and visual content.</image:caption>
+    </image:image>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
 </urlset>

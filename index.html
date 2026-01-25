@@ -1,222 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RIYU THE FLASHER | Official Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIYU THE FLASHER | Official Dashboard</title>
+    <meta name="description" content="Official RIYU THE FLASHER - Specialist in Xiaomi, OnePlus, and Oppo software services.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<meta name="google-site-verification" content="93a5fc9573221cf2">
+    <style>
+        :root{
+            --primary:#ff004f;
+            --secondary:#ff6a00;
+            --glow:rgba(255,0,79,.6);
+            --bg:radial-gradient(circle at top,#1a0005,#000);
+            --card:linear-gradient(145deg,#111,#090009);
+            --text:#fff;
+            --text-gray:#d0d0d0;
+            --border:rgba(255,0,79,.25);
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        *{box-sizing:border-box; scroll-behavior: smooth;}
+        body{
+            margin:0;
+            font-family:'Plus Jakarta Sans',sans-serif;
+            background:var(--bg);
+            color:var(--text);
+            overflow-x: hidden;
+        }
 
-<style>
-:root{
-    --primary:#ff004f;
-    --secondary:#ff6a00;
-    --glow:rgba(255,0,79,.9);
-    --bg:radial-gradient(circle at top,#1a0005,#000);
-    --card:linear-gradient(145deg,#111,#090009);
-    --text:#fff;
-    --text-gray:#d0d0d0;
-    --border:rgba(255,0,79,.25);
-}
+        /* KING BAR */
+        .king-bar{
+            background:linear-gradient(90deg,#120008,#ff004f,#120008);
+            color: white;
+            padding:12px;
+            text-align:center;
+            font-size:12px;
+            font-weight:900;
+            letter-spacing:3px;
+            text-transform: uppercase;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-*{box-sizing:border-box}
-body{
-    margin:0;
-    font-family:'Plus Jakarta Sans',sans-serif;
-    background:var(--bg);
-    color:var(--text);
-}
+        header{ padding:60px 20px 40px; text-align:center; }
+        
+        .profile-pic{
+            width:130px; height:130px;
+            border-radius:50%;
+            border:4px solid var(--primary);
+            padding:3px;
+            box-shadow:0 0 25px var(--glow);
+            object-fit: cover;
+            animation: pulse 2s infinite ease-in-out;
+        }
 
-/* KING BAR */
-.king-bar{
-    background:linear-gradient(90deg,#120008,#ff004f,#120008);
-    color: white;
-    padding:12px;
-    text-align:center;
-    font-size:12px;
-    font-weight:900;
-    letter-spacing:3px;
-    text-transform: uppercase;
-    box-shadow: 0 5px 15px rgba(255,0,79,0.3);
-}
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 20px var(--glow); }
+            50% { transform: scale(1.02); box-shadow: 0 0 40px var(--primary); }
+            100% { transform: scale(1); box-shadow: 0 0 20px var(--glow); }
+        }
 
-header{
-    padding:70px 20px 50px;
-    text-align:center;
-}
-.profile-pic{
-    width:130px;height:130px;
-    border-radius:50%;
-    border:4px solid var(--primary);
-    padding:3px;
-    box-shadow:0 0 30px var(--glow);
-    object-fit: cover;
-}
+        .brand-name{
+            margin:15px 0;
+            font-family:'Bebas Neue',sans-serif;
+            font-size: clamp(40px, 8vw, 70px);
+            font-weight:900;
+            letter-spacing:2px;
+            background:linear-gradient(90deg,#ff004f,#ffffff,#ff004f);
+            background-size: 200% auto;
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            animation: glowMove 3s linear infinite;
+        }
 
-.brand-name{
-    margin:20px 0 10px;
-    font-family:'Bebas Neue',sans-serif;
-    font-size:65px;
-    font-weight:900;
-    letter-spacing:4px;
-    background:linear-gradient(90deg,#ff004f,#ffffff,#ff004f);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
-    animation:glowMove 3s linear infinite;
-}
-@keyframes glowMove{
-    from{background-position:0%}
-    to{background-position:200%}
-}
+        @keyframes glowMove{
+            to{background-position:200% center}
+        }
 
-.btn-group{
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
-    margin-top:30px;
-}
-.btn{
-    padding:14px 28px;
-    border-radius:4px;
-    font-size:13px;
-    font-weight:800;
-    text-decoration:none;
-    color:#fff;
-    text-transform: uppercase;
-    transition:.3s;
-}
-.whatsapp { background: #25d366; }
-.telegram { background: #0088cc; }
-.youtube { background: #ff0000; }
-.btn:hover{ transform:translateY(-3px); filter: brightness(1.2); }
+        .btn-group{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:20px; }
+        .btn{
+            padding:12px 24px;
+            border-radius:6px;
+            font-size:12px;
+            font-weight:800;
+            text-decoration:none;
+            color:#fff;
+            text-transform: uppercase;
+            transition:.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .whatsapp { background: #25d366; }
+        .telegram { background: #0088cc; }
+        .youtube { background: #ff0000; }
+        .btn:hover{ transform:translateY(-4px); filter: brightness(1.2); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
 
-.container{
-    max-width:1100px;
-    margin:auto;
-    padding:20px;
-}
-.section-title{
-    text-align:center;
-    font-family:'Space Grotesk';
-    font-size:26px;
-    margin: 50px 0 30px;
-    color: var(--primary);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    border-bottom: 2px solid var(--border);
-    display: inline-block;
-    width: 100%;
-}
+        .container{ max-width:1100px; margin:auto; padding:0 20px; }
+        
+        .section-title{
+            text-align:center;
+            font-family:'Space Grotesk';
+            font-size:24px;
+            margin: 60px 0 30px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+        }
 
-/* UPDATES BOX */
-.updates-box {
-    background: var(--card);
-    border: 1px dashed var(--primary);
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 40px;
-    text-align: center;
-}
-.update-tag {
-    background: var(--primary);
-    padding: 4px 12px;
-    border-radius: 4px;
-    font-size: 11px;
-    font-weight: 900;
-    margin-right: 10px;
-}
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--primary);
+            margin: 10px auto;
+        }
 
-/* SERVICE PRICELIST */
-.grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:25px;
-}
-.card{
-    background:var(--card);
-    border:1px solid var(--border);
-    border-radius:12px;
-    padding:28px;
-}
-.card h3 { 
-    font-family: 'Space Grotesk'; 
-    color: var(--primary); 
-    margin-top: 0;
-    text-transform: uppercase;
-}
-.price-row{
-    display:flex;
-    justify-content:space-between;
-    align-items: center;
-    padding:15px 0;
-    border-bottom:1px solid rgba(255,255,255,0.05);
-}
-.price-info b { display: block; font-size: 15px; color: #fff; }
-.price-info span { font-size: 12px; color: #888; }
-.price-val{
-    background: var(--primary);
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-weight: 800;
-    font-size: 14px;
-}
+        /* UPDATES BOX */
+        .updates-box {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--primary);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 40px;
+            white-space: pre-line;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .update-tag {
+            background: var(--primary);
+            padding: 3px 10px;
+            border-radius: 3px;
+            font-size: 10px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
 
-/* OTHER BRANDS CONTACT LINKS */
-.contact-tag {
-    background: #ff004f;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 900;
-    text-decoration: none;
-    margin-left: 5px;
-    transition: 0.2s;
-}
-.contact-tag:hover { filter: brightness(1.3); }
-.contact-tag i { margin-right: 4px; }
+        /* GRID SYSTEM */
+        .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:20px; }
+        .card{
+            background:var(--card);
+            border:1px solid var(--border);
+            border-radius:12px;
+            padding:25px;
+            transition: 0.3s;
+        }
+        .card:hover { border-color: var(--primary); transform: scale(1.01); }
+        .card h3 { font-family: 'Space Grotesk'; color: var(--primary); margin: 0 0 15px; }
 
-/* VLOGS */
-.vlog-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-    gap:25px;
-}
-.vlog-item{
-    border-radius:12px;
-    overflow:hidden;
-    border:1px solid var(--border);
-    background:var(--card);
-}
-.video-wrapper{ position:relative; padding-bottom:56.25%; height:0; }
-.video-wrapper iframe{ position:absolute; width:100%; height:100%; border: none; }
-.vlog-info{ padding:18px; text-align:center; font-size:12px; font-weight: 800; text-transform: uppercase; line-height: 1.4; }
+        .price-row{
+            display:flex;
+            justify-content:space-between;
+            align-items: center;
+            padding:12px 0;
+            border-bottom:1px solid rgba(255,255,255,0.05);
+        }
+        .price-info b { display: block; font-size: 14px; color: #fff; }
+        .price-info span { font-size: 11px; color: #888; }
+        .price-val{
+            background: rgba(255,0,79,0.15);
+            color: var(--primary);
+            border: 1px solid var(--primary);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-weight: 800;
+            font-size: 13px;
+        }
 
-footer{
-    margin-top:90px;
-    padding:60px 20px;
-    border-top:1px solid var(--border);
-    text-align:center;
-    font-size:13px;
-    color:#555;
-}
-footer b { color: var(--primary); }
-</style>
+        /* VLOGS */
+        .vlog-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+        .vlog-item{
+            border-radius:10px;
+            overflow:hidden;
+            border:1px solid var(--border);
+            background:var(--card);
+        }
+        .video-wrapper{ position:relative; padding-bottom:56.25%; height:0; }
+        .video-wrapper iframe{ position:absolute; width:100%; height:100%; border: none; }
+        .vlog-info{ padding:15px; text-align:center; font-size:11px; font-weight: 700; text-transform: uppercase; }
+
+        footer{
+            margin-top:80px;
+            padding:40px 20px;
+            border-top:1px solid var(--border);
+            text-align:center;
+            font-size:12px;
+            color:#777;
+            letter-spacing: 1px;
+        }
+        footer b { color: var(--primary); }
+
+        /* MOBILE FIXES */
+        @media (max-width: 600px) {
+            header { padding: 40px 10px; }
+            .btn { width: 100%; justify-content: center; }
+        }
+    </style>
 </head>
 
 <body>
 
-<div class="king-bar">
-    👑 YOU ARE IN THE KING PLACE 👑
-</div>
+<div class="king-bar">👑 YOU ARE IN THE KING PLACE 👑</div>
 
 <header>
     <img src="profile.png" class="profile-pic" alt="RIYU">
-    <div class="brand-name">RIYU THE FLASHER</div>
+    <h1 class="brand-name">RIYU THE FLASHER</h1>
     <div class="btn-group">
         <a href="https://wa.me/8801861845006" class="btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
@@ -226,55 +221,17 @@ footer b { color: var(--primary); }
 
 <div class="container">
 
-    <h2 class="section-title">Regular Updates</h2>
+    <h2 class="section-title">Latest Updates</h2>
     <div class="updates-box">
-        <p><span class="update-tag">LIVE</span> 
-            
-💎✨ XIAOMI QUALCOMM FLASH ✨💎
-​🇨🇳 CHINA SUPPORT AVAILABLE 🇨🇳
-    
-⚡️ Supported Models Only ⚡️
-━━━━━━━━━━━━━━━━━━
-📱 Xiaomi Series
-✅ Xiaomi 15 | 15 Pro | 15 Ultra
-✅ Xiaomi 13 | 13 Pro | 13 Ultra
-✅ Xiaomi 12 | 12 Pro (Added)
-            
-━━━━━━━━━━━━━━━━━━
-            
-📱 Redmi Series
-✅ Redmi K80 Pro
-✅ Redmi K70
-✅ Redmi K60 Pro
-✅ Redmi K50 Gaming (Added)
-            
-━━━━━━━━━━━━━━━━━━
-            
-📱 Fold / Pad Series
-✅ Xiaomi MIX Fold 3
-✅ Xiaomi MIX Flip 2
-✅ Xiaomi Pad 6S Pro</p>
-        
-        <p style="font-size: 14px; color: var(--text-gray);">
-            
-            
-🔓 CHINA BOOTLOADER UNLOCK SUPPORT — NO DOWNGRADE REQUIRED 🔓
-✨ OS2 & OS3 FULLY SUPPORTED
+        <span class="update-tag">LIVE NOW</span>
+        <b>💎 XIAOMI QUALCOMM FLASH (CHINA SUPPORT)</b>
+        ⚡️ Xiaomi 15 | 15 Pro | 13 Ultra | 12 Pro
+        ⚡️ Redmi K80 Pro | K70 | K60 | K50 Gaming
+        ⚡️ Pad 6S Pro | MIX Fold 3
 
-📱 SUPPORTED XIAOMI DEVICES 📱
-➤ 🔥 XIAOMI 12
-➤ 🔥 XIAOMI 12 PRO
-➤ 🔥 XIAOMI 12S PRO
-➤ 🔥 XIAOMI 12 ULTRA
-➤ 🌟 XIAOMI 13
-➤ 🌟 XIAOMI 13 PRO
-➤ 🌟 XIAOMI 13 ULTRA
-➤ 💎 XIAOMI MIX FOLD 2
-➤ 💎 XIAOMI MIX FOLD 3
-➤ 🚀 REDMI K60 ULTRA
-➤ 🚀 REDMI K50 ULTRA
-➤ 🚀 REDMI K50 GAMING EDITION⚡️
-   ⚠️ NOTE 12 SERIES ALSO SUPPORTED⚡</p>
+        <b>🔓 CHINA BOOTLOADER UNLOCK (NO DOWNGRADE)</b>
+        ✨ Full HyperOS / OS2 / OS3 Support
+        ✨ Xiaomi 13/12 Series & Redmi K60/K50 Series Supported!
     </div>
 
     <h2 class="section-title">Authorized Price List</h2>
@@ -282,56 +239,49 @@ footer b { color: var(--primary); }
         <div class="card">
             <h3>Xiaomi Services</h3>
             <div class="price-row">
-                <div class="price-info"><b>Global Unlock</b><span>Official Bootloader Unlock</span></div>
-                <div class="price-val">30$-65$</div>
+                <div class="price-info"><b>Global Unlock</b><span>Official Bootloader</span></div>
+                <div class="price-val">$30 - $65</div>
             </div>
             <div class="price-row">
-                <div class="price-info"><b>Global Unbrick</b><span>Dead / Bootloop Recovery</span></div>
-                <div class="price-val">15$-30$</div>
+                <div class="price-info"><b>HyperOS Unlock</b><span>China/Global (No Wait)</span></div>
+                <div class="price-val">$80</div>
             </div>
             <div class="price-row">
-                <div class="price-info"><b>China Unlock (HyperOS)</b><span>Note 12 / Mi 13 / K50 / K60 Series</span></div>
-                <div class="price-val">80$</div>
-            </div>
-            <div class="price-row">
-                <div class="price-info"><b>China Unbrick / Convert</b><span>Official Global Firmware Install</span></div>
-                <div class="price-val">90$</div>
+                <div class="price-info"><b>Unbrick / Convert</b><span>Hardbrick Recovery</span></div>
+                <div class="price-val">$20 - $90</div>
             </div>
         </div>
 
         <div class="card">
             <h3>OnePlus & Oppo</h3>
             <div class="price-row">
-                <div class="price-info"><b>Flash Unbrick</b><span>Fix All Software Crashes</span></div>
-                <div class="price-val">65$-110$</div>
+                <div class="price-info"><b>EDL Unbrick</b><span>Dead / Bootloop Fix</span></div>
+                <div class="price-val">$65 - $110</div>
             </div>
             <div class="price-row">
-                <div class="price-info"><b>Region Change</b><span>China to Global ROM (OxygenOS)</span></div>
-                <div class="price-val">30$-70$</div>
+                <div class="price-info"><b>Region Change</b><span>ColorOS to OxygenOS</span></div>
+                <div class="price-val">$30 - $70</div>
             </div>
             <div class="price-row">
-                <div class="price-info"><b>Other Brands</b><span>Samsung / Vivo / Infinix / Huawei</span></div>
-                <div>
-                    <a href="https://wa.me/8801861845006" class="contact-tag" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-                    <a href="https://t.me/RIYUAUTHSERVICES" class="contact-tag" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-                </div>
+                <div class="price-info"><b>Samsung / Vivo</b><span>Auth Flash & Frp</span></div>
+                <div class="price-val">Contact Dev</div>
             </div>
         </div>
     </div>
 
-    <h2 class="section-title">Latest Vlogs</h2>
+    <h2 class="section-title">Latest Video Guides</h2>
     <div class="vlog-grid">
         <div class="vlog-item">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/cAQb2ODRAKA" allowfullscreen></iframe></div>
-            <div class="vlog-info">Xiaomi 13 Ultra (ishtar) Flashing China Convert to Global Without Unlock Bootloader</div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/cAQb2ODRAKA" loading="lazy" allowfullscreen></iframe></div>
+            <div class="vlog-info">Xiaomi 13 Ultra China to Global</div>
         </div>
         <div class="vlog-item">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/7zHZ4wQJQRc" allowfullscreen></iframe></div>
-            <div class="vlog-info">How to Fix OnePlus Boot Img Destroyed / System Has Been Destroyed (EDL Method)</div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/7zHZ4wQJQRc" loading="lazy" allowfullscreen></iframe></div>
+            <div class="vlog-info">OnePlus System Destroyed Fix</div>
         </div>
         <div class="vlog-item">
-            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/s3Q0BVqvr6M" allowfullscreen></iframe></div>
-            <div class="vlog-info">Tutorial How to Flash Xiaomi.eu Stable rom using Fastboot method on Redmi K60 Pro</div>
+            <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/s3Q0BVqvr6M" loading="lazy" allowfullscreen></iframe></div>
+            <div class="vlog-info">Redmi K60 Pro EU Rom Guide</div>
         </div>
     </div>
 
@@ -339,7 +289,7 @@ footer b { color: var(--primary); }
 
 <footer>
     © 2026 <b>RIYU THE FLASHER</b> • THE KING PLACE<br>
-    AUTHORIZED SOFTWARE SPECIALIST
+    PROFESSIONAL SOFTWARE SOLUTIONS
 </footer>
 
 </body>

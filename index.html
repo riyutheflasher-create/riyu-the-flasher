@@ -7,7 +7,7 @@
     <title>RIYU THE FLASHER | Official Xiaomi, OnePlus & Oppo Auth Services</title>
     <meta name="title" content="RIYU THE FLASHER | Official Xiaomi, OnePlus & Oppo Auth Services">
     <meta name="description" content="Professional software specialist. Authorized Xiaomi bootloader unlock, OnePlus EDL unbrick, and Oppo region changes. Fast, reliable, and expert flashing services.">
-    <meta name="keywords" content="Riyu the flasher, Xiaomi Auth Flash, OnePlus Unbrick, Bootloader Unlock, HyperOS Unlock, EDL Flashing, Global ROM Convert">
+    <meta name="keywords" content="Riyu the flasher, Xiaomi Auth Flash, OnePlus Unbrick, Bootloader Unlock, HyperOS Unlock, EDL Flashing, Global ROM Convert, Riyan Mohammad Sajid Aman">
     
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://riyutheflasher.com/"> 
@@ -27,6 +27,11 @@
             --text:#fff;
             --text-gray:#d0d0d0;
             --border:rgba(255,0,79,.25);
+            --binance:#F3BA2F;
+            --bkash:#E2136E;
+            --nagad:#F7941D;
+            --yt:#FF0000;
+            --fb:#1877F2;
         }
 
         *{box-sizing:border-box}
@@ -74,21 +79,25 @@
         }
         @keyframes glowMove{ to{background-position:200% center} }
 
-        .btn-group{ display:flex; justify-content:center; gap:15px; flex-wrap:wrap; margin-top:30px; }
+        .btn-group{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:30px; }
         .btn{
-            padding:14px 28px;
+            padding:12px 24px;
             border-radius:4px;
-            font-size:13px;
+            font-size:12px;
             font-weight:800;
             text-decoration:none;
             color:#fff;
             text-transform: uppercase;
             transition:.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
         .whatsapp { background: #25d366; }
         .telegram { background: #0088cc; }
-        .facebook { background: #1877F2; }
-        .btn:hover{ transform:translateY(-3px); filter: brightness(1.2); }
+        .facebook { background: var(--fb); }
+        .youtube { background: var(--yt); }
+        .btn:hover{ transform:translateY(-3px); filter: brightness(1.2); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
 
         .container{ max-width:1100px; margin:auto; padding:20px; }
         .section-title{
@@ -104,20 +113,31 @@
             width: 100%;
         }
 
-        .updates-box {
-            background: var(--card);
-            border: 1px dashed var(--primary);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 40px;
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 50px;
         }
-        .update-tag {
-            background: var(--primary);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 900;
-            margin-right: 10px;
+        .video-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        .video-card:hover { transform: translateY(-5px); border-color: var(--primary); }
+        .video-card iframe { width: 100%; aspect-ratio: 16/9; border: none; }
+        .video-info { padding: 15px; }
+        .video-info h4 { 
+            margin: 0; 
+            font-size: 14px; 
+            color: #fff; 
+            height: 40px; 
+            overflow: hidden; 
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
         }
 
         .grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:25px; }
@@ -148,24 +168,59 @@
             text-align: center;
         }
 
-        .payment-methods {
+        .about-section {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .about-item b { color: var(--primary); text-transform: uppercase; font-size: 11px; letter-spacing: 1px; display: block; }
+        .about-item span { color: #fff; font-size: 16px; font-weight: 600; }
+
+        .payment-card {
+            background: var(--card);
+            border: 2px solid var(--primary);
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(255, 0, 79, 0.1);
+        }
+        .payment-methods-grid {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             flex-wrap: wrap;
-            font-weight: 800;
-            padding: 10px;
+            margin-top: 25px;
         }
-        .payment-methods span {
+        .pay-item {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 8px;
-            font-size: 14px;
-            text-transform: uppercase;
+            gap: 10px;
+            transition: 0.3s;
         }
+        .pay-item:hover { transform: scale(1.1); }
+        .pay-item i { font-size: 35px; }
+        
+        .ic-binance { color: var(--binance); }
+        .ic-bkash { color: var(--bkash); }
+        .ic-nagad { color: var(--nagad); }
 
         footer{ margin-top:90px; padding:60px 20px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:#555; }
         footer b { color: var(--primary); }
+
+        @media (max-width: 600px) {
+            .brand-name { font-size: 45px; }
+            .btn-group { flex-direction: column; }
+            .btn { width: 100%; justify-content: center; }
+        }
     </style>
 </head>
 
@@ -179,19 +234,45 @@
     <div class="btn-group">
         <a href="https://wa.me/8801861845006" class="btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
         <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-        <a href="https://www.facebook.com/share/185UsAmksy/" class="btn facebook" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://facebook.com/riyutheflasherreborn" class="btn facebook" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://youtube.com/@riyutheflasher" class="btn youtube" target="_blank"><i class="fab fa-youtube"></i> YouTube</a>
     </div>
 </header>
 
 <div class="container">
-    <h2 class="section-title">Authorized Services</h2>
-    <div class="updates-box">
-        <p><span class="update-tag">LIVE</span> <b>XIAOMI & REDMI AUTH SPECIALIST</b></p>
-        <p style="font-size: 14px; color: var(--text-gray);">
-            ​🔓 Professional Flashing & Bootloader Unlocking.<br>
-            ​📱 Supported: Xiaomi 15/13/12, Redmi K80/K70/K60, Note 12 Series.<br>
-            ​​⚡ HyperOS OS2 & OS3 Bootloader Unlock (No Downgrade).<br>
-        </p>
+    
+    <h2 class="section-title">The Expert Behind the Service</h2>
+    <div class="about-section">
+        <div class="about-grid">
+            <div class="about-item"><b>Full Name</b><span>Riyan Mohammad Sajid Aman</span></div>
+            <div class="about-item"><b>Location</b><span>Chittagong, Bangladesh</span></div>
+            <div class="about-item"><b>Birthplace</b><span>Chittagong</span></div>
+            <div class="about-item"><b>Service Status</b><span style="color: #25d366;">ONLINE ✅</span></div>
+        </div>
+    </div>
+
+    <h2 class="section-title">Latest Work Evidence</h2>
+    <div class="video-grid">
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/omrNjNYB_Is" allowfullscreen></iframe>
+            <div class="video-info"><h4>Redmi Note 12 5G China to Global (No Unlock)</h4></div>
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/dlHXRgIkBqU" allowfullscreen></iframe>
+            <div class="video-info"><h4>Redmi Note 14 5G China to Global (No Unlock)</h4></div>
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/28GiYDk6XCs" allowfullscreen></iframe>
+            <div class="video-info"><h4>How to Install Global ROM on Note 14 5G</h4></div>
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/RpUNjrC1zgg" allowfullscreen></iframe>
+            <div class="video-info"><h4>Unbrick Poco F7 (Onyx) Hardbrick Fix</h4></div>
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/DEg8F1tM1iI" allowfullscreen></iframe>
+            <div class="video-info"><h4>Redmi Note 14 Pro 5G Auto Recovery Fix</h4></div>
+        </div>
     </div>
 
     <h2 class="section-title">Service Price List</h2>
@@ -199,15 +280,15 @@
         <div class="card">
             <h3>Xiaomi Authorized</h3>
             <div class="price-row">
+                <div class="price-info"><b>China to Global</b><span>65-90% Success Coverage</span></div>
+                <div class="price-val">65$-90$</div>
+            </div>
+            <div class="price-row">
                 <div class="price-info"><b>Global Unlock</b><span>Official Bootloader Unlock</span></div>
                 <div class="price-val">30$-65$</div>
             </div>
             <div class="price-row">
-                <div class="price-info"><b>Global Unbrick</b><span>Dead/Bootloop Recovery</span></div>
-                <div class="price-val">15$-30$</div>
-            </div>
-            <div class="price-row">
-                <div class="price-info"><b>HyperOS Unlock</b><span>China Models K50/K60/Mi13</span></div>
+                <div class="price-info"><b>HyperOS Unlock</b><span>K50/K60/Mi13 China</span></div>
                 <div class="price-val">80$</div>
             </div>
         </div>
@@ -215,7 +296,7 @@
         <div class="card">
             <h3>OnePlus & Oppo</h3>
             <div class="price-row">
-                <div class="price-info"><b>Flash Unbrick</b><span>Fix All Software Crashes</span></div>
+                <div class="price-info"><b>Flash Unbrick</b><span>EDL / 9080 Mode Fix</span></div>
                 <div class="price-val">65$-110$</div>
             </div>
             <div class="price-row">
@@ -229,21 +310,20 @@
         </div>
     </div>
 
-    <h2 class="section-title">Accepted Payment Methods</h2>
-    <div class="updates-box" style="border-style: solid;">
-        <div class="payment-methods">
-            <span><i class="fas fa-wallet" style="color: var(--primary);"></i> BINANCE</span>
-            <span><i class="fas fa-mobile-alt" style="color: var(--primary);"></i> BKASH</span>
-            <span><i class="fas fa-university" style="color: var(--primary);"></i> GCASH</span>
-            <span><i class="fas fa-money-bill-wave" style="color: var(--primary);"></i> NAGAD</span>
-            <span><i class="fas fa-globe" style="color: var(--primary);"></i> REMITLY</span>
+    <h2 class="section-title">Secure Payments</h2>
+    <div class="payment-card">
+        <div class="payment-methods-grid">
+            <div class="pay-item"><i class="fab fa-bitcoin ic-binance"></i><span>BINANCE</span></div>
+            <div class="pay-item"><i class="fas fa-mobile-screen ic-bkash"></i><span>BKASH</span></div>
+            <div class="pay-item"><i class="fas fa-bolt ic-nagad"></i><span>NAGAD</span></div>
+            <div class="pay-item"><i class="fas fa-globe-americas" style="color:#0088cc;"></i><span>REMITLY</span></div>
         </div>
     </div>
 </div>
 
 <footer>
     © 2026 <b>RIYU THE FLASHER</b> • THE KING PLACE<br>
-    AUTHORIZED SOFTWARE SPECIALIST
+    RIYAN MOHAMMAD SAJID AMAN | CHITTAGONG, BANGLADESH
 </footer>
 
 </body>

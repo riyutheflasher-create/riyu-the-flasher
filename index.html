@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>RIYU THE FLASHER | Official Xiaomi, OnePlus & Oppo Auth Services</title>
+    
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -81,16 +83,16 @@
         .video-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
         .video-card iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
 
-        .price-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; }
-        .price-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 25px; }
-        .price-row { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
-        .price-val { background: var(--primary); padding: 5px 12px; border-radius: 4px; font-weight: 800; }
+        .price-link-btn { background: var(--primary); color: white; padding: 18px 40px; border-radius: 8px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 12px; transition: 0.3s; font-family: 'Space Grotesk'; border: 1px solid rgba(255,255,255,0.2); }
+        .price-link-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px var(--glow); }
 
         .payment-methods { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; text-align: center; margin-top: 40px; }
         .pay-icons { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 20px; font-size: 28px; }
         .pay-item { display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 11px; font-weight: 700; color: #aaa; text-transform: uppercase; }
 
         footer{ margin-top:90px; padding:60px 20px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:#555; }
+        
+        @media (max-width: 600px) { .brand-name { font-size: 40px; } }
     </style>
 </head>
 
@@ -121,7 +123,7 @@
     <div class="status-section">
         <div class="status-header"><div class="status-dot"></div><h3 style="margin:0; font-family:'Space Grotesk'; font-size:18px;">LIVE SERVICE UPDATES</h3></div>
         <div class="update-item"><span>🚀 <b>CHINA HYPEROS 2.0,3.0 BOOTLOADER UNLOCK :</b> 168-355 HOUR WAITING AFTER BIND SUCCESS.</span><span class="update-date">Today</span></div>
-        <div class="update-item"><span>✅ <b>ONEPLUS CHINA AND WORLDWIDE AUTHORIZE FLASH OPEN.</span><span class="update-date">Feb 08</span></div>
+        <div class="update-item"><span>✅ <b>ONEPLUS CHINA AND WORLDWIDE AUTHORIZE FLASH OPEN.</b></span><span class="update-date">Feb 08</span></div>
     </div>
 
     <h2 class="section-title">🔓 CHINA BOOTLOADER UNLOCK SUPPORTED LIST 🔓</h2>
@@ -148,6 +150,12 @@
     <div class="review-card">
         <i class="fas fa-users" style="font-size: 40px; color: var(--primary); margin-bottom: 15px;"></i>
         <h3>SEE WHAT OUR CLIENTS SAY</h3>
+        
+        <div style="max-width: 400px; margin: 0 auto 15px;">
+            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69894830c5b7f0ff5cd41dcf" data-style-height="52px" data-style-width="100%" data-token="0b3819d6-dadf-4bd7-9538-4153040f047a">
+              <a href="https://www.trustpilot.com/review/riyutheflasher.com" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+        </div>
         <a href="https://t.me/riyutheflasherreviews" class="review-link-btn" target="_blank"><i class="fab fa-telegram-plane"></i> JOIN REVIEW GROUP</a>
     </div>
 
@@ -158,21 +166,12 @@
     </div>
 
     <h2 class="section-title">Service Price List</h2>
-    <div class="price-grid">
-        <div class="price-card">
-            <h3 style="color: var(--primary);">Xiaomi Authorized</h3>
-            <div class="price-row"><span>China to Global</span><div class="price-val">65$-90$</div></div>
-            <div class="price-row"><span>HyperOS Unlock</span><div class="price-val">80$</div></div>
-            <div class="price-row"><span><b>Global Unbrick</b></span><div class="price-val">CONTACT</div></div>
-            <div class="price-row"><span><b>Global BL Unlock</b></span><div class="price-val">CONTACT</div></div>
-        </div>
-        <div class="price-card">
-            <h3 style="color: var(--primary);">OnePlus & Oppo</h3>
-            <div class="price-row"><span>Flash Unbrick</span><div class="price-val">65$-110$</div></div>
-            <div class="price-row"><span>Region Change</span><div class="price-val">30$-70$</div></div>
-        </div>
+    <div style="text-align: center; margin-bottom: 50px;">
+        <p style="color: #aaa; margin-bottom: 20px;">Check our latest real-time pricing and full service catalog.</p>
+        <a href="pricelist.html" class="price-link-btn">
+            <i class="fas fa-list-ul"></i> VIEW FULL PRICE LIST & SERVICES
+        </a>
     </div>
-
     <h2 class="section-title">💳 SECURE PAYMENT METHODS</h2>
     <div class="payment-methods">
         <div class="pay-icons">
@@ -190,8 +189,10 @@
 <script>
     function updateClock() {
         const now = new Date();
-        document.getElementById('currentTime').innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-        document.getElementById('currentDate').innerText = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        const timeEl = document.getElementById('currentTime');
+        const dateEl = document.getElementById('currentDate');
+        if(timeEl) timeEl.innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+        if(dateEl) dateEl.innerText = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
     }
     setInterval(updateClock, 1000);
     updateClock();

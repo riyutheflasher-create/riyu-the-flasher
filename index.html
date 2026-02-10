@@ -13,6 +13,10 @@
         :root{
             --primary:#ff004f;
             --glow:rgba(255,0,79,.9);
+            --gold:#ffd700;
+            --gold-glow:rgba(255, 215, 0, 0.4);
+            --diamond:#00f2ff;
+            --diamond-glow:rgba(0, 242, 255, 0.4);
             --bg:radial-gradient(circle at top,#1a0005,#000);
             --card:linear-gradient(145deg,#111,#090009);
             --text:#fff;
@@ -22,10 +26,10 @@
         *{box-sizing:border-box}
         body{ margin:0; font-family:'Plus Jakarta Sans',sans-serif; background:var(--bg); color:var(--text); line-height: 1.6; overflow-x: hidden; }
 
-        .king-bar{ background:linear-gradient(90deg,#120008,#ff004f,#120008); color: white; padding:12px; text-align:center; font-size:12px; font-weight:900; letter-spacing:3px; text-transform: uppercase; box-shadow: 0 5px 15px rgba(255,0,79,0.3); }
+        .king-bar{ position: sticky; top: 0; z-index: 1000; background:linear-gradient(90deg,#120008,#ff004f,#120008); color: white; padding:12px; text-align:center; font-size:12px; font-weight:900; letter-spacing:3px; text-transform: uppercase; box-shadow: 0 5px 15px rgba(255,0,79,0.3); }
 
         .top-info-bar { max-width: 1100px; margin: 20px auto 0; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 15px; }
-        .info-pill { background: rgba(255, 0, 79, 0.1); border: 1px solid var(--border); padding: 8px 15px; border-radius: 6px; font-size: 13px; display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk'; }
+        .info-pill { background: rgba(255, 0, 79, 0.1); border: 1px solid var(--border); padding: 8px 15px; border-radius: 6px; font-size: 13px; display: flex; align-items: center; gap: 10px; font-family: 'Space Grotesk'; backdrop-filter: blur(5px); }
         .info-pill i { color: var(--primary); }
 
         header{ padding:40px 20px; text-align:center; }
@@ -36,32 +40,42 @@
 
         .btn-group{ display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:20px; }
         .btn{ padding:12px 24px; border-radius:4px; font-size:12px; font-weight:800; text-decoration:none; color:#fff; text-transform: uppercase; transition:.3s; display: inline-flex; align-items: center; gap: 8px; }
-        .whatsapp { background: #25d366; } .telegram { background: #0088cc; } .facebook { background: #1877f2; } .youtube-btn { background: #ff0000; }
-
-        /* PRICELIST IN MIDDLE */
-        .middle-cta-container { text-align: center; margin: 60px 0; padding: 40px 20px; background: rgba(255, 0, 79, 0.05); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-        .cta-heading { font-family: 'Bebas Neue'; font-size: 45px; letter-spacing: 3px; margin-bottom: 20px; color: #fff; text-shadow: 0 0 10px var(--glow); }
-        .price-link-btn { background: var(--primary); color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 12px; transition: 0.4s; font-family: 'Space Grotesk'; border: 2px solid #fff; font-size: 16px; box-shadow: 0 0 25px var(--glow); cursor: pointer; }
-        .price-link-btn:hover { transform: scale(1.1); background: #fff; color: var(--primary); }
+        .whatsapp { background: #25d366; } .telegram { background: #0088cc; } .youtube-btn { background: #ff0000; }
 
         .container{ max-width:1100px; margin:auto; padding:20px; }
-        .section-title{ text-align:center; font-family:'Space Grotesk'; font-size:26px; margin: 50px 0 30px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid var(--border); display: block; }
-
+        
+        /* STATUS SECTION */
         .status-section { background: #0d0004; border: 2px solid var(--primary); border-radius: 12px; padding: 25px; margin-bottom: 40px; }
         .update-item { background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 8px; border-left: 4px solid var(--primary); display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-        
-        .support-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 30px; }
-        .model-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .model-category h4 { color: var(--primary); margin-bottom: 10px; border-left: 3px solid var(--primary); padding-left: 10px; }
 
-        .review-card { background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 30px; text-align: center; border: 1px dashed var(--primary); }
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+        /* MIDDLE CTA */
+        .middle-cta-container { text-align: center; margin: 40px 0; padding: 40px 20px; background: rgba(255, 0, 79, 0.05); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .cta-heading { font-family: 'Bebas Neue'; font-size: 45px; letter-spacing: 3px; margin-bottom: 20px; color: #fff; text-shadow: 0 0 10px var(--glow); }
+        .price-link-btn { background: var(--primary); color: white; padding: 20px 50px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 12px; transition: 0.4s; font-family: 'Space Grotesk'; border: 2px solid #fff; font-size: 16px; box-shadow: 0 0 25px var(--glow); cursor: pointer; }
+
+        /* TITLES */
+        .section-title{ text-align:center; font-family:'Space Grotesk'; font-size:26px; margin: 50px 0 30px; color: var(--primary); text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid var(--border); display: block; }
+
+        /* CARDS */
+        .support-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative; overflow: hidden; }
+        .highlight-card { border: 2px solid var(--gold); box-shadow: 0 0 20px var(--gold-glow); }
+        .diamond-card { border: 2px solid var(--diamond); box-shadow: 0 0 20px var(--diamond-glow); }
+        
+        .model-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; }
+        .model-category h4 { color: var(--primary); margin-bottom: 12px; border-left: 3px solid var(--primary); padding-left: 10px; text-transform: uppercase; }
+        .model-category.gold-theme h4 { color: var(--gold); border-left-color: var(--gold); }
+        .model-category.diamond-theme h4 { color: var(--diamond); border-left-color: var(--diamond); }
+        
+        .wait-notice { background: rgba(255, 215, 0, 0.1); border: 1px solid var(--gold); padding: 15px; border-radius: 8px; margin-top: 25px; text-align: center; font-size: 14px; }
+        .bypass-badge { background: var(--diamond); color: #000; padding: 4px 12px; border-radius: 4px; font-weight: 800; font-size: 10px; margin-left: 10px; vertical-align: middle; }
+
+        /* VIDEO & REVIEWS */
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
         .video-card iframe { width: 100%; aspect-ratio: 16/9; border-radius: 8px; border: 1px solid var(--border); }
 
-        /* PAYMENT METHODS RESTORED */
         .payment-methods { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; text-align: center; margin-top: 40px; }
         .pay-icons { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 25px; }
-        .pay-item { display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; color: #ccc; text-transform: uppercase; }
+        .pay-item { display: flex; flex-direction: column; align-items: center; gap: 10px; font-size: 12px; font-weight: 700; color: #ccc; }
         .pay-item i { font-size: 32px; color: var(--primary); }
 
         footer{ margin-top:90px; padding:60px 20px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:#555; }
@@ -92,8 +106,62 @@
 
     <div class="status-section">
         <h3 style="color:var(--primary); font-family:'Space Grotesk'; margin-top:0;">⚡ SYSTEM STATUS</h3>
-        <div class="update-item"><span><b>HYPEROS:</b> Bootloader Unlock Active</span><span style="color:#25d366">ONLINE</span></div>
-        <div class="update-item"><span><b>ONEPLUS:</b> Flash Authorize Active</span><span style="color:#25d366">ONLINE</span></div>
+        <div class="update-item"><span><b>QUALCOMM FLASH:</b> China Support Available</span><span style="color:#25d366">ONLINE</span></div>
+        <div class="update-item"><span><b>MI ACCOUNT:</b> Permanent Bypass Active</span><span style="color:#25d366">ONLINE</span></div>
+        <div class="update-item"><span><b>HYPEROS 3.0:</b> Instant Auth Service</span><span style="color:#25d366">ACTIVE</span></div>
+    </div>
+
+    <h2 class="section-title" style="color:var(--diamond)">💎 XIAOMI QUALCOMM FLASH 2026 💎</h2>
+    <div class="support-card diamond-card">
+        <div class="model-list-grid">
+            <div class="model-category diamond-theme">
+                <h4><i class="fas fa-microchip"></i> XIAOMI SERIES</h4>
+                <p>✅ Xiaomi 15 | 15 Pro | 15 Ultra</p>
+                <p>✅ Xiaomi 13 | 13 Pro | 13 Ultra</p>
+                <p>✅ Xiaomi 12 | 12 Pro <span style="color:var(--diamond); font-size:10px;">[ADDED]</span></p>
+            </div>
+            <div class="model-category diamond-theme">
+                <h4><i class="fas fa-fire"></i> REDMI SERIES</h4>
+                <p>✅ Redmi K80 Pro</p>
+                <p>✅ Redmi K70</p>
+                <p>✅ Redmi K60 Pro</p>
+                <p>✅ Redmi K50 Gaming <span style="color:var(--diamond); font-size:10px;">[ADDED]</span></p>
+            </div>
+            <div class="model-category diamond-theme">
+                <h4><i class="fas fa-tablet-screen-button"></i> FOLD & PAD</h4>
+                <p>✅ Xiaomi MIX Fold 3</p>
+                <p>✅ Xiaomi MIX Flip 2</p>
+                <p>✅ Xiaomi Pad 6S Pro</p>
+            </div>
+        </div>
+        <div class="wait-notice" style="border-color:var(--diamond); background:rgba(0,242,255,0.05);">
+            <i class="fas fa-shield-check" style="color:var(--diamond)"></i> 
+            <b style="color:var(--diamond)">MI ACCOUNT SERVICE:</b> These models also support <b>Permanent Bypass</b> ⚡
+        </div>
+    </div>
+
+    <h2 class="section-title" style="color:var(--gold)">🔓 CHINA BOOTLOADER UNLOCK 2026</h2>
+    <div class="support-card highlight-card">
+        <div class="model-list-grid">
+            <div class="model-category gold-theme">
+                <h4><i class="fas fa-unlock"></i> XIAOMI SERIES</h4>
+                <p><b>13 SERIES:</b> 13 | Pro | Ultra | Lite | 13T</p>
+                <p><b>12 SERIES:</b> 12 | Pro | 12S | 12S Pro | Ultra</p>
+            </div>
+            <div class="model-category gold-theme">
+                <h4><i class="fas fa-bolt"></i> REDMI K-SERIES</h4>
+                <p><b>K60 SERIES:</b> K60 | K60 Pro | K60 Ultra</p>
+                <p><b>K50 SERIES:</b> K50 | K50 Pro | K50 Ultra</p>
+            </div>
+            <div class="model-category gold-theme">
+                <h4><i class="fas fa-layer-group"></i> NOTE & MIX</h4>
+                <p><b>NOTE 12/11:</b> Pro | Pro+ | Turbo | 11E</p>
+                <p><b>MIX:</b> Fold 4 | Fold 3 | MIX Flip | MIX 4</p>
+            </div>
+        </div>
+        <div class="wait-notice">
+            <b>Important:</b> AFTER SUCCESSFUL BIND, 168-355 HOURS WAITING TIME IS REQUIRED ⚡
+        </div>
     </div>
 
     <section class="middle-cta-container">
@@ -102,15 +170,6 @@
             <i class="fas fa-file-invoice-dollar"></i> CLICK FOR SERVICE PRICE LIST
         </a>
     </section>
-
-    <h2 class="section-title">🔓 SUPPORTED MODELS</h2>
-    <div class="support-card">
-        <div class="model-list-grid">
-            <div class="model-category"><h4>XIAOMI</h4><p>13 Ultra | 13 Pro | 13 | 12S | 12</p></div>
-            <div class="model-category"><h4>REDMI</h4><p>K60 Pro | K60 | K50 Pro | K50</p></div>
-            <div class="model-category"><h4>FOLD</h4><p>Mix Fold 4 | Mix Fold 3 | MIX Flip</p></div>
-        </div>
-    </div>
 
     <h2 class="section-title">💬 CUSTOMER REVIEWS</h2>
     <div class="review-card">
@@ -137,12 +196,13 @@
 
 </div>
 
-<footer>© <b>RIYU THE FLASHER</b> • THE KING PLACE</footer>
+<footer>© <span id="year"></span> <b>RIYU THE FLASHER</b> • THE KING PLACE</footer>
 
 <script>
     function updateClock() {
         const now = new Date();
         document.getElementById('currentTime').innerText = now.toLocaleTimeString();
+        document.getElementById('year').innerText = now.getFullYear();
     }
     setInterval(updateClock, 1000);
     updateClock();

@@ -18,121 +18,96 @@
         }
 
         body {
-            margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg); color: #fff; min-height: 100vh;
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
         }
 
         .checker-container {
-            width: 90%; max-width: 600px; padding: 40px;
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 20px; box-shadow: 0 0 40px rgba(255, 0, 79, 0.2);
-            text-align: center; position: relative; overflow: hidden;
+            width: 100%;
+            max-width: 550px;
+            padding: 40px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            box-shadow: 0 0 50px rgba(255, 0, 79, 0.2);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
+        /* Top Accent Bar */
         .checker-container::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--accent), var(--primary));
+            background-size: 200% auto;
+            animation: flow 3s linear infinite;
+        }
+        @keyframes flow { to { background-position: 200% center; } }
+
+        h1 {
+            font-family: 'Bebas Neue';
+            font-size: 55px;
+            letter-spacing: 4px;
+            margin: 0 0 10px;
+            background: linear-gradient(90deg, #ff004f, #fff, #00f2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        h1 { font-family: 'Bebas Neue'; font-size: 50px; letter-spacing: 3px; margin-bottom: 10px; background: linear-gradient(90deg, #ff004f, #00f2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        
-        p.subtitle { color: #888; font-size: 14px; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
+        .subtitle {
+            color: #888;
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
 
-        .input-box { position: relative; margin-bottom: 25px; }
-        
+        .input-wrapper {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
         input {
-            width: 100%; padding: 18px 20px; background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #333; border-radius: 12px; color: #fff; font-size: 18px;
-            font-family: 'Space Grotesk'; transition: 0.3s; outline: none; box-sizing: border-box;
+            width: 100%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #333;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 18px;
+            font-family: 'Space Grotesk', sans-serif;
+            outline: none;
+            transition: 0.3s;
+            box-sizing: border-box;
+            text-align: center;
+            letter-spacing: 2px;
         }
 
-        input:focus { border-color: var(--accent); box-shadow: 0 0 15px rgba(0, 242, 255, 0.2); }
+        input:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.15);
+        }
 
         .check-btn {
-            width: 100%; padding: 18px; border-radius: 12px; border: none;
+            width: 100%;
+            padding: 18px;
+            border-radius: 12px;
+            border: none;
             background: linear-gradient(45deg, var(--primary), #ff8a00);
-            color: white; font-weight: 800; font-size: 16px; cursor: pointer;
-            text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
-        }
-
-        .check-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 0, 79, 0.4); }
-
-        .result-area {
-            margin-top: 30px; padding: 20px; border-radius: 12px;
-            background: rgba(0, 0, 0, 0.4); border: 1px dashed #444;
-            display: none; text-align: left;
-        }
-
-        .loader { display: none; margin: 20px 0; color: var(--accent); font-weight: bold; }
-        
-        .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #222; font-size: 14px; }
-        .info-row span:first-child { color: #888; }
-        .info-row span:last-child { color: var(--accent); font-weight: 600; }
-
-        .back-home { margin-top: 30px; display: inline-block; color: #666; text-decoration: none; font-size: 13px; transition: 0.3s; }
-        .back-home:hover { color: #fff; }
-    </style>
-</head>
-<body>
-
-    <div class="checker-container">
-        <h1>XIAOMI CHECKER</h1>
-        <p class="subtitle">Official CN/Global & Find Device Status</p>
-
-        <div class="input-box">
-            <input type="text" id="imeiInput" placeholder="ENTER 15-DIGIT IMEI OR SN..." maxlength="15">
-        </div>
-
-        <button class="check-btn" onclick="startCheck()">
-            <i class="fas fa-bolt"></i> START SERVER CHECK
-        </button>
-
-        <div class="loader" id="loading">
-            <i class="fas fa-spinner fa-spin"></i> CONNECTING TO XIAOMI AUTH SERVER...
-        </div>
-
-        <div class="result-area" id="resultBox">
-            </div>
-
-        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> BACK TO RIYU THE FLASHER</a>
-    </div>
-
-    <script>
-        function startCheck() {
-            const imei = document.getElementById('imeiInput').value;
-            const resBox = document.getElementById('resultBox');
-            const loader = document.getElementById('loading');
-
-            if (imei.length < 10) {
-                alert("Please enter a valid IMEI or Serial Number");
-                return;
-            }
-
-            // UI Feedback
-            loader.style.display = "block";
-            resBox.style.display = "none";
-
-            // SIMULATING BACKEND CALL (You will link this to your check_backend.php)
-            setTimeout(() => {
-                loader.style.display = "none";
-                resBox.style.display = "block";
-                
-                // Example Output Format
-                resBox.innerHTML = `
-                    <div class="info-row"><span>Device:</span><span>Redmi K60 Pro</span></div>
-                    <div class="info-row"><span>Region:</span><span style="color:#ff004f">CHINA MARKET</span></div>
-                    <div class="info-row"><span>Find Device:</span><span style="color:#00ff00">OFF (CLEAN)</span></div>
-                    <div class="info-row"><span>Warranty:</span><span>Active</span></div>
-                    <div style="text-align:center; margin-top:15px;">
-                        <a href="https://wa.me/8801861845006?text=Order%20Unlock%20for%20IMEI:%20${imei}" 
-                           style="color:white; background:#25D366; padding:8px 15px; border-radius:5px; text-decoration:none; font-size:12px; font-weight:800;">
-                           ORDER UNLOCK ON WHATSAPP
-                        </a>
-                    </div>
-                `;
-            }, 2000);
-        }
-    </script>
-</body>
-</html>
+            color: white;
+            font-weight: 9

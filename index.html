@@ -1,3 +1,4 @@
+"></
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +28,6 @@
             background:var(--bg); color:var(--text); line-height: 1.6; overflow-x: hidden;
         }
 
-        /* --- RAINBOW KING BAR --- */
         .king-bar{
             background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f);
             background-size: 300% 300%; animation: gradientMove 3s ease infinite;
@@ -80,41 +80,21 @@
             background: rgba(255,0,79,0.1); padding: 10px;
         }
 
-        /* --- STATUS SECTION --- */
-        .status-section {
-            background: #0d0004; border: 2px solid var(--accent); border-radius: 12px; padding: 25px; margin-bottom: 40px; box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
-        }
-        .status-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
-        .status-dot { width: 10px; height: 10px; background: #00f2ff; border-radius: 50%; box-shadow: 0 0 10px #00f2ff; animation: blink 1.5s infinite; }
-        .live-tag { background: var(--accent); color: #000; font-size: 10px; padding: 2px 8px; border-radius: 4px; font-weight: 900; }
-
-        .update-item {
-            background: rgba(255, 255, 255, 0.05); padding: 15px; border-radius: 8px; border-left: 4px solid var(--accent);
-            display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;
-        }
-        .update-date { background: var(--accent); padding: 4px 10px; border-radius: 20px; font-size: 10px; font-weight: bold; color: #000; }
-
-        /* --- SUPPORT CARDS --- */
         .support-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative; overflow: hidden;}
         .support-card::after { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
-        
         .model-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
         .model-category h4 { color: var(--accent); border-left: 3px solid var(--accent); padding-left: 10px; margin-bottom: 10px; }
-        
         .waiting-box { background: rgba(0, 242, 255, 0.1); border: 1px dashed var(--accent); padding: 15px; text-align: center; border-radius: 8px; margin-top: 25px; font-weight: 600; color: var(--accent); }
-        
-        /* --- MERGED FLASH & MI CLOUD SECTION --- */
+
         .flash-cloud-card { background: linear-gradient(145deg, #1a0005, #0a0a0a); border: 2px solid var(--primary); padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
         .bypass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 20px 0; }
         .bypass-grid span { color: #00f2ff; font-weight: bold; background: rgba(0,242,255,0.05); padding: 8px; border-radius: 5px; border: 1px solid rgba(0,242,255,0.2); }
         .cloud-removal-info { background: linear-gradient(90deg, #400, #800); border: 1px solid var(--primary); padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 0 15px rgba(255,0,79,0.3); }
         .cloud-removal-info h3 { color: #fff; margin: 0 0 10px; text-shadow: 0 0 10px #f00; font-size: 18px; }
 
-        /* Review Card */
         .review-card { background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 30px; text-align: center; border: 1px dashed var(--accent); margin-bottom: 30px; }
         .review-link-btn { background: #0088cc; color: white; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; }
 
-        /* Requirements Section */
         .requirements-section { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--accent); padding: 30px; border-radius: 15px; margin-top: 50px; }
         .req-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
         .req-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; }
@@ -122,7 +102,6 @@
         .req-link { color: var(--accent); text-decoration: none; font-weight: 800; border-bottom: 1px dashed var(--accent); transition: 0.3s; }
         .req-link:hover { color: #fff; border-bottom-style: solid; }
 
-        /* Videos & Payment */
         .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 50px; }
         .video-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: 0.3s; }
         .video-card iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
@@ -155,6 +134,8 @@
         <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> Telegram</a>
         <a href="https://facebook.com/riyutheflasher" class="btn facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
         <a href="https://youtube.com/@riyutheflasher" class="btn youtube-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
+        <!-- ADDED IMEI CHECK LINK -->
+        <a href="imeichecker.html" class="btn" style="background: linear-gradient(45deg, #ff00ff, #00ffff);"><i class="fas fa-mobile-alt"></i> Xiaomi CN/Global Identifier & Find Device</a>
     </div>
 
     <div class="top-cta-container">
@@ -165,22 +146,6 @@
 </header>
 
 <div class="container">
-
-    <div class="status-section">
-        <div class="status-header">
-            <div class="status-dot"></div>
-            <span class="live-tag">Live</span>
-            <h3 style="margin:0; font-family:'Space Grotesk'; font-size:18px; letter-spacing: 1px;">SYSTEM STATUS & NEWS</h3>
-        </div>
-        <div class="update-item">
-            <span><i class="fas fa-bolt" style="color: #ffeb3b; margin-right: 8px;"></i> <b>CHINA HYPEROS 2.0/3.0:</b> Bootloader Unlock active (168-355h wait)</span>
-            <span class="update-date">STABLE</span>
-        </div>
-        <div class="update-item">
-            <span><i class="fas fa-check-circle" style="color: #00f2ff; margin-right: 8px;"></i> <b>ONEPLUS AUTH:</b> China & Worldwide Flash Authorize <b>OPEN</b></span>
-            <span class="update-date">ONLINE</span>
-        </div>
-    </div>
 
     <h2 class="section-title">🔓 CHINA BOOTLOADER UNLOCK SUPPORTED LIST 🔓</h2>
     <div class="support-card">

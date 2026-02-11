@@ -1,233 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RIYU THE FLASHER | Official Xiaomi, OnePlus & Oppo Auth Services</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XIAOMI OFFICIAL CHECKER | RIYU THE FLASHER</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-<meta name="description" content="Official Xiaomi, OnePlus & Oppo Auth Services. China Bootloader Unlock, MI Cloud Removal, Flash Authorization & Server Auth by RIYU THE FLASHER.">
-<meta name="keywords" content="Xiaomi Bootloader Unlock, HyperOS Unlock, MI Cloud Removal, OnePlus Auth, China Flash Service">
-<meta name="author" content="RIYU THE FLASHER">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="theme-color" content="#ff004f">
+    <style>
+        :root {
+            --primary: #ff004f;
+            --accent: #00f2ff;
+            --bg: radial-gradient(circle at top, #1a0005, #000);
+            --card: linear-gradient(145deg, #111, #090009);
+            --border: rgba(255, 0, 79, 0.4);
+        }
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        body {
+            margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg); color: #fff; min-height: 100vh;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+        }
 
-<script src="https://widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+        .checker-container {
+            width: 90%; max-width: 600px; padding: 40px;
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 20px; box-shadow: 0 0 40px rgba(255, 0, 79, 0.2);
+            text-align: center; position: relative; overflow: hidden;
+        }
 
-<style>
-:root{
---primary:#ff004f;
---accent:#00f2ff;
---bg:radial-gradient(circle at top,#1a0005,#000);
---card:linear-gradient(145deg,#111,#090009);
---text:#fff;
---border:rgba(255,0,79,.4);
-}
+        .checker-container::before {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+        }
 
-*{box-sizing:border-box;scroll-behavior:smooth}
-body{
-margin:0;
-font-family:'Plus Jakarta Sans',sans-serif;
-background:var(--bg);
-color:var(--text);
-overflow-x:hidden;
-}
+        h1 { font-family: 'Bebas Neue'; font-size: 50px; letter-spacing: 3px; margin-bottom: 10px; background: linear-gradient(90deg, #ff004f, #00f2ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        p.subtitle { color: #888; font-size: 14px; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 1px; }
 
-/* KING BAR */
-.king-bar{
-background:linear-gradient(90deg,#ff004f,#ff8a00,#7000ff,#ff004f);
-background-size:300% 300%;
-animation:move 3s infinite;
-text-align:center;
-padding:12px;
-font-weight:900;
-letter-spacing:3px;
-}
-@keyframes move{
-0%{background-position:0% 50%}
-50%{background-position:100% 50%}
-100%{background-position:0% 50%}
-}
+        .input-box { position: relative; margin-bottom: 25px; }
+        
+        input {
+            width: 100%; padding: 18px 20px; background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333; border-radius: 12px; color: #fff; font-size: 18px;
+            font-family: 'Space Grotesk'; transition: 0.3s; outline: none; box-sizing: border-box;
+        }
 
-header{text-align:center;padding:40px 20px}
-.profile-pic{
-width:130px;height:130px;border-radius:50%;
-border:4px solid transparent;
-background:linear-gradient(#000,#000) padding-box,
-linear-gradient(45deg,#ff004f,#00f2ff) border-box;
-padding:3px;
-box-shadow:0 0 30px #ff004f;
-}
+        input:focus { border-color: var(--accent); box-shadow: 0 0 15px rgba(0, 242, 255, 0.2); }
 
-.brand-name{
-font-family:'Bebas Neue';
-font-size:65px;
-letter-spacing:4px;
-background:linear-gradient(90deg,#ff004f,#fff,#00f2ff,#ff004f);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-animation:glow 3s linear infinite;
-}
-@keyframes glow{to{background-position:200% center}}
+        .check-btn {
+            width: 100%; padding: 18px; border-radius: 12px; border: none;
+            background: linear-gradient(45deg, var(--primary), #ff8a00);
+            color: white; font-weight: 800; font-size: 16px; cursor: pointer;
+            text-transform: uppercase; letter-spacing: 2px; transition: 0.3s;
+        }
 
-.btn-group{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:20px}
-.btn{
-padding:12px 24px;
-border-radius:8px;
-font-size:12px;
-font-weight:800;
-text-decoration:none;
-color:#fff;
-text-transform:uppercase;
-transition:.3s;
-display:inline-flex;
-align-items:center;
-gap:8px;
-}
-.whatsapp{background:linear-gradient(45deg,#128C7E,#25D366)}
-.telegram{background:linear-gradient(45deg,#0088cc,#24A1DE)}
-.facebook{background:linear-gradient(45deg,#1877f2,#3b5998)}
-.youtube-btn{background:linear-gradient(45deg,#ff0000,#990000)}
+        .check-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255, 0, 79, 0.4); }
 
-.btn:hover,
-.price-link-btn:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 30px rgba(255,0,79,.5)
-}
+        .result-area {
+            margin-top: 30px; padding: 20px; border-radius: 12px;
+            background: rgba(0, 0, 0, 0.4); border: 1px dashed #444;
+            display: none; text-align: left;
+        }
 
-.price-link-btn{
-background:linear-gradient(45deg,#ff004f,#ff8a00);
-padding:18px 45px;
-border-radius:50px;
-text-decoration:none;
-font-weight:800;
-display:inline-flex;
-align-items:center;
-gap:12px;
-margin-top:30px;
-color:#fff;
-}
+        .loader { display: none; margin: 20px 0; color: var(--accent); font-weight: bold; }
+        
+        .info-row { display: flex; justify-content: space-between; padding: 10px 0; border-bottom: 1px solid #222; font-size: 14px; }
+        .info-row span:first-child { color: #888; }
+        .info-row span:last-child { color: var(--accent); font-weight: 600; }
 
-.container{max-width:1100px;margin:auto;padding:20px}
-
-.section-title{
-text-align:center;
-font-family:'Space Grotesk';
-font-size:26px;
-margin:50px 0 30px;
-text-transform:uppercase;
-letter-spacing:2px;
-border-bottom:2px solid var(--primary);
-padding:10px;
-}
-
-.support-card{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:12px;
-padding:30px;
-margin-bottom:30px;
-}
-
-.model-list-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
-}
-
-.counter{
-font-size:40px;
-font-weight:900;
-color:var(--accent);
-}
-
-footer{
-margin-top:90px;
-padding:40px;
-text-align:center;
-border-top:1px solid var(--border);
-color:#888;
-}
-</style>
+        .back-home { margin-top: 30px; display: inline-block; color: #666; text-decoration: none; font-size: 13px; transition: 0.3s; }
+        .back-home:hover { color: #fff; }
+    </style>
 </head>
-
 <body>
 
-<div class="king-bar">👑 YOU ARE IN THE KING PLACE 👑</div>
+    <div class="checker-container">
+        <h1>XIAOMI CHECKER</h1>
+        <p class="subtitle">Official CN/Global & Find Device Status</p>
 
-<header>
-<img src="profile.png" class="profile-pic">
-<div class="brand-name">RIYU THE FLASHER</div>
+        <div class="input-box">
+            <input type="text" id="imeiInput" placeholder="ENTER 15-DIGIT IMEI OR SN..." maxlength="15">
+        </div>
 
-<div class="btn-group">
-<a href="https://wa.me/8801861845006" class="btn whatsapp"><i class="fab fa-whatsapp"></i>WhatsApp</a>
-<a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram"><i class="fab fa-telegram"></i>Telegram</a>
-<a href="https://facebook.com/riyutheflasher" class="btn facebook"><i class="fab fa-facebook"></i>Facebook</a>
-<a href="https://youtube.com/@riyutheflasher" class="btn youtube-btn"><i class="fab fa-youtube"></i>YouTube</a>
-</div>
+        <button class="check-btn" onclick="startCheck()">
+            <i class="fas fa-bolt"></i> START SERVER CHECK
+        </button>
 
-<a href="pricelist.html" class="price-link-btn">
-<i class="fas fa-file-invoice-dollar"></i> SERVICE PRICE LIST
-</a>
-</header>
+        <div class="loader" id="loading">
+            <i class="fas fa-spinner fa-spin"></i> CONNECTING TO XIAOMI AUTH SERVER...
+        </div>
 
-<div class="container">
+        <div class="result-area" id="resultBox">
+            </div>
 
-<h2 class="section-title">🔥 HOT NOW 🔥</h2>
-<div class="support-card">
-<div class="model-list-grid">
-<div><h4>China Bootloader Unlock 2026</h4><p>OS2 / OS3 HyperOS Supported<br>No Downgrade Required</p></div>
-<div><h4>MI Cloud Instant Bypass</h4><p>10-20 Sec Done<br>Server Auth</p></div>
-<div><h4>OnePlus Auth Flash</h4><p>China & Global<br>Sahara / Firehose Fix</p></div>
-</div>
-</div>
+        <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> BACK TO RIYU THE FLASHER</a>
+    </div>
 
-<h2 class="section-title">📊 LIVE STATS</h2>
-<div class="support-card">
-<div class="model-list-grid" style="text-align:center">
-<div><div class="counter" data-target="5000">0</div><p>Devices Serviced</p></div>
-<div><div class="counter" data-target="1200">0</div><p>Bootloader Unlock</p></div>
-<div><div class="counter" data-target="3500">0</div><p>MI Cloud Removed</p></div>
-</div>
-</div>
+    <script>
+        function startCheck() {
+            const imei = document.getElementById('imeiInput').value;
+            const resBox = document.getElementById('resultBox');
+            const loader = document.getElementById('loading');
 
-</div>
+            if (imei.length < 10) {
+                alert("Please enter a valid IMEI or Serial Number");
+                return;
+            }
 
-<footer>
-© RIYU THE FLASHER • THE KING PLACE<br>
-CHITTAGONG, BANGLADESH
-</footer>
+            // UI Feedback
+            loader.style.display = "block";
+            resBox.style.display = "none";
 
-<!-- Floating WhatsApp -->
-<a href="https://wa.me/8801861845006" target="_blank"
-style="position:fixed;bottom:25px;right:25px;background:#25D366;
-width:65px;height:65px;border-radius:50%;
-display:flex;align-items:center;justify-content:center;
-font-size:30px;color:white;box-shadow:0 10px 25px rgba(0,0,0,.4);z-index:999;">
-<i class="fab fa-whatsapp"></i>
-</a>
-
-<script>
-const counters=document.querySelectorAll('.counter');
-counters.forEach(counter=>{
-const update=()=>{
-const target=+counter.getAttribute('data-target');
-const count=+counter.innerText;
-const inc=target/200;
-if(count<target){
-counter.innerText=Math.ceil(count+inc);
-setTimeout(update,10);
-}else{
-counter.innerText=target+"+";
-}
-};
-update();
-});
-</script>
-
+            // SIMULATING BACKEND CALL (You will link this to your check_backend.php)
+            setTimeout(() => {
+                loader.style.display = "none";
+                resBox.style.display = "block";
+                
+                // Example Output Format
+                resBox.innerHTML = `
+                    <div class="info-row"><span>Device:</span><span>Redmi K60 Pro</span></div>
+                    <div class="info-row"><span>Region:</span><span style="color:#ff004f">CHINA MARKET</span></div>
+                    <div class="info-row"><span>Find Device:</span><span style="color:#00ff00">OFF (CLEAN)</span></div>
+                    <div class="info-row"><span>Warranty:</span><span>Active</span></div>
+                    <div style="text-align:center; margin-top:15px;">
+                        <a href="https://wa.me/8801861845006?text=Order%20Unlock%20for%20IMEI:%20${imei}" 
+                           style="color:white; background:#25D366; padding:8px 15px; border-radius:5px; text-decoration:none; font-size:12px; font-weight:800;">
+                           ORDER UNLOCK ON WHATSAPP
+                        </a>
+                    </div>
+                `;
+            }, 2000);
+        }
+    </script>
 </body>
 </html>

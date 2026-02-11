@@ -27,52 +27,60 @@
             background:var(--bg); color:var(--text); line-height: 1.6; overflow-x: hidden;
         }
 
-        /* --- KING BAR & NAV --- */
+        /* --- KING BAR --- */
         .king-bar{
             background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f);
             background-size: 300% 300%; animation: gradientMove 3s ease infinite;
             color: white; padding:12px; text-align:center; font-size:12px; font-weight:900; 
             letter-spacing:3px; text-transform: uppercase; box-shadow: 0 5px 15px rgba(255,0,79,0.3);
-            position: relative; z-index: 1001;
+            position: relative;
         }
         @keyframes gradientMove { 0% {background-position:0% 50%} 50% {background-position:100% 50%} 100% {background-position:0% 50%} }
 
         /* --- SIDE DRAWER --- */
-        .drawer-btn {
-            position: absolute; left: 20px; top: 50%; transform: translateY(-50%);
-            background: none; border: none; color: white; font-size: 20px; cursor: pointer; z-index: 1002;
+        .drawer-toggle {
+            position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+            background: none; border: none; color: white; font-size: 22px; cursor: pointer;
         }
 
         .side-drawer {
-            position: fixed; top: 0; left: -300px; width: 300px; height: 100%;
-            background: #0a0a0a; border-right: 1px solid var(--border);
-            z-index: 2000; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            padding: 80px 20px 20px; box-shadow: 20px 0 50px rgba(0,0,0,0.8);
+            position: fixed; top: 0; left: -320px; width: 300px; height: 100%;
+            background: #080808; border-right: 1px solid var(--border);
+            z-index: 9999; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 40px 20px; box-shadow: 20px 0 50px rgba(0,0,0,0.9);
         }
         .side-drawer.active { left: 0; }
 
         .drawer-overlay {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7); backdrop-filter: blur(4px);
-            z-index: 1999; display: none;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            z-index: 9998; display: none;
         }
         .drawer-overlay.active { display: block; }
 
-        .close-drawer { position: absolute; top: 20px; right: 20px; font-size: 24px; color: var(--primary); cursor: pointer; }
-
-        .drawer-section h3 { font-family: 'Space Grotesk'; font-size: 18px; color: var(--accent); margin-bottom: 20px; border-bottom: 1px solid #333; padding-bottom: 10px; }
-        
-        .update-link {
-            display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff;
-            padding: 15px; background: rgba(255,255,255,0.05); border-radius: 8px; 
-            margin-bottom: 10px; transition: 0.3s; border: 1px solid transparent;
+        .drawer-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 40px; border-bottom: 1px solid #222; padding-bottom: 15px;
         }
-        .update-link:hover { background: rgba(255,0,79,0.1); border-color: var(--primary); transform: translateX(5px); }
-        .update-link i { color: var(--primary); }
+        .drawer-header h2 { font-family: 'Bebas Neue'; letter-spacing: 2px; font-size: 24px; color: var(--primary); margin: 0; }
+        .close-drawer { font-size: 20px; color: #555; cursor: pointer; transition: 0.3s; }
+        .close-drawer:hover { color: var(--primary); }
 
-        .news-item { font-size: 13px; color: #ccc; padding: 10px; border-left: 2px solid var(--accent); background: #111; margin-bottom: 15px; }
+        .drawer-menu { list-style: none; padding: 0; margin: 0; }
+        .drawer-menu li { margin-bottom: 15px; }
+        .drawer-link {
+            display: flex; align-items: center; gap: 15px; text-decoration: none;
+            color: #eee; font-weight: 600; font-size: 15px; padding: 12px 15px;
+            background: rgba(255,255,255,0.03); border-radius: 8px; transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .drawer-link:hover {
+            background: rgba(255,0,79,0.1); border-color: var(--primary); color: #fff;
+            transform: translateX(8px);
+        }
+        .drawer-link i { color: var(--primary); width: 20px; text-align: center; }
 
-        /* --- REST OF STYLES --- */
+        /* --- TOP INFO BAR --- */
         .top-info-bar {
             max-width: 1100px; margin: 20px auto 0; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;
         }
@@ -109,6 +117,219 @@
             text-decoration: none; font-weight: 800; display: inline-flex; align-items: center; gap: 12px; transition: 0.4s; 
             border: 2px solid rgba(255,255,255,0.3); margin-top: 30px;
         }
+
+        .container{ max-width:1100px; margin:auto; padding:20px; }
+        .section-title{
+            text-align:center; font-family:'Space Grotesk'; font-size:26px; margin: 50px 0 30px; color: #fff; 
+            text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid var(--primary); display: block;
+            background: rgba(255,0,79,0.1); padding: 10px;
+        }
+
+        .support-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative; overflow: hidden;}
+        .support-card::after { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
+        
+        .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; padding: 5px 15px; border-radius: 20px; font-size: 12px; margin-bottom: 10px; }
+        .pulse-dot { width: 8px; height: 8px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; animation: pulseStatus 1.5s infinite; }
+        @keyframes pulseStatus { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
+
+        .model-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
+        .model-category h4 { color: var(--accent); border-left: 3px solid var(--accent); padding-left: 10px; margin-bottom: 10px; }
+        .waiting-box { background: rgba(0, 242, 255, 0.1); border: 1px dashed var(--accent); padding: 15px; text-align: center; border-radius: 8px; margin-top: 25px; font-weight: 600; color: var(--accent); }
+
+        .flash-cloud-card { background: linear-gradient(145deg, #1a0005, #0a0a0a); border: 2px solid var(--primary); padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
+        .bypass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 20px 0; }
+        .bypass-grid span { color: #00f2ff; font-weight: bold; background: rgba(0,242,255,0.05); padding: 8px; border-radius: 5px; border: 1px solid rgba(0,242,255,0.2); }
+        .cloud-removal-info { background: linear-gradient(90deg, #400, #800); border: 1px solid var(--primary); padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 0 15px rgba(255,0,79,0.3); }
+        .cloud-removal-info h3 { color: #fff; margin: 0 0 10px; text-shadow: 0 0 10px #f00; font-size: 18px; }
+
+        .review-card { background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 40px 20px; text-align: center; border: 1px dashed var(--accent); margin-bottom: 30px; }
+
+        .requirements-section { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--accent); padding: 30px; border-radius: 15px; margin-top: 50px; }
+        .req-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+        .req-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+        .req-list li i { color: var(--accent); }
+        .req-link { color: var(--accent); text-decoration: none; font-weight: 800; border-bottom: 1px dashed var(--accent); transition: 0.3s; }
+        .req-link:hover { color: #fff; border-bottom-style: solid; }
+
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 50px; }
+        .video-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: 0.3s; }
+        .video-card iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+        .payment-methods { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; text-align: center; }
+        .pay-icons { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 20px; }
+        .pay-item i { font-size: 30px; color: var(--accent); }
+
+        footer{ margin-top:90px; padding:60px 20px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:#888; background: #050005;}
+        @media (max-width: 600px) { .brand-name { font-size: 40px; } }
+    </style>
+</head>
+
+<body>
+
+<div class="drawer-overlay" id="overlay"></div>
+<nav class="side-drawer" id="sideDrawer">
+    <div class="drawer-header">
+        <h2>RIYU NAVIGATION</h2>
+        <div class="close-drawer" id="closeDrawer"><i class="fas fa-times"></i></div>
+    </div>
+    <ul class="drawer-menu">
+        <li><a href="updates.html" class="drawer-link"><i class="fas fa-rss"></i> REGULAR UPDATES</a></li>
+        <li><a href="pricelist.html" class="drawer-link"><i class="fas fa-file-invoice-dollar"></i> SERVICE PRICE LIST</a></li>
+        <li><a href="https://t.me/RIYUAUTHSERVICES" target="_blank" class="drawer-link"><i class="fab fa-telegram"></i> JOIN TELEGRAM</a></li>
+        <li><a href="#payment" class="drawer-link" id="payLink"><i class="fas fa-credit-card"></i> PAYMENT METHODS</a></li>
+    </ul>
+</nav>
+
+<div class="king-bar">
+    <button class="drawer-toggle" id="openDrawer"><i class="fas fa-bars"></i></button>
+    👑 YOU ARE IN THE KING PLACE 👑
+</div>
+
+<div class="top-info-bar">
+    <div class="info-pill"><i class="fas fa-user-check"></i><span><b>RIYAN MOHAMMAD SAJID AMAN</b></span></div>
+    <div class="info-pill"><i class="fas fa-location-dot"></i><span>CHITTAGONG, BANGLADESH</span></div>
+    <div class="info-pill"><i class="far fa-calendar-alt"></i><span id="currentDate"></span></div>
+    <div class="info-pill"><i class="far fa-clock"></i><span id="currentTime" class="digital-clock"></span></div>
+</div>
+
+<header>
+    <img src="profile.png" class="profile-pic" alt="RIYU THE FLASHER">
+    <div class="brand-name">RIYU THE FLASHER</div>
+    
+    <div class="btn-group">
+        <a href="https://wa.me/8801861845006" class="btn whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="https://facebook.com/riyutheflasher" class="btn facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
+        <a href="https://youtube.com/@riyutheflasher" class="btn youtube-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
+    </div>
+
+    <div class="top-cta-container">
+        <a href="pricelist.html" class="price-link-btn">
+            <i class="fas fa-file-invoice-dollar"></i> CLICK FOR SERVICE PRICE LIST
+        </a>
+    </div>
+</header>
+
+<div class="container">
+
+    <h2 class="section-title">🔓 CHINA BOOTLOADER UNLOCK SUPPORTED LIST 🔓</h2>
+    <div class="support-card">
+        <div style="text-align: center;">
+            <div class="status-badge"><div class="pulse-dot"></div> AUTH SERVER ONLINE</div>
+        </div>
+        <div class="model-list-grid">
+            <div class="model-category"><h4>XIAOMI SERIES</h4><p>13 | 13 Pro | 13 Ultra | 13 Lite | 13T<br>12 | 12 Pro | 12S | 12S Ultra | 12X</p></div>
+            <div class="model-category"><h4>REDMI K-SERIES</h4><p>K60 | K60 Pro | K60E | K60 Ultra<br>K50 | K50 Pro | K50 Ultra</p></div>
+            <div class="model-category"><h4>MIX & FOLD</h4><p>Mix Fold 4 | 3 | 2<br>Xiaomi MIX Flip (All Gen)</p></div>
+        </div>
+        <div class="waiting-box">🚀 NO DOWNGRADE REQUIRED | INSTANT BYPASS 🚀<br>⚠️ 168-355 HOURS WAITING TIME AFTER BIND</div>
+    </div>
+
+    <h2 class="section-title">🔍 XIAOMI CHINA/GLOBAL/AND FIND DEVICE CHECKER 🔍</h2>
+    <div class="support-card" style="text-align: center; border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);">
+        <h3 style="font-family: 'Space Grotesk'; color: var(--accent); margin-bottom: 15px;">OFFICIAL XIAOMI IDENTIFIER TOOL</h3>
+        <p style="font-size: 14px; color: #ccc; margin-bottom: 25px;">
+            Check your device region, Find Device status, and Warranty info via official iUnlocker channels.
+        </p>
+        <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="price-link-btn" style="background: linear-gradient(45deg, #00f2ff, #7000ff); margin-top: 0; padding: 18px 60px;" target="_blank" rel="noopener">
+            <i class="fas fa-search"></i> OPEN IMEI CHECKER
+        </a>
+        <div class="waiting-box" style="border-color: rgba(255,255,255,0.2); color: #fff; background: rgba(255,255,255,0.05);">
+            ✨ Accurate & Real-time Server Data ✨
+        </div>
+    </div>
+
+    <h2 class="section-title" id="payment">⚡ CHINA FLASH & MI CLOUD PERMANENT REMOVAL ⚡</h2>
+    <div class="flash-cloud-card">
+        <p style="font-weight: 800; color: #fff; margin-bottom: 20px;">MODELS SUPPORTING FLASH IN MI CLOUD LOCK & PERMANENT BYPASS</p>
+        <div class="bypass-grid">
+            <span>✔️ Xiaomi 15/Pro/Ultra</span>
+            <span>✔️ Redmi K80 Pro</span>
+            <span>✔️ Xiaomi 13/Pro/Ultra</span>
+            <span>✔️ Redmi K60 Pro</span>
+            <span>✔️ MIX Fold 3</span>
+            <span>✔️ Xiaomi Pad 6S/8 Pro</span>
+        </div>
+        
+        <div class="cloud-removal-info">
+            <h3>🛡️ MI ACCOUNT PERMANENT REMOVAL 🛡️</h3>
+            <p style="margin: 0; font-size: 15px; color: #00f2ff; font-weight: 800; letter-spacing: 0.5px;">
+                ALL MODELS BY SERVER ALSO AVAILABLE | 10-20 SEC DONE TIME<br>
+                <span style="color: #fff; font-weight: 400;">(CLEAN/WW EXCEPT CHINA SUPPORTED BY SERVER AUTH)</span>
+            </p>
+        </div>
+    </div>
+
+    <h2 class="section-title">💬 REVIEWS & DISCUSSION</h2>
+    <div class="review-card">
+        <i class="fas fa-star" style="font-size: 40px; color: #ffcc00; margin-bottom: 15px;"></i>
+        <h3>TRUSTED BY THOUSANDS</h3>
+        <div style="max-width: 400px; margin: 15px auto;">
+            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69894830c5b7f0ff5cd41dcf" data-style-height="52px" data-style-width="100%" data-token="0b3819d6-dadf-4bd7-9538-4153040f047a">
+              <a href="https://www.trustpilot.com/review/riyutheflasher.com" target="_blank" rel="noopener">Trustpilot</a>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="section-title">📺 LATEST VIDEOS</h2>
+    <div class="video-grid">
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/omrNjNYB_Is" allowfullscreen></iframe></div>
+        <div class="video-card"><iframe src="https://www.youtube.com/embed/dlHXRgIkBqU" allowfullscreen></iframe></div>
+    </div>
+
+    <h2 class="section-title">📝 SERVICE REQUIREMENTS 📝</h2>
+    <div class="requirements-section">
+        <ul class="req-list">
+            <li><i class="fas fa-laptop"></i> PC or Laptop (Windows 10/11)</li>
+            <li><i class="fas fa-wifi"></i> Stable Internet Connection</li>
+            <li><i class="fas fa-usb"></i> High Quality USB Cable</li>
+            <li><i class="fas fa-download"></i> <a href="https://www.ultraviewer.net/en/download.html" class="req-link" target="_blank" rel="noopener">Download UltraViewer</a> for Remote Support</li>
+        </ul>
+        <p style="text-align: center; margin-top: 25px; font-size: 12px; color: #aaa;">* Ensure you have all drivers installed before requesting auth service.</p>
+    </div>
+
+    <h2 class="section-title">💳 SECURE PAYMENT METHODS</h2>
+    <div class="payment-methods">
+        <div class="pay-icons">
+            <div class="pay-item"><i class="fab fa-bitcoin"></i><span>Binance</span></div>
+            <div class="pay-item"><i class="fas fa-university"></i><span>Bank Transfer</span></div>
+            <div class="pay-item"><i class="fas fa-wallet"></i><span>Bkash / Nagad</span></div>
+            <div class="pay-item"><i class="fas fa-money-bill-transfer"></i><span>Wise</span></div>
+        </div>
+    </div>
+
+</div>
+
+<footer>© <b>RIYU THE FLASHER</b> • THE KING PLACE<br>RIYAN MOHAMMAD SAJID AMAN | CHITTAGONG, BANGLADESH</footer>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('currentTime').innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+        document.getElementById('currentDate').innerText = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    // Drawer Functionality
+    const openDrawer = document.getElementById('openDrawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const sideDrawer = document.getElementById('sideDrawer');
+    const overlay = document.getElementById('overlay');
+    const payLink = document.getElementById('payLink');
+
+    function toggleMenu() {
+        sideDrawer.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+
+    openDrawer.addEventListener('click', toggleMenu);
+    closeDrawer.addEventListener('click', toggleMenu);
+    overlay.addEventListener('click', toggleMenu);
+    payLink.addEventListener('click', toggleMenu);
+</script>
+
+</body>
+</html>
 
         .container{ max-width:1100px; margin:auto; padding:20px; }
         .section-title{

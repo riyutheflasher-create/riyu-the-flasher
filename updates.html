@@ -1,1 +1,149 @@
-bb47f42f-aa5d-4f9f-81a9-137934e1937a
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGULAR UPDATES | RIYU THE FLASHER</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #ff004f;
+            --accent: #00f2ff;
+            --bg: radial-gradient(circle at top, #1a0005, #000);
+            --card: #111;
+            --border: rgba(255, 0, 79, 0.3);
+        }
+
+        body {
+            margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg); color: #fff; line-height: 1.6;
+        }
+
+        /* --- HEADER --- */
+        .king-bar {
+            background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f);
+            padding: 12px; text-align: center; font-size: 12px; font-weight: 900; 
+            letter-spacing: 3px; text-transform: uppercase; position: sticky; top: 0; z-index: 100;
+        }
+        .back-link { position: absolute; left: 20px; color: white; text-decoration: none; }
+
+        header { padding: 60px 20px 30px; text-align: center; }
+        .title-glow {
+            font-family: 'Bebas Neue'; font-size: 55px; letter-spacing: 5px;
+            background: linear-gradient(to right, #fff, var(--primary));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .container { max-width: 850px; margin: auto; padding: 20px; }
+
+        /* --- ADMIN POST STYLE --- */
+        .update-card {
+            background: var(--card); border: 1px solid var(--border);
+            border-radius: 12px; padding: 25px; margin-bottom: 25px;
+            position: relative; overflow: hidden;
+        }
+        .update-card::before {
+            content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px; background: var(--primary);
+        }
+        .post-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
+        .admin-img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary); }
+        .admin-meta h4 { margin: 0; color: var(--accent); font-size: 16px; }
+        .admin-meta span { font-size: 11px; color: #777; font-weight: 600; }
+
+        .post-body { font-size: 15px; color: #ddd; }
+        .post-tag { background: rgba(255, 0, 79, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
+
+        /* --- COMMENT SECTION --- */
+        .comment-wrap {
+            margin-top: 60px; padding: 30px; background: rgba(255, 255, 255, 0.02);
+            border-radius: 20px; border: 1px solid #222;
+        }
+        .comment-wrap h3 {
+            font-family: 'Space Grotesk'; color: #fff; margin-bottom: 30px;
+            text-align: center; display: flex; align-items: center; justify-content: center; gap: 10px;
+        }
+        .comment-wrap h3 i { color: var(--primary); }
+
+        /* This container matches Disqus colors to your dark theme */
+        #disqus_thread { padding-top: 10px; }
+
+        footer { text-align: center; padding: 40px; color: #444; font-size: 12px; }
+    </style>
+</head>
+<body>
+
+<div class="king-bar">
+    <a href="index.html" class="back-link"><i class="fas fa-chevron-left"></i> BACK</a>
+    👑 RIYU OFFICIAL UPDATES 👑
+</div>
+
+<header>
+    <div class="title-glow">SERVICE FEED</div>
+    <p style="color: #aaa; font-weight: 600;">Server Status • New Models • Tool Releases</p>
+</header>
+
+<div class="container">
+
+    <div class="update-card">
+        <div class="post-tag">Instant Auth</div>
+        <div class="post-header">
+            <img src="profile.png" class="admin-img">
+            <div class="admin-meta">
+                <h4>RIYAN MOHAMMAD SAJID AMAN</h4>
+                <span>POSTED: FEB 12, 2026</span>
+            </div>
+        </div>
+        <div class="post-body">
+            HyperOS 2.0 Global & China Server is **ONLINE**. All Xiaomi 14/15 series supported for instant bootloader bypass and flashing. Contact via WhatsApp for high-speed remote service!
+        </div>
+    </div>
+
+    <div class="update-card">
+        <div class="post-tag">Price Drop</div>
+        <div class="post-header">
+            <img src="profile.png" class="admin-img">
+            <div class="admin-meta">
+                <h4>RIYAN MOHAMMAD SAJID AMAN</h4>
+                <span>POSTED: FEB 10, 2026</span>
+            </div>
+        </div>
+        <div class="post-body">
+            Good news! Prices for Mi Account Permanent Removal (Server) have been reduced for Bangladesh users. Check the price list for details.
+        </div>
+    </div>
+
+    <div class="comment-wrap">
+        <h3><i class="fas fa-user-circle"></i> VISITOR COMMENTS & FEEDBACK</h3>
+        <p style="text-align: center; font-size: 13px; color: #666; margin-bottom: 30px;">
+            Please login with your <b>Gmail</b> to post a comment or ask a question.
+        </p>
+        
+        <div id="disqus_thread"></div>
+    </div>
+
+</div>
+
+<footer>© 2026 RIYU THE FLASHER - ALL RIGHTS RESERVED</footer>
+
+<script>
+    /**
+    * RECOMMENDED CONFIGURATION VARIABLES
+    */
+    var disqus_config = function () {
+        this.page.url = window.location.href;  // Replace with your actual page URL
+        this.page.identifier = 'riyu_updates_page'; // Unique ID for this page
+    };
+
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://riyutheflasher.disqus.com/embed.js'; // Replace 'riyutheflasher' with your Disqus shortname
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+</body>
+</html>

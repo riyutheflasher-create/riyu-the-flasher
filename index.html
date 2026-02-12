@@ -106,7 +106,7 @@
         @keyframes glowMove{ to{background-position:200% center} }
 
         .btn-group{ display:flex; justify-content: center; gap:12px; flex-wrap:wrap; margin-top:20px; }
-        .btn{ padding:12px 24px; border-radius:8px; font-size:12px; font-weight:800; text-decoration:none; color:#fff; text-transform: uppercase; transition:.3s; display: inline-flex; align-items: center; gap: 8px; }
+        .btn{ padding:12px 24px; border-radius:8px; font-size:12px; font-weight:800; text-decoration:none; color:#fff; text-transform: uppercase; transition:.3s; display: inline-flex; align-items: center; gap: 8px; border:none; cursor:pointer;}
         .whatsapp { background: linear-gradient(45deg, #128C7E, #25D366); } 
         .telegram { background: linear-gradient(45deg, #0088cc, #24A1DE); } 
         .facebook { background: linear-gradient(45deg, #1877f2, #3b5998); } 
@@ -120,7 +120,7 @@
 
         .container{ max-width:1100px; margin:auto; padding:20px; }
         .section-title{
-            text-align:center; font-family:'Space Grotesk'; font-size:26px; margin: 50px 0 30px; color: #fff; 
+            text-align:center; font-family:'Space Grotesk'; font-size:24px; margin: 40px 0 25px; color: #fff; 
             text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid var(--primary); display: block;
             background: rgba(255,0,79,0.1); padding: 10px;
         }
@@ -128,12 +128,30 @@
         .support-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative; overflow: hidden;}
         .support-card::after { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
         
+        /* CONVERSION SECTION */
+        .conv-link {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border);
+            padding: 12px; border-radius: 10px; color: var(--accent);
+            text-decoration: none; font-weight: 700; font-size: 13px;
+            transition: 0.3s; margin-bottom: 10px;
+        }
+        .conv-link:hover { background: var(--primary); color: white; transform: scale(1.02); }
+
+        .hot-sticker {
+            background: linear-gradient(45deg, #ff0000, #ff8c00);
+            color: #fff; padding: 2px 8px; border-radius: 4px; font-weight: 900;
+            font-size: 10px; margin-left: 10px; vertical-align: middle;
+            animation: pulseFire 1.5s infinite;
+        }
+        @keyframes pulseFire { 0%, 100% {opacity: 1;} 50% {opacity: 0.5;} }
+
         .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; padding: 5px 15px; border-radius: 20px; font-size: 12px; margin-bottom: 10px; }
         .pulse-dot { width: 8px; height: 8px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; animation: pulseStatus 1.5s infinite; }
         @keyframes pulseStatus { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
 
         .model-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .model-category h4 { color: var(--accent); border-left: 3px solid var(--accent); padding-left: 10px; margin-bottom: 10px; }
+        .model-category h4 { color: var(--accent); border-left: 3px solid var(--accent); padding-left: 10px; margin-bottom: 10px; font-size: 14px; }
         .waiting-box { background: rgba(0, 242, 255, 0.1); border: 1px dashed var(--accent); padding: 15px; text-align: center; border-radius: 8px; margin-top: 25px; font-weight: 600; color: var(--accent); }
 
         .flash-cloud-card { background: linear-gradient(145deg, #1a0005, #0a0a0a); border: 2px solid var(--primary); padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
@@ -211,6 +229,41 @@
 
 <div class="container">
 
+    <h2 class="section-title">🚀 XIAOMI CHINA TO GLOBAL ROM INSTALLATION <span class="hot-sticker">HOT NOW</span></h2>
+    <div class="support-card">
+        <div class="model-list-grid">
+            <div class="model-category">
+                <h4>XIAOMI 15</h4>
+                <a href="15convert.html" class="conv-link"><i class="fas fa-microchip"></i> XIAOMI 15 CONVERT</a>
+            </div>
+            <div class="model-category">
+                <h4>XIAOMI 13 SERIES</h4>
+                <a href="13seriesconvert.html" class="conv-link"><i class="fas fa-download"></i> 13 / PRO / ULTRA</a>
+            </div>
+            <div class="model-category">
+                <h4>OTHER MODELS</h4>
+                <div style="display: flex; gap: 5px; margin-top: 10px;">
+                    <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" style="padding: 12px; font-size: 11px; flex: 1;"><i class="fab fa-telegram"></i> TELEGRAM</a>
+                    <a href="https://wa.me/8801861845006" class="btn whatsapp" style="padding: 12px; font-size: 11px; flex: 1;"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+                </div>
+            </div>
+        </div>
+        <div class="waiting-box" style="margin-top: 15px; border-color: var(--primary); color: #fff; font-size: 12px;">
+            ✅ ALL CHINESE MODELS CONVERSION AVAILABLE via REMOTE FLASHING
+        </div>
+    </div>
+
+    <h2 class="section-title">🔍 IMEI & REGION CHECKER 🔍</h2>
+    <div class="support-card" style="padding: 15px; display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; border-color: var(--accent);">
+        <div style="flex: 1; min-width: 200px;">
+            <h4 style="margin: 0; color: var(--accent); font-size: 16px;">OFFICIAL IDENTIFIER</h4>
+            <p style="margin: 0; font-size: 12px; color: #888;">Check Region, Find Device & Warranty Status</p>
+        </div>
+        <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="btn" style="background: var(--accent); color: #000; font-weight: 900; margin: 0; padding: 10px 25px;" target="_blank">
+            <i class="fas fa-search"></i> OPEN CHECKER
+        </a>
+    </div>
+
     <h2 class="section-title">🔓 CHINA BOOTLOADER UNLOCK SUPPORTED LIST 🔓</h2>
     <div class="support-card">
         <div style="text-align: center;">
@@ -222,20 +275,6 @@
             <div class="model-category"><h4>MIX & FOLD</h4><p>Mix Fold 4 | 3 | 2<br>Xiaomi MIX Flip (All Gen)</p></div>
         </div>
         <div class="waiting-box">🚀 NO DOWNGRADE REQUIRED | INSTANT BYPASS 🚀<br>⚠️ 168-355 HOURS WAITING TIME AFTER BIND</div>
-    </div>
-
-    <h2 class="section-title">🔍 XIAOMI CHINA/GLOBAL/AND FIND DEVICE CHECKER 🔍</h2>
-    <div class="support-card" style="text-align: center; border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);">
-        <h3 style="font-family: 'Space Grotesk'; color: var(--accent); margin-bottom: 15px;">OFFICIAL XIAOMI IDENTIFIER TOOL</h3>
-        <p style="font-size: 14px; color: #ccc; margin-bottom: 25px;">
-            Check your device region, Find Device status, and Warranty info via official iUnlocker channels.
-        </p>
-        <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="price-link-btn" style="background: linear-gradient(45deg, #00f2ff, #7000ff); margin-top: 0; padding: 18px 60px;" target="_blank" rel="noopener">
-            <i class="fas fa-search"></i> OPEN IMEI CHECKER
-        </a>
-        <div class="waiting-box" style="border-color: rgba(255,255,255,0.2); color: #fff; background: rgba(255,255,255,0.05);">
-            ✨ Accurate & Real-time Server Data ✨
-        </div>
     </div>
 
     <h2 class="section-title" id="payment">⚡ CHINA FLASH & MI CLOUD PERMANENT REMOVAL ⚡</h2>
@@ -310,7 +349,6 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    // Drawer Functionality
     const openDrawer = document.getElementById('openDrawer');
     const closeDrawer = document.getElementById('closeDrawer');
     const sideDrawer = document.getElementById('sideDrawer');
@@ -325,349 +363,7 @@
     openDrawer.addEventListener('click', toggleMenu);
     closeDrawer.addEventListener('click', toggleMenu);
     overlay.addEventListener('click', toggleMenu);
-    payLink.addEventListener('click', toggleMenu);
-</script>
-
-</body>
-</html>
-
-        .container{ max-width:1100px; margin:auto; padding:20px; }
-        .section-title{
-            text-align:center; font-family:'Space Grotesk'; font-size:26px; margin: 50px 0 30px; color: #fff; 
-            text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid var(--primary); display: block;
-            background: rgba(255,0,79,0.1); padding: 10px;
-        }
-
-        .support-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative; overflow: hidden;}
-        .support-card::after { content:''; position:absolute; top:0; left:0; width:100%; height:3px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
-        
-        .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; padding: 5px 15px; border-radius: 20px; font-size: 12px; margin-bottom: 10px; }
-        .pulse-dot { width: 8px; height: 8px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; animation: pulseStatus 1.5s infinite; }
-        @keyframes pulseStatus { 0% { opacity: 1; } 50% { opacity: 0.3; } 100% { opacity: 1; } }
-
-        .model-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; }
-        .model-category h4 { color: var(--accent); border-left: 3px solid var(--accent); padding-left: 10px; margin-bottom: 10px; }
-        .waiting-box { background: rgba(0, 242, 255, 0.1); border: 1px dashed var(--accent); padding: 15px; text-align: center; border-radius: 8px; margin-top: 25px; font-weight: 600; color: var(--accent); }
-
-        .flash-cloud-card { background: linear-gradient(145deg, #1a0005, #0a0a0a); border: 2px solid var(--primary); padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 30px; }
-        .bypass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 15px; margin: 20px 0; }
-        .bypass-grid span { color: #00f2ff; font-weight: bold; background: rgba(0,242,255,0.05); padding: 8px; border-radius: 5px; border: 1px solid rgba(0,242,255,0.2); }
-        .cloud-removal-info { background: linear-gradient(90deg, #400, #800); border: 1px solid var(--primary); padding: 20px; border-radius: 10px; margin-top: 20px; box-shadow: 0 0 15px rgba(255,0,79,0.3); }
-        .cloud-removal-info h3 { color: #fff; margin: 0 0 10px; text-shadow: 0 0 10px #f00; font-size: 18px; }
-
-        .review-card { background: rgba(255, 255, 255, 0.05); border-radius: 12px; padding: 40px 20px; text-align: center; border: 1px dashed var(--accent); margin-bottom: 30px; }
-
-        .requirements-section { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--accent); padding: 30px; border-radius: 15px; margin-top: 50px; }
-        .req-list { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
-        .req-list li { display: flex; align-items: center; gap: 10px; font-size: 14px; }
-        .req-list li i { color: var(--accent); }
-        .req-link { color: var(--accent); text-decoration: none; font-weight: 800; border-bottom: 1px dashed var(--accent); transition: 0.3s; }
-        .req-link:hover { color: #fff; border-bottom-style: solid; }
-
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 50px; }
-        .video-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; transition: 0.3s; }
-        .video-card iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
-        .payment-methods { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; text-align: center; }
-        .pay-icons { display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 20px; }
-        .pay-item i { font-size: 30px; color: var(--accent); }
-
-        footer{ margin-top:90px; padding:60px 20px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:#888; background: #050005;}
-        @media (max-width: 600px) { .brand-name { font-size: 40px; } }
-    </style>
-</head>
-
-<body>
-
-<div class="drawer-overlay" id="drawerOverlay"></div>
-
-<div class="side-drawer" id="sideDrawer">
-    <div class="close-drawer" id="closeDrawer"><i class="fas fa-times"></i></div>
-    
-    <div class="drawer-section">
-        <h3><i class="fas fa-bell"></i> SYSTEM UPDATES</h3>
-        <div class="news-item">
-            <strong>Feb 2026:</strong> Xiaomi HyperOS 2.0 Auth Server now stable.
-        </div>
-        <div class="news-item">
-            <strong>New:</strong> Added support for Redmi K80 Series.
-        </div>
-        
-        <a href="updates.html" class="update-link">
-            <i class="fas fa-history"></i>
-            <span>View All Regular Updates</span>
-        </a>
-        
-        <a href="pricelist.html" class="update-link">
-            <i class="fas fa-tags"></i>
-            <span>Service Price List</span>
-        </a>
-    </div>
-</div>
-
-<div class="king-bar">
-    <button class="drawer-btn" id="openDrawer"><i class="fas fa-ellipsis-v"></i></button>
-    👑 YOU ARE IN THE KING PLACE 👑
-</div>
-
-<div class="top-info-bar">
-    <div class="info-pill"><i class="fas fa-user-check"></i><span><b>RIYAN MOHAMMAD SAJID AMAN</b></span></div>
-    <div class="info-pill"><i class="fas fa-location-dot"></i><span>CHITTAGONG, BANGLADESH</span></div>
-    <div class="info-pill"><i class="far fa-calendar-alt"></i><span id="currentDate"></span></div>
-    <div class="info-pill"><i class="far fa-clock"></i><span id="currentTime" class="digital-clock"></span></div>
-</div>
-
-<header>
-    <img src="profile.png" class="profile-pic" alt="RIYU THE FLASHER">
-    <div class="brand-name">RIYU THE FLASHER</div>
-    
-    <div class="btn-group">
-        <a href="https://wa.me/8801861845006" class="btn whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> Telegram</a>
-        <a href="https://facebook.com/riyutheflasher" class="btn facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="https://youtube.com/@riyutheflasher" class="btn youtube-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
-    </div>
-
-    <div class="top-cta-container">
-        <a href="pricelist.html" class="price-link-btn">
-            <i class="fas fa-file-invoice-dollar"></i> CLICK FOR SERVICE PRICE LIST
-        </a>
-    </div>
-</header>
-
-<div class="container">
-
-    <h2 class="section-title">🔓 CHINA BOOTLOADER UNLOCK SUPPORTED LIST 🔓</h2>
-    <div class="support-card">
-        <div style="text-align: center;">
-            <div class="status-badge"><div class="pulse-dot"></div> AUTH SERVER ONLINE</div>
-        </div>
-        <div class="model-list-grid">
-            <div class="model-category"><h4>XIAOMI SERIES</h4><p>13 | 13 Pro | 13 Ultra | 13 Lite | 13T<br>12 | 12 Pro | 12S | 12S Ultra | 12X</p></div>
-            <div class="model-category"><h4>REDMI K-SERIES</h4><p>K60 | K60 Pro | K60E | K60 Ultra<br>K50 | K50 Pro | K50 Ultra</p></div>
-            <div class="model-category"><h4>MIX & FOLD</h4><p>Mix Fold 4 | 3 | 2<br>Xiaomi MIX Flip (All Gen)</p></div>
-        </div>
-        <div class="waiting-box">🚀 NO DOWNGRADE REQUIRED | INSTANT BYPASS 🚀<br>⚠️ 168-355 HOURS WAITING TIME AFTER BIND</div>
-    </div>
-
-    <h2 class="section-title">🔍 XIAOMI CHINA/GLOBAL/AND FIND DEVICE CHECKER 🔍</h2>
-    <div class="support-card" style="text-align: center; border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);">
-        <h3 style="font-family: 'Space Grotesk'; color: var(--accent); margin-bottom: 15px;">OFFICIAL XIAOMI IDENTIFIER TOOL</h3>
-        <p style="font-size: 14px; color: #ccc; margin-bottom: 25px;">
-            Check your device region, Find Device status, and Warranty info via official iUnlocker channels.
-        </p>
-        <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="price-link-btn" style="background: linear-gradient(45deg, #00f2ff, #7000ff); margin-top: 0; padding: 18px 60px;" target="_blank" rel="noopener">
-            <i class="fas fa-search"></i> OPEN IMEI CHECKER
-        </a>
-        <div class="waiting-box" style="border-color: rgba(255,255,255,0.2); color: #fff; background: rgba(255,255,255,0.05);">
-            ✨ Accurate & Real-time Server Data ✨
-        </div>
-    </div>
-
-    <h2 class="section-title">⚡ CHINA FLASH & MI CLOUD PERMANENT REMOVAL ⚡</h2>
-    <div class="flash-cloud-card">
-        <p style="font-weight: 800; color: #fff; margin-bottom: 20px;">MODELS SUPPORTING FLASH IN MI CLOUD LOCK & PERMANENT BYPASS</p>
-        <div class="bypass-grid">
-            <span>✔️ Xiaomi 15/Pro/Ultra</span>
-            <span>✔️ Redmi K80 Pro</span>
-            <span>✔️ Xiaomi 13/Pro/Ultra</span>
-            <span>✔️ Redmi K60 Pro</span>
-            <span>✔️ MIX Fold 3</span>
-            <span>✔️ Xiaomi Pad 6S/8 Pro</span>
-        </div>
-        
-        <div class="cloud-removal-info">
-            <h3>🛡️ MI ACCOUNT PERMANENT REMOVAL 🛡️</h3>
-            <p style="margin: 0; font-size: 15px; color: #00f2ff; font-weight: 800; letter-spacing: 0.5px;">
-                ALL MODELS BY SERVER ALSO AVAILABLE | 10-20 SEC DONE TIME<br>
-                <span style="color: #fff; font-weight: 400;">(CLEAN/WW EXCEPT CHINA SUPPORTED BY SERVER AUTH)</span>
-            </p>
-        </div>
-    </div>
-
-    <h2 class="section-title">💬 REVIEWS & DISCUSSION</h2>
-    <div class="review-card">
-        <i class="fas fa-star" style="font-size: 40px; color: #ffcc00; margin-bottom: 15px;"></i>
-        <h3>TRUSTED BY THOUSANDS</h3>
-        <div style="max-width: 400px; margin: 15px auto;">
-            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69894830c5b7f0ff5cd41dcf" data-style-height="52px" data-style-width="100%" data-token="0b3819d6-dadf-4bd7-9538-4153040f047a">
-              <a href="https://www.trustpilot.com/review/riyutheflasher.com" target="_blank" rel="noopener">Trustpilot</a>
-            </div>
-        </div>
-    </div>
-
-    <h2 class="section-title">📺 LATEST VIDEOS</h2>
-    <div class="video-grid">
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/omrNjNYB_Is" allowfullscreen></iframe></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/dlHXRgIkBqU" allowfullscreen></iframe></div>
-    </div>
-
-    <h2 class="section-title">📝 SERVICE REQUIREMENTS 📝</h2>
-    <div class="requirements-section">
-        <ul class="req-list">
-            <li><i class="fas fa-laptop"></i> PC or Laptop (Windows 10/11)</li>
-            <li><i class="fas fa-wifi"></i> Stable Internet Connection</li>
-            <li><i class="fas fa-usb"></i> High Quality USB Cable</li>
-            <li><i class="fas fa-download"></i> <a href="https://www.ultraviewer.net/en/download.html" class="req-link" target="_blank" rel="noopener">Download UltraViewer</a> for Remote Support</li>
-        </ul>
-        <p style="text-align: center; margin-top: 25px; font-size: 12px; color: #aaa;">* Ensure you have all drivers installed before requesting auth service.</p>
-    </div>
-
-    <h2 class="section-title">💳 SECURE PAYMENT METHODS</h2>
-    <div class="payment-methods">
-        <div class="pay-icons">
-            <div class="pay-item"><i class="fab fa-bitcoin"></i><span>Binance</span></div>
-            <div class="pay-item"><i class="fas fa-university"></i><span>Bank Transfer</span></div>
-            <div class="pay-item"><i class="fas fa-wallet"></i><span>Bkash / Nagad</span></div>
-            <div class="pay-item"><i class="fas fa-money-bill-transfer"></i><span>Wise</span></div>
-        </div>
-    </div>
-
-</div>
-
-<footer>© <b>RIYU THE FLASHER</b> • THE KING PLACE<br>RIYAN MOHAMMAD SAJID AMAN | CHITTAGONG, BANGLADESH</footer>
-
-<script>
-    // Clock Script
-    function updateClock() {
-        const now = new Date();
-        document.getElementById('currentTime').innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-        document.getElementById('currentDate').innerText = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    // Drawer Logic
-    const openBtn = document.getElementById('openDrawer');
-    const closeBtn = document.getElementById('closeDrawer');
-    const sideDrawer = document.getElementById('sideDrawer');
-    const overlay = document.getElementById('drawerOverlay');
-
-    function toggleDrawer() {
-        sideDrawer.classList.toggle('active');
-        overlay.classList.toggle('active');
-    }
-
-    openBtn.addEventListener('click', toggleDrawer);
-    closeBtn.addEventListener('click', toggleDrawer);
-    overlay.addEventListener('click', toggleDrawer);
-</script>
-
-</body>
-</html>
-    <div class="brand-name">RIYU THE FLASHER</div>
-    
-    <div class="btn-group">
-        <a href="https://wa.me/8801861845006" class="btn whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-        <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> Telegram</a>
-        <a href="https://facebook.com/riyutheflasher" class="btn facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> Facebook</a>
-        <a href="https://youtube.com/@riyutheflasher" class="btn youtube-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
-    </div>
-
-    <div class="top-cta-container">
-        <a href="pricelist.html" class="price-link-btn">
-            <i class="fas fa-file-invoice-dollar"></i> CLICK FOR SERVICE PRICE LIST
-        </a>
-    </div>
-</header>
-
-<div class="container">
-
-    <h2 class="section-title">🔓 CHINA BOOTLOADER UNLOCK SUPPORTED LIST 🔓</h2>
-    <div class="support-card">
-        <div class="model-list-grid">
-            <div class="model-category"><h4>XIAOMI SERIES</h4><p>13 | 13 Pro | 13 Ultra | 13 Lite | 13T<br>12 | 12 Pro | 12S | 12S Ultra | 12X</p></div>
-            <div class="model-category"><h4>REDMI K-SERIES</h4><p>K60 | K60 Pro | K60E | K60 Ultra<br>K50 | K50 Pro | K50 Ultra</p></div>
-            <div class="model-category"><h4>MIX & FOLD</h4><p>Mix Fold 4 | 3 | 2<br>Xiaomi MIX Flip (All Gen)</p></div>
-        </div>
-        <div class="waiting-box">🚀 NO DOWNGRADE REQUIRED | INSTANT BYPASS 🚀<br>⚠️ 168-355 HOURS WAITING TIME AFTER BIND</div>
-    </div>
-
-    <h2 class="section-title">🔍 XIAOMI CHINA/GLOBAL/AND FIND DEVICE CHECKER 🔍</h2>
-    <div class="support-card" style="text-align: center; border-color: var(--accent); box-shadow: 0 0 20px rgba(0, 242, 255, 0.1);">
-        <h3 style="font-family: 'Space Grotesk'; color: var(--accent); margin-bottom: 15px;">OFFICIAL XIAOMI IDENTIFIER TOOL</h3>
-        <p style="font-size: 14px; color: #ccc; margin-bottom: 25px;">
-            Check your device region, Find Device status, and Warranty info via official channels.
-        </p>
-        <a href="imeichecker.html" class="price-link-btn" style="background: linear-gradient(45deg, #00f2ff, #7000ff); margin-top: 0; padding: 18px 60px;">
-            <i class="fas fa-search"></i> OPEN IMEI CHECKER
-        </a>
-        <div class="waiting-box" style="border-color: rgba(255,255,255,0.2); color: #fff; background: rgba(255,255,255,0.05);">
-            ✨ Accurate & Real-time Server Data ✨
-        </div>
-    </div>
-
-    <h2 class="section-title">⚡ CHINA FLASH & MI CLOUD PERMANENT REMOVAL ⚡</h2>
-    <div class="flash-cloud-card">
-        <p style="font-weight: 800; color: #fff; margin-bottom: 20px;">MODELS SUPPORTING FLASH IN MI CLOUD LOCK & PERMANENT BYPASS</p>
-        <div class="bypass-grid">
-            <span>✔️ Xiaomi 15/Pro/Ultra</span>
-            <span>✔️ Redmi K80 Pro</span>
-            <span>✔️ Xiaomi 13/Pro/Ultra</span>
-            <span>✔️ Redmi K60 Pro</span>
-            <span>✔️ MIX Fold 3</span>
-            <span>✔️ Xiaomi Pad 6S/8 Pro</span>
-        </div>
-        
-        <div class="cloud-removal-info">
-            <h3>🛡️ MI ACCOUNT PERMANENT REMOVAL 🛡️</h3>
-            <p style="margin: 0; font-size: 15px; color: #00f2ff; font-weight: 800; letter-spacing: 0.5px;">
-                ALL MODELS BY SERVER ALSO AVAILABLE | 10-20 SEC DONE TIME<br>
-                <span style="color: #fff; font-weight: 400;">(CLEAN/WW EXCEPT CHINA SUPPORTED BY SERVER AUTH)</span>
-            </p>
-        </div>
-    </div>
-
-    <h2 class="section-title">💬 REVIEWS & DISCUSSION</h2>
-    <div class="review-card">
-        <i class="fas fa-users" style="font-size: 40px; color: var(--accent); margin-bottom: 15px;"></i>
-        <h3>TRUSTED BY THOUSANDS</h3>
-        <div style="max-width: 400px; margin: 15px auto;">
-            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69894830c5b7f0ff5cd41dcf" data-style-height="52px" data-style-width="100%" data-token="0b3819d6-dadf-4bd7-9538-4153040f047a">
-              <a href="https://www.trustpilot.com/review/riyutheflasher.com" target="_blank" rel="noopener">Trustpilot</a>
-            </div>
-        </div>
-        <a href="https://t.me/riyutheflasherreviews" class="review-link-btn" target="_blank" rel="noopener"><i class="fab fa-telegram-plane"></i> JOIN TELEGRAM REVIEWS</a>
-    </div>
-
-    <h2 class="section-title">📺 LATEST VIDEOS</h2>
-    <div class="video-grid">
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/omrNjNYB_Is" allowfullscreen></iframe></div>
-        <div class="video-card"><iframe src="https://www.youtube.com/embed/dlHXRgIkBqU" allowfullscreen></iframe></div>
-    </div>
-
-    <h2 class="section-title">📝 SERVICE REQUIREMENTS 📝</h2>
-    <div class="requirements-section">
-        <ul class="req-list">
-            <li><i class="fas fa-laptop"></i> PC or Laptop (Windows 10/11)</li>
-            <li><i class="fas fa-wifi"></i> Stable Internet Connection</li>
-            <li><i class="fas fa-usb"></i> High Quality USB Cable</li>
-            <li><i class="fas fa-download"></i> <a href="https://www.ultraviewer.net/en/download.html" class="req-link" target="_blank" rel="noopener">Download UltraViewer</a> for Remote Support</li>
-        </ul>
-        <p style="text-align: center; margin-top: 25px; font-size: 12px; color: #aaa;">* Ensure you have all drivers installed before requesting auth service.</p>
-    </div>
-
-    <h2 class="section-title">💳 SECURE PAYMENT METHODS</h2>
-    <div class="payment-methods">
-        <div class="pay-icons">
-            <div class="pay-item"><i class="fab fa-bitcoin"></i><span>Binance</span></div>
-            <div class="pay-item"><i class="fas fa-university"></i><span>Bank Transfer</span></div>
-            <div class="pay-item"><i class="fas fa-wallet"></i><span>Bkash / Nagad</span></div>
-            <div class="pay-item"><i class="fas fa-money-bill-transfer"></i><span>Wise</span></div>
-        </div>
-    </div>
-
-</div>
-
-<footer>© <b>RIYU THE FLASHER</b> • THE KING PLACE<br>RIYAN MOHAMMAD SAJID AMAN | CHITTAGONG, BANGLADESH</footer>
-
-<script>
-    function updateClock() {
-        const now = new Date();
-        document.getElementById('currentTime').innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
-        document.getElementById('currentDate').innerText = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
+    if(payLink) payLink.addEventListener('click', toggleMenu);
 </script>
 
 </body>

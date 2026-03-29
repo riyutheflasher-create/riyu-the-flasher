@@ -1,132 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>REGULAR UPDATES | RIYU THE FLASHER</title>
+<div class="update-card" style="border: 1px solid #ff004f; background: #111; padding: 25px; border-radius: 12px; margin-bottom: 25px;">
     
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <div class="post-tag">PREMIUM SERVICE UPDATES 👑</div>
 
-    <style>
-        :root {
-            --primary: #ff004f;
-            --accent: #00f2ff;
-            --bg: radial-gradient(circle at top, #1a0005, #000);
-            --card: #111;
-            --border: rgba(255, 0, 79, 0.3);
-            --tg-blue: #0088cc;
-        }
+    <div class="post-header">
+        <img src="profile.png" class="admin-img">
+        <div class="admin-meta">
+            <h4>RIYAN MOHAMMAD SAJID AMAN</h4>
+            <span>POSTED: MARCH 29, 2026</span>
+        </div>
+    </div>
 
-        body {
-            margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg); color: #fff; line-height: 1.6;
-        }
+    <div class="post-body">
+        
+        <div style="margin-bottom: 25px; border-bottom: 1px dashed #333; padding-bottom: 20px;">
+            <h3 style="color: #00f2ff; margin: 0 0 10px 0; font-family: 'Space Grotesk'; font-size: 20px; text-transform: uppercase;">
+                <i class="fas fa-unlock-alt"></i> INSTANT BOOTLOADER UNLOCK
+            </h3>
+            <p style="color: #fff; font-weight: 700; margin: 5px 0; font-size: 16px;">
+                XIAOMI 17 / 17 PRO / 17 ULTRA / K90 PRO MAX / POCO F8 ULTRA ✅🆗
+            </p>
+            <span style="background: rgba(0, 242, 255, 0.1); color: #00f2ff; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 800;">
+                🚀 NO WAIT TIME - INSTANT SERVICE SUPPORTED
+            </span>
+        </div>
 
-        /* --- HEADER --- */
-        .king-bar {
-            background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f);
-            padding: 12px; text-align: center; font-size: 12px; font-weight: 900; 
-            letter-spacing: 3px; text-transform: uppercase; position: sticky; top: 0; z-index: 100;
-        }
-        .back-link { position: absolute; left: 20px; color: white; text-decoration: none; font-size: 18px; }
+        <div style="margin-bottom: 25px;">
+            <h3 style="color: #2ecc71; margin: 0 0 10px 0; font-family: 'Space Grotesk'; font-size: 20px; text-transform: uppercase;">
+                <i class="fas fa-globe"></i> CHINA TO GLOBAL CONVERSION
+            </h3>
+            <p style="color: #fff; font-weight: 700; margin: 5px 0; font-size: 16px;">
+                ALL XIAOMI & REDMI CHINA MODELS SUPPORTED ✅🆗
+            </p>
+            <span style="background: rgba(46, 204, 113, 0.1); color: #2ecc71; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 800;">
+                🌍 GOOGLE PLAY STORE & MULTI-LANGUAGE FIXED
+            </span>
+        </div>
 
-        header { padding: 60px 20px 30px; text-align: center; }
-        .title-glow {
-            font-family: 'Bebas Neue'; font-size: 55px; letter-spacing: 5px;
-            background: linear-gradient(to right, #fff, var(--primary));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
-
-        .container { max-width: 850px; margin: auto; padding: 20px; }
-
-        /* --- ADMIN POST STYLE --- */
-        .update-card {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 12px; padding: 25px; margin-bottom: 25px;
-            position: relative; overflow: hidden;
-        }
-        .update-card::before {
-            content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 4px; background: var(--primary);
-        }
-        .post-header { display: flex; align-items: center; gap: 15px; margin-bottom: 15px; }
-        .admin-img { width: 45px; height: 45px; border-radius: 50%; border: 2px solid var(--primary); }
-        .admin-meta h4 { margin: 0; color: var(--accent); font-size: 16px; }
-        .admin-meta span { font-size: 11px; color: #777; font-weight: 600; }
-
-        .post-body { font-size: 15px; color: #ddd; }
-        .post-tag { background: rgba(255, 0, 79, 0.1); color: var(--primary); padding: 4px 10px; border-radius: 4px; font-size: 10px; font-weight: 800; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
-
-        /* --- TELEGRAM DISCUSSION CARD --- */
-        .tg-discussion-card {
-            background: linear-gradient(145deg, #001a2e, #000);
-            border: 1px solid var(--tg-blue); border-radius: 20px;
-            padding: 40px 20px; text-align: center; margin-top: 50px;
-            box-shadow: 0 0 30px rgba(0, 136, 204, 0.2);
-        }
-        .tg-discussion-card i { font-size: 50px; color: var(--tg-blue); margin-bottom: 15px; }
-        .tg-discussion-card h3 { font-family: 'Space Grotesk'; font-size: 24px; margin-bottom: 10px; }
-        .tg-discussion-card p { color: #aaa; margin-bottom: 25px; }
-
-        .join-btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: var(--tg-blue); color: white; text-decoration: none;
-            padding: 15px 35px; border-radius: 50px; font-weight: 800;
-            text-transform: uppercase; transition: 0.3s;
-            border: 2px solid rgba(255,255,255,0.2);
-        }
-        .join-btn:hover { transform: scale(1.05); box-shadow: 0 0 20px var(--tg-blue); }
-
-        footer { text-align: center; padding: 60px 40px; color: #444; font-size: 12px; }
-    </style>
-</head>
-<body>
-
-<div class="king-bar">
-    <a href="index.html" class="back-link"><i class="fas fa-arrow-left"></i></a>
-    👑 RIYU OFFICIAL UPDATES 👑
-</div>
-
-<header>
-    <div class="title-glow">SERVICE FEED</div>
-    <p style="color: #aaa; font-weight: 600;">Server Status • New Models • Tool Releases</p>
-</header>
-
-<div class="container">
-
-    <div class="update-card">
-        <div class="post-tag">New Support</div>
-        <div class="post-header">
-            <img src="profile.png" class="admin-img">
-            <div class="admin-meta">
-                <h4>RIYAN MOHAMMAD SAJID AMAN</h4>
-                <span>POSTED: FEB 12, 2026</span>
+        <div style="background: #2a0005; border: 1px solid #ff004f; padding: 15px; border-radius: 8px; text-align: center; margin-top: 10px;">
+            <b style="color: #ff004f; text-transform: uppercase; font-size: 13px;">⚠️ IMPORTANT REQUIREMENT:</b>
+            <div style="color: #fff; font-size: 16px; font-weight: 800; margin-top: 5px;">
+                SECURITY PATCH MUST BE BEFORE <span style="background: #ff004f; padding: 2px 8px; border-radius: 4px;">JANUARY-2026</span> ✅🆗
             </div>
         </div>
-        <div class="post-body">
-            <b>CHINA AUTHORIZE XIAOMI ONLINE ALL MODELS✅NOTE 14 PRO PLUS,K80 ALL AVAILABLE NOW🆗</b> FLASH/CONVERT/LOST/CHINA ACC BYPASS SUPPORT ALSO✅🆗<b></b>
-    
-        </div>
-            <b>CHINA LIMITED MODELS UBL HOS 2,3 SUPPORTS NO NEED DOWNGRAADE✅🆗</b> AFTER BIND ACC 168-360 HOURS WAIT✅🆗<b></b>
-        
-        <div class="post-body">
-          <b></b>ONEPLUS CN GLOBAL AUTHORIZATION ONLINE ALL MODELS IMEI NEED✅🆗<b></b>
-        </div>
-    </div>
 
-    <div class="tg-discussion-card">
-        <i class="fab fa-telegram-plane"></i>
-        <h3>WANT TO DISCUSS?</h3>
-        <p>Join our official Telegram community to ask questions, get support, and talk with other members.</p>
-        
-        <a href="https://t.me/+h3Cfw-bQaFc2MGJl" target="_blank" class="join-btn">
-            <i class="fas fa-users"></i> JOIN DISCUSSION GROUP
-        </a>
+        <p style="margin-top: 25px; text-align: center; font-size: 11px; color: #555; letter-spacing: 2px; font-weight: 800;">
+            IM THE KING OF WORLD AND YOURE THE KING PLACE 👑
+        </p>
     </div>
-
 </div>
-
-<footer>© 2026 RIYU THE FLASHER - THE KING PLACE</footer>
-
-</body>
-</html>

@@ -1,50 +1,251 @@
-<div class="update-card" style="border: 1px solid #ff004f; background: #111; padding: 25px; border-radius: 12px; margin-bottom: 25px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PREMIUM SERVICE UPDATES | RIYU THE FLASHER</title>
     
-    <div class="post-tag">PREMIUM SERVICE UPDATES 👑</div>
+    <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <div class="post-header">
-        <img src="profile.png" class="admin-img">
-        <div class="admin-meta">
-            <h4>RIYAN MOHAMMAD SAJID AMAN</h4>
-            <span>POSTED: MARCH 29, 2026</span>
-        </div>
+    <style>
+        :root{
+            --primary:#ff004f;
+            --secondary: #ff8a00;
+            --accent: #00f2ff;
+            --glow:rgba(255,0,79,.9);
+            --bg:radial-gradient(circle at top,#1a0005,#000);
+            --card:linear-gradient(145deg,#111,#090009);
+            --text:#fff;
+            --border:rgba(255,0,79,.4);
+        }
+
+        *{box-sizing:border-box; scroll-behavior: smooth;}
+        body{
+            margin:0; font-family:'Plus Jakarta Sans',sans-serif;
+            background:var(--bg); color:var(--text); line-height: 1.6; overflow-x: hidden;
+        }
+
+        /* --- KING BAR --- */
+        .king-bar{
+            background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f);
+            background-size: 300% 300%; animation: gradientMove 3s ease infinite;
+            color: white; padding:12px; text-align:center; font-size:12px; font-weight:900; 
+            letter-spacing:3px; text-transform: uppercase; box-shadow: 0 5px 15px rgba(255,0,79,0.3);
+            position: relative;
+        }
+        @keyframes gradientMove { 0% {background-position:0% 50%} 50% {background-position:100% 50%} 100% {background-position:0% 50%} }
+
+        /* --- SIDE DRAWER --- */
+        .drawer-toggle {
+            position: absolute; left: 15px; top: 50%; transform: translateY(-50%);
+            background: none; border: none; color: white; font-size: 22px; cursor: pointer;
+        }
+
+        .side-drawer {
+            position: fixed; top: 0; left: -320px; width: 300px; height: 100%;
+            background: #080808; border-right: 1px solid var(--border);
+            z-index: 9999; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 40px 20px; box-shadow: 20px 0 50px rgba(0,0,0,0.9);
+        }
+        .side-drawer.active { left: 0; }
+
+        .drawer-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(5px);
+            z-index: 9998; display: none;
+        }
+        .drawer-overlay.active { display: block; }
+
+        .drawer-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 40px; border-bottom: 1px solid #222; padding-bottom: 15px;
+        }
+        .drawer-header h2 { font-family: 'Bebas Neue'; letter-spacing: 2px; font-size: 24px; color: var(--primary); margin: 0; }
+        .close-drawer { font-size: 20px; color: #555; cursor: pointer; transition: 0.3s; }
+        .close-drawer:hover { color: var(--primary); }
+
+        .drawer-menu { list-style: none; padding: 0; margin: 0; }
+        .drawer-menu li { margin-bottom: 15px; }
+        .drawer-link {
+            display: flex; align-items: center; gap: 15px; text-decoration: none;
+            color: #eee; font-weight: 600; font-size: 15px; padding: 12px 15px;
+            background: rgba(255,255,255,0.03); border-radius: 8px; transition: 0.3s;
+            border: 1px solid transparent;
+        }
+        .drawer-link:hover {
+            background: rgba(255,0,79,0.1); border-color: var(--primary); color: #fff;
+            transform: translateX(8px);
+        }
+        .drawer-link i { color: var(--primary); width: 20px; text-align: center; }
+
+        /* --- TOP INFO BAR --- */
+        .top-info-bar {
+            max-width: 1100px; margin: 20px auto 0; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;
+        }
+        .info-pill {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 8px 15px; border-radius: 50px; 
+            font-size: 13px; color: #fff; display: flex; align-items: center; gap: 10px; backdrop-filter: blur(5px);
+        }
+        .info-pill i { color: var(--accent); }
+        .digital-clock { font-weight: 800; color: var(--accent); text-shadow: 0 0 10px var(--accent); }
+
+        header{ padding:40px 20px 20px; text-align:center; }
+        .profile-pic{
+            width:130px; height:130px; border-radius:50%; border:4px solid transparent;
+            background: linear-gradient(#000,#000) padding-box, linear-gradient(45deg, #ff004f, #00f2ff) border-box;
+            padding:3px; box-shadow:0 0 30px var(--glow); object-fit: cover;
+        }
+
+        .brand-name{
+            margin:20px 0 10px; font-family:'Bebas Neue',sans-serif; font-size:65px; font-weight:900; letter-spacing:4px;
+            background:linear-gradient(90deg,#ff004f,#ffffff,#00f2ff,#ff004f); background-size: 200% auto;
+            -webkit-background-clip:text; -webkit-text-fill-color:transparent; animation:glowMove 3s linear infinite;
+        }
+        @keyframes glowMove{ to{background-position:200% center} }
+
+        /* CONTACT BUTTONS */
+        .btn-group{ display:flex; justify-content: center; gap:12px; flex-wrap:wrap; margin-top:20px; }
+        .btn{ padding:12px 24px; border-radius:8px; font-size:12px; font-weight:800; text-decoration:none; color:#fff; text-transform: uppercase; transition:.3s; display: inline-flex; align-items: center; gap: 8px; border:none; cursor:pointer;}
+        .whatsapp { background: linear-gradient(45deg, #128C7E, #25D366); } 
+        .telegram { background: linear-gradient(45deg, #0088cc, #24A1DE); } 
+        .facebook { background: linear-gradient(45deg, #1877f2, #3b5998); }
+
+        .container{ max-width:1100px; margin:auto; padding:20px; }
+        .section-title{
+            text-align:center; font-family:'Space Grotesk'; font-size:24px; margin: 40px 0 25px; color: #fff; 
+            text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid var(--primary); display: block;
+            background: rgba(255,0,79,0.1); padding: 10px;
+        }
+
+        .update-card {
+            border: 1px solid #ff004f; background: #000; padding: 25px; border-radius: 12px; margin-bottom: 25px; 
+            box-shadow: 0 0 20px rgba(255, 0, 79, 0.15); position: relative; overflow: hidden;
+        }
+
+        footer{ margin-top:90px; padding:60px 20px; border-top:1px solid var(--border); text-align:center; font-size:13px; color:#888; background: #050005;}
+        @media (max-width: 600px) { .brand-name { font-size: 40px; } .profile-pic { width: 100px; height: 100px; } }
+    </style>
+</head>
+
+<body>
+
+<div class="drawer-overlay" id="overlay"></div>
+<nav class="side-drawer" id="sideDrawer">
+    <div class="drawer-header">
+        <h2>RIYU NAVIGATION</h2>
+        <div class="close-drawer" id="closeDrawer"><i class="fas fa-times"></i></div>
     </div>
+    <ul class="drawer-menu">
+        <li><a href="index.html" class="drawer-link"><i class="fas fa-home"></i> BACK TO HOME</a></li>
+        <li><a href="updates.html" class="drawer-link"><i class="fas fa-rss"></i> REGULAR UPDATES</a></li>
+        <li><a href="pricelist.html" class="drawer-link"><i class="fas fa-file-invoice-dollar"></i> SERVICE PRICE LIST</a></li>
+        <li><a href="https://t.me/RIYUAUTHSERVICES" target="_blank" class="drawer-link"><i class="fab fa-telegram"></i> JOIN TELEGRAM</a></li>
+    </ul>
+</nav>
 
-    <div class="post-body">
-        
-        <div style="margin-bottom: 25px; border-bottom: 1px dashed #333; padding-bottom: 20px;">
-            <h3 style="color: #00f2ff; margin: 0 0 10px 0; font-family: 'Space Grotesk'; font-size: 20px; text-transform: uppercase;">
-                <i class="fas fa-unlock-alt"></i> INSTANT BOOTLOADER UNLOCK
-            </h3>
-            <p style="color: #fff; font-weight: 700; margin: 5px 0; font-size: 16px;">
-                XIAOMI 17 / 17 PRO / 17 ULTRA / K90 PRO MAX / POCO F8 ULTRA ✅🆗
-            </p>
-            <span style="background: rgba(0, 242, 255, 0.1); color: #00f2ff; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 800;">
-                🚀 NO WAIT TIME - INSTANT SERVICE SUPPORTED
-            </span>
+<div class="king-bar">
+    <button class="drawer-toggle" id="openDrawer"><i class="fas fa-bars"></i></button>
+    👑 IM THE KING OF WORLD AND YOURE THE KING PLACE 👑
+</div>
+
+<div class="top-info-bar">
+    <div class="info-pill"><i class="fas fa-user-check"></i><span><b>RIYAN MOHAMMAD SAJID AMAN</b></span></div>
+    <div class="info-pill"><i class="fas fa-location-dot"></i><span>CHITTAGONG, BANGLADESH</span></div>
+    <div class="info-pill"><i class="far fa-calendar-alt"></i><span id="currentDate"></span></div>
+    <div class="info-pill"><i class="far fa-clock"></i><span id="currentTime" class="digital-clock"></span></div>
+</div>
+
+<header>
+    <img src="profile.png" class="profile-pic" alt="RIYU THE FLASHER">
+    <div class="brand-name">RIYU THE FLASHER</div>
+    
+    <div class="btn-group">
+        <a href="https://wa.me/8801861845006" class="btn whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+        <a href="https://facebook.com/riyutheflasher" class="btn facebook" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+    </div>
+</header>
+
+<div class="container">
+
+    <h2 class="section-title">👑 PREMIUM SERVICE UPDATES</h2>
+
+    <div class="update-card">
+        <div style="position: absolute; top: 15px; right: -35px; background: #2ecc71; color: #fff; padding: 5px 40px; transform: rotate(45deg); font-size: 10px; font-weight: 900; letter-spacing: 1px; box-shadow: 0 0 10px rgba(46, 204, 113, 0.5); z-index: 10;">
+            100% SUCCESS
         </div>
 
-        <div style="margin-bottom: 25px;">
-            <h3 style="color: #2ecc71; margin: 0 0 10px 0; font-family: 'Space Grotesk'; font-size: 20px; text-transform: uppercase;">
-                <i class="fas fa-globe"></i> CHINA TO GLOBAL CONVERSION
-            </h3>
-            <p style="color: #fff; font-weight: 700; margin: 5px 0; font-size: 16px;">
-                ALL XIAOMI & REDMI CHINA MODELS SUPPORTED ✅🆗
-            </p>
-            <span style="background: rgba(46, 204, 113, 0.1); color: #2ecc71; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 800;">
-                🌍 GOOGLE PLAY STORE & MULTI-LANGUAGE FIXED
-            </span>
-        </div>
+        <div style="display: inline-block; background: #ff004f; color: #fff; font-weight: 900; letter-spacing: 1px; padding: 5px 12px; border-radius: 4px; font-size: 11px;">PREMIUM SERVICE UPDATES 👑</div>
 
-        <div style="background: #2a0005; border: 1px solid #ff004f; padding: 15px; border-radius: 8px; text-align: center; margin-top: 10px;">
-            <b style="color: #ff004f; text-transform: uppercase; font-size: 13px;">⚠️ IMPORTANT REQUIREMENT:</b>
-            <div style="color: #fff; font-size: 16px; font-weight: 800; margin-top: 5px;">
-                SECURITY PATCH MUST BE BEFORE <span style="background: #ff004f; padding: 2px 8px; border-radius: 4px;">JANUARY-2026</span> ✅🆗
+        <div class="post-header" style="margin-top: 15px; display: flex; align-items: center; gap: 12px;">
+            <img src="profile.png" style="width: 45px; height: 45px; border-radius: 50%; border: 2px solid #ff004f;" alt="RIYU">
+            <div class="admin-meta">
+                <h4 style="color: #00f2ff; text-transform: uppercase; margin: 0; font-size: 14px;">RIYAN MOHAMMAD SAJID AMAN</h4>
+                <span style="color: #666; font-size: 11px; font-weight: 700;">POSTED: MARCH 29, 2026</span>
             </div>
         </div>
 
-        <p style="margin-top: 25px; text-align: center; font-size: 11px; color: #555; letter-spacing: 2px; font-weight: 800;">
-            IM THE KING OF WORLD AND YOURE THE KING PLACE 👑
-        </p>
+        <div class="post-body">
+            <div style="margin-bottom: 25px; border-bottom: 1px dashed #333; padding-bottom: 20px; margin-top: 20px;">
+                <h3 style="color: #00f2ff; margin: 0 0 10px 0; font-family: 'Space Grotesk'; font-size: 20px; text-transform: uppercase;">
+                    <i class="fas fa-unlock-alt"></i> INSTANT BOOTLOADER UNLOCK
+                </h3>
+                <p style="color: #fff; font-weight: 700; margin: 5px 0; font-size: 16px;">
+                    XIAOMI 17 / 17 PRO / 17 ULTRA / K90 PRO MAX / POCO F8 ULTRA ✅🆗
+                </p>
+                <span style="background: rgba(0, 242, 255, 0.1); color: #00f2ff; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 800;">
+                    🚀 NO WAIT TIME - INSTANT SERVICE SUPPORTED
+                </span>
+            </div>
+
+            <div style="margin-bottom: 25px; border-bottom: 1px dashed #333; padding-bottom: 20px;">
+                <h3 style="color: #2ecc71; margin: 0 0 10px 0; font-family: 'Space Grotesk'; font-size: 20px; text-transform: uppercase;">
+                    <i class="fas fa-globe"></i> CHINA TO GLOBAL CONVERSION
+                </h3>
+                <p style="color: #fff; font-weight: 700; margin: 5px 0; font-size: 16px;">
+                    ALL XIAOMI & REDMI CHINA MODELS SUPPORTED ✅🆗
+                </p>
+                <span style="background: rgba(46, 204, 113, 0.1); color: #2ecc71; padding: 4px 12px; border-radius: 4px; font-size: 11px; font-weight: 800;">
+                    🌍 GOOGLE PLAY STORE & MULTI-LANGUAGE FIXED
+                </span>
+            </div>
+
+            <div style="background: #1a0005; border: 1px solid #ff004f; padding: 20px; border-radius: 8px; text-align: center; margin-top: 10px;">
+                <b style="color: #ff004f; text-transform: uppercase; font-size: 13px; letter-spacing: 1px;">⚠️ IMPORTANT REQUIREMENT:</b>
+                <div style="color: #fff; font-size: 18px; font-weight: 800; margin-top: 10px;">
+                    SECURITY PATCH MUST BE BEFORE <span style="background: #ff004f; padding: 2px 10px; border-radius: 4px; box-shadow: 0 0 10px rgba(255, 0, 79, 0.4);">JANUARY-2026</span> ✅🆗
+                </div>
+            </div>
+
+            <p style="margin-top: 30px; text-align: center; font-size: 10px; color: #444; letter-spacing: 3px; font-weight: 900; text-transform: uppercase;">
+                IM THE KING OF WORLD AND YOURE THE KING PLACE 👑
+            </p>
+        </div>
     </div>
+
 </div>
+
+<footer>© <b>RIYU THE FLASHER</b> • THE KING PLACE<br>RIYAN MOHAMMAD SAJID AMAN | CHITTAGONG, BANGLADESH</footer>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('currentTime').innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+        document.getElementById('currentDate').innerText = now.toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    }
+    setInterval(updateClock, 1000); updateClock();
+
+    const openDrawer = document.getElementById('openDrawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const sideDrawer = document.getElementById('sideDrawer');
+    const overlay = document.getElementById('overlay');
+
+    openDrawer.addEventListener('click', () => { sideDrawer.classList.add('active'); overlay.classList.add('active'); });
+    closeDrawer.addEventListener('click', () => { sideDrawer.classList.remove('active'); overlay.classList.remove('active'); });
+    overlay.addEventListener('click', () => { sideDrawer.classList.remove('active'); overlay.classList.remove('active'); });
+</script>
+
+</body>
+</html>

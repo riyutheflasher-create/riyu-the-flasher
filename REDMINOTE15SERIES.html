@@ -4,281 +4,166 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REDMI NOTE 15 SERIES CONVERT | RIYU THE FLASHER</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
-            --neon-cyan: #00f2ff;
-            --neon-pink: #ff007a;
-            --main-black: #000000;
-            --nav-bg: #111111;
+            --primary: #ff004f;
+            --secondary: #ff8a00;
+            --accent: #00f2ff;
+            --glow: rgba(255,0,79,.9);
+            --bg: radial-gradient(circle at top, #1a0005, #000);
+            --card: linear-gradient(145deg, #111, #090009);
+            --text: #fff;
+            --border: rgba(255,0,79,.4);
         }
 
+        * { box-sizing: border-box; scroll-behavior: smooth; }
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--main-black);
-            color: white;
-            margin: 0;
-            text-align: center;
-            overflow-x: hidden;
+            margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden;
         }
 
-        /* --- TOP NAVIGATION BAR --- */
-        .riyu-nav {
-            background-color: var(--nav-bg);
-            padding: 15px 10px;
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 13px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 1px solid #222;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
+        /* --- KING BAR --- */
+        .king-bar {
+            background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f);
+            background-size: 300% 300%; animation: gradientMove 3s ease infinite;
+            color: white; padding: 12px; text-align: center; font-size: 12px; font-weight: 900; 
+            letter-spacing: 3px; text-transform: uppercase; box-shadow: 0 5px 15px rgba(255,0,79,0.3);
+        }
+        @keyframes gradientMove { 0% {background-position:0% 50%} 50% {background-position:100% 50%} 100% {background-position:0% 50%} }
+
+        /* --- TOP INFO BAR --- */
+        .top-info-bar {
+            max-width: 1100px; margin: 20px auto 0; padding: 0 20px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px;
+        }
+        .info-pill {
+            background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 8px 15px; border-radius: 50px; 
+            font-size: 13px; color: #fff; display: flex; align-items: center; gap: 10px; backdrop-filter: blur(5px);
+        }
+        .info-pill i { color: var(--accent); }
+        .digital-clock { font-weight: 800; color: var(--accent); text-shadow: 0 0 10px var(--accent); }
+
+        header { padding: 40px 20px 20px; text-align: center; }
+        .brand-name {
+            margin: 20px 0 10px; font-family: 'Bebas Neue', sans-serif; font-size: 65px; font-weight: 900; letter-spacing: 4px;
+            background: linear-gradient(90deg, #ff004f, #ffffff, #00f2ff, #ff004f); background-size: 200% auto;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: glowMove 3s linear infinite;
+        }
+        @keyframes glowMove { to { background-position: 200% center } }
+
+        .container { max-width: 1100px; margin: auto; padding: 20px; }
+        .section-title {
+            text-align: center; font-family: 'Space Grotesk'; font-size: 24px; margin: 40px 0 25px; color: #fff; 
+            text-transform: uppercase; letter-spacing: 2px; border-bottom: 2px solid var(--primary); display: block;
+            background: rgba(255,0,79,0.1); padding: 10px;
         }
 
-        .riyu-nav a { color: #fff; text-decoration: none; padding: 5px 10px; transition: 0.3s; }
-        .riyu-nav a:hover { color: var(--neon-cyan); }
-
-        /* --- KING PLACE HEADER --- */
-        .king-header {
-            padding: 50px 20px;
-            background: linear-gradient(180deg, #111 0%, #000 100%);
-            border-bottom: 1px solid #1a1a1a;
+        /* --- 15 SERIES SPECIFIC FIXES --- */
+        .support-card { 
+            background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 30px; margin-bottom: 30px; position: relative; overflow: hidden;
         }
+        .support-card::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--primary), var(--accent)); }
 
-        .logo-box img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 2px solid var(--neon-cyan);
-            box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
-            margin-bottom: 25px;
+        .image-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 15px; margin-bottom: 30px;
         }
-
-        .king-status {
-            font-family: 'Space Grotesk', sans-serif;
-            color: var(--neon-cyan);
-            font-size: 18px;
-            font-weight: 800;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
+        .image-grid img {
+            width: 100%; border-radius: 10px; border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
         }
+        .image-grid img:hover { transform: scale(1.02); border-color: var(--accent); }
 
-        .user-name {
-            font-size: 26px;
-            font-weight: 800;
-            margin: 5px 0;
-            text-transform: uppercase;
-            letter-spacing: -0.5px;
+        .service-features {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; text-align: left;
         }
-
-        .location { color: #888; font-size: 15px; margin-bottom: 20px; }
-
-        .live-clock {
-            color: var(--neon-pink);
-            font-family: 'Space Grotesk', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            margin-bottom: 30px;
+        .feature-item {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,0,79,0.2); padding: 12px; border-radius: 8px;
+            font-size: 14px; font-weight: 600; text-transform: uppercase; color: #ddd; display: flex; align-items: center; gap: 12px;
         }
+        .feature-item i { color: var(--accent); }
 
-        .main-brand {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 65px;
-            color: white;
-            letter-spacing: 2px;
-            margin: 20px 0;
-            line-height: 1;
-        }
-
-        /* --- SOCIAL BUTTONS (HEADER STYLE) --- */
-        .header-socials {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin: 30px 0;
-        }
-
-        .h-social-btn {
-            padding: 10px 18px;
-            border-radius: 6px;
-            color: white;
-            text-decoration: none;
-            font-weight: 800;
-            font-size: 14px;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-
-        /* --- CONTENT BODY --- */
-        .content-container {
-            max-width: 650px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .hot-banner {
-            background: var(--neon-cyan);
-            color: black;
-            padding: 20px;
-            font-family: 'Bebas Neue', cursive;
-            font-size: 30px;
-            border-radius: 8px;
-            margin-bottom: 40px;
-            letter-spacing: 1px;
-        }
-
-        .img-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-
-        .img-grid img {
-            width: 100%;
-            border-radius: 12px;
-            border: 1px solid #222;
-        }
-
-        .info-card {
-            background: #0a0a0a;
-            border: 1px solid #1a1a1a;
-            border-left: 6px solid var(--neon-pink);
-            padding: 30px;
-            border-radius: 12px;
-            text-align: left;
-            margin-bottom: 50px;
-        }
-
-        .info-card h2 {
-            font-family: 'Bebas Neue', cursive;
-            font-size: 35px;
-            color: var(--neon-cyan);
-            margin: 0 0 20px 0;
-        }
-
-        .f-item {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            font-weight: 700;
-            font-size: 15px;
-            margin: 15px 0;
-            color: #ddd;
-            text-transform: uppercase;
-        }
-
-        .f-item::before { content: '✅'; margin-right: 15px; }
-
-        /* --- LOWER ACTION BUTTONS --- */
-        .lower-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
+        /* --- BUTTONS --- */
+        .action-group { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
         .action-btn {
-            padding: 22px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: white;
-            font-weight: 800;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 18px;
-            text-transform: uppercase;
-            transition: 0.3s;
+            display: flex; align-items: center; justify-content: center; gap: 15px; padding: 20px;
+            border-radius: 10px; text-decoration: none; color: white; font-weight: 800; font-size: 18px;
+            text-transform: uppercase; transition: 0.3s; font-family: 'Space Grotesk';
         }
+        .whatsapp { background: linear-gradient(45deg, #128C7E, #25D366); } 
+        .telegram { background: linear-gradient(45deg, #0088cc, #24A1DE); } 
+        .facebook { background: linear-gradient(45deg, #1877f2, #3b5998); } 
+        .action-btn:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.4); filter: brightness(1.1); }
 
-        .action-btn:hover { transform: scale(1.02); filter: brightness(1.2); }
-
-        .btn-whatsapp { background: #25D366; }
-        .btn-telegram { background: #0088cc; }
-        .btn-facebook { background: #1877F2; }
-
-        .footer {
-            padding: 80px 20px;
-            color: #444;
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 12px;
-            text-transform: uppercase;
-            border-top: 1px solid #111;
-        }
+        footer { margin-top: 60px; padding: 40px 20px; border-top: 1px solid var(--border); text-align: center; font-size: 13px; color: #888; background: #050005; }
     </style>
 </head>
+
 <body>
 
-    <nav class="riyu-nav">
-        <a href="index.html">HOME</a>
-        <a href="#">SERVICE PRICE</a>
-        <a href="#">PAYMENT METHODS</a>
-        <a href="#">JOIN TELEGRAM</a>
-    </nav>
+<div class="king-bar">
+    👑 YOU ARE IN THE KING PLACE 👑
+</div>
 
-    <header class="king-header">
-        <div class="logo-box">
-            <img src="profile.png" alt="Riyu The Flasher">
-        </div>
-        <div class="king-status">👑 YOU ARE IN THE KING PLACE 👑</div>
-        <div class="user-name">RIYAN MOHAMMAD SAJID AMAN</div>
-        <div class="location">CHITTAGONG, BANGLADESH</div>
-        <div class="live-clock" id="clock">Loading...</div>
-        
-        <div class="main-brand">RIYU THE FLASHER</div>
+<div class="top-info-bar">
+    <div class="info-pill"><i class="fas fa-user-check"></i><span><b>RIYAN MOHAMMAD SAJID AMAN</b></span></div>
+    <div class="info-pill"><i class="fas fa-location-dot"></i><span>CHITTAGONG, BANGLADESH</span></div>
+    <div class="info-pill"><i class="far fa-clock"></i><span id="currentTime" class="digital-clock"></span></div>
+</div>
 
-        <div class="header-socials">
-            <a href="https://wa.me/8801831828135" class="h-social-btn" style="background:#25D366">WhatsApp</a>
-            <a href="https://t.me/riyutheflasher" class="h-social-btn" style="background:#0088cc">Telegram</a>
-            <a href="https://facebook.com/theriyutheflasher" class="h-social-btn" style="background:#1877F2">Facebook</a>
-            <a href="#" class="h-social-btn" style="background:#FF0000">YouTube</a>
-        </div>
-    </header>
+<header>
+    <div class="brand-name">RIYU THE FLASHER</div>
+    <h2 class="section-title">🚀 REDMI NOTE 15 SERIES CHINA TO GLOBAL <span style="background: #ff0000; padding: 2px 8px; border-radius: 4px; font-size: 12px;">HOT</span></h2>
+</header>
 
-    <div class="content-container">
-        <div class="hot-banner">
-            🚀 REDMI NOTE 15 SERIES CHINA TO GLOBAL ROM
-        </div>
-
-        <div class="img-grid">
-            <img src="15pr2.jpg">
-            <img src="15pr1.jpg">
-        </div>
-
-        <div class="info-card">
-            <h2>EXCLUSIVE FLASH SERVICE</h2>
-            <div class="f-item">AUTO CALL RECORDING ENABLED</div>
-            <div class="f-item">ZERO NOTIFICATION ISSUES</div>
-            <div class="f-item">OFFICIAL HYPEROS GLOBAL STABLE</div>
-            <div class="f-item">GOOGLE PLAY STORE CERTIFIED</div>
-            <div class="f-item">FULL OTA UPDATES SUPPORTED</div>
-        </div>
-
-        <div class="lower-actions">
-            <a href="https://wa.me/8801831828135" class="action-btn btn-whatsapp">CONTACT ON WHATSAPP</a>
-            <a href="https://t.me/riyutheflasher" class="action-btn btn-telegram">JOIN TELEGRAM CHANNEL</a>
-            <a href="https://facebook.com/groups/theriyutheflasher" class="action-btn btn-facebook">JOIN FACEBOOK GROUP</a>
-        </div>
-        
-        <br><br>
-        <a href="index.html" style="color:#555; text-decoration:none; font-family:'Space Grotesk'; font-weight:700; font-size:14px;">← BACK TO MAIN DASHBOARD</a>
+<div class="container">
+    
+    <div class="image-grid">
+        <img src="15pr2.jpg" alt="15 Pro Plus 1">
+        <img src="15pr1.jpg" alt="15 Pro Plus 2">
     </div>
 
-    <footer class="footer">
-        © RIYU THE FLASHER • THE KING PLACE<br>
-        RIYAN MOHAMMAD SAJID AMAN | CHITTAGONG, BANGLADESH
-    </footer>
+    <div class="support-card">
+        <h3 style="font-family: 'Bebas Neue'; font-size: 32px; color: var(--accent); margin-top: 0;">EXCLUSIVE CONVERSION SERVICE</h3>
+        <div class="service-features">
+            <div class="feature-item"><i class="fas fa-check-circle"></i> AUTO CALL RECORDING</div>
+            <div class="feature-item"><i class="fas fa-check-circle"></i> ZERO NOTIFICATION DELAY</div>
+            <div class="feature-item"><i class="fas fa-check-circle"></i> OFFICIAL HYPEROS GLOBAL</div>
+            <div class="feature-item"><i class="fas fa-check-circle"></i> GOOGLE PLAY STORE CERTIFIED</div>
+            <div class="feature-item"><i class="fas fa-check-circle"></i> FULL OTA UPDATES SUPPORT</div>
+        </div>
+    </div>
 
-    <script>
-        function updateClock() {
-            const now = new Date();
-            const options = { 
-                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
-                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
-            };
-            document.getElementById('clock').innerText = now.toLocaleString('en-US', options);
-        }
-        setInterval(updateClock, 1000);
-        updateClock();
-    </script>
+    <div class="action-group">
+        <a href="https://wa.me/8801861845006" class="action-btn whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i> MESSAGE ON WHATSAPP
+        </a>
+        <a href="https://t.me/RIYUAUTHSERVICES" class="action-btn telegram" target="_blank">
+            <i class="fab fa-telegram"></i> JOIN TELEGRAM CHANNEL
+        </a>
+        <a href="https://facebook.com/groups/riyutheflasher" class="action-btn facebook" target="_blank">
+            <i class="fab fa-facebook"></i> JOIN FACEBOOK GROUP
+        </a>
+    </div>
+
+    <p style="text-align: center; margin-top: 40px;">
+        <a href="index.html" style="color: #555; text-decoration: none; font-weight: bold; font-size: 13px; text-transform: uppercase;">
+            <i class="fas fa-arrow-left"></i> Back to Main Terminal
+        </a>
+    </p>
+
+</div>
+
+<footer>© <b>RIYU THE FLASHER</b> • THE KING PLACE<br>CHITTAGONG, BANGLADESH</footer>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('currentTime').innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
 
 </body>
 </html>

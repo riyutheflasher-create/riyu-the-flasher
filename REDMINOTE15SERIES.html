@@ -4,205 +4,262 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>REDMI NOTE 15 SERIES CONVERT | RIYU THE FLASHER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <style>
         :root {
             --neon-cyan: #00f2ff;
             --neon-pink: #ff007a;
-            --dark-bg: #000000;
+            --main-black: #000000;
+            --nav-bg: #111111;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, sans-serif;
-            background-color: var(--dark-bg);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--main-black);
             color: white;
             margin: 0;
             text-align: center;
+            overflow-x: hidden;
         }
 
-        /* MAIN PAGE HEADER STYLE */
-        .main-header {
-            padding: 40px 20px;
-            background: linear-gradient(180deg, #111 0%, #000 100%);
+        /* --- TOP NAVIGATION BAR --- */
+        .riyu-nav {
+            background-color: var(--nav-bg);
+            padding: 15px 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             border-bottom: 1px solid #222;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        /* LOGO STYLING */
-        .logo-img {
-            width: 120px;
-            height: 120px;
+        .riyu-nav a { color: #fff; text-decoration: none; padding: 5px 10px; transition: 0.3s; }
+        .riyu-nav a:hover { color: var(--neon-cyan); }
+
+        /* --- KING PLACE HEADER --- */
+        .king-header {
+            padding: 50px 20px;
+            background: linear-gradient(180deg, #111 0%, #000 100%);
+            border-bottom: 1px solid #1a1a1a;
+        }
+
+        .logo-box img {
+            width: 130px;
+            height: 130px;
             border-radius: 50%;
-            border: 3px solid var(--neon-cyan);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
-            margin-bottom: 15px;
-            object-fit: cover;
+            border: 2px solid var(--neon-cyan);
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
+            margin-bottom: 25px;
         }
 
-        .king-title {
+        .king-status {
+            font-family: 'Space Grotesk', sans-serif;
             color: var(--neon-cyan);
-            font-size: 20px;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin: 5px 0;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
         }
 
         .user-name {
-            font-size: 18px;
-            color: #fff;
+            font-size: 26px;
+            font-weight: 800;
             margin: 5px 0;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
         }
 
-        .location {
-            font-size: 14px;
-            color: #888;
-            margin-bottom: 15px;
-        }
+        .location { color: #888; font-size: 15px; margin-bottom: 20px; }
 
-        .live-time {
+        .live-clock {
             color: var(--neon-pink);
-            font-weight: bold;
-            margin-bottom: 20px;
-            font-family: monospace;
-        }
-
-        .brand-name {
-            font-size: 35px;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: -1px;
-            margin: 20px 0;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
-        }
-
-        /* SOCIAL BUTTONS */
-        .social-container {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
             margin-bottom: 30px;
         }
 
-        .social-btn {
-            padding: 8px 15px;
-            border-radius: 5px;
-            text-decoration: none;
+        .main-brand {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 65px;
             color: white;
-            font-weight: bold;
-            font-size: 13px;
-            transition: 0.3s;
+            letter-spacing: 2px;
+            margin: 20px 0;
+            line-height: 1;
         }
 
-        .social-btn:hover { opacity: 0.8; transform: translateY(-2px); }
+        /* --- SOCIAL BUTTONS (HEADER STYLE) --- */
+        .header-socials {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px 0;
+        }
 
-        .wa { background: #25D366; }
-        .tg { background: #0088cc; }
-        .fb { background: #1877F2; }
-        .yt { background: #FF0000; }
+        .h-social-btn {
+            padding: 10px 18px;
+            border-radius: 6px;
+            color: white;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
 
-        /* CONTENT SECTION */
-        .content-body {
-            max-width: 600px;
+        /* --- CONTENT BODY --- */
+        .content-container {
+            max-width: 650px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
-        .promo-banner {
+        .hot-banner {
             background: var(--neon-cyan);
             color: black;
-            padding: 15px;
-            font-weight: 900;
-            font-size: 18px;
-            margin-bottom: 25px;
-            border-radius: 5px;
+            padding: 20px;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+            letter-spacing: 1px;
+        }
+
+        .img-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .img-grid img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid #222;
+        }
+
+        .info-card {
+            background: #0a0a0a;
+            border: 1px solid #1a1a1a;
+            border-left: 6px solid var(--neon-pink);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: left;
+            margin-bottom: 50px;
+        }
+
+        .info-card h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 35px;
+            color: var(--neon-cyan);
+            margin: 0 0 20px 0;
+        }
+
+        .f-item {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            margin: 15px 0;
+            color: #ddd;
             text-transform: uppercase;
         }
 
-        .media-section { margin-bottom: 30px; }
-        .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
-        .image-grid img { width: 100%; border-radius: 10px; border: 1px solid #333; }
-        .video-box { width: 100%; border-radius: 10px; border: 1px solid #333; overflow: hidden; background: #000; }
+        .f-item::before { content: '✅'; margin-right: 15px; }
 
-        .service-card {
-            background: #111;
-            border-left: 4px solid var(--neon-pink);
-            padding: 25px;
-            border-radius: 10px;
-            text-align: left;
+        /* --- LOWER ACTION BUTTONS --- */
+        .lower-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
         }
 
-        .feature-item { margin: 10px 0; color: #ccc; font-size: 15px; }
-        .feature-item::before { content: '✔️'; margin-right: 12px; color: var(--neon-cyan); }
-
-        .main-btn {
-            display: block;
-            background: #fff;
-            color: #000;
+        .action-btn {
+            padding: 22px;
+            border-radius: 12px;
             text-decoration: none;
-            padding: 18px;
-            border-radius: 8px;
-            font-weight: 900;
+            color: white;
+            font-weight: 800;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 18px;
-            margin-top: 25px;
             text-transform: uppercase;
             transition: 0.3s;
         }
 
-        .main-btn:hover { background: var(--neon-cyan); }
+        .action-btn:hover { transform: scale(1.02); filter: brightness(1.2); }
+
+        .btn-whatsapp { background: #25D366; }
+        .btn-telegram { background: #0088cc; }
+        .btn-facebook { background: #1877F2; }
 
         .footer {
-            padding: 40px;
+            padding: 80px 20px;
             color: #444;
+            font-family: 'Space Grotesk', sans-serif;
             font-size: 12px;
+            text-transform: uppercase;
             border-top: 1px solid #111;
-            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <img src="profile.png" alt="Riyu The Flasher Logo" class="logo-img">
-        
-        <div class="king-title">👑 YOU ARE IN THE KING PLACE 👑</div>
+    <nav class="riyu-nav">
+        <a href="index.html">HOME</a>
+        <a href="#">SERVICE PRICE</a>
+        <a href="#">PAYMENT METHODS</a>
+        <a href="#">JOIN TELEGRAM</a>
+    </nav>
+
+    <header class="king-header">
+        <div class="logo-box">
+            <img src="profile.png" alt="Riyu The Flasher">
+        </div>
+        <div class="king-status">👑 YOU ARE IN THE KING PLACE 👑</div>
         <div class="user-name">RIYAN MOHAMMAD SAJID AMAN</div>
         <div class="location">CHITTAGONG, BANGLADESH</div>
+        <div class="live-clock" id="clock">Loading...</div>
         
-        <div class="live-time" id="clock">Loading...</div>
+        <div class="main-brand">RIYU THE FLASHER</div>
 
-        <div class="brand-name">RIYU THE FLASHER</div>
-
-        <div class="social-container">
-            <a href="https://wa.me/YOUR_NUMBER" class="social-btn wa">WhatsApp</a>
-            <a href="#" class="social-btn tg">Telegram</a>
-            <a href="https://facebook.com/theriyutheflasher" class="social-btn fb">Facebook</a>
-            <a href="#" class="social-btn yt">YouTube</a>
+        <div class="header-socials">
+            <a href="https://wa.me/8801831828135" class="h-social-btn" style="background:#25D366">WhatsApp</a>
+            <a href="https://t.me/riyutheflasher" class="h-social-btn" style="background:#0088cc">Telegram</a>
+            <a href="https://facebook.com/theriyutheflasher" class="h-social-btn" style="background:#1877F2">Facebook</a>
+            <a href="#" class="h-social-btn" style="background:#FF0000">YouTube</a>
         </div>
     </header>
 
-    <div class="content-body">
-        <div class="promo-banner">
-            🚀 REDMI NOTE 15 SERIES CHINA TO GLOBAL ROM CONVERT
+    <div class="content-container">
+        <div class="hot-banner">
+            🚀 REDMI NOTE 15 SERIES CHINA TO GLOBAL ROM
         </div>
 
-        <div class="media-section">
-            <div class="image-grid">
-                <img src="15pr2.jpg">
-                <img src="15pr1.jpg">
-            </div>
+        <div class="img-grid">
+            <img src="15pr2.jpg">
+            <img src="15pr1.jpg">
         </div>
 
-        <div class="service-card">
-            <h2 style="color:var(--neon-cyan); margin-top:0; font-size: 20px;">REDMI NOTE 15 PRO PLUS CHINA TO GLOBAL</h2>
-            <div class="feature-item">AUTO CALL RECORDING</div>
-            <div class="feature-item">NO NOTIFICATION ISSUES</div>
-            <div class="feature-item">HYPEROS GLOBAL STABLE</div>
-            <div class="feature-item">PLAY STORE CERTIFIED (L1)</div>
-            <div class="feature-item">FULL OTA UPDATES SUPPORT</div>
+        <div class="info-card">
+            <h2>EXCLUSIVE FLASH SERVICE</h2>
+            <div class="f-item">AUTO CALL RECORDING ENABLED</div>
+            <div class="f-item">ZERO NOTIFICATION ISSUES</div>
+            <div class="f-item">OFFICIAL HYPEROS GLOBAL STABLE</div>
+            <div class="f-item">GOOGLE PLAY STORE CERTIFIED</div>
+            <div class="f-item">FULL OTA UPDATES SUPPORTED</div>
         </div>
 
-        <a href="https://wa.me/YOUR_NUMBER" class="main-btn">START CONVERSION NOW</a>
+        <div class="lower-actions">
+            <a href="https://wa.me/8801831828135" class="action-btn btn-whatsapp">CONTACT ON WHATSAPP</a>
+            <a href="https://t.me/riyutheflasher" class="action-btn btn-telegram">JOIN TELEGRAM CHANNEL</a>
+            <a href="https://facebook.com/groups/theriyutheflasher" class="action-btn btn-facebook">JOIN FACEBOOK GROUP</a>
+        </div>
         
-        <br>
-        <a href="index.html" style="color: #666; text-decoration: none; font-size: 14px;">← BACK TO HOME</a>
+        <br><br>
+        <a href="index.html" style="color:#555; text-decoration:none; font-family:'Space Grotesk'; font-weight:700; font-size:14px;">← BACK TO MAIN DASHBOARD</a>
     </div>
 
     <footer class="footer">
@@ -214,14 +271,8 @@
         function updateClock() {
             const now = new Date();
             const options = { 
-                weekday: 'long', 
-                year: 'numeric', 
-                month: 'long', 
-                day: 'numeric',
-                hour: '2-digit', 
-                minute: '2-digit', 
-                second: '2-digit',
-                hour12: true 
+                weekday: 'long', year: 'numeric', month: 'long', day: 'numeric',
+                hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true 
             };
             document.getElementById('clock').innerText = now.toLocaleString('en-US', options);
         }

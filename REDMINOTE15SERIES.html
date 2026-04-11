@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XIAOMI 15 SERIES CONVERT | RIYU THE FLASHER</title>
+    <style>
+        :root {
+            --neon-cyan: #00f2ff;
+            --neon-pink: #ff007a;
+            --dark-bg: #000000;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--dark-bg);
+            color: white;
+            margin: 0;
+            text-align: center;
+        }
+
+        /* MAIN PAGE HEADER STYLE */
+        .main-header {
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #111 0%, #000 100%);
+            border-bottom: 1px solid #222;
+        }
+
+        /* LOGO STYLING */
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--neon-cyan);
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+            margin-bottom: 15px;
+            object-fit: cover;
+        }
+
+        .king-title {
+            color: var(--neon-cyan);
+            font-size: 20px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin: 5px 0;
+        }
+
+        .user-name {
+            font-size: 18px;
+            color: #fff;
+            margin: 5px 0;
+        }
+
+        .location {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 15px;
+        }
+
+        .live-time {
+            color: var(--neon-pink);
+            font-weight: bold;
+            margin-bottom: 20px;
+            font-family: monospace;
+        }
+
+        .brand-name {
+            font-size: 35px;
+            font-weight: 900;
+            color: #fff;
+            letter-spacing: -1px;
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        }
+
+        /* SOCIAL BUTTONS */
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 13px;
+            transition: 0.3s;
+        }
+
+        .social-btn:hover { opacity: 0.8; transform: translateY(-2px); }
+
+        .wa { background: #25D366; }
+        .tg { background: #0088cc; }
+        .fb { background: #1877F2; }
+        .yt { background: #FF0000; }
+
+        /* CONTENT SECTION */
+        .content-body {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .promo-banner {
+            background: var(--neon-cyan);
+            color: black;
+            padding: 15px;
+            font-weight: 900;
+            font-size: 18px;
+            margin-bottom: 25px;
+            border-radius: 5px;
+            text-transform: uppercase;
+        }
+
+        .media-section { margin-bottom: 30px; }
+        .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+        .image-grid img { width: 100%; border-radius: 10px; border: 1px solid #333; }
+        .video-box { width: 100%; border-radius: 10px; border: 1px solid #333; overflow: hidden; background: #000; }
+
+        .service-card {
+            background: #111;
+            border-left: 4px solid var(--neon-pink);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: left;
+        }
+
+        .feature-item { margin: 10px 0; color: #ccc; font-size: 15px; }
+        .feature-item::before { content: '✔️'; margin-right: 12px; color: var(--neon-cyan); }
+
+        .main-btn {
+            display: block;
+            background: #fff;
+            color: #000;
+            text-decoration: none;
+            padding: 18px;
+            border-radius: 8px;
+            font-weight: 900;
+            font-size: 18px;
+            margin-top: 25px;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .main-btn:hover { background: var(--neon-cyan); }
+
+        .footer {
+            padding: 40px;
+            color: #444;
+            font-size: 12px;
+            border-top: 1px solid #111;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <img src="profile.png" alt="Riyu The Flasher Logo" class="logo-img">
+        
+        <div class="king-title">👑 YOU ARE IN THE KING PLACE 👑</div>
+        <div class="user-name">RIYAN MOHAMMAD SAJID AMAN</div>
+        <div class="location">CHITTAGONG, BANGLADESH</div>
+        
+        <div class="live-time" id="clock">Loading...</div>
+
+        <div class="brand-name">RIYU THE FLASHER</div>
+
+        <div class="social-container">
+            <a href="https://wa.me/YOUR_NUMBER" class="social-btn wa">WhatsApp</a>
+            <a href="#" class="social-btn tg">Telegram</a>
+            <a href="https://facebook.com/theriyutheflasher" class="social-btn fb">Facebook</a>
+            <a href="#" class="social-btn yt">YouTube</a>
+        </div>
+    </header>
+
+    <div class="content-body">
+        <div class="promo-banner">
+            🚀 XIAOMI 15 SERIES CONVERT
+        </div>
+
+        <div class="media-section">
+            <div class="image-grid">
+                <img src="15pr2.jpg">
+                <img src="15pr1.jpg">
+            </div>
+            <div class="video-box">
+                <video width="100%" controls poster="15pr1.jpg">
+                    <source src="15pr.mov">
+                </video>
+            </div>
+        </div>
+
+        <div class="service-card">
+            <h2 style="color:var(--neon-cyan); margin-top:0; font-size: 20px;">REDMI NOTE 15 PRO PLUS CHINA TO GLOBAL</h2>
+            <div class="feature-item">AUTO CALL RECORDING</div>
+            <div class="feature-item">NO NOTIFICATION ISSUES</div>
+            <div class="feature-item">HYPEROS GLOBAL STABLE</div>
+            <div class="feature-item">PLAY STORE CERTIFIED (L1)</div>
+            <div class="feature-item">FULL OTA UPDATES SUPPORT</div>
+        </div>
+
+        <a href="https://wa.me/YOUR_NUMBER" class="main-btn">START CONVERSION NOW</a>
+        
+        <br>
+        <a href="index.html" style="color: #666; text-decoration: none; font-size: 14px;">← BACK TO HOME</a>
+    </div>
+
+    <footer class="footer">
+        © RIYU THE FLASHER • THE KING PLACE<br>
+        RIYAN MOHAMMAD SAJID AMAN | CHITTAGONG, BANGLADESH
+    </footer>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit',
+                hour12: true 
+            };
+            document.getElementById('clock').innerText = now.toLocaleString('en-US', options);
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+
+</body>
+</html>

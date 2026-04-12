@@ -18,39 +18,29 @@
             --bg: radial-gradient(circle at top, #1a0005, #000);
             --card: linear-gradient(145deg, #111, #090009);
             --text: #fff;
-            --border: rgba(255, 0, 79, .3); /* Tighter border opacity */
+            --border: rgba(255, 0, 79, .3); 
         }
 
         /* --- High-Energy Synced Animations --- */
-        
-        /* 1. Primary Fire Glow (Shifts deep red to intense orange) */
         @keyframes fireGlow {
             0% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000, inset 0 0 5px #440000; }
             50% { border-color: #ff4d00; box-shadow: 0 0 15px #ff0000, inset 0 0 10px #ff4d00; }
             100% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000, inset 0 0 5px #440000; }
         }
-
-        /* 2. Accent Fire Glow (Intensity shifts from light cyan to vivid blue) */
         @keyframes accentFireGlow {
             0% { border-color: #a0f2ff; box-shadow: 0 0 5px #a0f2ff, inset 0 0 5px #003344; }
             50% { border-color: #00f2ff; box-shadow: 0 0 15px #00f2ff, inset 0 0 10px #a0f2ff; }
             100% { border-color: #a0f2ff; box-shadow: 0 0 5px #a0f2ff, inset 0 0 5px #003344; }
         }
-
-        /* 3. Rapid Torch-Like Gradient Move (For the King Bar) */
         @keyframes torchGradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
-
-        /* 4. Fire Shimmer Text (For the Name) */
         @keyframes fireShimmer {
             0%, 100% { background-position: 200% center; }
             50% { background-position: -200% center; }
         }
-
-        /* 5. Beacon Pulse (Flickering Beacon effect) */
         @keyframes beaconPulse {
             0% { opacity: 1; transform: scale(1); }
             50% { opacity: 0.6; transform: scale(1.02); }
@@ -64,10 +54,9 @@
             letter-spacing: -0.01em;
         }
 
-        /* --- KING BAR (Animated Fire) --- */
         .king-bar {
             background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f);
-            background-size: 400% 400%; /* Rapid movement */
+            background-size: 400% 400%;
             animation: torchGradient 2s linear infinite;
             color: white; padding: 10px; text-align: center; font-size: 11px; font-weight: 900; 
             letter-spacing: 3px; position: relative;
@@ -83,22 +72,17 @@
         .drawer-link:hover { background: rgba(255, 0, 79, 0.1); border-color: var(--primary); transform: translateX(5px); }
 
         .top-info-bar { max-width: 1000px; margin: 10px auto 0; padding: 0 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-        
-        /* info pills use accent fire glow for the clock */
         .info-pill { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 5px 12px; border-radius: 50px; font-size: 11px; color: #fff; display: flex; align-items: center; gap: 6px; transition: 0.3s; }
         .info-pill i { color: var(--primary); }
         .clock-pill { animation: accentFireGlow 2.5s infinite alternate; }
 
         header { padding: 30px 10px 15px; text-align: center; }
-        
-        /* Logo pulsing glow */
         .profile-pic {
             width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary);
             padding: 3px; box-shadow: 0 0 20px var(--glow); object-fit: cover;
             animation: beaconPulse 3s infinite alternate;
         }
 
-        /* Fire text shimmer on name */
         .brand-name {
             margin: 15px 0 5px; font-family: 'Bebas Neue', sans-serif; font-size: 55px; letter-spacing: 3px;
             background: linear-gradient(90deg, #fff, #ffcc00, #ff004f, #fff);
@@ -110,32 +94,42 @@
         .btn { padding: 10px 18px; border-radius: 6px; font-size: 12px; font-weight: 800; text-decoration: none; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; }
         .whatsapp { background: #25D366; } .telegram { background: #24A1DE; } .facebook { background: #1877f2; } .youtube-btn { background: #ff0000; }
 
-        .price-link-btn { background: linear-gradient(45deg, #ff004f, #ff8a00); color: white; padding: 16px 40px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 14px; display: inline-flex; align-items: center; gap: 8px; margin-top: 20px; border: 1px solid rgba(255, 255, 255, 0.3); }
+        /* REDUCED PRICE LIST BUTTON */
+        .price-link-btn { 
+            background: linear-gradient(45deg, #ff004f, #ff8a00); color: white; 
+            padding: 10px 25px; border-radius: 50px; text-decoration: none; 
+            font-weight: 800; font-size: 12px; display: inline-flex; 
+            align-items: center; gap: 6px; margin-top: 20px; border: 1px solid rgba(255, 255, 255, 0.3); 
+        }
+
+        /* XIAOMI TAG STYLE */
+        .xiaomi-tag {
+            background: #ff4d00; color: #fff; padding: 2px 8px; border-radius: 4px; 
+            font-size: 14px; font-weight: 900; margin-right: 8px; vertical-align: middle;
+            box-shadow: 0 0 10px rgba(255, 77, 0, 0.5);
+        }
 
         .container { max-width: 1100px; margin: auto; padding: 15px; }
         .section-title { text-align: center; font-family: 'Space Grotesk'; font-size: 22px; margin: 30px 0 20px; color: #fff; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--primary); background: rgba(255, 0, 79, 0.1); padding: 10px; }
 
         .support-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 25px; margin-bottom: 25px; position: relative; }
-        
-        /* Grid cards: Unified fire style */
         .model-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 15px; }
         .model-category {
             background: rgba(10, 0, 0, 0.8);
-            border: 1px solid #ff0000; /* SLEEKER BORDER */
+            border: 1px solid #ff0000;
             padding: 20px; border-radius: 12px;
-            animation: fireGlow 2s infinite ease-in-out; /* INCLUDED ANIMATION */
+            animation: fireGlow 2s infinite ease-in-out; 
             display: flex; flex-direction: column; justify-content: space-between; min-height: 140px;
         }
         .model-category h4 { color: #ff0000; font-family: 'Space Grotesk'; text-transform: uppercase; margin: 0 0 15px 0; border-bottom: 1px solid rgba(255, 0, 0, 0.2); padding-bottom: 8px; font-size: 14px; font-weight: 800; }
         .model-category p { font-size: 11px; margin: 0; line-height: 1.4; color: #ccc; }
 
-        .conv-link, .other-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255, 0, 0, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); padding: 12px; border-radius: 8px; color: #fff; text-decoration: none; font-weight: 800; font-size: 12px; text-transform: uppercase; font-family: 'Plus Jakarta Sans'; }
+        .conv-link, .other-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255, 0, 0, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); padding: 12px; border-radius: 8px; color: #fff; text-decoration: none; font-weight: 800; font-size: 12px; text-transform: uppercase; }
         .conv-link:hover, .other-btn:hover { background: #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); }
         .other-flex { display: flex; gap: 8px; }
 
         .waiting-box { background: rgba(0, 242, 255, 0.05); border: 1px dashed var(--accent); padding: 15px; text-align: center; border-radius: 8px; margin-top: 20px; font-weight: 600; color: var(--accent); font-size: 13px; animation: accentFireGlow 3s infinite alternate; }
 
-        /* Mi Removal fire card */
         .flash-cloud-card { background: var(--card); border: 2px solid var(--primary); padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 25px; animation: fireGlow 4s infinite alternate; }
         .bypass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 20px 0; }
         .bypass-grid span { color: #00f2ff; font-weight: bold; background: rgba(0, 242, 255, 0.05); padding: 8px; border-radius: 6px; font-size: 11px; border: 1px solid rgba(0, 242, 255, 0.1); }
@@ -168,7 +162,6 @@
         <h2 style="font-family:'Bebas Neue'; color:var(--primary); margin:0; letter-spacing:1px;">RIYU NAVIGATION</h2>
         <i class="fas fa-times" id="closeDrawer" style="cursor:pointer; font-size:18px;"></i>
     </div>
-    <a href="unbrick_oneplus_ 15.html" class="drawer-link"><i class="fas fa-tools"></i> UNBRICK ONEPLUS 15</a>
     <a href="updates.html" class="drawer-link"><i class="fas fa-rss"></i> REGULAR UPDATES</a>
     <a href="pricelist.html" class="drawer-link"><i class="fas fa-file-invoice-dollar"></i> PRICE LIST</a>
     <a href="https://t.me/RIYUAUTHSERVICES" class="drawer-link"><i class="fab fa-telegram"></i> TELEGRAM CHANNEL</a>
@@ -195,11 +188,11 @@
         <a href="https://facebook.com/riyutheflasher" class="btn facebook" target="_blank"><i class="fab fa-facebook"></i> FACEBOOK</a>
         <a href="https://youtube.com/@riyutheflasher" class="btn youtube-btn" target="_blank"><i class="fab fa-youtube"></i> YOUTUBE</a>
     </div>
-    <a href="pricelist.html" class="price-link-btn"><i class="fas fa-file-invoice-dollar"></i> CLICK FOR SERVICE PRICE LIST</a>
+    <a href="pricelist.html" class="price-link-btn"><i class="fas fa-file-invoice-dollar"></i> SERVICE PRICE LIST</a>
 </header>
 
 <div class="container">
-    <h2 class="section-title">🚀 XIAOMI CHINA TO GLOBAL <span class="hot-sticker">HOT</span></h2>
+    <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA TO GLOBAL <span class="hot-sticker">HOT</span></h2>
     <div class="model-list-grid">
         <div class="model-category"><h4>XIAOMI 15</h4><a href="15convert.html" class="conv-link"><i class="fas fa-microchip"></i> 15 CONVERT</a></div>
         <div class="model-category"><h4>XIAOMI 13 SERIES</h4><a href="13seriesconvert.html" class="conv-link"><i class="fas fa-download"></i> 13 / PRO / ULTRA</a></div>
@@ -211,7 +204,37 @@
             </div>
         </div>
     </div>
-    <div class="waiting-box" style="border-color: var(--primary); font-family: 'Space Grotesk'; animation: beaconPulse 2s infinite alternate;">✅ ALL CHINESE CONVERSIONS AVAILABLE via REMOTE FLASHING</div>
+    <div class="waiting-box" style="border-color: var(--primary); font-family: 'Space Grotesk'; animation: beaconPulse 2s infinite alternate; margin-bottom: 30px;">✅ ALL CHINESE CONVERSIONS AVAILABLE via REMOTE FLASHING</div>
+
+    <h2 class="section-title" style="border-bottom-color: var(--accent); background: rgba(0, 242, 255, 0.1);">🌐 ONEPLUS WORLDWIDE AUTH FLASH/UNBRICK 🌐</h2>
+    <div class="model-list-grid">
+        <div class="model-category" style="animation: accentFireGlow 2s infinite alternate; border-color: var(--accent);">
+            <h4 style="color: var(--accent);">ONEPLUS 15</h4>
+            <a href="unbrick_oneplus_15.html" class="conv-link" style="background: rgba(0, 242, 255, 0.1); border-color: var(--accent);">
+                <i class="fas fa-bolt-lightning"></i> SEE ONEPLUS 15 UNBRICK
+            </a>
+        </div>
+        <div class="model-category" style="animation: accentFireGlow 2s infinite alternate; border-color: var(--accent);">
+            <h4 style="color: var(--accent);">OP12 / 13 SERIES</h4>
+            <p>OnePlus 13 | 12 | 12R<br>Unbrick, Region Change & Flash</p>
+        </div>
+        <div class="model-category" style="animation: accentFireGlow 2s infinite alternate; border-color: var(--accent);">
+            <h4 style="color: var(--accent);">ONEPLUS 11 / 10</h4>
+            <p>11 | 11R | 10 Pro | 10T<br>OxygenOS / ColorOS Switch</p>
+        </div>
+        <div class="model-category" style="animation: accentFireGlow 2s infinite alternate; border-color: var(--accent);">
+            <h4 style="color: var(--accent);">NORD & ACE</h4>
+            <p>Nord 3/4 | Ace 3/3V/3 Pro<br>All Global & China Models</p>
+        </div>
+        <div class="model-category" style="animation: accentFireGlow 2s infinite alternate; border-color: var(--accent);">
+            <h4 style="color: var(--accent);">AUTH SERVICE</h4>
+            <div class="other-flex">
+                <a href="https://t.me/RIYUAUTHSERVICES" class="other-btn" style="border-color: var(--accent);"><i class="fab fa-telegram"></i> TG</a>
+                <a href="https://wa.me/8801861845006" class="other-btn" style="border-color: var(--accent);"><i class="fab fa-whatsapp"></i> WA</a>
+            </div>
+        </div>
+    </div>
+    <div class="waiting-box" style="border-color: var(--accent); color: var(--accent); background: rgba(0, 242, 255, 0.05); margin-bottom: 30px;">⚡ GLOBAL & CHINA UNBRICKING | PERMANENT REGION LOCK REMOVAL AVAILABLE ⚡</div>
 
     <h2 class="section-title">🔍 IMEI & REGION CHECKER 🔍</h2>
     <div class="support-card" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:15px; animation: accentFireGlow 4s infinite alternate;">
@@ -219,7 +242,7 @@
         <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="btn" style="background:var(--accent); color:#000; font-weight:900;" target="_blank"><i class="fas fa-search"></i> OPEN CHECKER</a>
     </div>
 
-    <h2 class="section-title">🔓 CHINA BOOTLOADER UNLOCK 🔓</h2>
+    <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA BOOTLOADER UNLOCK 🔓</h2>
     <div class="support-card">
         <div style="text-align:center;"><div class="status-badge"><div class="pulse-dot"></div> AUTH SERVER ONLINE</div></div>
         <div class="model-list-grid">
@@ -298,5 +321,3 @@
 </script>
 </body>
 </html>
-
-Add here on imei check section

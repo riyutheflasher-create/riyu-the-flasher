@@ -18,39 +18,62 @@
             --bg: radial-gradient(circle at top, #1a0005, #000);
             --card: linear-gradient(145deg, #111, #090009);
             --text: #fff;
-            --border: rgba(255, 0, 79, .3);
+            --border: rgba(255, 0, 79, .3); /* Tighter border opacity */
         }
 
-        /* --- Animations restored --- */
+        /* --- High-Energy Synced Animations --- */
+        
+        /* 1. Primary Fire Glow (Shifts deep red to intense orange) */
         @keyframes fireGlow {
             0% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000, inset 0 0 5px #440000; }
             50% { border-color: #ff4d00; box-shadow: 0 0 15px #ff0000, inset 0 0 10px #ff4d00; }
             100% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000, inset 0 0 5px #440000; }
         }
-        @keyframes torchGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        @keyframes fireShimmer {
-            0%, 100% { background-position: 200% center; }
-            50% { background-position: -200% center; }
-        }
-        @keyframes beaconPulse {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.02); }
-            100% { opacity: 1; transform: scale(1); }
-        }
+
+        /* 2. Accent Fire Glow (Intensity shifts from light cyan to vivid blue) */
         @keyframes accentFireGlow {
             0% { border-color: #a0f2ff; box-shadow: 0 0 5px #a0f2ff, inset 0 0 5px #003344; }
             50% { border-color: #00f2ff; box-shadow: 0 0 15px #00f2ff, inset 0 0 10px #a0f2ff; }
             100% { border-color: #a0f2ff; box-shadow: 0 0 5px #a0f2ff, inset 0 0 5px #003344; }
         }
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.4; overflow-x: hidden; }
+        /* 3. Rapid Torch-Like Gradient Move (For the King Bar) */
+        @keyframes torchGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-        .king-bar { background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f); background-size: 400% 400%; animation: torchGradient 2s linear infinite; color: white; padding: 10px; text-align: center; font-size: 11px; font-weight: 900; letter-spacing: 3px; position: relative; box-shadow: 0 5px 20px rgba(255, 0, 79, 0.4); }
+        /* 4. Fire Shimmer Text (For the Name) */
+        @keyframes fireShimmer {
+            0%, 100% { background-position: 200% center; }
+            50% { background-position: -200% center; }
+        }
+
+        /* 5. Beacon Pulse (Flickering Beacon effect) */
+        @keyframes beaconPulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.02); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body {
+            margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.4; overflow-x: hidden;
+            letter-spacing: -0.01em;
+        }
+
+        /* --- KING BAR (Animated Fire) --- */
+        .king-bar {
+            background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f);
+            background-size: 400% 400%; /* Rapid movement */
+            animation: torchGradient 2s linear infinite;
+            color: white; padding: 10px; text-align: center; font-size: 11px; font-weight: 900; 
+            letter-spacing: 3px; position: relative;
+            box-shadow: 0 5px 20px rgba(255, 0, 79, 0.4);
+        }
+
         .drawer-toggle { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
         .side-drawer { position: fixed; top: 0; left: -320px; width: 280px; height: 100%; background: rgba(8, 8, 8, 0.95); backdrop-filter: blur(10px); border-right: 1px solid var(--border); z-index: 9999; transition: 0.5s; padding: 30px 15px; }
         .side-drawer.active { left: 0; }
@@ -60,13 +83,28 @@
         .drawer-link:hover { background: rgba(255, 0, 79, 0.1); border-color: var(--primary); transform: translateX(5px); }
 
         .top-info-bar { max-width: 1000px; margin: 10px auto 0; padding: 0 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+        
+        /* info pills use accent fire glow for the clock */
         .info-pill { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 5px 12px; border-radius: 50px; font-size: 11px; color: #fff; display: flex; align-items: center; gap: 6px; transition: 0.3s; }
         .info-pill i { color: var(--primary); }
         .clock-pill { animation: accentFireGlow 2.5s infinite alternate; }
 
         header { padding: 30px 10px 15px; text-align: center; }
-        .profile-pic { width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary); padding: 3px; box-shadow: 0 0 20px var(--glow); object-fit: cover; animation: beaconPulse 3s infinite alternate; }
-        .brand-name { margin: 15px 0 5px; font-family: 'Bebas Neue', sans-serif; font-size: 55px; letter-spacing: 3px; background: linear-gradient(90deg, #fff, #ffcc00, #ff004f, #fff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fireShimmer 3.5s linear infinite; }
+        
+        /* Logo pulsing glow */
+        .profile-pic {
+            width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary);
+            padding: 3px; box-shadow: 0 0 20px var(--glow); object-fit: cover;
+            animation: beaconPulse 3s infinite alternate;
+        }
+
+        /* Fire text shimmer on name */
+        .brand-name {
+            margin: 15px 0 5px; font-family: 'Bebas Neue', sans-serif; font-size: 55px; letter-spacing: 3px;
+            background: linear-gradient(90deg, #fff, #ffcc00, #ff004f, #fff);
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: fireShimmer 3.5s linear infinite;
+        }
 
         .btn-group { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
         .btn { padding: 10px 18px; border-radius: 6px; font-size: 12px; font-weight: 800; text-decoration: none; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; }
@@ -78,8 +116,16 @@
         .section-title { text-align: center; font-family: 'Space Grotesk'; font-size: 22px; margin: 30px 0 20px; color: #fff; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--primary); background: rgba(255, 0, 79, 0.1); padding: 10px; }
 
         .support-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 25px; margin-bottom: 25px; position: relative; }
+        
+        /* Grid cards: Unified fire style */
         .model-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 15px; }
-        .model-category { background: rgba(10, 0, 0, 0.8); border: 1px solid #ff0000; padding: 20px; border-radius: 12px; animation: fireGlow 2s infinite ease-in-out; display: flex; flex-direction: column; justify-content: space-between; min-height: 140px; }
+        .model-category {
+            background: rgba(10, 0, 0, 0.8);
+            border: 1px solid #ff0000; /* SLEEKER BORDER */
+            padding: 20px; border-radius: 12px;
+            animation: fireGlow 2s infinite ease-in-out; /* INCLUDED ANIMATION */
+            display: flex; flex-direction: column; justify-content: space-between; min-height: 140px;
+        }
         .model-category h4 { color: #ff0000; font-family: 'Space Grotesk'; text-transform: uppercase; margin: 0 0 15px 0; border-bottom: 1px solid rgba(255, 0, 0, 0.2); padding-bottom: 8px; font-size: 14px; font-weight: 800; }
         .model-category p { font-size: 11px; margin: 0; line-height: 1.4; color: #ccc; }
 
@@ -89,6 +135,7 @@
 
         .waiting-box { background: rgba(0, 242, 255, 0.05); border: 1px dashed var(--accent); padding: 15px; text-align: center; border-radius: 8px; margin-top: 20px; font-weight: 600; color: var(--accent); font-size: 13px; animation: accentFireGlow 3s infinite alternate; }
 
+        /* Mi Removal fire card */
         .flash-cloud-card { background: var(--card); border: 2px solid var(--primary); padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 25px; animation: fireGlow 4s infinite alternate; }
         .bypass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 10px; margin: 20px 0; }
         .bypass-grid span { color: #00f2ff; font-weight: bold; background: rgba(0, 242, 255, 0.05); padding: 8px; border-radius: 6px; font-size: 11px; border: 1px solid rgba(0, 242, 255, 0.1); }
@@ -111,10 +158,6 @@
         @keyframes pulseStatus { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
 
         footer { margin-top: 60px; padding: 50px 15px; font-size: 13px; color: #888; background: #050005; text-align: center; border-top: 1px solid var(--border); letter-spacing: 0.05em; }
-
-        /* Custom IMEI Input styling */
-        .imei-box { width: 100%; max-width: 400px; padding: 12px; background: #000; border: 1px solid var(--accent); color: #fff; border-radius: 8px; font-family: 'Space Grotesk'; margin-bottom: 10px; outline: none; text-align: center; }
-        .check-btn-new { background: var(--accent); color: #000; border: none; padding: 12px 30px; font-weight: 800; border-radius: 50px; cursor: pointer; text-transform: uppercase; font-family: 'Bebas Neue'; letter-spacing: 1px; }
     </style>
 </head>
 
@@ -171,12 +214,9 @@
     <div class="waiting-box" style="border-color: var(--primary); font-family: 'Space Grotesk'; animation: beaconPulse 2s infinite alternate;">✅ ALL CHINESE CONVERSIONS AVAILABLE via REMOTE FLASHING</div>
 
     <h2 class="section-title">🔍 IMEI & REGION CHECKER 🔍</h2>
-    <div class="support-card" style="display:flex; flex-direction:column; align-items:center; gap:15px; animation: accentFireGlow 4s infinite alternate;">
-        <div style="text-align:center;"><h4 style="margin:0; color:var(--accent); font-size:16px;">OFFICIAL IDENTIFIER</h4><p style="margin:0; font-size:11px; color:#888;">Check Region, Device & Warranty Status</p></div>
-        
-        <input type="text" id="imeiIn" class="imei-box" placeholder="Enter 15-digit IMEI">
-        <button onclick="sendImeiToBot()" class="check-btn-new"><i class="fas fa-search"></i> SEND TO @BLOB_IMEI_BOT</button>
-        <div id="checkResult" style="display:none; color:var(--accent); font-size:12px; font-weight:bold; margin-top:5px;"></div>
+    <div class="support-card" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:15px; animation: accentFireGlow 4s infinite alternate;">
+        <div><h4 style="margin:0; color:var(--accent); font-size:16px;">OFFICIAL IDENTIFIER</h4><p style="margin:0; font-size:11px; color:#888;">Check Region, Device & Warranty Status</p></div>
+        <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="btn" style="background:var(--accent); color:#000; font-weight:900;" target="_blank"><i class="fas fa-search"></i> OPEN CHECKER</a>
     </div>
 
     <h2 class="section-title">🔓 CHINA BOOTLOADER UNLOCK 🔓</h2>
@@ -192,12 +232,12 @@
 
     <h2 class="section-title">⚡ MI CLOUD PERMANENT REMOVAL ⚡</h2>
     <div class="flash-cloud-card">
-        <p style="font-weight:800; font-size:13px; margin-bottom:20px; font-family:'Plus Jakarta Sans';">SUPPORTED FLASH & PERMANENT BYPASS MODELS</p>
+        <p style="font-weight:800; font-size:13px; margin-bottom:20px; font-family:'Plus Jakarta Sans'; uppercase;">SUPPORTED FLASH & PERMANENT BYPASS MODELS</p>
         <div class="bypass-grid">
             <span>✔️ Xiaomi 15/Pro/Ultra</span><span>✔️ Redmi K80 Pro</span><span>✔️ Xiaomi 13/Pro/Ultra</span><span>✔️ Redmi K60 Pro</span><span>✔️ MIX Fold 3</span><span>✔️ Pad 6S/8 Pro</span>
         </div>
         <div class="cloud-removal-info">
-            <h3 style="margin-top:0;">🛡️ MI ACCOUNT PERMANENT REMOVAL 🛡️</h3>
+            <h3 style="margin-top:0; uppercase;">🛡️ MI ACCOUNT PERMANENT REMOVAL 🛡️</h3>
             <p style="font-size:13px; color:#00f2ff; font-weight:800; font-family:'Space Grotesk';">ALL MODELS BY SERVER | 10-20 SEC DONE<br><span style="color:#fff; font-weight:400;">(CLEAN/WW EXCEPT CHINA SUPPORTED BY SERVER)</span></p>
         </div>
     </div>
@@ -237,6 +277,27 @@
     </div>
 </div>
 
+<footer>© <b>RIYU THE FLASHER</b> • THE KING PLACE<br>RIYAN MOHAMMAD SAJID AMAN | CHITTAGONG, BANGLADESH</footer>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('currentTime').innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+    }
+    setInterval(updateClock, 1000); updateClock();
+
+    const openDrawer = document.getElementById('openDrawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const sideDrawer = document.getElementById('sideDrawer');
+    const overlay = document.getElementById('overlay');
+
+    function toggle() { sideDrawer.classList.toggle('active'); overlay.classList.toggle('active'); }
+    openDrawer.onclick = toggle;
+    closeDrawer.onclick = toggle;
+    overlay.onclick = toggle;
+</script>
+</body>
+</html>
 <footer>© <b>RIYU THE FLASHER</b> • THE KING PLACE<br>RIYAN MOHAMMAD SAJID AMAN | CHITTAGONG, BANGLADESH</footer>
 
 <script>

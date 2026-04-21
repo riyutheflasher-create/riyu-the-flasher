@@ -1,1 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDMI K SERIES CONVERT | RIYU THE FLASHER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+        :root {
+            --primary: #ff004f;
+            --secondary: #ff8a00;
+            --accent: #00f2ff;
+            --glow: rgba(255, 0, 79, .9);
+            --bg: radial-gradient(circle at top, #1a0005, #000);
+            --card: linear-gradient(145deg, #111, #090009);
+            --text: #fff;
+            --border: rgba(255, 0, 79, .3); 
+        }
+
+        /* --- Animations --- */
+        @keyframes fireGlow {
+            0% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000, inset 0 0 5px #440000; }
+            50% { border-color: #ff4d00; box-shadow: 0 0 15px #ff0000, inset 0 0 10px #ff4d00; }
+            100% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000, inset 0 0 5px #440000; }
+        }
+        @keyframes torchGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes fireShimmer {
+            0%, 100% { background-position: 200% center; }
+            50% { background-position: -200% center; }
+        }
+        @keyframes beaconPulse {
+            0% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.02); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body {
+            margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.4; overflow-x: hidden;
+        }
+
+        /* --- KING BAR --- */
+        .king-bar {
+            background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f);
+            background-size: 400% 400%; animation: torchGradient 2s linear infinite;
+            color: white; padding: 12px; text-align: center; font-size: 11px; font-weight: 900; 
+            letter-spacing: 3px; box-shadow: 0 5px 20px rgba(255, 0, 79, 0.4);
+            text-transform: uppercase;
+        }
+
+        /* --- TOP INFO BAR --- */
+        .top-info-bar { max-width: 1000px; margin: 15px auto 0; padding: 0 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+        .info-pill { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 6px 15px; border-radius: 50px; font-size: 11px; color: #fff; display: flex; align-items: center; gap: 8px; backdrop-filter: blur(5px); }
+        .info-pill i { color: var(--primary); }
+
+        header { padding: 40px 10px 20px; text-align: center; }
+        .profile-pic {
+            width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary);
+            padding: 3px; box-shadow: 0 0 20px var(--glow); object-fit: cover;
+            animation: beaconPulse 3s infinite alternate;
+        }
+
+        .brand-name {
+            margin: 20px 0 5px; font-family: 'Bebas Neue', sans-serif; font-size: 55px; letter-spacing: 3px;
+            background: linear-gradient(90deg, #fff, #ffcc00, #ff004f, #fff);
+            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            animation: fireShimmer 3.5s linear infinite;
+        }
+
+        .container { max-width: 1100px; margin: auto; padding: 15px; }
+        .section-title { 
+            text-align: center; font-family: 'Space Grotesk'; font-size: 22px; margin: 30px 0 20px; 
+            color: #fff; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--primary); 
+            background: rgba(255, 0, 79, 0.1); padding: 10px; 
+        }
+
+        .support-card { 
+            background: var(--card); border: 1px solid var(--border); border-radius: 12px; 
+            padding: 25px; margin-bottom: 25px; position: relative;
+            animation: fireGlow 3s infinite alternate;
+        }
+        
+        .necessity-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-top: 15px;
+        }
+        .necessity-item {
+            background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 0, 79, 0.2); 
+            padding: 12px; border-radius: 8px; font-size: 12px; font-weight: 700; color: #ddd; 
+            display: flex; align-items: center; gap: 10px; text-transform: uppercase;
+        }
+        .necessity-item i { color: var(--accent); }
+
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 20px; }
+        .video-card { background: #000; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); animation: fireGlow 6s infinite ease-out; }
+        .video-card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
+        .video-label { text-align: center; padding: 12px; font-size: 11px; font-weight: 800; color: var(--accent); text-transform: uppercase; border-top: 1px solid rgba(255,255,255,0.05); }
+
+        /* --- BUTTONS --- */
+        .action-group { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
+        .btn { 
+            padding: 18px; border-radius: 10px; font-size: 15px; font-weight: 800; text-decoration: none; 
+            color: #fff; text-transform: uppercase; display: flex; align-items: center; justify-content: center; 
+            gap: 12px; transition: 0.3s; font-family: 'Space Grotesk';
+        }
+        .whatsapp { background: linear-gradient(45deg, #128C7E, #25D366); } 
+        .telegram { background: linear-gradient(45deg, #0088cc, #24A1DE); } 
+        .facebook { background: linear-gradient(45deg, #1877f2, #3b5998); }
+        .btn:hover { transform: translateY(-3px); filter: brightness(1.1); box-shadow: 0 10px 20px rgba(0,0,0,0.4); }
+
+        footer { margin-top: 60px; padding: 50px 15px; font-size: 13px; color: #888; background: #050005; text-align: center; border-top: 1px solid var(--border); letter-spacing: 1px; }
+    </style>
+</head>
+
+<body>
+
+<div class="king-bar">
+    👑 YOU ARE IN THE KING PLACE 👑
+</div>
+
+<div class="top-info-bar">
+    <div class="info-pill"><i class="fas fa-user-check"></i><span><b>RIYAN MOHAMMAD SAJID AMAN AOPE</b></span></div>
+    <div class="info-pill"><i class="fas fa-location-dot"></i><span>CHITTAGONG, BANGLADESH</span></div>
+    <div class="info-pill"><i class="far fa-clock"></i><span id="currentTime"></span></div>
+</div>
+
+<header>
+    <img src="profile.png" class="profile-pic" alt="RIYU THE FLASHER">
+    <div class="brand-name">RIYU THE FLASHER</div>
+    <h2 class="section-title">🚀 REDMI K SERIES CHINA TO GLOBAL <span style="background: #ff0000; padding: 2px 8px; border-radius: 4px; font-size: 12px;">HOT</span></h2>
+</header>
+
+<div class="container">
+    
+    <div class="support-card">
+        <h3 style="font-family: 'Bebas Neue'; font-size: 28px; color: var(--primary); margin: 0; letter-spacing: 1px;">EXCLUSIVE CONVERSION BENEFITS</h3>
+        <div class="necessity-grid">
+            <div class="necessity-item"><i class="fas fa-check-circle"></i> GOOGLE PLAY CERTIFIED</div>
+            <div class="necessity-item"><i class="fas fa-check-circle"></i> ZERO NOTIFICATION DELAY</div>
+            <div class="necessity-item"><i class="fas fa-check-circle"></i> OFFICIAL HYPEROS GLOBAL</div>
+            <div class="necessity-item"><i class="fas fa-check-circle"></i> FULL MULTI-LANGUAGE</div>
+            <div class="necessity-item"><i class="fas fa-check-circle"></i> BANKING APPS SUPPORTED</div>
+            <div class="necessity-item"><i class="fas fa-check-circle"></i> OFFICIAL OTA UPDATES</div>
+        </div>
+    </div>
+
+    <h2 class="section-title">📺 CONVERSION PROOFS</h2>
+    
+    <div class="video-grid">
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/9XsCra0_V4Q" allowfullscreen></iframe>
+            <div class="video-label">REDMI K60 (MONDRIAN) CHINA TO GLOBAL</div>
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/GWLkpcGozDY" allowfullscreen></iframe>
+            <div class="video-label">REDMI K70 (VERMEER) CHINA TO GLOBAL</div>
+        </div>
+        <div class="video-card">
+            <iframe src="https://www.youtube.com/embed/M6gAfsrcDf8" allowfullscreen></iframe>
+            <div class="video-label">REDMI K80 (ZORN) TO POCO F7 PRO</div>
+        </div>
+    </div>
+
+    <div class="action-group">
+        <a href="https://wa.me/8801861845006" class="btn whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i> MESSAGE ON WHATSAPP
+        </a>
+        <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank">
+            <i class="fab fa-telegram"></i> JOIN TELEGRAM CHANNEL
+        </a>
+        <a href="https://facebook.com/riyutheflasher" class="btn facebook" target="_blank">
+            <i class="fab fa-facebook"></i> CONTACT ON FACEBOOK
+        </a>
+    </div>
+
+    <p style="text-align: center; margin-top: 40px;">
+        <a href="index.html" style="color: #555; text-decoration: none; font-weight: bold; font-size: 13px; text-transform: uppercase;">
+            <i class="fas fa-arrow-left"></i> Back to Main Terminal
+        </a>
+    </p>
+
+</div>
+
+<footer>© <b>RIYU THE FLASHER</b> • THE KING PLACE<br>CHITTAGONG, BANGLADESH</footer>
+
+<script>
+    function updateClock() {
+        const now = new Date();
+        document.getElementById('currentTime').innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+</script>
+
+</body>
+</html>

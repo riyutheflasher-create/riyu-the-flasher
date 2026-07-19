@@ -4,243 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RIYU THE FLASHER | Official Xiaomi, OnePlus, RedMagic & Oppo Auth Services</title>
-    
-    <!-- Adsense & Trustpilot Widgets -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6269198907527581" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-    
-    <!-- Fonts & Icons -->
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;600;800&family=Space+Grotesk:wght=500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
     <style>
         :root {
-            --primary: #ff004f;
-            --secondary: #ff8a00;
-            --accent: #00f2ff;
-            --glow: rgba(255, 0, 79, .9);
-            --bg: radial-gradient(circle at top, #1a0005, #000);
-            --card: linear-gradient(145deg, #111, #090009);
-            --text: #fff;
-            --border: rgba(255, 0, 79, .3); 
+            --primary: #ff004f; --secondary: #ff8a00; --accent: #00f2ff; --glow: rgba(255, 0, 79, .9);
+            --bg: radial-gradient(circle at top, #1a0005, #000); --card: linear-gradient(145deg, #111, #090009);
+            --text: #fff; --border: rgba(255, 0, 79, .3); 
         }
-
-        /* --- Animations --- */
         @keyframes fireGlow {
-            0% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000, inset 0 0 5px #440000; }
+            0%, 100% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000, inset 0 0 5px #440000; }
             50% { border-color: #ff4d00; box-shadow: 0 0 15px #ff0000, inset 0 0 10px #ff4d00; }
-            100% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000, inset 0 0 5px #440000; }
         }
         @keyframes accentFireGlow {
-            0% { border-color: #a0f2ff; box-shadow: 0 0 5px #a0f2ff, inset 0 0 5px #003344; }
+            0%, 100% { border-color: #a0f2ff; box-shadow: 0 0 5px #a0f2ff, inset 0 0 5px #003344; }
             50% { border-color: #00f2ff; box-shadow: 0 0 15px #00f2ff, inset 0 0 10px #a0f2ff; }
-            100% { border-color: #a0f2ff; box-shadow: 0 0 5px #a0f2ff, inset 0 0 5px #003344; }
         }
-        @keyframes torchGradient {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        @keyframes fireShimmer {
-            0%, 100% { background-position: 200% center; }
-            50% { background-position: -200% center; }
-        }
-        @keyframes beaconPulse {
-            0% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.6; transform: scale(1.02); }
-            100% { opacity: 1; transform: scale(1); }
-        }
-        @keyframes pulseStatus { 
-            0%, 100% { opacity: 1; } 50% { opacity: 0.3; } 
-        }
-
+        @keyframes torchGradient { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        @keyframes fireShimmer { 0%, 100% { background-position: 200% center; } 50% { background-position: -200% center; } }
+        @keyframes beaconPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.02); } }
+        @keyframes pulseStatus { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
         * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.4; overflow-x: hidden; }
         
-        body {
-            margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;
-            background: var(--bg); color: var(--text); line-height: 1.4; overflow-x: hidden;
-        }
-
-        /* --- Header Navigation Bar --- */
-        .king-bar {
-            background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f);
-            background-size: 400% 400%;
-            animation: torchGradient 2s linear infinite;
-            color: white; padding: 12px; text-align: center; font-size: 12px; font-weight: 900; 
-            letter-spacing: 3px; position: relative;
-            box-shadow: 0 5px 20px rgba(255, 0, 79, 0.4);
-        }
-
-        .drawer-toggle { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
-        
-        /* --- Side Menu Drawer --- */
-        .side-drawer { position: fixed; top: 0; left: -320px; width: 280px; height: 100%; background: rgba(8, 8, 8, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-right: 1px solid var(--border); z-index: 9999; transition: 0.4s ease-in-out; padding: 30px 15px; }
+        .king-bar { background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f); background-size: 400% 400%; animation: torchGradient 2s linear infinite; color: white; padding: 10px; text-align: center; font-size: 12px; font-weight: 900; letter-spacing: 3px; position: relative; box-shadow: 0 5px 20px rgba(255, 0, 79, 0.4); }
+        .drawer-toggle { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; color: white; font-size: 18px; cursor: pointer; }
+        .side-drawer { position: fixed; top: 0; left: -320px; width: 280px; height: 100%; background: rgba(8, 8, 8, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-right: 1px solid var(--border); z-index: 9999; transition: 0.4s ease-in-out; padding: 20px 15px; }
         .side-drawer.active { left: 0; }
         .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); z-index: 9998; display: none; }
         .drawer-overlay.active { display: block; }
-        .drawer-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #eee; font-weight: 600; font-size: 14px; padding: 12px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; margin-bottom: 12px; border: 1px solid transparent; transition: 0.3s; }
+        .drawer-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #eee; font-weight: 600; font-size: 14px; padding: 10px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; margin-bottom: 10px; border: 1px solid transparent; transition: 0.3s; }
         .drawer-link:hover { background: rgba(255, 0, 79, 0.1); border-color: var(--primary); transform: translateX(5px); color: #fff; }
-
-        /* --- Identity Status Bars --- */
-        .top-info-bar { max-width: 1000px; margin: 15px auto 0; padding: 0 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-        .info-pill { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 6px 14px; border-radius: 50px; font-size: 11px; color: #fff; display: flex; align-items: center; gap: 8px; transition: 0.3s; font-weight: 600; }
+        
+        .top-info-bar { max-width: 1000px; margin: 10px auto 0; padding: 0 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+        .info-pill { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 5px 12px; border-radius: 50px; font-size: 11px; color: #fff; display: flex; align-items: center; gap: 8px; transition: 0.3s; font-weight: 600; }
         .info-pill i { color: var(--primary); }
         .clock-pill { animation: accentFireGlow 2.5s infinite alternate; }
-
-        header { padding: 40px 10px 20px; text-align: center; }
-        .profile-pic {
-            width: 120px; height: 120px; border-radius: 50%; border: 3px solid var(--primary);
-            padding: 3px; box-shadow: 0 0 20px var(--glow); object-fit: cover;
-            animation: beaconPulse 3s infinite alternate;
-        }
-
-        .brand-name {
-            margin: 20px 0 8px; font-family: 'Bebas Neue', sans-serif; font-size: 58px; letter-spacing: 3px;
-            background: linear-gradient(90deg, #fff, #ffcc00, #ff004f, #fff);
-            background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            animation: fireShimmer 3.5s linear infinite;
-        }
-
-        /* --- Buttons System --- */
-        .btn-group { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 25px; }
-        .btn { padding: 12px 20px; border-radius: 6px; font-size: 12px; font-weight: 800; text-decoration: none; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.2s, box-shadow 0.2s; }
+        
+        header { padding: 20px 10px 10px; text-align: center; }
+        .profile-pic { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--primary); padding: 3px; box-shadow: 0 0 20px var(--glow); object-fit: cover; animation: beaconPulse 3s infinite alternate; }
+        .brand-name { margin: 10px 0 5px; font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 2px; background: linear-gradient(90deg, #fff, #ffcc00, #ff004f, #fff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fireShimmer 3.5s linear infinite; }
+        
+        .btn-group { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
+        .btn { padding: 10px 16px; border-radius: 6px; font-size: 11px; font-weight: 800; text-decoration: none; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.2s, box-shadow 0.2s; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
-        .whatsapp { background: #25D366; } 
-        .telegram { background: #24A1DE; } 
-        .facebook { background: #1877f2; } 
-        .youtube-btn { background: #ff0000; }
-
-        .price-link-btn { 
-            background: linear-gradient(45deg, #ff004f, #ff8a00); color: white; 
-            padding: 12px 28px; border-radius: 50px; text-decoration: none; 
-            font-weight: 800; font-size: 12px; display: inline-flex; 
-            align-items: center; gap: 8px; margin-top: 25px; border: 1px solid rgba(255, 255, 255, 0.3); 
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+        .whatsapp { background: #25D366; } .telegram { background: #24A1DE; } .facebook { background: #1877f2; } .youtube-btn { background: #ff0000; }
+        .price-link-btn { background: linear-gradient(45deg, #ff004f, #ff8a00); color: white; padding: 10px 24px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; margin-top: 15px; border: 1px solid rgba(255, 255, 255, 0.3); transition: transform 0.2s, box-shadow 0.2s; }
         .price-link-btn:hover { transform: scale(1.03); box-shadow: 0 0 20px rgba(255, 138, 0, 0.4); }
-
-        .xiaomi-tag {
-            background: #ff4d00; color: #fff; padding: 2px 10px; border-radius: 4px; 
-            font-size: 14px; font-weight: 900; margin-right: 8px; vertical-align: middle;
-            box-shadow: 0 0 10px rgba(255, 77, 0, 0.5);
-        }
         
-        .redmagic-tag {
-            background: #ff003c; color: #fff; padding: 2px 10px; border-radius: 4px; 
-            font-size: 14px; font-weight: 900; margin-right: 8px; vertical-align: middle;
-            box-shadow: 0 0 10px rgba(255, 0, 60, 0.5);
-        }
-
-        /* --- Structural Layout Components --- */
-        .container { max-width: 1100px; margin: auto; padding: 15px; }
+        .xiaomi-tag { background: #ff4d00; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: 900; margin-right: 6px; vertical-align: middle; box-shadow: 0 0 10px rgba(255, 77, 0, 0.5); }
+        .redmagic-tag { background: #ff003c; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: 900; margin-right: 6px; vertical-align: middle; box-shadow: 0 0 10px rgba(255, 0, 60, 0.5); }
+        .hot-badge { background: #ff004f; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 900; animation: pulseStatus 1s infinite; letter-spacing: 0.5px; display: inline-block; vertical-align: middle; margin-left: 4px; }
         
-        .section-title { text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 22px; margin: 40px 0 25px; color: #fff; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--primary); background: rgba(255, 0, 79, 0.1); padding: 12px; border-radius: 4px 4px 0 0; }
-
-        .model-list-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 15px; }
-        .model-category {
-            background: rgba(10, 0, 0, 0.8);
-            border: 1px solid #ff0000;
-            padding: 20px; border-radius: 12px;
-            animation: fireGlow 2s infinite ease-in-out; 
-            display: flex; flex-direction: column; justify-content: space-between; min-height: 140px;
-        }
-        .model-category h4 { color: #ff0000; font-family: 'Space Grotesk', sans-serif; text-transform: uppercase; margin: 0 0 15px 0; border-bottom: 1px solid rgba(255, 0, 0, 0.2); padding-bottom: 8px; font-size: 14px; font-weight: 800; letter-spacing: 0.5px; }
-        .model-category p { font-size: 12px; margin: 0; line-height: 1.5; color: #ccc; }
-
-        .conv-link, .other-btn { display: flex; align-items: center; justify-content: center; gap: 8px; background: rgba(255, 0, 0, 0.1); border: 1px solid rgba(255, 0, 0, 0.3); padding: 12px; border-radius: 8px; color: #fff; text-decoration: none; font-weight: 800; font-size: 12px; text-transform: uppercase; transition: all 0.2s; }
-        .conv-link:hover, .other-btn:hover { background: #ff0000; border-color: #ff0000; box-shadow: 0 0 15px rgba(255, 0, 0, 0.7); }
-        .other-flex { display: flex; gap: 8px; width: 100%; }
-        .other-flex .other-btn { flex: 1; }
-
-        .waiting-box { background: rgba(0, 242, 255, 0.05); border: 1px dashed var(--accent); padding: 16px; text-align: center; border-radius: 8px; margin-top: 25px; font-weight: 700; color: var(--accent); font-size: 13px; animation: accentFireGlow 3s infinite alternate; }
-
-        .flash-cloud-card { background: var(--card); border: 2px solid var(--primary); padding: 30px; border-radius: 15px; text-align: center; margin-bottom: 25px; animation: fireGlow 4s infinite alternate; }
+        .container { max-width: 1100px; margin: auto; padding: 5px 15px; }
+        section { margin-bottom: 15px; }
+        .section-title { text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin: 20px 0 12px; color: #fff; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--primary); background: rgba(255, 0, 79, 0.1); padding: 8px; border-radius: 4px 4px 0 0; }
         
-        .bypass-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 25px 0; }
-        .bypass-grid span { color: #00f2ff; font-weight: bold; background: rgba(0, 242, 255, 0.05); padding: 10px; border-radius: 6px; font-size: 11px; border: 1px solid rgba(0, 242, 255, 0.15); text-align: left; display: flex; align-items: center; }
-
-        .support-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 25px; margin-bottom: 25px; position: relative; }
+        /* Unified Global Side-by-Side Flex Layout Rules */
+        .model-flex-container { background: var(--card); border: 2px solid var(--primary); padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 10px; animation: fireGlow 4s infinite alternate; }
+        .model-horizontal-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 15px 0; }
         
-        .requirements-section { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--accent); padding: 25px; border-radius: 15px; animation: accentFireGlow 5s infinite; }
-        .req-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 15px; }
-        .req-list li { font-size: 13px; display: flex; align-items: center; gap: 10px; font-weight: 600; }
-        .req-list li i { color: var(--accent); font-size: 14px; }
-
-        /* --- Optimized & Downsized Video Container --- */
-        .video-grid { 
-            display: flex; 
-            justify-content: center; 
-            gap: 20px; 
-            flex-wrap: wrap; 
-        }
-        .video-card { 
-            background: #000; 
-            border-radius: 12px; 
-            overflow: hidden; 
-            border: 1px solid var(--border); 
-            animation: fireGlow 6s infinite ease-out; 
-            width: 100%;
-            max-width: 420px; /* Reduced layout width baseline */
-        }
-        .video-card iframe { 
-            width: 100%; 
-            aspect-ratio: 16/9; /* Standard structural player scale */
-            display: block; 
-            border: none; 
-        }
-
-        .payment-methods { background: var(--card); padding: 30px; border-radius: 12px; text-align: center; border: 1px solid var(--border); animation: fireGlow 8s infinite alternate; }
-        .pay-icons { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 25px; }
-        .pay-item { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .pay-item i { font-size: 36px; color: var(--accent); display: block; margin-bottom: 10px; }
-
-        .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; padding: 6px 16px; border-radius: 20px; font-size: 12px; margin-bottom: 15px; font-weight: 800; letter-spacing: 0.5px; }
-        .pulse-dot { width: 8px; height: 8px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; animation: pulseStatus 1.5s infinite; }
-
-        /* --- Strict Restriction Banner CSS --- */
-        .restriction-warning-box {
-            background: rgba(255, 0, 0, 0.08);
-            border: 2px dashed #ff004f;
-            border-radius: 12px;
-            padding: 22px;
-            text-align: center;
-            margin: 40px auto 10px;
-            animation: fireGlow 3s infinite alternate;
-        }
-        .restriction-warning-box h3 { color: #ff004f; font-family: 'Space Grotesk', sans-serif; margin: 0 0 12px; letter-spacing: 1px; font-size: 16px; font-weight: 800; }
-        .restriction-warning-box p { font-size: 12px; color: #ffcccc; margin: 0; font-weight: 600; line-height: 1.6; }
-
-        footer { margin-top: 60px; padding: 50px 15px; font-size: 13px; color: #888; background: #050005; text-align: center; border-top: 1px solid var(--border); letter-spacing: 0.05em; line-height: 1.6; }
+        .model-horizontal-flex .tile { background: rgba(14, 2, 4, 0.85); border: 1px solid rgba(255, 0, 79, 0.4); padding: 12px 16px; border-radius: 8px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; transition: all 0.2s; color: #fff; min-width: 190px; text-align: center; }
+        .model-horizontal-flex .tile:hover { border-color: var(--primary); box-shadow: 0 0 12px rgba(255, 0, 79, 0.6); transform: translateY(-2px); }
+        .model-horizontal-flex .tile h4 { margin: 0 0 6px 0; font-family: 'Space Grotesk', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .model-horizontal-flex .tile p { margin: 0 0 8px 0; color: #ccc; font-weight: 400; font-size: 10px; line-height: 1.3; }
+        .model-horizontal-flex .tile i { margin-bottom: 4px; font-size: 12px; }
+        
+        /* Direct Action Inline Button Elements within Tiles */
+        .tile-action-btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; background: rgba(255, 0, 79, 0.15); border: 1px solid rgba(255, 0, 79, 0.4); padding: 6px 10px; border-radius: 4px; color: #fff; text-decoration: none; font-weight: 800; font-size: 10px; text-transform: uppercase; width: 100%; transition: 0.2s; }
+        .tile-action-btn:hover { background: var(--primary); border-color: var(--primary); box-shadow: 0 0 8px rgba(255, 0, 79, 0.6); }
+        
+        .flex-split-buttons { display: flex; gap: 4px; width: 100%; }
+        .flex-split-buttons .tile-action-btn { flex: 1; }
+        
+        /* Theme Overrides for Cyan/RedMagic Sections */
+        .theme-redmagic { border-color: #ff003c !important; animation-name: fireGlow !important; }
+        .theme-redmagic .tile { border-color: rgba(255, 0, 60, 0.4); }
+        .theme-redmagic .tile h4 { color: #ff003c; }
+        .theme-redmagic .tile-action-btn { background: rgba(255, 0, 60, 0.15); border-color: rgba(255, 0, 60, 0.4); }
+        .theme-redmagic .tile-action-btn:hover { background: #ff003c; border-color: #ff003c; }
+        
+        .theme-cyan { border-color: var(--accent) !important; animation-name: accentFireGlow !important; }
+        .theme-cyan .tile { border-color: rgba(0, 242, 255, 0.4); }
+        .theme-cyan .tile h4 { color: var(--accent); }
+        .theme-cyan .tile-action-btn { background: rgba(0, 242, 255, 0.15); border-color: rgba(0, 242, 255, 0.4); }
+        .theme-cyan .tile-action-btn:hover { background: var(--accent); border-color: var(--accent); color: #000; }
+        
+        /* Highlight Color Codes */
+        .hl-red { color: #ff004f !important; }
+        .hl-gold { color: #ffcc00 !important; }
+        .hl-cyan { color: #00f2ff !important; }
+        
+        .waiting-box { background: rgba(0, 242, 255, 0.05); border: 1px dashed var(--accent); padding: 12px; text-align: center; border-radius: 8px; margin-top: 12px; font-weight: 700; color: var(--accent); font-size: 12px; animation: accentFireGlow 3s infinite alternate; }
+        .trust-check-compact-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; align-items: center; margin-bottom: 10px; animation: accentFireGlow 5s infinite alternate; }
+        .trust-col { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+        .trust-col p { margin: 0; font-size: 11px; color: #aaa; font-weight: 600; }
+        .trust-col h4 { margin: 0 0 2px 0; color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase; }
+        .mini-btn { background: var(--accent); color: #000; font-weight: 900; font-size: 10px; padding: 6px 12px; border-radius: 4px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: 0.2s; }
+        .mini-btn:hover { transform: scale(1.02); box-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        
+        .requirements-section { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--accent); padding: 20px; border-radius: 15px; animation: accentFireGlow 5s infinite; }
+        .req-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
+        .req-list li { font-size: 12px; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .req-list li i { color: var(--accent); font-size: 13px; }
+        
+        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 10px; }
+        .video-card { background: #050505; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 0, 79, 0.25); width: 100%; transition: border-color 0.3s; }
+        .video-card:hover { border-color: var(--primary); }
+        .video-card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
+        
+        .payment-methods { background: var(--card); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid var(--border); animation: fireGlow 8s infinite alternate; }
+        .pay-icons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
+        .pay-item { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .pay-item i { font-size: 30px; color: var(--accent); display: block; margin-bottom: 6px; }
+        
+        .status-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; padding: 4px 12px; border-radius: 20px; font-size: 11px; margin-bottom: 10px; font-weight: 800; letter-spacing: 0.5px; }
+        .pulse-dot { width: 6px; height: 6px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; animation: pulseStatus 1.5s infinite; }
+        .restriction-warning-box { background: rgba(255, 0, 0, 0.08); border: 2px dashed #ff004f; border-radius: 12px; padding: 16px; text-align: center; margin: 25px auto 5px; animation: fireGlow 3s infinite alternate; }
+        .restriction-warning-box h3 { color: #ff004f; font-family: 'Space Grotesk', sans-serif; margin: 0 0 8px; letter-spacing: 1px; font-size: 15px; font-weight: 800; }
+        .restriction-warning-box p { font-size: 11px; color: #ffcccc; margin: 0; font-weight: 600; line-height: 1.5; }
+        footer { margin-top: 35px; padding: 30px 15px; font-size: 12px; color: #888; background: #050005; text-align: center; border-top: 1px solid var(--border); letter-spacing: 0.05em; line-height: 1.5; }
     </style>
 </head>
-
 <body>
 <div class="drawer-overlay" id="overlay"></div>
-
-<!-- Side Navigation Drawer -->
 <nav class="side-drawer" id="sideDrawer" aria-label="Side Navigation">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:25px;">
-        <h2 style="font-family:'Bebas Neue', sans-serif; color:var(--primary); margin:0; letter-spacing:1px; font-size: 28px;">RIYU NAVIGATION</h2>
-        <i class="fas fa-times" id="closeDrawer" style="cursor:pointer; font-size:20px; color:#fff;" role="button" aria-label="Close menu"></i>
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+        <h2 style="font-family:'Bebas Neue', sans-serif; color:var(--primary); margin:0; letter-spacing:1px; font-size: 24px;">RIYU NAVIGATION</h2>
+        <i class="fas fa-times" id="closeDrawer" style="cursor:pointer; font-size:18px; color:#fff;" role="button" aria-label="Close menu"></i>
     </div>
     <a href="updates.html" class="drawer-link"><i class="fas fa-rss"></i> REGULAR UPDATES</a>
     <a href="pricelist.html" class="drawer-link"><i class="fas fa-file-invoice-dollar"></i> PRICE LIST</a>
     <a href="https://t.me/RIYUAUTHSERVICES" class="drawer-link" target="_blank"><i class="fab fa-telegram"></i> TELEGRAM CHANNEL</a>
     <a href="#payment" class="drawer-link" id="drawerPaymentLink"><i class="fas fa-credit-card"></i> PAYMENT METHODS</a>
 </nav>
-
-<!-- Promotional Announcement Top Bar -->
 <div class="king-bar">
     <button class="drawer-toggle" id="openDrawer" aria-label="Open menu"><i class="fas fa-bars"></i></button>
     🔥 YOU ARE IN THE KING PLACE 🔥
 </div>
-
-<!-- Identity Verification Markers -->
 <div class="top-info-bar">
     <div class="info-pill"><i class="fas fa-user-check"></i><span><b>RIYAN MOHAMMAD SAJID AMAN AOPE</b></span></div>
     <div class="info-pill clock-pill"><i class="far fa-clock"></i><span id="currentTime" class="digital-clock"></span></div>
 </div>
-
 <header>
     <img src="profile.png" class="profile-pic" alt="RIYU Profile Portrait">
     <h1 class="brand-name">RIYU THE FLASHER</h1>
@@ -252,206 +159,219 @@
     </div>
     <a href="pricelist.html" class="price-link-btn"><i class="fas fa-file-invoice-dollar"></i> SERVICE PRICE LIST</a>
 </header>
-
 <main class="container">
-    <!-- Section: Xiaomi Chinese Modifications -->
+    
+    <!-- SECTION 1: XIAOMI CHINA TO GLOBAL -->
     <section>
         <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA TO GLOBAL <span class="hot-sticker">HOT</span></h2>
-        <div class="model-list-grid">
-            <div class="model-category">
-                <h4>XIAOMI 15 / 17 SERIES</h4>
-                <a href="15convert.html" class="conv-link"><i class="fas fa-microchip"></i> 15/17 CONVERT</a>
-            </div>
-            <div class="model-category">
-                <h4>XIAOMI 13 SERIES</h4>
-                <a href="13seriesconvert.html" class="conv-link"><i class="fas fa-download"></i> 13 / PRO / ULTRA</a>
-            </div>
-            <div class="model-category">
-                <h4>REDMI NOTE 15 SERIES</h4>
-                <a href="REDMINOTE15SERIES.html" class="conv-link"><i class="fas fa-fire"></i> 15 / PRO / PLUS</a>
-            </div>
-            <div class="model-category">
-                <h4>REDMI K &amp; F8 SERIES</h4>
-                <a href="K_SERIES.html" class="conv-link"><i class="fas fa-bolt"></i> K60 / K70 / K80 / F8</a>
-            </div>
-            <div class="model-category">
-                <h4>OTHER MODELS</h4>
-                <div class="other-flex">
-                    <a href="https://t.me/RIYUAUTHSERVICES" class="other-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TG</a>
-                    <a href="https://wa.me/8801861845006" class="other-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WA</a>
+        <div class="model-flex-container">
+            <div class="model-horizontal-flex">
+                <div class="tile">
+                    <h4 class="hl-red">XIAOMI 15 / 17 SERIES</h4>
+                    <p>Premium Flashing Support</p>
+                    <a href="15convert.html" class="tile-action-btn"><i class="fas fa-microchip"></i> 15/17 CONVERT</a>
+                </div>
+                <div class="tile">
+                    <h4 class="hl-red">XIAOMI 13 SERIES</h4>
+                    <p>13 / PRO / ULTRA</p>
+                    <a href="13seriesconvert.html" class="tile-action-btn"><i class="fas fa-download"></i> ROM FLASH</a>
+                </div>
+                <div class="tile">
+                    <h4 class="hl-gold">REDMI NOTE 15 SERIES</h4>
+                    <p>15 / PRO / PLUS</p>
+                    <a href="REDMINOTE15SERIES.html" class="tile-action-btn"><i class="fas fa-fire"></i> DISCOVER ROM</a>
+                </div>
+                <div class="tile">
+                    <h4 class="hl-cyan">REDMI K &amp; F8 SERIES</h4>
+                    <p>K60 / K70 / K80 / F8</p>
+                    <a href="K_SERIES.html" class="tile-action-btn"><i class="fas fa-bolt"></i> GET CONVERT</a>
+                </div>
+                <div class="tile">
+                    <h4 style="color:#fff;">OTHER MODELS</h4>
+                    <p>Direct Support Lines</p>
+                    <div class="flex-split-buttons">
+                        <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TG</a>
+                        <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WA</a>
+                    </div>
                 </div>
             </div>
+            <div class="waiting-box" style="border-color: var(--primary); font-family: 'Space Grotesk', sans-serif; animation: beaconPulse 2s infinite alternate;">✅ ALL CHINESE CONVERSIONS &amp; AUTH UNBRICK AVAILABLE via REMOTE FLASHING</div>
         </div>
-        <div class="waiting-box" style="border-color: var(--primary); font-family: 'Space Grotesk', sans-serif; animation: beaconPulse 2s infinite alternate; margin-bottom: 30px;">✅ ALL CHINESE CONVERSIONS &amp; AUTH UNBRICK AVAILABLE via REMOTE FLASHING</div>
     </section>
-
-    <!-- Section: RedMagic Instant Unlock & Conversion -->
+    
+    <!-- SECTION 2: REDMAGIC -->
     <section>
         <h2 class="section-title" style="border-bottom-color: #ff003c; background: rgba(255, 0, 60, 0.1);"><span class="redmagic-tag">REDMAGIC</span> INSTANT BOOTLOADER UNLOCK &amp; ROM CONVERT ⚡</h2>
-        <div class="model-list-grid">
-            <div class="model-category" style="border-color: #ff003c; animation: fireGlow 2s infinite ease-in-out;">
-                <h4 style="color: #ff003c;">REDMAGIC 11 SERIES</h4>
-                <p style="margin-bottom: 12px;">RedMagic 11 Pro | RedMagic 11 Air<br>Instant Bootloader Unlock, Global Conversion &amp; Softbrick Repair</p>
-                <div style="display: flex; flex-direction: column; gap: 6px; width: 100%;">
-                    <a href="https://youtube.com/@riyutheflasher" class="conv-link" style="background: rgba(255, 0, 60, 0.08); border-color: #ff003c; padding: 8px; font-size: 11px;" target="_blank" rel="noopener">
-                        <i class="fab fa-youtube"></i> RM11 PRO UNLOCK PROOF
-                    </a>
-                    <a href="https://youtube.com/@riyutheflasher" class="conv-link" style="background: rgba(255, 0, 60, 0.08); border-color: #ff003c; padding: 8px; font-size: 11px;" target="_blank" rel="noopener">
-                        <i class="fab fa-youtube"></i> RM11 AIR FLASH PROOF
-                    </a>
+        <div class="model-flex-container theme-redmagic">
+            <div class="model-horizontal-flex">
+                <div class="tile">
+                    <h4>REDMAGIC 11 SERIES</h4>
+                    <p>11 Pro | 11 Air<br>Unlock &amp; Repair</p>
+                    <div class="flex-split-buttons">
+                        <a href="https://youtube.com/@riyutheflasher" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> VIDEO 1</a>
+                        <a href="https://youtube.com/@riyutheflasher" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> VIDEO 2</a>
+                    </div>
+                </div>
+                <div class="tile">
+                    <h4>REDMAGIC 9 SERIES</h4>
+                    <p>9 Pro / 9 Pro+ / 9S Pro<br>Instant Fast Switch</p>
+                    <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-unlock"></i> REQUEST SERVICE</a>
+                </div>
+                <div class="tile">
+                    <h4>REDMAGIC 8 SERIES</h4>
+                    <p>8 Pro / 8 Pro+ / 8S Pro<br>Global ROM &amp; Network</p>
+                    <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-wrench"></i> REPAIR FLASH</a>
+                </div>
+                <div class="tile">
+                    <h4>REDMAGIC 7 &amp; OLDER</h4>
+                    <p>7 Pro / 7S Pro / 6 Series<br>Complete Brick Fix</p>
+                    <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-life-ring"></i> RECOVER DEVICE</a>
+                </div>
+                <div class="tile">
+                    <h4 style="color:#fff;">REMOTE ACCESS</h4>
+                    <p>Instant Live Connect</p>
+                    <div class="flex-split-buttons">
+                        <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TG</a>
+                        <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WA</a>
+                    </div>
                 </div>
             </div>
-            <div class="model-category" style="border-color: #ff003c;">
-                <h4 style="color: #ff003c;">REDMAGIC 9 SERIES</h4>
-                <p>RedMagic 9 Pro / 9 Pro+ / 9S Pro<br>Instant Bootloader Unlock &amp; China to Global Switch</p>
-            </div>
-            <div class="model-category" style="border-color: #ff003c;">
-                <h4 style="color: #ff003c;">REDMAGIC 8 SERIES</h4>
-                <p>RedMagic 8 Pro / 8 Pro+ / 8S Pro<br>Full Global ROM Flash &amp; Network Fixes</p>
-            </div>
-            <div class="model-category" style="border-color: #ff003c;">
-                <h4 style="color: #ff003c;">REDMAGIC 7 &amp; OLDER</h4>
-                <p>7 Pro / 7S Pro / 6 Series<br>Brick Recovery &amp; Safe Bootloader Unlock</p>
-            </div>
-            <div class="model-category" style="border-color: #ff003c;">
-                <h4 style="color: #ff003c;">REMOTE ACCESS</h4>
-                <div class="other-flex">
-                    <a href="https://t.me/RIYUAUTHSERVICES" class="other-btn" style="border-color: #ff003c;" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TG</a>
-                    <a href="https://wa.me/8801861845006" class="other-btn" style="border-color: #ff003c;" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WA</a>
-                </div>
-            </div>
+            <div class="waiting-box" style="border-color: #ff003c; color: #ff003c; background: rgba(255, 0, 60, 0.05);">🔥 INSTANT NUBIA REDMAGIC CONVERSION — NO TIME WAITING | 100% SECURE 🔥</div>
         </div>
-        <div class="waiting-box" style="border-color: #ff003c; color: #ff003c; background: rgba(255, 0, 60, 0.05); margin-bottom: 30px;">🔥 INSTANT NUBIA REDMAGIC CONVERSION — NO TIME WAITING | 100% SECURE 🔥</div>
     </section>
-
-    <!-- Section: OnePlus Modifications -->
+    
+    <!-- SECTION 3: ONEPLUS -->
     <section>
         <h2 class="section-title" style="border-bottom-color: var(--accent); background: rgba(0, 242, 255, 0.1);">🌐 ONEPLUS WORLDWIDE AUTH FLASH/UNBRICK 🌐</h2>
-        <div class="model-list-grid">
-            <div class="model-category" style="animation: accentFireGlow 2s infinite alternate; border-color: var(--accent);">
-                <h4 style="color: var(--accent);">ONEPLUS 15</h4>
-                <a href="unbrick_oneplus_15.html" class="conv-link" style="background: rgba(0, 242, 255, 0.1); border-color: var(--accent);">
-                    <i class="fas fa-bolt-lightning"></i> SEE ONEPLUS 15 UNBRICK
-                </a>
-            </div>
-            <div class="model-category" style="animation: accentFireGlow 2s infinite alternate; border-color: var(--accent);">
-                <h4 style="color: var(--accent);">OP12 / 13 SERIES</h4>
-                <p style="margin-bottom: 12px;">OnePlus 13 | 12 | 12R<br>Unbrick, Region Change &amp; Flash</p>
-                <div style="display: flex; flex-direction: column; gap: 6px; width: 100%;">
-                    <a href="https://youtube.com/@riyutheflasher" class="conv-link" style="background: rgba(0, 242, 255, 0.08); border-color: var(--accent); padding: 8px; font-size: 11px;" target="_blank" rel="noopener">
-                        <i class="fab fa-youtube"></i> OP13 UNBRICK PROOF
-                    </a>
-                    <a href="https://youtube.com/@riyutheflasher" class="conv-link" style="background: rgba(0, 242, 255, 0.08); border-color: var(--accent); padding: 8px; font-size: 11px;" target="_blank" rel="noopener">
-                        <i class="fab fa-youtube"></i> OP12 AUTH FLASH PROOF
-                    </a>
+        <div class="model-flex-container theme-cyan">
+            <div class="model-horizontal-flex">
+                <div class="tile">
+                    <h4>ONEPLUS 15</h4>
+                    <p>Full EDL Security Fix</p>
+                    <a href="unbrick_oneplus_15.html" class="tile-action-btn"><i class="fas fa-bolt-lightning"></i> VIEW UNBRICK</a>
+                </div>
+                <div class="tile">
+                    <h4>OP12 / 13 SERIES</h4>
+                    <p>OnePlus 13 | 12 | 12R<br>Region Switch Logs</p>
+                    <div class="flex-split-buttons">
+                        <a href="https://youtube.com/@riyutheflasher" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> VID 1</a>
+                        <a href="https://youtube.com/@riyutheflasher" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> VID 2</a>
+                    </div>
+                </div>
+                <div class="tile">
+                    <h4>ONEPLUS 11 / 10</h4>
+                    <p>11 | 11R | 10 Pro | 10T<br>OS Transformation</p>
+                    <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-shuffle"></i> SWAP ROM</a>
+                </div>
+                <div class="tile">
+                    <h4>NORD &amp; ACE</h4>
+                    <p>Nord 3/4 | Ace 3/3V/3Pro<br>Global &amp; Chinese SKU</p>
+                    <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-globe"></i> UNBRICK NOW</a>
+                </div>
+                <div class="tile">
+                    <h4 style="color:#fff;">AUTH SERVICE</h4>
+                    <p>24/7 Server Direct</p>
+                    <div class="flex-split-buttons">
+                        <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TG</a>
+                        <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WA</a>
+                    </div>
                 </div>
             </div>
-            <div class="model-category" style="animation: accentFireGlow 2s infinite alternate; border-color: var(--accent);">
-                <h4 style="color: var(--accent);">ONEPLUS 11 / 10</h4>
-                <p>11 | 11R | 10 Pro | 10T<br>OxygenOS / ColorOS Switch</p>
-            </div>
-            <div class="model-category" style="animation: accentFireGlow 2s infinite alternate; border-color: var(--accent);">
-                <h4 style="color: var(--accent);">NORD &amp; ACE</h4>
-                <p>Nord 3/4 | Ace 3/3V/3 Pro<br>All Global &amp; China Models</p>
-            </div>
-            <div class="model-category" style="animation: accentFireGlow 2s infinite alternate; border-color: var(--accent);">
-                <h4 style="color: var(--accent);">AUTH SERVICE</h4>
-                <div class="other-flex">
-                    <a href="https://t.me/RIYUAUTHSERVICES" class="other-btn" style="border-color: var(--accent);" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TG</a>
-                    <a href="https://wa.me/8801861845006" class="other-btn" style="border-color: var(--accent);" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WA</a>
+            <div class="waiting-box" style="border-color: var(--accent); color: var(--accent); background: rgba(0, 242, 255, 0.05);">⚡ GLOBAL &amp; CHINA UNBRICKING | PERMANENT REGION LOCK REMOVAL AVAILABLE ⚡</div>
+        </div>
+    </section>
+    
+    <section>
+        <div class="trust-check-compact-bar">
+            <div class="trust-col">
+                <div>
+                    <h4>Verified Customer Reviews</h4>
+                    <p>Live technical success scoring metrics</p>
+                </div>
+                <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69894830c5b7f0ff5cd41dcf" data-style-height="24px" data-style-width="120px">
+                    <a href="https://www.trustpilot.com/review/riyutheflasher.com" target="_blank" rel="noopener">Trustpilot</a>
                 </div>
             </div>
-        </div>
-        <div class="waiting-box" style="border-color: var(--accent); color: var(--accent); background: rgba(0, 242, 255, 0.05); margin-bottom: 30px;">⚡ GLOBAL &amp; CHINA UNBRICKING | PERMANENT REGION LOCK REMOVAL AVAILABLE ⚡</div>
-    </section>
-
-    <!-- Section: Identity Verification Engines -->
-    <section>
-        <h2 class="section-title">🔍 IMEI &amp; REGION CHECKER 🔍</h2>
-        <div class="support-card" style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:15px; animation: accentFireGlow 4s infinite alternate;">
-            <div>
-                <h4 style="margin:0; color:var(--accent); font-size:16px;">OFFICIAL IDENTIFIER</h4>
-                <p style="margin:0; font-size:12px; color:#888;">Check Region, Device &amp; Warranty Status</p>
+            <div class="trust-col">
+                <div>
+                    <h4>Official Identifier Tool</h4>
+                    <p>Check Region, Device &amp; Unlock Lock Status</p>
+                </div>
+                <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="mini-btn" target="_blank" rel="noopener"><i class="fas fa-search"></i> OPEN CHECKER</a>
             </div>
-            <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="btn" style="background:var(--accent); color:#000; font-weight:900;" target="_blank" rel="noopener"><i class="fas fa-search"></i> OPEN CHECKER</a>
         </div>
     </section>
-
-    <!-- Section: Bootloader Exploit Access points -->
+    
+    <!-- SECTION 4: XIAOMI BOOTLOADER UNLOCK -->
     <section>
-        <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA BOOTLOADER UNLOCK 🔓</h2>
+        <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA BOOTLOADER UNLOCK 🔓 <span class="hot-badge">HOT NOW</span></h2>
         <div class="support-card">
             <div style="text-align:center;"><div class="status-badge"><div class="pulse-dot"></div> AUTH SERVER ONLINE</div></div>
-            <div class="model-list-grid">
-                <div class="model-category">
-                    <h4>XIAOMI SERIES</h4>
-                    <p>Xiaomi 17/Pro/Max<br>15 | 15 Pro | 15 Ultra<br>13 | 13 Pro | 13 Ultra | 13 Lite | 13T<br>12 | 12 Pro | 12S [mayfly] | 12S Ultra | 12X</p>
+            <div style="text-align: center; color: var(--accent); font-weight: 800; font-size: 13px; font-family: 'Space Grotesk', sans-serif; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px;">🔥 ALL MODELS &amp; ALL SECURITY PATCHES SUPPORTED (MTK AND QUALCOMM ALL) 🔥</div>
+            
+            <div class="model-horizontal-flex">
+                <div class="tile">
+                    <h4 class="hl-red">XIAOMI SERIES</h4>
+                    <p style="font-weight:600; font-size:10px;">Xiaomi 17/Pro/Max<br>15 | 15 Pro | 15 Ultra<br>13 | 13 Pro | 13 Ultra / Lite<br>12 | 12 Pro | 12S | 12S Ultra</p>
                 </div>
-                <div class="model-category">
-                    <h4>REDMI K &amp; POCO</h4>
-                    <p>K60 | K70 | K80 Series<br>K90 Series [annibale]<br>K50 Ultra<br>POCO F8 Series [🔥]<br>Redmi Turbo 3 / 4 Pro [rodin_pro]</p>
+                <div class="tile">
+                    <h4 class="hl-gold">REDMI K &amp; POCO</h4>
+                    <p style="font-weight:600; font-size:10px;">K60 | K70 | K80 Series<br>K90 Series [annibale]<br>K50 Ultra | POCO F8 [🔥]<br>Redmi Turbo 3 / 4 Pro</p>
                 </div>
-                <div class="model-category">
-                    <h4>MIX, FOLD &amp; NOTE</h4>
-                    <p>Mix Fold 4 | 3 | 2 | MIX Flip<br>Redmi Note 14 Pro+ [amethyst]<br>Redmi 14R 5G [lake]</p>
+                <div class="tile">
+                    <h4 class="hl-cyan">MIX, FOLD &amp; NOTE</h4>
+                    <p style="font-weight:600; font-size:10px;">Mix Fold 4 | 3 | 2<br>MIX Flip<br>Redmi Note 14 Pro+<br>Redmi 14R 5G [lake]</p>
                 </div>
             </div>
             <div class="waiting-box" style="font-family: 'Space Grotesk', sans-serif;">🚀 NO DOWNGRADE REQUIRED | INSTANT BYPASS SUCCESS 🚀</div>
         </div>
     </section>
-
-    <!-- Section: Mi Cloud Architecture -->
+    
+    <!-- SECTION 5: MI CLOUD PERMANENT REMOVAL & FLASH -->
     <section>
         <h2 class="section-title">⚡ MI CLOUD PERMANENT REMOVAL &amp; FLASH ⚡</h2>
-        <div class="flash-cloud-card">
-            <p style="font-weight:800; font-size:13px; margin-bottom:20px; text-transform:uppercase; letter-spacing: 0.5px;">SUPPORTED FLASH, UNBRICK &amp; PERMANENT BYPASS MODELS</p>
-            <div class="bypass-grid">
-                <span>✔️ MI 17+ Series [🆕]</span>
-                <span>✔️ Xiaomi 15/Pro/Ultra</span>
-                <span>✔️ Xiaomi 13 Ultra / Pro / 13</span>
-                <span>✔️ Xiaomi 12S [mayfly]</span>
-                <span>✔️ MIX Fold 3 / 4 / MIX Flip</span>
-                <span>✔️ Redmi K80 / K80 Pro / K70</span>
-                <span>✔️ POCO F8 Series [🆕]</span>
-                <span>✔️ Redmi Turbo 3 / 4 Pro</span>
-                <span>✔️ Redmi Turbo 12 Pro [manet_p]</span>
-                <span>✔️ ...</span>
-                <span>✔️ Redmi Note 15 / Pro / Pro+</span>
-                <span>✔️ Redmi Note 14 Pro+ [amethyst]</span>
-                <span>✔️ Redmi Note 13 Pro [emerald/garnet]</span>
-                <span>✔️ Redmi Note 12 5G [sunstone]</span>
-                <span>✔️ Redmi 14R [lake]</span>
-                <span>✔️ ONYX Series [🆕 ADDED]</span>
+        <div class="model-flex-container">
+            <p style="font-weight:800; font-size:12px; margin-bottom:15px; text-transform:uppercase; letter-spacing: 1px; color:#fff;">
+                SUPPORTED FLASH, UNBRICK &amp; PERMANENT BYPASS MODELS
+            </p>
+            
+            <div class="model-horizontal-flex">
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">MI 17+ Series [🆕]</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">Xiaomi 15 / Pro / Ultra</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">Xiaomi 13 Ultra / Pro / 13</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-gold" style="margin:0;">Xiaomi 12S [mayfly]</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-cyan" style="margin:0;">MIX Fold 3 / 4 / Flip</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">Redmi K80 / K80P / K70</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-cyan" style="margin:0;">POCO F8 Series [🆕]</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-cyan" style="margin:0;">POCO F7 / Turbo 4 Pro</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-gold" style="margin:0;">Redmi Turbo 3 / 4 Pro</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-gold" style="margin:0;">Redmi Turbo 12 Pro</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">Redmi Note 15 / Pro / +</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">Redmi Note 14 Pro+</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-gold" style="margin:0;">Redmi Note 13 Pro</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-gold" style="margin:0;">Redmi Note 12 5G</h4></div>
+                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-cyan" style="margin:0;">Redmi 14R [lake]</h4></div>
             </div>
-            <div class="cloud-removal-info">
-                <h3 style="text-transform:uppercase; font-family: 'Space Grotesk', sans-serif; font-weight:800;">🛡️ MI ACCOUNT PERMANENT REMOVAL 🛡️</h3>
-                <p style="font-size:14px; color:#00f2ff; font-weight:800; font-family:'Space Grotesk', sans-serif; margin-top:5px;">ALL CHINESE + GLOBAL MODELS BY SERVER | 10-20 SEC DONE</p>
+            
+            <div style="margin-top: 20px; border-top: 2px dashed rgba(255, 0, 79, 0.25); padding-top: 18px;">
+                <h3 style="text-transform:uppercase; font-family: 'Space Grotesk', sans-serif; font-weight:800; margin: 0; font-size: 16px; color: #ff004f; letter-spacing: 0.5px;">
+                    🛡️ MI ACCOUNT PERMANENT REMOVAL 🛡️
+                </h3>
+                <p style="font-size:13px; color:#ffcc00; font-weight:800; font-family:'Space Grotesk', sans-serif; margin: 6px 0 0 0; letter-spacing: 0.5px;">
+                    ALL CHINESE + GLOBAL MODELS BY SERVER | 10-20 SEC DONE
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Section: Trust Verification & Streams -->
     <section>
-        <h2 class="section-title">💬 REVIEWS &amp; DISCUSSION</h2>
-        <div class="support-card" style="text-align:center;">
-            <i class="fas fa-star" style="font-size:30px; color:#ffcc00; margin-bottom:12px;"></i>
-            <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69894830c5b7f0ff5cd41dcf" data-style-height="52px" data-style-width="100%">
-                <a href="https://www.trustpilot.com/review/riyutheflasher.com" target="_blank" rel="noopener">Trustpilot</a>
-            </div>
-        </div>
-
-        <h2 class="section-title">📺 WHAT'S NEW?</h2>
+        <h2 class="section-title">📺 17 SERIES UNLOCK BOOTLOADER HIGH VERSIONS</h2>
         <div class="video-grid">
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/iN95pfH7xgs" title="Riyu The Flasher Video Tutorial" allowfullscreen></iframe>
-            </div>
-            <div class="video-card">
-                <iframe src="https://www.youtube.com/embed/?listType=user_uploads&amp;username=riyutheflasher" title="Riyu The Flasher Recent Streams" allowfullscreen></iframe>
-            </div>
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/l3Tnqb659KY" title="XIAOMI 17 PRO (PANDORA) INSTANT BOOTLOADER UNLOCK AND EU INSTALL" allowfullscreen></iframe></div>
+            <div class="video-card"><iframe src="https://www.youtube.com/embed/LADR-29a1G8" title="XIAOMI 17 PRO MAX (POPSICLE) INSTANT BOOTLOADER UNLOCK" allowfullscreen></iframe></div>
         </div>
     </section>
-
-    <!-- Section: Pre-requisites & Infrastructure -->
+    
     <section>
         <h2 class="section-title">📝 SERVICE REQUIREMENTS 📝</h2>
         <div class="requirements-section">
@@ -463,8 +383,7 @@
             </ul>
         </div>
     </section>
-
-    <!-- Section: Financial Channels -->
+    
     <section id="payment">
         <h2 class="section-title">💳 PAYMENT METHODS</h2>
         <div class="payment-methods">
@@ -476,47 +395,24 @@
             </div>
         </div>
     </section>
-
-    <!-- Operational Restrictions Warning Banner -->
+    
     <div class="restriction-warning-box">
         <h3><i class="fas fa-exclamation-triangle"></i> STRICT SERVICE POLICY DISCLAIMER</h3>
-        <p>
-            We DO NOT provide IMEI Repair, CPID Services, or Installment Lock Removals under any circumstances.<br>
-            Bypass and Mi Cloud server removal operations are exclusively available for international clients. No domestic MDM/Cloud bypass support is rendered.
-        </p>
+        <p>We DO NOT provide IMEI Repair, CPID Services, or Installment Lock Removals under any circumstances.<br>Bypass and Mi Cloud server removal operations are exclusively available for international clients. No domestic MDM/Cloud bypass support is rendered.</p>
     </div>
 </main>
-
 <footer>
-    © <b>RIYU THE FLASHER</b> • THE KING PLACE<br>
-    CHITTAGONG, BANGLADESH
+    © <b>RIYU THE FLASHER</b> • THE KING PLACE<br>CHITTAGONG, BANGLADESH
 </footer>
-
 <script>
-    // System Real-Time Digital Clock Implementation
     function updateClock() {
         const now = new Date();
         document.getElementById('currentTime').innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
     }
-    setInterval(updateClock, 1000); 
-    updateClock(); // Initial runtime synchronization
-
-    // Layout Navigation Controls
-    const openDrawer = document.getElementById('openDrawer');
-    const closeDrawer = document.getElementById('closeDrawer');
-    const sideDrawer = document.getElementById('sideDrawer');
-    const overlay = document.getElementById('overlay');
-    const drawerPaymentLink = document.getElementById('drawerPaymentLink');
-
-    function toggleMenu() { 
-        sideDrawer.classList.toggle('active'); 
-        overlay.classList.toggle('active'); 
-    }
-
-    openDrawer.onclick = toggleMenu;
-    closeDrawer.onclick = toggleMenu;
-    overlay.onclick = toggleMenu;
-    drawerPaymentLink.onclick = toggleMenu;
+    setInterval(updateClock, 1000); updateClock();
+    const openDrawer = document.getElementById('openDrawer'), closeDrawer = document.getElementById('closeDrawer'), sideDrawer = document.getElementById('sideDrawer'), overlay = document.getElementById('overlay'), drawerPaymentLink = document.getElementById('drawerPaymentLink');
+    function toggleMenu() { sideDrawer.classList.toggle('active'); overlay.classList.toggle('active'); }
+    openDrawer.onclick = toggleMenu; closeDrawer.onclick = toggleMenu; overlay.onclick = toggleMenu; drawerPaymentLink.onclick = toggleMenu;
 </script>
 </body>
 </html>

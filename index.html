@@ -50,7 +50,7 @@
         .btn-group { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
         .btn { padding: 10px 16px; border-radius: 6px; font-size: 11px; font-weight: 800; text-decoration: none; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.2s, box-shadow 0.2s; }
         .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
-        .whatsapp { background: #25D366; } .telegram { background: #24A1DE; } .facebook { background: #1877f2; } .youtube-btn { background: #ff0000; }
+        .whatsapp { background: #25D366; } .telegram { background: #24A1DE; } .facebook { background: #1877f2; } .youtube-btn { background: #ff0000; } .tiktok-btn { background: #000000; border: 1px solid #00f2ff; box-shadow: 0 0 5px rgba(0, 242, 255, 0.5); }
         .price-link-btn { background: linear-gradient(45deg, #ff004f, #ff8a00); color: white; padding: 10px 24px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; margin-top: 15px; border: 1px solid rgba(255, 255, 255, 0.3); transition: transform 0.2s, box-shadow 0.2s; }
         .price-link-btn:hover { transform: scale(1.03); box-shadow: 0 0 20px rgba(255, 138, 0, 0.4); }
         
@@ -98,8 +98,10 @@
         .hl-cyan { color: #00f2ff !important; }
         
         .waiting-box { background: rgba(0, 242, 255, 0.05); border: 1px dashed var(--accent); padding: 12px; text-align: center; border-radius: 8px; margin-top: 12px; font-weight: 700; color: var(--accent); font-size: 12px; animation: accentFireGlow 3s infinite alternate; }
-        .trust-check-compact-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 10px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 10px 14px; align-items: center; margin-bottom: 10px; animation: accentFireGlow 5s infinite alternate; }
-        .trust-col { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+        
+        /* Updated Grid Layout with Defined Precise Gap Criteria */
+        .trust-check-compact-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; align-items: center; margin-bottom: 10px; animation: accentFireGlow 5s infinite alternate; }
+        .trust-col { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
         .trust-col p { margin: 0; font-size: 11px; color: #aaa; font-weight: 600; }
         .trust-col h4 { margin: 0 0 2px 0; color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase; }
         .mini-btn { background: var(--accent); color: #000; font-weight: 900; font-size: 10px; padding: 6px 12px; border-radius: 4px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: 0.2s; }
@@ -125,6 +127,11 @@
         .restriction-warning-box { background: rgba(255, 0, 0, 0.08); border: 2px dashed #ff004f; border-radius: 12px; padding: 16px; text-align: center; margin: 25px auto 5px; animation: fireGlow 3s infinite alternate; }
         .restriction-warning-box h3 { color: #ff004f; font-family: 'Space Grotesk', sans-serif; margin: 0 0 8px; letter-spacing: 1px; font-size: 15px; font-weight: 800; }
         .restriction-warning-box p { font-size: 11px; color: #ffcccc; margin: 0; font-weight: 600; line-height: 1.5; }
+        
+        .disclaimer-box { background: rgba(255, 138, 0, 0.06); border: 1px solid rgba(255, 138, 0, 0.4); border-radius: 12px; padding: 15px; margin: 20px auto 10px; text-align: center; max-width: 1000px; }
+        .disclaimer-box p { font-size: 11px; color: #ffcc66; margin: 4px 0; font-weight: 600; line-height: 1.5; }
+        .disclaimer-box span { color: #ff3333; font-weight: 800; }
+
         footer { margin-top: 35px; padding: 30px 15px; font-size: 12px; color: #888; background: #050005; text-align: center; border-top: 1px solid var(--border); letter-spacing: 0.05em; line-height: 1.5; }
     </style>
 </head>
@@ -155,6 +162,7 @@
         <a href="https://wa.me/8801861845006" class="btn whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
         <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TELEGRAM</a>
         <a href="https://facebook.com/riyutheflasher" class="btn facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i> FACEBOOK</a>
+        <a href="https://tiktok.com/@riyutheflasher" class="btn tiktok-btn" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i> TIKTOK</a>
         <a href="https://youtube.com/@riyutheflasher" class="btn youtube-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YOUTUBE</a>
     </div>
     <a href="pricelist.html" class="price-link-btn"><i class="fas fa-file-invoice-dollar"></i> SERVICE PRICE LIST</a>
@@ -282,6 +290,7 @@
     </section>
     
     <section>
+        <!-- Layout Refined: 30px Precise Row/Column Gap Implemented -->
         <div class="trust-check-compact-bar">
             <div class="trust-col">
                 <div>
@@ -305,7 +314,7 @@
     <!-- SECTION 4: XIAOMI BOOTLOADER UNLOCK -->
     <section>
         <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA BOOTLOADER UNLOCK 🔓 <span class="hot-badge">HOT NOW</span></h2>
-        <div class="support-card">
+        <div class="model-flex-container" style="background: var(--card); border: 2px solid var(--primary); padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 10px; animation: fireGlow 4s infinite alternate;">
             <div style="text-align:center;"><div class="status-badge"><div class="pulse-dot"></div> AUTH SERVER ONLINE</div></div>
             <div style="text-align: center; color: var(--accent); font-weight: 800; font-size: 13px; font-family: 'Space Grotesk', sans-serif; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px;">🔥 ALL MODELS &amp; ALL SECURITY PATCHES SUPPORTED (MTK AND QUALCOMM ALL) 🔥</div>
             
@@ -364,6 +373,12 @@
         </div>
     </section>
 
+    <!-- EXCLUSIONS & DISCLAIMER BOX -->
+    <div class="disclaimer-box">
+        <p>⚠️ <span>BUSINESS POLICY DISCLAIMER:</span> We do <b>NOT</b> provide IMEI Repair, CPID Services, or Installment Lock Removals under any circumstances.</p>
+        <p>Notice for Domestic Clients: MDM Bypass and Mi Cloud Bypass services are strictly unavailable for domestic clients within Bangladesh.</p>
+    </div>
+
     <section>
         <h2 class="section-title">📺 17 SERIES UNLOCK BOOTLOADER HIGH VERSIONS</h2>
         <div class="video-grid">
@@ -390,29 +405,47 @@
             <div class="pay-icons">
                 <div class="pay-item"><i class="fab fa-bitcoin"></i>Binance</div>
                 <div class="pay-item"><i class="fas fa-university"></i>Bank Transfer</div>
-                <div class="pay-item"><i class="fas fa-wallet"></i>Bkash/Nagad</div>
-                <div class="pay-item"><i class="fas fa-money-bill-transfer"></i>Wise</div>
+                <div class="pay-item"><i class="fas fa-mobile-alt"></i>Mobile Banking</div>
             </div>
         </div>
     </section>
-    
-    <div class="restriction-warning-box">
-        <h3><i class="fas fa-exclamation-triangle"></i> STRICT SERVICE POLICY DISCLAIMER</h3>
-        <p>We DO NOT provide IMEI Repair, CPID Services, or Installment Lock Removals under any circumstances.<br>Bypass and Mi Cloud server removal operations are exclusively available for international clients. No domestic MDM/Cloud bypass support is rendered.</p>
-    </div>
 </main>
-<footer>
-    © <b>RIYU THE FLASHER</b> • THE KING PLACE<br>CHITTAGONG, BANGLADESH
-</footer>
+
+<div class="restriction-warning-box">
+    <h3>⚠️ CRITICAL PROTECTION WARNING</h3>
+    <p>All flashing activities require authenticated server permissions. Do not disconnect target devices during real-time remote execution blocks or physical boot loop intervals.</p>
+</div>
+
+<footer>© <b>RIYU THE FLASHER</b> | CHITTAGONG, BANGLADESH</footer>
+
 <script>
+    // Side Drawer Logic
+    const openDrawer = document.getElementById('openDrawer');
+    const closeDrawer = document.getElementById('closeDrawer');
+    const sideDrawer = document.getElementById('sideDrawer');
+    const overlay = document.getElementById('overlay');
+    const drawerPaymentLink = document.getElementById('drawerPaymentLink');
+
+    function toggleDrawer() {
+        sideDrawer.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+
+    openDrawer.addEventListener('click', toggleDrawer);
+    closeDrawer.addEventListener('click', toggleDrawer);
+    overlay.addEventListener('click', toggleDrawer);
+    drawerPaymentLink.addEventListener('click', () => {
+        sideDrawer.classList.remove('active');
+        overlay.classList.remove('active');
+    });
+
+    // Clock Logic
     function updateClock() {
         const now = new Date();
-        document.getElementById('currentTime').innerText = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+        document.getElementById('currentTime').innerText = now.toLocaleTimeString();
     }
-    setInterval(updateClock, 1000); updateClock();
-    const openDrawer = document.getElementById('openDrawer'), closeDrawer = document.getElementById('closeDrawer'), sideDrawer = document.getElementById('sideDrawer'), overlay = document.getElementById('overlay'), drawerPaymentLink = document.getElementById('drawerPaymentLink');
-    function toggleMenu() { sideDrawer.classList.toggle('active'); overlay.classList.toggle('active'); }
-    openDrawer.onclick = toggleMenu; closeDrawer.onclick = toggleMenu; overlay.onclick = toggleMenu; drawerPaymentLink.onclick = toggleMenu;
+    setInterval(updateClock, 1000);
+    updateClock();
 </script>
 </body>
 </html>

@@ -11,128 +11,203 @@
     <style>
         :root {
             --primary: #ff004f; --secondary: #ff8a00; --accent: #00f2ff; --glow: rgba(255, 0, 79, .9);
-            --bg: radial-gradient(circle at top, #1a0005, #000); --card: linear-gradient(145deg, #111, #090009);
+            --bg: radial-gradient(circle at 50% 0%, #17010e 0%, #050007 40%, #000000 100%); 
+            --card: linear-gradient(165deg, rgba(18, 2, 10, 0.85) 0%, rgba(5, 0, 5, 0.95) 100%);
             --text: #fff; --border: rgba(255, 0, 79, .3); 
         }
-        @keyframes fireGlow {
-            0%, 100% { border-color: #ff0000; box-shadow: 0 0 5px #ff0000, inset 0 0 5px #440000; }
-            50% { border-color: #ff4d00; box-shadow: 0 0 15px #ff0000, inset 0 0 10px #ff4d00; }
+
+        /* HIGH-FIDELITY GRADIENT SHIFT ENGINE */
+        @keyframes dynamicGradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        @keyframes accentFireGlow {
-            0%, 100% { border-color: #a0f2ff; box-shadow: 0 0 5px #a0f2ff, inset 0 0 5px #003344; }
-            50% { border-color: #00f2ff; box-shadow: 0 0 15px #00f2ff, inset 0 0 10px #a0f2ff; }
+
+        @keyframes premiumReflection {
+            0% { transform: scale(0.96); opacity: 0.8; }
+            50% { transform: scale(1.01); opacity: 1; }
+            100% { transform: scale(0.96); opacity: 0.8; }
         }
-        @keyframes torchGradient { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
-        @keyframes fireShimmer { 0%, 100% { background-position: 200% center; } 50% { background-position: -200% center; } }
-        @keyframes beaconPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(1.02); } }
-        @keyframes pulseStatus { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+        @keyframes borderPulseFlame {
+            0% { border-color: #ff004f; box-shadow: 0 0 12px rgba(255, 0, 79, 0.2), inset 0 0 8px rgba(255, 0, 79, 0.1); }
+            33% { border-color: #ff8a00; box-shadow: 0 0 24px rgba(255, 138, 0, 0.45), inset 0 0 12px rgba(255, 138, 0, 0.15); }
+            66% { border-color: #7000ff; box-shadow: 0 0 24px rgba(112, 0, 255, 0.45), inset 0 0 12px rgba(112, 0, 255, 0.15); }
+            100% { border-color: #ff004f; box-shadow: 0 0 12px rgba(255, 0, 79, 0.2), inset 0 0 8px rgba(255, 0, 79, 0.1); }
+        }
+
+        @keyframes borderPulseCyan {
+            0% { border-color: #00f2ff; box-shadow: 0 0 12px rgba(0, 242, 255, 0.2), inset 0 0 8px rgba(0, 242, 255, 0.1); }
+            50% { border-color: #0044ff; box-shadow: 0 0 24px rgba(0, 68, 255, 0.5), inset 0 0 14px rgba(0, 68, 255, 0.2); }
+            100% { border-color: #00f2ff; box-shadow: 0 0 12px rgba(0, 242, 255, 0.2), inset 0 0 8px rgba(0, 242, 255, 0.1); }
+        }
+
+        @keyframes starPulseGlow {
+            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(0, 182, 122, 0.6)); }
+            50% { transform: scale(1.15); filter: drop-shadow(0 0 10px rgba(0, 182, 122, 1)); }
+        }
+
+        @keyframes textShimmerWave {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
+
         * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.4; overflow-x: hidden; }
+        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.4; overflow-x: hidden; position: relative; }
         
-        .king-bar { background: linear-gradient(90deg, #ff004f, #ff8a00, #7000ff, #ff004f); background-size: 400% 400%; animation: torchGradient 2s linear infinite; color: white; padding: 10px; text-align: center; font-size: 12px; font-weight: 900; letter-spacing: 3px; position: relative; box-shadow: 0 5px 20px rgba(255, 0, 79, 0.4); }
+        body::before {
+            content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.12) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01));
+            z-index: 99999; background-size: 100% 4px, 6px 100%; pointer-events: none;
+        }
+
+        .king-bar { background: linear-gradient(-45deg, #ff004f, #ff8a00, #7000ff, #00f2ff, #ff004f); background-size: 400% 400%; animation: dynamicGradientShift 3s ease infinite; color: white; padding: 11px; text-align: center; font-size: 12px; font-weight: 900; letter-spacing: 3px; position: relative; box-shadow: 0 4px 20px rgba(255, 0, 79, 0.3); }
         .drawer-toggle { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; color: white; font-size: 18px; cursor: pointer; }
-        .side-drawer { position: fixed; top: 0; left: -320px; width: 280px; height: 100%; background: rgba(8, 8, 8, 0.95); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-right: 1px solid var(--border); z-index: 9999; transition: 0.4s ease-in-out; padding: 20px 15px; }
+        
+        .side-drawer { position: fixed; top: 0; left: -320px; width: 280px; height: 100%; background: rgba(5, 0, 4, 0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-right: 1px solid rgba(255, 0, 79, 0.2); z-index: 9999; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); padding: 20px 15px; }
         .side-drawer.active { left: 0; }
-        .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px); z-index: 9998; display: none; }
+        .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 9998; display: none; }
         .drawer-overlay.active { display: block; }
-        .drawer-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #eee; font-weight: 600; font-size: 14px; padding: 10px; background: rgba(255, 255, 255, 0.03); border-radius: 8px; margin-bottom: 10px; border: 1px solid transparent; transition: 0.3s; }
-        .drawer-link:hover { background: rgba(255, 0, 79, 0.1); border-color: var(--primary); transform: translateX(5px); color: #fff; }
+        .drawer-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #eee; font-weight: 600; font-size: 14px; padding: 11px; background: rgba(255, 255, 255, 0.02); border-radius: 8px; margin-bottom: 10px; border: 1px solid transparent; transition: all 0.3s ease; }
+        .drawer-link:hover { background: linear-gradient(90deg, rgba(255, 0, 79, 0.15), transparent); border-color: var(--primary); transform: translateX(6px); color: #fff; }
         
-        .top-info-bar { max-width: 1000px; margin: 10px auto 0; padding: 0 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
-        .info-pill { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 5px 12px; border-radius: 50px; font-size: 11px; color: #fff; display: flex; align-items: center; gap: 8px; transition: 0.3s; font-weight: 600; }
+        .top-info-bar { max-width: 1000px; margin: 12px auto 0; padding: 0 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+        .info-pill { background: rgba(18, 2, 12, 0.7); border: 1px solid rgba(255,0,79,0.25); padding: 6px 14px; border-radius: 50px; font-size: 11px; color: #fff; display: flex; align-items: center; gap: 8px; transition: 0.3s; font-weight: 600; }
         .info-pill i { color: var(--primary); }
-        .clock-pill { animation: accentFireGlow 2.5s infinite alternate; }
+        .clock-pill { background: linear-gradient(90deg, rgba(0, 242, 255, 0.05), rgba(0, 68, 255, 0.05)); border: 1px solid rgba(0, 242, 255, 0.3); animation: borderPulseCyan 4s infinite alternate; }
         
-        header { padding: 20px 10px 10px; text-align: center; }
-        .profile-pic { width: 100px; height: 100px; border-radius: 50%; border: 3px solid var(--primary); padding: 3px; box-shadow: 0 0 20px var(--glow); object-fit: cover; animation: beaconPulse 3s infinite alternate; }
-        .brand-name { margin: 10px 0 5px; font-family: 'Bebas Neue', sans-serif; font-size: 48px; letter-spacing: 2px; background: linear-gradient(90deg, #fff, #ffcc00, #ff004f, #fff); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: fireShimmer 3.5s linear infinite; }
+        header { padding: 25px 10px 12px; text-align: center; }
+        .profile-pic { width: 105px; height: 105px; border-radius: 50%; border: 3px solid var(--primary); padding: 3px; background: linear-gradient(45deg, #ff004f, #ff8a00); box-shadow: 0 0 25px rgba(255, 0, 79, 0.4); object-fit: cover; transition: transform 0.5s ease; }
+        .profile-pic:hover { transform: rotate(360deg) scale(1.05); }
+        
+        .brand-name { margin: 12px 0 6px; font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 2px; background: linear-gradient(90deg, #fff 0%, #ffcc00 25%, #ff004f 50%, #ffcc00 75%, #fff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShimmerWave 3s linear infinite; filter: drop-shadow(0 2px 8px rgba(255,0,79,0.25)); }
         
         .btn-group { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
-        .btn { padding: 10px 16px; border-radius: 6px; font-size: 11px; font-weight: 800; text-decoration: none; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; transition: transform 0.2s, box-shadow 0.2s; }
-        .btn:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.4); }
-        .whatsapp { background: #25D366; } .telegram { background: #24A1DE; } .facebook { background: #1877f2; } .youtube-btn { background: #ff0000; } .tiktok-btn { background: #000000; border: 1px solid #00f2ff; box-shadow: 0 0 5px rgba(0, 242, 255, 0.5); }
-        .price-link-btn { background: linear-gradient(45deg, #ff004f, #ff8a00); color: white; padding: 10px 24px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; margin-top: 15px; border: 1px solid rgba(255, 255, 255, 0.3); transition: transform 0.2s, box-shadow 0.2s; }
-        .price-link-btn:hover { transform: scale(1.03); box-shadow: 0 0 20px rgba(255, 138, 0, 0.4); }
+        .btn { padding: 11px 18px; border-radius: 7px; font-size: 11px; font-weight: 800; text-decoration: none; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; transition: all 0.25s ease; position: relative; overflow: hidden; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.5); }
+        .whatsapp { background: #25D366; } .telegram { background: #24A1DE; } .facebook { background: #1877f2; } .youtube-btn { background: #ff0000; } .tiktok-btn { background: #000000; border: 1px solid #00f2ff; box-shadow: 0 0 8px rgba(0, 242, 255, 0.3); }
         
-        .xiaomi-tag { background: #ff4d00; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: 900; margin-right: 6px; vertical-align: middle; box-shadow: 0 0 10px rgba(255, 77, 0, 0.5); }
-        .redmagic-tag { background: #ff003c; color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: 900; margin-right: 6px; vertical-align: middle; box-shadow: 0 0 10px rgba(255, 0, 60, 0.5); }
-        .hot-badge { background: #ff004f; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 900; animation: pulseStatus 1s infinite; letter-spacing: 0.5px; display: inline-block; vertical-align: middle; margin-left: 4px; }
+        .price-link-btn { background: linear-gradient(-45deg, #ff004f, #ff8a00, #7000ff, #ff004f); background-size: 300% 300%; animation: dynamicGradientShift 4s ease infinite; color: white; padding: 11px 26px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; border: 1px solid rgba(255, 255, 255, 0.25); transition: transform 0.2s; }
+        .price-link-btn:hover { transform: scale(1.04); box-shadow: 0 0 25px rgba(255, 0, 79, 0.5); }
+        
+        .xiaomi-tag { background: linear-gradient(90deg, #ff4d00, #ff8a00); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: 900; margin-right: 6px; display: inline-block; vertical-align: middle; box-shadow: 0 0 10px rgba(255, 77, 0, 0.4); }
+        .redmagic-tag { background: linear-gradient(90deg, #ff003c, #ff0080); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: 900; margin-right: 6px; display: inline-block; vertical-align: middle; box-shadow: 0 0 10px rgba(255, 0, 60, 0.4); }
+        .hot-badge { background: #ff004f; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 900; letter-spacing: 0.5px; display: inline-block; vertical-align: middle; margin-left: 4px; border: 1px solid rgba(255,255,255,0.3); }
         
         .container { max-width: 1100px; margin: auto; padding: 5px 15px; }
-        section { margin-bottom: 15px; }
-        .section-title { text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin: 20px 0 12px; color: #fff; text-transform: uppercase; letter-spacing: 1px; border-bottom: 2px solid var(--primary); background: rgba(255, 0, 79, 0.1); padding: 8px; border-radius: 4px 4px 0 0; }
+        section { margin-bottom: 20px; }
+        .section-title { text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin: 22px 0 14px; color: #fff; text-transform: uppercase; letter-spacing: 1.5px; border-bottom: 2px solid var(--primary); background: linear-gradient(90deg, rgba(255, 0, 79, 0.15) 0%, rgba(5, 0, 5, 0) 100%); padding: 9px; border-radius: 4px 4px 0 0; }
         
-        /* Unified Global Side-by-Side Flex Layout Rules */
-        .model-flex-container { background: var(--card); border: 2px solid var(--primary); padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 10px; animation: fireGlow 4s infinite alternate; }
-        .model-horizontal-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 15px 0; }
+        .model-flex-container { background: var(--card); border: 2px solid var(--primary); padding: 22px; border-radius: 16px; text-align: center; margin-bottom: 12px; animation: borderPulseFlame 6s ease infinite; transition: all 0.3s ease; }
+        .model-horizontal-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 16px 0; }
         
-        .model-horizontal-flex .tile { background: rgba(14, 2, 4, 0.85); border: 1px solid rgba(255, 0, 79, 0.4); padding: 12px 16px; border-radius: 8px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; transition: all 0.2s; color: #fff; min-width: 190px; text-align: center; }
-        .model-horizontal-flex .tile:hover { border-color: var(--primary); box-shadow: 0 0 12px rgba(255, 0, 79, 0.6); transform: translateY(-2px); }
-        .model-horizontal-flex .tile h4 { margin: 0 0 6px 0; font-family: 'Space Grotesk', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .model-horizontal-flex .tile p { margin: 0 0 8px 0; color: #ccc; font-weight: 400; font-size: 10px; line-height: 1.3; }
-        .model-horizontal-flex .tile i { margin-bottom: 4px; font-size: 12px; }
+        .model-horizontal-flex .tile { background: linear-gradient(135deg, rgba(16, 1, 8, 0.9) 0%, rgba(4, 0, 4, 0.95) 100%); border: 1px solid rgba(255, 0, 79, 0.3); padding: 14px 18px; border-radius: 10px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); color: #fff; min-width: 195px; text-align: center; position: relative; overflow: hidden; }
+        .model-horizontal-flex .tile:hover { border-color: var(--primary); box-shadow: 0 8px 25px rgba(255, 0, 79, 0.35); transform: translateY(-5px) scale(1.03); }
+        .model-horizontal-flex .tile h4 { margin: 0 0 6px 0; font-family: 'Space Grotesk', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .model-horizontal-flex .tile p { margin: 0 0 8px 0; color: #ddd; font-weight: 400; font-size: 10.5px; line-height: 1.4; }
         
-        /* Direct Action Inline Button Elements within Tiles */
-        .tile-action-btn { display: inline-flex; align-items: center; justify-content: center; gap: 4px; background: rgba(255, 0, 79, 0.15); border: 1px solid rgba(255, 0, 79, 0.4); padding: 6px 10px; border-radius: 4px; color: #fff; text-decoration: none; font-weight: 800; font-size: 10px; text-transform: uppercase; width: 100%; transition: 0.2s; }
-        .tile-action-btn:hover { background: var(--primary); border-color: var(--primary); box-shadow: 0 0 8px rgba(255, 0, 79, 0.6); }
+        .tile-action-btn { display: inline-flex; align-items: center; justify-content: center; gap: 5px; background: rgba(255, 0, 79, 0.12); border: 1px solid rgba(255, 0, 79, 0.35); padding: 7px 12px; border-radius: 5px; color: #fff; text-decoration: none; font-weight: 800; font-size: 10px; text-transform: uppercase; width: 100%; transition: all 0.2s ease; }
+        .tile-action-btn:hover { background: linear-gradient(90deg, #ff004f, #ff8a00); border-color: transparent; box-shadow: 0 4px 12px rgba(255, 0, 79, 0.5); }
         
-        .flex-split-buttons { display: flex; gap: 4px; width: 100%; }
+        .flex-split-buttons { display: flex; gap: 5px; width: 100%; }
         .flex-split-buttons .tile-action-btn { flex: 1; }
         
-        /* Theme Overrides for Cyan/RedMagic Sections */
-        .theme-redmagic { border-color: #ff003c !important; animation-name: fireGlow !important; }
-        .theme-redmagic .tile { border-color: rgba(255, 0, 60, 0.4); }
+        .theme-redmagic { border-color: #ff003c !important; animation: borderPulseFlame 5s ease infinite !important; }
+        .theme-redmagic .tile { border-color: rgba(255, 0, 60, 0.35); }
         .theme-redmagic .tile h4 { color: #ff003c; }
-        .theme-redmagic .tile-action-btn { background: rgba(255, 0, 60, 0.15); border-color: rgba(255, 0, 60, 0.4); }
-        .theme-redmagic .tile-action-btn:hover { background: #ff003c; border-color: #ff003c; }
+        .theme-redmagic .tile-action-btn { background: rgba(255, 0, 60, 0.12); border-color: rgba(255, 0, 60, 0.35); }
+        .theme-redmagic .tile-action-btn:hover { background: linear-gradient(90deg, #ff003c, #ff0077); }
         
-        .theme-cyan { border-color: var(--accent) !important; animation-name: accentFireGlow !important; }
-        .theme-cyan .tile { border-color: rgba(0, 242, 255, 0.4); }
+        .theme-cyan { border-color: var(--accent) !important; animation: borderPulseCyan 5s ease infinite !important; }
+        .theme-cyan .tile { border-color: rgba(0, 242, 255, 0.35); }
         .theme-cyan .tile h4 { color: var(--accent); }
-        .theme-cyan .tile-action-btn { background: rgba(0, 242, 255, 0.15); border-color: rgba(0, 242, 255, 0.4); }
-        .theme-cyan .tile-action-btn:hover { background: var(--accent); border-color: var(--accent); color: #000; }
+        .theme-cyan .tile-action-btn { background: rgba(0, 242, 255, 0.12); border-color: rgba(0, 242, 255, 0.35); }
+        .theme-cyan .tile-action-btn:hover { background: linear-gradient(90deg, #00f2ff, #0055ff); color: #000; font-weight: 900; }
         
-        /* Highlight Color Codes */
         .hl-red { color: #ff004f !important; }
         .hl-gold { color: #ffcc00 !important; }
         .hl-cyan { color: #00f2ff !important; }
         
-        .waiting-box { background: rgba(0, 242, 255, 0.05); border: 1px dashed var(--accent); padding: 12px; text-align: center; border-radius: 8px; margin-top: 12px; font-weight: 700; color: var(--accent); font-size: 12px; animation: accentFireGlow 3s infinite alternate; }
+        .waiting-box { background: linear-gradient(90deg, rgba(0, 242, 255, 0.03), rgba(0, 68, 255, 0.03)); border: 1px dashed var(--accent); padding: 13px; text-align: center; border-radius: 8px; margin-top: 14px; font-weight: 700; color: var(--accent); font-size: 12px; letter-spacing: 0.5px; }
+
+        /* REALISTIC GRADIENT ANIMATION FOR TRUSTPLOT & IMEI SHOWCASE */
+        .trust-check-compact-bar { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); 
+            gap: 25px; 
+            background: linear-gradient(-45deg, #11000b, #040008, #010812, #050007); 
+            background-size: 400% 400%;
+            animation: dynamicGradientShift 8s ease infinite, borderPulseCyan 6s infinite alternate; 
+            border: 2px solid rgba(0, 242, 255, 0.3); 
+            border-radius: 14px; 
+            padding: 22px; 
+            align-items: center; 
+            margin-bottom: 12px; 
+        }
+        .trust-showcase-card { 
+            background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.00) 100%); 
+            border: 1px solid rgba(255,255,255,0.06); 
+            border-radius: 10px; 
+            padding: 16px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 15px; 
+            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1); 
+            position: relative; 
+            overflow: hidden; 
+        }
+        .trust-showcase-card:hover { 
+            background: rgba(255, 255, 255, 0.04); 
+            transform: translateY(-4px); 
+            box-shadow: 0 12px 24px rgba(0,0,0,0.6); 
+            border-color: #00b67a; 
+            animation: premiumReflection 2s infinite ease-in-out;
+        }
+        .trust-showcase-card.imei-showcase:hover { border-color: var(--accent); }
+        .trust-showcase-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #00b67a; }
+        .trust-showcase-card.imei-showcase::before { background: var(--accent); }
         
-        /* Updated Grid Layout with Defined Precise Gap Criteria */
-        .trust-check-compact-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; align-items: center; margin-bottom: 10px; animation: accentFireGlow 5s infinite alternate; }
-        .trust-col { display: flex; align-items: center; justify-content: space-between; gap: 15px; }
-        .trust-col p { margin: 0; font-size: 11px; color: #aaa; font-weight: 600; }
-        .trust-col h4 { margin: 0 0 2px 0; color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase; }
-        .mini-btn { background: var(--accent); color: #000; font-weight: 900; font-size: 10px; padding: 6px 12px; border-radius: 4px; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: 0.2s; }
-        .mini-btn:hover { transform: scale(1.02); box-shadow: 0 0 10px rgba(0, 242, 255, 0.4); }
+        .trust-col-info h4 { margin: 0 0 3px 0; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
+        .trust-showcase-card .trust-title { color: #00b67a; }
+        .trust-showcase-card .imei-title { color: var(--accent); }
+        .trust-col-info p { margin: 0; font-size: 11px; color: #bbb; font-weight: 500; }
         
-        .requirements-section { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--accent); padding: 20px; border-radius: 15px; animation: accentFireGlow 5s infinite; }
-        .req-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
-        .req-list li { font-size: 12px; display: flex; align-items: center; gap: 8px; font-weight: 600; }
-        .req-list li i { color: var(--accent); font-size: 13px; }
+        .stars-container { display: flex; gap: 3px; margin-top: 5px; }
+        .stars-container i { color: #00b67a; font-size: 11px; animation: starPulseGlow 1.8s infinite alternate; }
+        .stars-container i:nth-child(2) { animation-delay: 0.15s; }
+        .stars-container i:nth-child(3) { animation-delay: 0.3s; }
+        .stars-container i:nth-child(4) { animation-delay: 0.45s; }
+        .stars-container i:nth-child(5) { animation-delay: 0.6s; }
         
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 10px; }
-        .video-card { background: #050505; border-radius: 8px; overflow: hidden; border: 1px solid rgba(255, 0, 79, 0.25); width: 100%; transition: border-color 0.3s; }
-        .video-card:hover { border-color: var(--primary); }
-        .video-card iframe { width: 100%; aspect-ratio: 16/9; display: block; border: none; }
+        .tp-glow-btn { background: linear-gradient(90deg, #00b67a, #00d690); color: #fff; font-weight: 900; font-size: 10px; padding: 7px 14px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s; text-transform: uppercase; box-shadow: 0 3px 10px rgba(0, 182, 122, 0.3); }
+        .tp-glow-btn:hover { box-shadow: 0 0 18px rgba(0, 182, 122, 0.7); transform: scale(1.03); }
         
-        .payment-methods { background: var(--card); padding: 20px; border-radius: 12px; text-align: center; border: 1px solid var(--border); animation: fireGlow 8s infinite alternate; }
-        .pay-icons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 15px; }
-        .pay-item { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .pay-item i { font-size: 30px; color: var(--accent); display: block; margin-bottom: 6px; }
+        .imei-glow-btn { background: linear-gradient(90deg, #00f2ff, #0066ff); color: #000; font-weight: 900; font-size: 10px; padding: 7px 14px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s; text-transform: uppercase; box-shadow: 0 3px 10px rgba(0, 242, 255, 0.3); }
+        .imei-glow-btn:hover { box-shadow: 0 0 18px rgba(0, 242, 255, 0.7); transform: scale(1.03); color: #000; }
         
-        .status-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 255, 0, 0.1); border: 1px solid #00ff00; color: #00ff00; padding: 4px 12px; border-radius: 20px; font-size: 11px; margin-bottom: 10px; font-weight: 800; letter-spacing: 0.5px; }
-        .pulse-dot { width: 6px; height: 6px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; animation: pulseStatus 1.5s infinite; }
-        .restriction-warning-box { background: rgba(255, 0, 0, 0.08); border: 2px dashed #ff004f; border-radius: 12px; padding: 16px; text-align: center; margin: 25px auto 5px; animation: fireGlow 3s infinite alternate; }
+        .requirements-section { background: rgba(5, 0, 5, 0.6); border: 1px solid var(--accent); padding: 22px; border-radius: 16px; animation: borderPulseCyan 6s infinite alternate; }
+        .req-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
+        .req-list li { font-size: 12px; display: flex; align-items: center; gap: 9px; font-weight: 600; }
+        .req-list li i { color: var(--accent); font-size: 14px; }
+        
+        .payment-methods { background: var(--card); padding: 22px; border-radius: 14px; text-align: center; border: 1px solid var(--border); animation: borderPulseFlame 7s infinite alternate; }
+        .pay-icons { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
+        .pay-item { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
+        .pay-item i { font-size: 32px; color: var(--accent); display: block; margin-bottom: 7px; filter: drop-shadow(0 2px 6px rgba(0,242,255,0.3)); }
+        
+        .status-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 255, 0, 0.08); border: 1px solid #00ff00; color: #00ff00; padding: 5px 14px; border-radius: 20px; font-size: 11px; margin-bottom: 12px; font-weight: 800; letter-spacing: 0.5px; box-shadow: 0 0 8px rgba(0,255,0,0.15); }
+        .pulse-dot { width: 6px; height: 6px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 8px #00ff00; animation: starPulseGlow 1.5s infinite alternate; }
+        
+        .restriction-warning-box { background: rgba(255, 0, 79, 0.04); border: 2px dashed #ff004f; border-radius: 14px; padding: 18px; text-align: center; margin: 25px auto 5px; animation: borderPulseFlame 4s infinite alternate; }
         .restriction-warning-box h3 { color: #ff004f; font-family: 'Space Grotesk', sans-serif; margin: 0 0 8px; letter-spacing: 1px; font-size: 15px; font-weight: 800; }
         .restriction-warning-box p { font-size: 11px; color: #ffcccc; margin: 0; font-weight: 600; line-height: 1.5; }
         
-        .disclaimer-box { background: rgba(255, 138, 0, 0.06); border: 1px solid rgba(255, 138, 0, 0.4); border-radius: 12px; padding: 15px; margin: 20px auto 10px; text-align: center; max-width: 1000px; }
-        .disclaimer-box p { font-size: 11px; color: #ffcc66; margin: 4px 0; font-weight: 600; line-height: 1.5; }
+        .disclaimer-box { background: rgba(255, 138, 0, 0.04); border: 1px solid rgba(255, 138, 0, 0.35); border-radius: 14px; padding: 16px; margin: 20px auto 12px; text-align: center; max-width: 1000px; }
+        .disclaimer-box p { font-size: 11px; color: #ffcc66; margin: 5px 0; font-weight: 600; line-height: 1.5; }
         .disclaimer-box span { color: #ff3333; font-weight: 800; }
 
-        footer { margin-top: 35px; padding: 30px 15px; font-size: 12px; color: #888; background: #050005; text-align: center; border-top: 1px solid var(--border); letter-spacing: 0.05em; line-height: 1.5; }
+        footer { margin-top: 40px; padding: 32px 16px; font-size: 12px; color: #888; background: #040004; text-align: center; border-top: 1px solid rgba(255,0,79,0.2); letter-spacing: 0.05em; line-height: 1.6; }
     </style>
 </head>
 <body>
@@ -147,14 +222,17 @@
     <a href="https://t.me/RIYUAUTHSERVICES" class="drawer-link" target="_blank"><i class="fab fa-telegram"></i> TELEGRAM CHANNEL</a>
     <a href="#payment" class="drawer-link" id="drawerPaymentLink"><i class="fas fa-credit-card"></i> PAYMENT METHODS</a>
 </nav>
+
 <div class="king-bar">
     <button class="drawer-toggle" id="openDrawer" aria-label="Open menu"><i class="fas fa-bars"></i></button>
     🔥 YOU ARE IN THE KING PLACE 🔥
 </div>
+
 <div class="top-info-bar">
     <div class="info-pill"><i class="fas fa-user-check"></i><span><b>RIYAN MOHAMMAD SAJID AMAN AOPE</b></span></div>
     <div class="info-pill clock-pill"><i class="far fa-clock"></i><span id="currentTime" class="digital-clock"></span></div>
 </div>
+
 <header>
     <img src="profile.png" class="profile-pic" alt="RIYU Profile Portrait">
     <h1 class="brand-name">RIYU THE FLASHER</h1>
@@ -167,11 +245,12 @@
     </div>
     <a href="pricelist.html" class="price-link-btn"><i class="fas fa-file-invoice-dollar"></i> SERVICE PRICE LIST</a>
 </header>
+
 <main class="container">
     
     <!-- SECTION 1: XIAOMI CHINA TO GLOBAL -->
     <section>
-        <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA TO GLOBAL <span class="hot-sticker">HOT</span></h2>
+        <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA TO GLOBAL <span class="hot-badge">HOT</span></h2>
         <div class="model-flex-container">
             <div class="model-horizontal-flex">
                 <div class="tile">
@@ -203,13 +282,13 @@
                     </div>
                 </div>
             </div>
-            <div class="waiting-box" style="border-color: var(--primary); font-family: 'Space Grotesk', sans-serif; animation: beaconPulse 2s infinite alternate;">✅ ALL CHINESE CONVERSIONS &amp; AUTH UNBRICK AVAILABLE via REMOTE FLASHING</div>
+            <div class="waiting-box" style="border-color: var(--primary);">✅ ALL CHINESE CONVERSIONS &amp; AUTH UNBRICK AVAILABLE via REMOTE FLASHING</div>
         </div>
     </section>
     
     <!-- SECTION 2: REDMAGIC -->
     <section>
-        <h2 class="section-title" style="border-bottom-color: #ff003c; background: rgba(255, 0, 60, 0.1);"><span class="redmagic-tag">REDMAGIC</span> INSTANT BOOTLOADER UNLOCK &amp; ROM CONVERT ⚡</h2>
+        <h2 class="section-title" style="border-bottom-color: #ff003c; background: linear-gradient(90deg, rgba(255, 0, 60, 0.15) 0%, rgba(5,0,5,0) 100%);"><span class="redmagic-tag">REDMAGIC</span> INSTANT BOOTLOADER UNLOCK &amp; ROM CONVERT ⚡</h2>
         <div class="model-flex-container theme-redmagic">
             <div class="model-horizontal-flex">
                 <div class="tile">
@@ -244,13 +323,13 @@
                     </div>
                 </div>
             </div>
-            <div class="waiting-box" style="border-color: #ff003c; color: #ff003c; background: rgba(255, 0, 60, 0.05);">🔥 INSTANT NUBIA REDMAGIC CONVERSION — NO TIME WAITING | 100% SECURE 🔥</div>
+            <div class="waiting-box" style="border-color: #ff003c; color: #ff003c; background: rgba(255, 0, 60, 0.04);">🔥 INSTANT NUBIA REDMAGIC CONVERSION — NO TIME WAITING | 100% SECURE 🔥</div>
         </div>
     </section>
     
     <!-- SECTION 3: ONEPLUS -->
     <section>
-        <h2 class="section-title" style="border-bottom-color: var(--accent); background: rgba(0, 242, 255, 0.1);">🌐 ONEPLUS WORLDWIDE AUTH FLASH/UNBRICK 🌐</h2>
+        <h2 class="section-title" style="border-bottom-color: var(--accent); background: linear-gradient(90deg, rgba(0, 242, 255, 0.15) 0%, rgba(5,0,5,0) 100%);">🌐 ONEPLUS WORLDWIDE AUTH FLASH/UNBRICK 🌐</h2>
         <div class="model-flex-container theme-cyan">
             <div class="model-horizontal-flex">
                 <div class="tile">
@@ -285,28 +364,38 @@
                     </div>
                 </div>
             </div>
-            <div class="waiting-box" style="border-color: var(--accent); color: var(--accent); background: rgba(0, 242, 255, 0.05);">⚡ GLOBAL &amp; CHINA UNBRICKING | PERMANENT REGION LOCK REMOVAL AVAILABLE ⚡</div>
+            <div class="waiting-box" style="border-color: var(--accent); color: var(--accent); background: rgba(0, 242, 255, 0.04);">⚡ GLOBAL &amp; CHINA UNBRICKING | PERMANENT REGION LOCK REMOVAL AVAILABLE ⚡</div>
         </div>
     </section>
     
+    <!-- HIGH INTERACTIVE BRAND METRIC PANELS -->
     <section>
-        <!-- Layout Refined: 30px Precise Row/Column Gap Implemented -->
         <div class="trust-check-compact-bar">
-            <div class="trust-col">
-                <div>
-                    <h4>Verified Customer Reviews</h4>
+            <!-- Trustpilot Card -->
+            <div class="trust-showcase-card">
+                <div class="trust-col-info">
+                    <h4 class="trust-title"><i class="fas fa-star-half-stroke"></i> Verified Customer Reviews</h4>
                     <p>Live technical success scoring metrics</p>
+                    <div class="stars-container">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
                 </div>
                 <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69894830c5b7f0ff5cd41dcf" data-style-height="24px" data-style-width="120px">
-                    <a href="https://www.trustpilot.com/review/riyutheflasher.com" target="_blank" rel="noopener">Trustpilot</a>
+                    <a href="https://www.trustpilot.com/review/riyutheflasher.com" class="tp-glow-btn" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Trustpilot</a>
                 </div>
             </div>
-            <div class="trust-col">
-                <div>
-                    <h4>Official Identifier Tool</h4>
+
+            <!-- IMEI Card -->
+            <div class="trust-showcase-card imei-showcase">
+                <div class="trust-col-info">
+                    <h4 class="imei-title"><i class="fas fa-search"></i> Official Identifier Tool</h4>
                     <p>Check Region, Device &amp; Unlock Lock Status</p>
                 </div>
-                <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="mini-btn" target="_blank" rel="noopener"><i class="fas fa-search"></i> OPEN CHECKER</a>
+                <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="imei-glow-btn" target="_blank" rel="noopener"><i class="fas fa-magnifying-glass"></i> OPEN CHECKER</a>
             </div>
         </div>
     </section>
@@ -314,7 +403,7 @@
     <!-- SECTION 4: XIAOMI BOOTLOADER UNLOCK -->
     <section>
         <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA BOOTLOADER UNLOCK 🔓 <span class="hot-badge">HOT NOW</span></h2>
-        <div class="model-flex-container" style="background: var(--card); border: 2px solid var(--primary); padding: 20px; border-radius: 15px; text-align: center; margin-bottom: 10px; animation: fireGlow 4s infinite alternate;">
+        <div class="model-flex-container">
             <div style="text-align:center;"><div class="status-badge"><div class="pulse-dot"></div> AUTH SERVER ONLINE</div></div>
             <div style="text-align: center; color: var(--accent); font-weight: 800; font-size: 13px; font-family: 'Space Grotesk', sans-serif; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px;">🔥 ALL MODELS &amp; ALL SECURITY PATCHES SUPPORTED (MTK AND QUALCOMM ALL) 🔥</div>
             
@@ -332,7 +421,7 @@
                     <p style="font-weight:600; font-size:10px;">Mix Fold 4 | 3 | 2<br>MIX Flip<br>Redmi Note 14 Pro+<br>Redmi 14R 5G [lake]</p>
                 </div>
             </div>
-            <div class="waiting-box" style="font-family: 'Space Grotesk', sans-serif;">🚀 NO DOWNGRADE REQUIRED | INSTANT BYPASS SUCCESS 🚀</div>
+            <div class="waiting-box">🚀 NO DOWNGRADE REQUIRED | INSTANT BYPASS SUCCESS 🚀</div>
         </div>
     </section>
     
@@ -379,47 +468,42 @@
         <p>Notice for Domestic Clients: MDM Bypass and Mi Cloud Bypass services are strictly unavailable for domestic clients within Bangladesh.</p>
     </div>
 
+    <!-- REQUIREMENTS -->
     <section>
-        <h2 class="section-title">📺 17 SERIES UNLOCK BOOTLOADER HIGH VERSIONS</h2>
-        <div class="video-grid">
-            <div class="video-card"><iframe src="https://www.youtube.com/embed/l3Tnqb659KY" title="XIAOMI 17 PRO (PANDORA) INSTANT BOOTLOADER UNLOCK AND EU INSTALL" allowfullscreen></iframe></div>
-            <div class="video-card"><iframe src="https://www.youtube.com/embed/LADR-29a1G8" title="XIAOMI 17 PRO MAX (POPSICLE) INSTANT BOOTLOADER UNLOCK" allowfullscreen></iframe></div>
-        </div>
-    </section>
-    
-    <section>
-        <h2 class="section-title">📝 SERVICE REQUIREMENTS 📝</h2>
+        <h2 class="section-title">⚡ PRE-REQUISITES &amp; REQUIREMENTS ⚡</h2>
         <div class="requirements-section">
             <ul class="req-list">
-                <li><i class="fas fa-laptop"></i> PC/Laptop (Win 10/11)</li>
-                <li><i class="fas fa-wifi"></i> Stable Internet</li>
-                <li><i class="fas fa-usb"></i> Quality Cable</li>
-                <li><i class="fas fa-download"></i> <a href="https://www.ultraviewer.net/en/download.html" target="_blank" rel="noopener" style="color:var(--accent); text-decoration: none; font-weight:800;">UltraViewer</a> for Remote</li>
+                <li><i class="fas fa-laptop"></i> Windows PC / Laptop</li>
+                <li><i class="fas fa-wifi"></i> Stable Internet Connection</li>
+                <li><i class="fas fa-usb"></i> Original USB Cable</li>
+                <li><i class="fas fa-bolt"></i> Remote Connection Tools</li>
             </ul>
         </div>
     </section>
-    
-    <section id="payment">
-        <h2 class="section-title">💳 PAYMENT METHODS</h2>
-        <div class="payment-methods">
-            <div class="pay-icons">
-                <div class="pay-item"><i class="fab fa-bitcoin"></i>Binance</div>
-                <div class="pay-item"><i class="fas fa-university"></i>Bank Transfer</div>
-                <div class="pay-item"><i class="fas fa-mobile-alt"></i>Mobile Banking</div>
-            </div>
+
+    <!-- PAYMENT METHODS -->
+    <section id="payment" class="payment-methods">
+        <h2 class="section-title">💳 ACCEPTED PAYMENT METHODS 💳</h2>
+        <div class="pay-icons">
+            <div class="pay-item"><i class="fas fa-university"></i> Bank Transfer</div>
+            <div class="pay-item"><i class="fab fa-bitcoin"></i> Crypto (USDT)</div>
+            <div class="pay-item"><i class="fas fa-wallet"></i> Mobile Banking</div>
         </div>
     </section>
+
+    <!-- RESTRICTION WARNING -->
+    <div class="restriction-warning-box">
+        <h3>⚠️ CRITICAL NOTICE</h3>
+        <p>Ensure your device drivers are properly installed before requesting remote service operations.</p>
+    </div>
 </main>
 
-<div class="restriction-warning-box">
-    <h3>⚠️ CRITICAL PROTECTION WARNING</h3>
-    <p>All flashing activities require authenticated server permissions. Do not disconnect target devices during real-time remote execution blocks or physical boot loop intervals.</p>
-</div>
-
-<footer>© <b>RIYU THE FLASHER</b> | CHITTAGONG, BANGLADESH</footer>
+<footer>
+    <p>&copy; 2026 RIYU THE FLASHER. All Rights Reserved.</p>
+    <p>Official Xiaomi, OnePlus, RedMagic &amp; Oppo Remote Authentication &amp; Flashing Services.</p>
+</footer>
 
 <script>
-    // Side Drawer Logic
     const openDrawer = document.getElementById('openDrawer');
     const closeDrawer = document.getElementById('closeDrawer');
     const sideDrawer = document.getElementById('sideDrawer');
@@ -434,12 +518,8 @@
     openDrawer.addEventListener('click', toggleDrawer);
     closeDrawer.addEventListener('click', toggleDrawer);
     overlay.addEventListener('click', toggleDrawer);
-    drawerPaymentLink.addEventListener('click', () => {
-        sideDrawer.classList.remove('active');
-        overlay.classList.remove('active');
-    });
+    drawerPaymentLink.addEventListener('click', toggleDrawer);
 
-    // Clock Logic
     function updateClock() {
         const now = new Date();
         document.getElementById('currentTime').innerText = now.toLocaleTimeString();

@@ -1,29 +1,667 @@
-Absolutely! Add these two new service entries inside your existing `<div class="price-section">`, preferably after the current OnePlus Flash & Unbrick section and before RedMagic.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Price List | RIYU THE FLASHER</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6269198907527581" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #ff004f;
+            --secondary: #ff8a00;
+            --accent: #00f2ff;
+            --bg-deep: #050508;
+            --surface: rgba(16, 17, 24, 0.78);
+            --surface-elevated: rgba(24, 26, 36, 0.92);
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --shadow-hd: 0 20px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
 
-```
-<!-- OPPO X8 / X9 SERIES BOOTLOADER UNLOCK & CONVERT -->
-<div class="price-item">
-    <div class="details">
-        <span class="service-title">OPPO FIND X8 / X9 SERIES UNLOCK & CONVERT</span>
-        <span class="service-sub">
-            BOOTLOADER UNLOCK & CHINA TO GLOBAL / REGION CONVERSION
-            • FIND X8 / X8 PRO / X8 ULTRA • FIND X9 / X9 PRO / X9 ULTRA
-        </span>
-    </div>
-    <div class="cost">$60 - $90</div>
-</div>
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
 
-<!-- ONEPLUS BOOTLOADER UNLOCK & CONVERT -->
-<div class="price-item">
-    <div class="details">
-        <span class="service-title">ONEPLUS BOOTLOADER UNLOCK & CONVERT</span>
-        <span class="service-sub">
-            BOOTLOADER UNLOCK & CHINA TO GLOBAL / REGION CONVERSION
-            • SUPPORTED ONEPLUS MODELS
-        </span>
-    </div>
-    <div class="cost">$60 - $90</div>
-</div>
-```
+        @keyframes shimmerText {
+            0% { background-position: 200% center; }
+            100% { background-position: -200% center; }
+        }
 
-Both entries will automatically match your existing professional red-and-black price-list design and responsive layout.
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 0, 79, 0.16), transparent 65%),
+                radial-gradient(ellipse 60% 40% at 85% 20%, rgba(0, 242, 255, 0.08), transparent 60%),
+                radial-gradient(ellipse 60% 40% at 15% 65%, rgba(255, 138, 0, 0.07), transparent 60%);
+            color: var(--text);
+            line-height: 1.5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .top-bar {
+            background: linear-gradient(90deg, #ff004f 0%, #ff5500 35%, #7000ff 70%, #00c8ff 100%);
+            background-size: 250% 250%;
+            animation: gradientFlow 8s ease infinite;
+            color: #ffffff;
+            padding: 10px 16px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2.2px;
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.55);
+        }
+
+        header {
+            padding: 32px 16px 20px;
+            text-align: center;
+        }
+
+        .page-title {
+            margin: 0;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(40px, 6.5vw, 56px);
+            line-height: 1;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #ffffff 0%, #ffd166 25%, #ff004f 50%, #ffd166 75%, #ffffff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmerText 6s linear infinite;
+        }
+
+        .page-subtitle {
+            margin: 8px auto 18px;
+            max-width: 640px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .nav-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 9px;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.45);
+        }
+
+        .btn-back {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-tg { background: linear-gradient(135deg, #29b6f6, #0288d1); }
+        .btn-wa { background: linear-gradient(135deg, #25d366, #16a34a); }
+
+        .container {
+            max-width: 1120px;
+            margin: auto;
+            padding: 8px 16px 36px;
+        }
+
+        section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(15px, 2.2vw, 18px);
+            font-weight: 700;
+            margin: 0 0 14px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            padding: 11px 16px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+            border: 1px solid var(--border-subtle);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        .brand-tag {
+            padding: 3px 9px;
+            border-radius: 5px;
+            font-size: 11.5px;
+            font-weight: 800;
+            letter-spacing: 0.6px;
+        }
+
+        .tag-redmagic { background: linear-gradient(135deg, #ff003c, #d9006c); color: #ffffff; }
+        .tag-oppo { background: linear-gradient(135deg, #00e676, #00e5ff); color: #05080c; }
+        .tag-oneplus { background: linear-gradient(135deg, #00f2ff, #0077ff); color: #05080c; }
+        .tag-xiaomi { background: linear-gradient(135deg, #ff5500, #ff9900); color: #ffffff; }
+        .tag-realme { background: linear-gradient(135deg, #facc15, #f59e0b); color: #05080c; }
+        .tag-transsion { background: linear-gradient(135deg, #8b5cf6, #06b6d4); color: #ffffff; }
+        .tag-other { background: linear-gradient(135deg, #ff004f, #7000ff); color: #ffffff; }
+
+        .price-panel {
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-hd);
+            border-radius: 18px;
+            padding: 20px;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px;
+        }
+
+        .price-card {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 14px;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 0, 79, 0.45);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+        }
+
+        .price-card h3 {
+            margin: 0 0 6px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+        }
+
+        .price-card p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .rate-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .rate-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 12px;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .rate-badge {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .rate-badge.gold {
+            color: #fbbf24;
+        }
+
+        .order-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 9px 12px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            transition: all 0.2s ease;
+        }
+
+        .order-btn:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-color: transparent;
+            box-shadow: 0 6px 16px rgba(255, 0, 79, 0.35);
+        }
+
+        .card-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .card-actions .order-btn {
+            flex: 1;
+        }
+
+        .policy-box {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.28);
+            border-radius: 16px;
+            padding: 16px 20px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .policy-box p {
+            margin: 5px 0;
+            font-size: 11.5px;
+            color: #fcd34d;
+        }
+
+        .policy-box span {
+            color: #ff4d6d;
+            font-weight: 800;
+        }
+
+        footer {
+            margin-top: 40px;
+            padding: 28px 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: #030305;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">OFFICIAL REMOTE SOFTWARE &amp; AUTH PRICE LIST • 100% UPFRONT PAYMENT</div>
+
+    <header>
+        <h1 class="page-title">SERVICE PRICE LIST</h1>
+        <p class="page-subtitle">Transparent remote rates for Bootloader Unlock, Global ROM Conversion, Unbrick, and Authorized Flashing.</p>
+        <div class="nav-actions">
+            <a href="index.html" class="btn btn-back"><i class="fas fa-arrow-left"></i> BACK TO HOME</a>
+            <a href="https://t.me/RIYUAUTHSERVICES" class="btn btn-tg" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TELEGRAM</a>
+            <a href="https://wa.me/8801861845006" class="btn btn-wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <!-- REDMAGIC -->
+        <section>
+            <h2 class="section-title" style="border-bottom-color: #ff003c;"><span class="brand-tag tag-redmagic">REDMAGIC</span> REDMAGIC UNLOCK, CONVERT &amp; UNBRICK</h2>
+            <div class="price-panel">
+                <div class="price-grid">
+                    <div class="price-card">
+                        <div>
+                            <h3>REDMAGIC 11 SERIES</h3>
+                            <p>Remote Bootloader Unlock &amp; Global ROM Convert</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Bootloader Unlock</span>
+                                <span class="rate-badge gold">90 USDT</span>
+                            </div>
+                            <div class="rate-row">
+                                <span>Global Convert</span>
+                                <span class="rate-badge">80 USDT</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+
+                    <div class="price-card">
+                        <div>
+                            <h3>REDMAGIC UNBRICK</h3>
+                            <p>Remote Brick &amp; Firmware Recovery</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Unbrick Service</span>
+                                <span class="rate-badge gold">60–80$</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OPPO FIND X9 & UNBRICK -->
+        <section>
+            <h2 class="section-title" style="border-bottom-color: #00e5ff;"><span class="brand-tag tag-oppo">OPPO</span> OPPO FIND X9 &amp; WORLDWIDE UNBRICK</h2>
+            <div class="price-panel">
+                <div class="price-grid">
+                    <div class="price-card">
+                        <div>
+                            <h3>OPPO FIND X9 ULTRA</h3>
+                            <p>Global Convert &amp; Bootloader Unlock</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Global Convert</span>
+                                <span class="rate-badge">90$</span>
+                            </div>
+                            <div class="rate-row">
+                                <span>Bootloader Unlock</span>
+                                <span class="rate-badge gold">90$</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+
+                    <div class="price-card">
+                        <div>
+                            <h3>OPPO FIND X9 PRO</h3>
+                            <p>Bootloader Unlock &amp; Global Convert</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Bootloader Unlock</span>
+                                <span class="rate-badge gold">80$</span>
+                            </div>
+                            <div class="rate-row">
+                                <span>Global Convert</span>
+                                <span class="rate-badge">80$</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+
+                    <div class="price-card">
+                        <div>
+                            <h3>OPPO UNBRICK (WORLDWIDE)</h3>
+                            <p>Remote Firmware &amp; Brick Recovery</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Worldwide Unbrick</span>
+                                <span class="rate-badge gold">80 USDT</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ONEPLUS -->
+        <section>
+            <h2 class="section-title" style="border-bottom-color: var(--accent);"><span class="brand-tag tag-oneplus">ONEPLUS</span> ONEPLUS SERIES &amp; UNBRICK</h2>
+            <div class="price-panel">
+                <div class="price-grid">
+                    <div class="price-card">
+                        <div>
+                            <h3>ONEPLUS 15</h3>
+                            <p>Global Convert &amp; Bootloader Unlock</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Global Convert</span>
+                                <span class="rate-badge gold">90$</span>
+                            </div>
+                            <div class="rate-row">
+                                <span>Bootloader Unlock</span>
+                                <span class="rate-badge">80 USDT</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+
+                    <div class="price-card">
+                        <div>
+                            <h3>ONEPLUS UNBRICK (WORLDWIDE)</h3>
+                            <p>Remote Auth &amp; Brick Recovery</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Worldwide Unbrick</span>
+                                <span class="rate-badge gold">80$</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+
+                    <div class="price-card">
+                        <div>
+                            <h3>OTHER ONEPLUS SERIES</h3>
+                            <p>Bootloader Unlock &amp; Global Convert</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Unlock / Global Convert</span>
+                                <span class="rate-badge gold">70–80$</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- XIAOMI -->
+        <section>
+            <h2 class="section-title" style="border-bottom-color: #ff8a00;"><span class="brand-tag tag-xiaomi">XIAOMI</span> XIAOMI UNLOCK, OS FLASH &amp; UNBRICK</h2>
+            <div class="price-panel">
+                <div class="price-grid">
+                    <div class="price-card">
+                        <div>
+                            <h3>XIAOMI 17 SERIES</h3>
+                            <p>Bootloader Unlock with Global / Custom OS Flash</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Unlock + OS Flash</span>
+                                <span class="rate-badge gold">80$</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+
+                    <div class="price-card">
+                        <div>
+                            <h3>XIAOMI OTHER MODELS</h3>
+                            <p>Instant Bootloader Unlock (China / Global Devices • Varies by Model)</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>60–80$ (Ask Admin)</span>
+                                <span class="rate-badge">ASK ADMIN</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ASK ADMIN</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ASK ADMIN</a>
+                        </div>
+                    </div>
+
+                    <div class="price-card">
+                        <div>
+                            <h3>XIAOMI UNBRICK</h3>
+                            <p>Global &amp; China Model Brick Recovery</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Global Models</span>
+                                <span class="rate-badge">40$</span>
+                            </div>
+                            <div class="rate-row">
+                                <span>China Models</span>
+                                <span class="rate-badge gold">70$</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REALME -->
+        <section>
+            <h2 class="section-title" style="border-bottom-color: #facc15;"><span class="brand-tag tag-realme">REALME</span> REALME UNBRICK</h2>
+            <div class="price-panel">
+                <div class="price-grid">
+                    <div class="price-card">
+                        <div>
+                            <h3>REALME UNBRICK</h3>
+                            <p>Remote Firmware &amp; Brick Recovery</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Unbrick Service</span>
+                                <span class="rate-badge gold">40$</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- INFINIX, TECNO & ITEL -->
+        <section>
+            <h2 class="section-title" style="border-bottom-color: #8b5cf6;"><span class="brand-tag tag-transsion">INFINIX / TECNO / ITEL</span> ROOTING, UNLOCK &amp; UNBRICK</h2>
+            <div class="price-panel">
+                <div class="price-grid">
+                    <div class="price-card">
+                        <div>
+                            <h3>INFINIX / TECNO / ITEL</h3>
+                            <p>Rooting, Bootloader Unlock &amp; Unbrick Support</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Rooting / Unlock Bootloader</span>
+                                <span class="rate-badge gold">30–40$</span>
+                            </div>
+                            <div class="rate-row">
+                                <span>Unbrick Service</span>
+                                <span class="rate-badge">40$</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ORDER TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ORDER WA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- OTHER SERVICES & OTHER BRANDS -->
+        <section>
+            <h2 class="section-title" style="border-bottom-color: var(--primary);"><span class="brand-tag tag-other">OTHER BRANDS &amp; SERVICES</span> ASK ADMIN</h2>
+            <div class="price-panel">
+                <div class="price-grid">
+                    <div class="price-card">
+                        <div>
+                            <h3>OTHER SERVICES &amp; OTHER BRANDS</h3>
+                            <p>Custom requests, additional device brands &amp; model availability</p>
+                        </div>
+                        <div class="rate-list">
+                            <div class="rate-row">
+                                <span>Quote &amp; Availability</span>
+                                <span class="rate-badge gold">ASK ADMIN</span>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <a href="https://t.me/RIYUAUTHSERVICES" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> ASK ON TG</a>
+                            <a href="https://wa.me/8801861845006" class="order-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> ASK ON WA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="policy-box">
+            <p><span>PAYMENT &amp; POLICY:</span> 100% upfront payment is required before remote session start. No IMEI repair, CPID, or installment lock services.</p>
+            <p>MDM Bypass and Mi Cloud Bypass are strictly unavailable for domestic clients within Bangladesh.</p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 RIYU THE FLASHER. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -6,226 +6,813 @@
     <title>RIYU THE FLASHER | Official Xiaomi, OnePlus, RedMagic & Oppo Auth Services</title>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6269198907527581" crossorigin="anonymous"></script>
     <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght=300;400;600;800&family=Space+Grotesk:wght=500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary: #ff004f; --secondary: #ff8a00; --accent: #00f2ff; --glow: rgba(255, 0, 79, .9);
-            --bg: radial-gradient(circle at 50% 0%, #17010e 0%, #050007 40%, #000000 100%); 
-            --card: linear-gradient(165deg, rgba(18, 2, 10, 0.85) 0%, rgba(5, 0, 5, 0.95) 100%);
-            --text: #fff; --border: rgba(255, 0, 79, .3); 
+            --primary: #ff004f;
+            --secondary: #ff8a00;
+            --accent: #00f2ff;
+            --bg-deep: #050508;
+            --surface: rgba(16, 17, 24, 0.78);
+            --surface-elevated: rgba(24, 26, 36, 0.92);
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
+            --border-accent: rgba(255, 0, 79, 0.35);
+            --shadow-hd: 0 20px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
 
-        /* HIGH-FIDELITY GRADIENT SHIFT ENGINE */
-        @keyframes dynamicGradientShift {
+        @keyframes gradientFlow {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        @keyframes premiumReflection {
-            0% { transform: scale(0.96); opacity: 0.8; }
-            50% { transform: scale(1.01); opacity: 1; }
-            100% { transform: scale(0.96); opacity: 0.8; }
+        @keyframes pulseLive {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.25); opacity: 0.65; }
         }
 
-        @keyframes borderPulseFlame {
-            0% { border-color: #ff004f; box-shadow: 0 0 12px rgba(255, 0, 79, 0.2), inset 0 0 8px rgba(255, 0, 79, 0.1); }
-            33% { border-color: #ff8a00; box-shadow: 0 0 24px rgba(255, 138, 0, 0.45), inset 0 0 12px rgba(255, 138, 0, 0.15); }
-            66% { border-color: #7000ff; box-shadow: 0 0 24px rgba(112, 0, 255, 0.45), inset 0 0 12px rgba(112, 0, 255, 0.15); }
-            100% { border-color: #ff004f; box-shadow: 0 0 12px rgba(255, 0, 79, 0.2), inset 0 0 8px rgba(255, 0, 79, 0.1); }
-        }
-
-        @keyframes borderPulseCyan {
-            0% { border-color: #00f2ff; box-shadow: 0 0 12px rgba(0, 242, 255, 0.2), inset 0 0 8px rgba(0, 242, 255, 0.1); }
-            50% { border-color: #0044ff; box-shadow: 0 0 24px rgba(0, 68, 255, 0.5), inset 0 0 14px rgba(0, 68, 255, 0.2); }
-            100% { border-color: #00f2ff; box-shadow: 0 0 12px rgba(0, 242, 255, 0.2), inset 0 0 8px rgba(0, 242, 255, 0.1); }
-        }
-
-        @keyframes starPulseGlow {
-            0%, 100% { transform: scale(1); filter: drop-shadow(0 0 2px rgba(0, 182, 122, 0.6)); }
-            50% { transform: scale(1.15); filter: drop-shadow(0 0 10px rgba(0, 182, 122, 1)); }
-        }
-
-        @keyframes textShimmerWave {
+        @keyframes shimmerText {
             0% { background-position: 200% center; }
             100% { background-position: -200% center; }
         }
 
-        * { box-sizing: border-box; scroll-behavior: smooth; }
-        body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.4; overflow-x: hidden; position: relative; }
-        
-        body::before {
-            content: " "; display: block; position: fixed; top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.12) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01));
-            z-index: 99999; background-size: 100% 4px, 6px 100%; pointer-events: none;
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        .king-bar { background: linear-gradient(-45deg, #ff004f, #ff8a00, #7000ff, #00f2ff, #ff004f); background-size: 400% 400%; animation: dynamicGradientShift 3s ease infinite; color: white; padding: 11px; text-align: center; font-size: 12px; font-weight: 900; letter-spacing: 3px; position: relative; box-shadow: 0 4px 20px rgba(255, 0, 79, 0.3); }
-        .drawer-toggle { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; color: white; font-size: 18px; cursor: pointer; }
-        
-        .side-drawer { position: fixed; top: 0; left: -320px; width: 280px; height: 100%; background: rgba(5, 0, 4, 0.97); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-right: 1px solid rgba(255, 0, 79, 0.2); z-index: 9999; transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1); padding: 20px 15px; }
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-deep);
+            background-image:
+                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 0, 79, 0.16), transparent 65%),
+                radial-gradient(ellipse 60% 40% at 85% 20%, rgba(0, 242, 255, 0.08), transparent 60%),
+                radial-gradient(ellipse 60% 40% at 15% 65%, rgba(255, 138, 0, 0.07), transparent 60%);
+            color: var(--text);
+            line-height: 1.5;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* Top Bar */
+        .king-bar {
+            background: linear-gradient(90deg, #ff004f 0%, #ff5500 35%, #7000ff 70%, #00c8ff 100%);
+            background-size: 250% 250%;
+            animation: gradientFlow 8s ease infinite;
+            color: #ffffff;
+            padding: 10px 16px;
+            text-align: center;
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 2.5px;
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.55);
+            backdrop-filter: blur(12px);
+        }
+
+        .drawer-toggle {
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            color: #ffffff;
+            width: 30px;
+            height: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .drawer-toggle:hover {
+            background: rgba(0, 0, 0, 0.5);
+            transform: translateY(-50%) scale(1.04);
+        }
+
+        /* Side Drawer */
+        .side-drawer {
+            position: fixed;
+            top: 0;
+            left: -320px;
+            width: 290px;
+            height: 100%;
+            background: rgba(10, 11, 16, 0.96);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-right: 1px solid var(--border-subtle);
+            z-index: 9999;
+            transition: left 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            padding: 24px 18px;
+            box-shadow: 20px 0 60px rgba(0, 0, 0, 0.85);
+        }
+
         .side-drawer.active { left: 0; }
-        .drawer-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); z-index: 9998; display: none; }
+
+        .drawer-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 9998;
+            display: none;
+        }
+
         .drawer-overlay.active { display: block; }
-        .drawer-link { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #eee; font-weight: 600; font-size: 14px; padding: 11px; background: rgba(255, 255, 255, 0.02); border-radius: 8px; margin-bottom: 10px; border: 1px solid transparent; transition: all 0.3s ease; }
-        .drawer-link:hover { background: linear-gradient(90deg, rgba(255, 0, 79, 0.15), transparent); border-color: var(--primary); transform: translateX(6px); color: #fff; }
-        
-        .top-info-bar { max-width: 1000px; margin: 12px auto 0; padding: 0 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-        .info-pill { background: rgba(18, 2, 12, 0.7); border: 1px solid rgba(255,0,79,0.25); padding: 6px 14px; border-radius: 50px; font-size: 11px; color: #fff; display: flex; align-items: center; gap: 8px; transition: 0.3s; font-weight: 600; }
+
+        .drawer-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #e2e8f0;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 12px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            margin-bottom: 10px;
+            border: 1px solid var(--border-subtle);
+            transition: all 0.22s ease;
+        }
+
+        .drawer-link:hover {
+            background: rgba(255, 0, 79, 0.12);
+            border-color: rgba(255, 0, 79, 0.45);
+            transform: translateX(4px);
+            color: #ffffff;
+        }
+
+        /* Info Pills */
+        .top-info-bar {
+            max-width: 1120px;
+            margin: 16px auto 0;
+            padding: 0 16px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .info-pill {
+            background: var(--surface);
+            backdrop-filter: blur(14px);
+            border: 1px solid var(--border-subtle);
+            padding: 7px 16px;
+            border-radius: 999px;
+            font-size: 11.5px;
+            color: #e2e8f0;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
         .info-pill i { color: var(--primary); }
-        .clock-pill { background: linear-gradient(90deg, rgba(0, 242, 255, 0.05), rgba(0, 68, 255, 0.05)); border: 1px solid rgba(0, 242, 255, 0.3); animation: borderPulseCyan 4s infinite alternate; }
-        
-        header { padding: 25px 10px 12px; text-align: center; }
-        .profile-pic { width: 105px; height: 105px; border-radius: 50%; border: 3px solid var(--primary); padding: 3px; background: linear-gradient(45deg, #ff004f, #ff8a00); box-shadow: 0 0 25px rgba(255, 0, 79, 0.4); object-fit: cover; transition: transform 0.5s ease; }
-        .profile-pic:hover { transform: rotate(360deg) scale(1.05); }
-        
-        .brand-name { margin: 12px 0 6px; font-family: 'Bebas Neue', sans-serif; font-size: 52px; letter-spacing: 2px; background: linear-gradient(90deg, #fff 0%, #ffcc00 25%, #ff004f 50%, #ffcc00 75%, #fff 100%); background-size: 200% auto; -webkit-background-clip: text; -webkit-text-fill-color: transparent; animation: textShimmerWave 3s linear infinite; filter: drop-shadow(0 2px 8px rgba(255,0,79,0.25)); }
-        
-        .btn-group { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-top: 15px; }
-        .btn { padding: 11px 18px; border-radius: 7px; font-size: 11px; font-weight: 800; text-decoration: none; color: #fff; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; transition: all 0.25s ease; position: relative; overflow: hidden; }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,0.5); }
-        .whatsapp { background: #25D366; } .telegram { background: #24A1DE; } .facebook { background: #1877f2; } .youtube-btn { background: #ff0000; } .tiktok-btn { background: #000000; border: 1px solid #00f2ff; box-shadow: 0 0 8px rgba(0, 242, 255, 0.3); }
-        
-        .price-link-btn { background: linear-gradient(-45deg, #ff004f, #ff8a00, #7000ff, #ff004f); background-size: 300% 300%; animation: dynamicGradientShift 4s ease infinite; color: white; padding: 11px 26px; border-radius: 50px; text-decoration: none; font-weight: 800; font-size: 11px; display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; border: 1px solid rgba(255, 255, 255, 0.25); transition: transform 0.2s; }
-        .price-link-btn:hover { transform: scale(1.04); box-shadow: 0 0 25px rgba(255, 0, 79, 0.5); }
-        
-        .xiaomi-tag { background: linear-gradient(90deg, #ff4d00, #ff8a00); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: 900; margin-right: 6px; display: inline-block; vertical-align: middle; box-shadow: 0 0 10px rgba(255, 77, 0, 0.4); }
-        .redmagic-tag { background: linear-gradient(90deg, #ff003c, #ff0080); color: #fff; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: 900; margin-right: 6px; display: inline-block; vertical-align: middle; box-shadow: 0 0 10px rgba(255, 0, 60, 0.4); }
-        .hot-badge { background: #ff004f; color: #fff; padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 900; letter-spacing: 0.5px; display: inline-block; vertical-align: middle; margin-left: 4px; border: 1px solid rgba(255,255,255,0.3); }
-        
-        .container { max-width: 1100px; margin: auto; padding: 5px 15px; }
-        section { margin-bottom: 20px; }
-        .section-title { text-align: center; font-family: 'Space Grotesk', sans-serif; font-size: 18px; margin: 22px 0 14px; color: #fff; text-transform: uppercase; letter-spacing: 1.5px; border-bottom: 2px solid var(--primary); background: linear-gradient(90deg, rgba(255, 0, 79, 0.15) 0%, rgba(5, 0, 5, 0) 100%); padding: 9px; border-radius: 4px 4px 0 0; }
-        
-        .model-flex-container { background: var(--card); border: 2px solid var(--primary); padding: 22px; border-radius: 16px; text-align: center; margin-bottom: 12px; animation: borderPulseFlame 6s ease infinite; transition: all 0.3s ease; }
-        .model-horizontal-flex { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin: 16px 0; }
-        
-        .model-horizontal-flex .tile { background: linear-gradient(135deg, rgba(16, 1, 8, 0.9) 0%, rgba(4, 0, 4, 0.95) 100%); border: 1px solid rgba(255, 0, 79, 0.3); padding: 14px 18px; border-radius: 10px; display: inline-flex; flex-direction: column; align-items: center; justify-content: center; font-size: 11px; font-weight: 800; transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1); color: #fff; min-width: 195px; text-align: center; position: relative; overflow: hidden; }
-        .model-horizontal-flex .tile:hover { border-color: var(--primary); box-shadow: 0 8px 25px rgba(255, 0, 79, 0.35); transform: translateY(-5px) scale(1.03); }
-        .model-horizontal-flex .tile h4 { margin: 0 0 6px 0; font-family: 'Space Grotesk', sans-serif; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .model-horizontal-flex .tile p { margin: 0 0 8px 0; color: #ddd; font-weight: 400; font-size: 10.5px; line-height: 1.4; }
-        
-        .tile-action-btn { display: inline-flex; align-items: center; justify-content: center; gap: 5px; background: rgba(255, 0, 79, 0.12); border: 1px solid rgba(255, 0, 79, 0.35); padding: 7px 12px; border-radius: 5px; color: #fff; text-decoration: none; font-weight: 800; font-size: 10px; text-transform: uppercase; width: 100%; transition: all 0.2s ease; }
-        .tile-action-btn:hover { background: linear-gradient(90deg, #ff004f, #ff8a00); border-color: transparent; box-shadow: 0 4px 12px rgba(255, 0, 79, 0.5); }
-        
-        .flex-split-buttons { display: flex; gap: 5px; width: 100%; }
-        .flex-split-buttons .tile-action-btn { flex: 1; }
-        
-        .theme-redmagic { border-color: #ff003c !important; animation: borderPulseFlame 5s ease infinite !important; }
-        .theme-redmagic .tile { border-color: rgba(255, 0, 60, 0.35); }
-        .theme-redmagic .tile h4 { color: #ff003c; }
-        .theme-redmagic .tile-action-btn { background: rgba(255, 0, 60, 0.12); border-color: rgba(255, 0, 60, 0.35); }
-        .theme-redmagic .tile-action-btn:hover { background: linear-gradient(90deg, #ff003c, #ff0077); }
-        
-        .theme-cyan { border-color: var(--accent) !important; animation: borderPulseCyan 5s ease infinite !important; }
-        .theme-cyan .tile { border-color: rgba(0, 242, 255, 0.35); }
+
+        .clock-pill {
+            border-color: rgba(0, 242, 255, 0.25);
+        }
+
+        .clock-pill i { color: var(--accent); }
+
+        /* Hero Header */
+        header {
+            padding: 34px 16px 24px;
+            text-align: center;
+            position: relative;
+        }
+
+        .avatar-ring {
+            display: inline-block;
+            padding: 3px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
+            box-shadow: 0 0 40px rgba(255, 0, 79, 0.32);
+            transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .avatar-ring:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-pic {
+            width: 108px;
+            height: 108px;
+            border-radius: 50%;
+            display: block;
+            object-fit: cover;
+            background: #0c0d12;
+            border: 3px solid #050508;
+        }
+
+        .brand-name {
+            margin: 14px 0 6px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(42px, 7vw, 60px);
+            line-height: 1;
+            letter-spacing: 3px;
+            background: linear-gradient(90deg, #ffffff 0%, #ffd166 25%, #ff004f 50%, #ffd166 75%, #ffffff 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmerText 6s linear infinite;
+        }
+
+        .hero-subtitle {
+            margin: 0 auto;
+            max-width: 620px;
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 9px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 17px;
+            border-radius: 9px;
+            font-size: 11px;
+            font-weight: 700;
+            text-decoration: none;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5);
+        }
+
+        .whatsapp { background: linear-gradient(135deg, #25d366, #16a34a); }
+        .telegram { background: linear-gradient(135deg, #29b6f6, #0288d1); }
+        .facebook { background: linear-gradient(135deg, #3b82f6, #1d4ed8); }
+        .youtube-btn { background: linear-gradient(135deg, #ff1e42, #c80028); }
+        .tiktok-btn {
+            background: #0b0c10;
+            border: 1px solid rgba(0, 242, 255, 0.45);
+            box-shadow: 0 0 18px rgba(0, 242, 255, 0.14);
+        }
+
+        .price-link-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #ffffff;
+            padding: 11px 26px;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 11.5px;
+            letter-spacing: 0.8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 10px 28px rgba(255, 0, 79, 0.32);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .price-link-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 14px 34px rgba(255, 0, 79, 0.48);
+        }
+
+        /* Brand Badges */
+        .xiaomi-tag {
+            background: linear-gradient(135deg, #ff5500, #ff9900);
+            color: #ffffff;
+            padding: 3px 9px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            letter-spacing: 0.6px;
+        }
+
+        .redmagic-tag {
+            background: linear-gradient(135deg, #ff003c, #d9006c);
+            color: #ffffff;
+            padding: 3px 9px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 800;
+            margin-right: 6px;
+            display: inline-block;
+            vertical-align: middle;
+            letter-spacing: 0.6px;
+        }
+
+        .oppo-tag {
+            background: linear-gradient(135deg, #00e676, #00e5ff);
+            color: #05080b;
+            padding: 3px 9px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 900;
+            margin: 0 4px;
+            display: inline-block;
+            vertical-align: middle;
+            letter-spacing: 0.6px;
+        }
+
+        .hot-badge {
+            background: rgba(255, 0, 79, 0.16);
+            color: #ff4d7d;
+            padding: 3px 8px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 6px;
+            border: 1px solid rgba(255, 0, 79, 0.4);
+        }
+
+        /* Layout & Section Headers */
+        .container {
+            max-width: 1120px;
+            margin: auto;
+            padding: 8px 16px 24px;
+        }
+
+        section {
+            margin-bottom: 28px;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            text-align: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(15px, 2.2vw, 18px);
+            font-weight: 700;
+            margin: 0 0 14px;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            padding: 11px 16px;
+            border-radius: 12px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+            border: 1px solid var(--border-subtle);
+            border-bottom: 2px solid var(--primary);
+        }
+
+        /* HD Cards & Tiles */
+        .model-flex-container {
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-hd);
+            padding: 24px;
+            border-radius: 18px;
+            text-align: center;
+            transition: border-color 0.25s ease;
+        }
+
+        .model-flex-container:hover {
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+
+        .model-horizontal-flex {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 14px;
+            margin: 12px 0 18px;
+        }
+
+        .model-horizontal-flex .tile {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 18px 16px;
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, box-shadow 0.25s ease;
+            color: var(--text);
+            text-align: center;
+        }
+
+        .model-horizontal-flex .tile:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 0, 79, 0.5);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
+        }
+
+        .model-horizontal-flex .tile h4 {
+            margin: 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+        }
+
+        .model-horizontal-flex .tile p {
+            margin: 0;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 11.5px;
+            line-height: 1.45;
+        }
+
+        .tile-action-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 8px 12px;
+            border-radius: 8px;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 10.5px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            width: 100%;
+            transition: all 0.2s ease;
+        }
+
+        .tile-action-btn:hover {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-color: transparent;
+            color: #ffffff;
+            box-shadow: 0 6px 16px rgba(255, 0, 79, 0.35);
+        }
+
+        .flex-split-buttons {
+            display: flex;
+            gap: 6px;
+            width: 100%;
+        }
+
+        .flex-split-buttons .tile-action-btn {
+            flex: 1;
+            padding: 8px 8px;
+        }
+
+        .theme-redmagic .tile:hover {
+            border-color: rgba(255, 0, 60, 0.55);
+        }
+        .theme-redmagic .tile h4 { color: #ff2a5f; }
+        .theme-redmagic .tile-action-btn:hover {
+            background: linear-gradient(135deg, #ff003c, #ff0077);
+            box-shadow: 0 6px 16px rgba(255, 0, 60, 0.35);
+        }
+
+        .theme-cyan .tile:hover {
+            border-color: rgba(0, 242, 255, 0.5);
+        }
         .theme-cyan .tile h4 { color: var(--accent); }
-        .theme-cyan .tile-action-btn { background: rgba(0, 242, 255, 0.12); border-color: rgba(0, 242, 255, 0.35); }
-        .theme-cyan .tile-action-btn:hover { background: linear-gradient(90deg, #00f2ff, #0055ff); color: #000; font-weight: 900; }
-        
-        .hl-red { color: #ff004f !important; }
-        .hl-gold { color: #ffcc00 !important; }
-        .hl-cyan { color: #00f2ff !important; }
-        
-        .waiting-box { background: linear-gradient(90deg, rgba(0, 242, 255, 0.03), rgba(0, 68, 255, 0.03)); border: 1px dashed var(--accent); padding: 13px; text-align: center; border-radius: 8px; margin-top: 14px; font-weight: 700; color: var(--accent); font-size: 12px; letter-spacing: 0.5px; }
+        .theme-cyan .tile-action-btn:hover {
+            background: linear-gradient(135deg, #00f2ff, #0077ff);
+            color: #05080c;
+            font-weight: 800;
+            box-shadow: 0 6px 16px rgba(0, 242, 255, 0.3);
+        }
 
-        /* REALISTIC GRADIENT ANIMATION FOR TRUSTPLOT & IMEI SHOWCASE */
-        .trust-check-compact-bar { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); 
-            gap: 25px; 
-            background: linear-gradient(-45deg, #11000b, #040008, #010812, #050007); 
-            background-size: 400% 400%;
-            animation: dynamicGradientShift 8s ease infinite, borderPulseCyan 6s infinite alternate; 
-            border: 2px solid rgba(0, 242, 255, 0.3); 
-            border-radius: 14px; 
-            padding: 22px; 
-            align-items: center; 
-            margin-bottom: 12px; 
-        }
-        .trust-showcase-card { 
-            background: linear-gradient(150deg, rgba(255, 255, 255, 0.02) 0%, rgba(255, 255, 255, 0.00) 100%); 
-            border: 1px solid rgba(255,255,255,0.06); 
-            border-radius: 10px; 
-            padding: 16px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            gap: 15px; 
-            transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1); 
-            position: relative; 
-            overflow: hidden; 
-        }
-        .trust-showcase-card:hover { 
-            background: rgba(255, 255, 255, 0.04); 
-            transform: translateY(-4px); 
-            box-shadow: 0 12px 24px rgba(0,0,0,0.6); 
-            border-color: #00b67a; 
-            animation: premiumReflection 2s infinite ease-in-out;
-        }
-        .trust-showcase-card.imei-showcase:hover { border-color: var(--accent); }
-        .trust-showcase-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #00b67a; }
-        .trust-showcase-card.imei-showcase::before { background: var(--accent); }
-        
-        .trust-col-info h4 { margin: 0 0 3px 0; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; }
-        .trust-showcase-card .trust-title { color: #00b67a; }
-        .trust-showcase-card .imei-title { color: var(--accent); }
-        .trust-col-info p { margin: 0; font-size: 11px; color: #bbb; font-weight: 500; }
-        
-        .stars-container { display: flex; gap: 3px; margin-top: 5px; }
-        .stars-container i { color: #00b67a; font-size: 11px; animation: starPulseGlow 1.8s infinite alternate; }
-        .stars-container i:nth-child(2) { animation-delay: 0.15s; }
-        .stars-container i:nth-child(3) { animation-delay: 0.3s; }
-        .stars-container i:nth-child(4) { animation-delay: 0.45s; }
-        .stars-container i:nth-child(5) { animation-delay: 0.6s; }
-        
-        .tp-glow-btn { background: linear-gradient(90deg, #00b67a, #00d690); color: #fff; font-weight: 900; font-size: 10px; padding: 7px 14px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s; text-transform: uppercase; box-shadow: 0 3px 10px rgba(0, 182, 122, 0.3); }
-        .tp-glow-btn:hover { box-shadow: 0 0 18px rgba(0, 182, 122, 0.7); transform: scale(1.03); }
-        
-        .imei-glow-btn { background: linear-gradient(90deg, #00f2ff, #0066ff); color: #000; font-weight: 900; font-size: 10px; padding: 7px 14px; border-radius: 5px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: all 0.2s; text-transform: uppercase; box-shadow: 0 3px 10px rgba(0, 242, 255, 0.3); }
-        .imei-glow-btn:hover { box-shadow: 0 0 18px rgba(0, 242, 255, 0.7); transform: scale(1.03); color: #000; }
-        
-        .requirements-section { background: rgba(5, 0, 5, 0.6); border: 1px solid var(--accent); padding: 22px; border-radius: 16px; animation: borderPulseCyan 6s infinite alternate; }
-        .req-list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; }
-        .req-list li { font-size: 12px; display: flex; align-items: center; gap: 9px; font-weight: 600; }
-        .req-list li i { color: var(--accent); font-size: 14px; }
-        
-        .payment-methods { background: var(--card); padding: 22px; border-radius: 14px; text-align: center; border: 1px solid var(--border); animation: borderPulseFlame 7s infinite alternate; }
-        .pay-icons { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; margin-top: 16px; }
-        .pay-item { font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; }
-        .pay-item i { font-size: 32px; color: var(--accent); display: block; margin-bottom: 7px; filter: drop-shadow(0 2px 6px rgba(0,242,255,0.3)); }
-        
-        .status-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(0, 255, 0, 0.08); border: 1px solid #00ff00; color: #00ff00; padding: 5px 14px; border-radius: 20px; font-size: 11px; margin-bottom: 12px; font-weight: 800; letter-spacing: 0.5px; box-shadow: 0 0 8px rgba(0,255,0,0.15); }
-        .pulse-dot { width: 6px; height: 6px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 8px #00ff00; animation: starPulseGlow 1.5s infinite alternate; }
-        
-        .restriction-warning-box { background: rgba(255, 0, 79, 0.04); border: 2px dashed #ff004f; border-radius: 14px; padding: 18px; text-align: center; margin: 25px auto 5px; animation: borderPulseFlame 4s infinite alternate; }
-        .restriction-warning-box h3 { color: #ff004f; font-family: 'Space Grotesk', sans-serif; margin: 0 0 8px; letter-spacing: 1px; font-size: 15px; font-weight: 800; }
-        .restriction-warning-box p { font-size: 11px; color: #ffcccc; margin: 0; font-weight: 600; line-height: 1.5; }
-        
-        .disclaimer-box { background: rgba(255, 138, 0, 0.04); border: 1px solid rgba(255, 138, 0, 0.35); border-radius: 14px; padding: 16px; margin: 20px auto 12px; text-align: center; max-width: 1000px; }
-        .disclaimer-box p { font-size: 11px; color: #ffcc66; margin: 5px 0; font-weight: 600; line-height: 1.5; }
-        .disclaimer-box span { color: #ff3333; font-weight: 800; }
+        .hl-red { color: #ff2a5f !important; }
+        .hl-gold { color: #fbbf24 !important; }
+        .hl-cyan { color: var(--accent) !important; }
 
-        footer { margin-top: 40px; padding: 32px 16px; font-size: 12px; color: #888; background: #040004; text-align: center; border-top: 1px solid rgba(255,0,79,0.2); letter-spacing: 0.05em; line-height: 1.6; }
+        .waiting-box {
+            background: rgba(255, 255, 255, 0.025);
+            border: 1px solid rgba(0, 242, 255, 0.25);
+            padding: 12px 16px;
+            text-align: center;
+            border-radius: 10px;
+            font-weight: 700;
+            color: var(--accent);
+            font-size: 11.5px;
+            letter-spacing: 0.6px;
+        }
+
+        /* Trust & Identifier Cards */
+        .trust-check-compact-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 16px;
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-hd);
+            border-radius: 18px;
+            padding: 18px;
+        }
+
+        .trust-showcase-card {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .trust-showcase-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0, 182, 122, 0.45);
+        }
+
+        .trust-showcase-card.imei-showcase:hover {
+            border-color: rgba(0, 242, 255, 0.45);
+        }
+
+        .trust-col-info h4 {
+            margin: 0 0 4px 0;
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .trust-title { color: #00d084; }
+        .imei-title { color: var(--accent); }
+
+        .trust-col-info p {
+            margin: 0;
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+
+        .stars-container {
+            display: flex;
+            gap: 4px;
+            margin-top: 6px;
+        }
+
+        .stars-container i {
+            color: #00d084;
+            font-size: 11px;
+        }
+
+        .tp-glow-btn {
+            background: linear-gradient(135deg, #00b67a, #00d690);
+            color: #ffffff;
+            font-weight: 800;
+            font-size: 10.5px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .tp-glow-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 18px rgba(0, 182, 122, 0.35);
+        }
+
+        .imei-glow-btn {
+            background: linear-gradient(135deg, #00f2ff, #0077ff);
+            color: #05080c;
+            font-weight: 800;
+            font-size: 10.5px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.4px;
+            white-space: nowrap;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .imei-glow-btn:hover {
+            transform: scale(1.03);
+            box-shadow: 0 6px 18px rgba(0, 242, 255, 0.35);
+        }
+
+        /* Status Badge */
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.35);
+            color: #34d399;
+            padding: 6px 15px;
+            border-radius: 999px;
+            font-size: 11px;
+            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+        }
+
+        .pulse-dot {
+            width: 7px;
+            height: 7px;
+            background: #34d399;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #34d399;
+            animation: pulseLive 1.8s ease infinite;
+        }
+
+        /* Requirements & Payment */
+        .requirements-section {
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-hd);
+            padding: 22px;
+            border-radius: 18px;
+        }
+
+        .req-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 12px;
+        }
+
+        .req-list li {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border-subtle);
+            padding: 13px 15px;
+            border-radius: 12px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: #e2e8f0;
+        }
+
+        .req-list li i {
+            color: var(--accent);
+            font-size: 14px;
+        }
+
+        .payment-methods {
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+            padding: 24px;
+            border-radius: 18px;
+            text-align: center;
+            border: 1px solid var(--border-subtle);
+            box-shadow: var(--shadow-hd);
+        }
+
+        .pay-icons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 14px;
+            margin-top: 14px;
+        }
+
+        .pay-item {
+            background: var(--surface-elevated);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            padding: 18px 14px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            color: #e2e8f0;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .pay-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0, 242, 255, 0.35);
+        }
+
+        .pay-item i {
+            font-size: 28px;
+            color: var(--accent);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* Notice & Disclaimer Boxes */
+        .disclaimer-box {
+            background: rgba(245, 158, 11, 0.06);
+            border: 1px solid rgba(245, 158, 11, 0.28);
+            border-radius: 16px;
+            padding: 16px 20px;
+            margin: 24px 0;
+            text-align: center;
+        }
+
+        .disclaimer-box p {
+            font-size: 11.5px;
+            color: #fcd34d;
+            margin: 5px 0;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .disclaimer-box span {
+            color: #ff4d6d;
+            font-weight: 800;
+        }
+
+        .restriction-warning-box {
+            background: rgba(255, 0, 79, 0.06);
+            border: 1px solid rgba(255, 0, 79, 0.35);
+            border-radius: 16px;
+            padding: 18px 20px;
+            text-align: center;
+            margin-top: 24px;
+        }
+
+        .restriction-warning-box h3 {
+            color: #ff4d7d;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0 0 6px;
+            letter-spacing: 1px;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .restriction-warning-box p {
+            font-size: 11.5px;
+            color: #fecdd3;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        footer {
+            margin-top: 48px;
+            padding: 32px 16px;
+            font-size: 12px;
+            color: var(--text-muted);
+            background: #030305;
+            text-align: center;
+            border-top: 1px solid var(--border-subtle);
+            line-height: 1.7;
+        }
     </style>
 </head>
 <body>
 <div class="drawer-overlay" id="overlay"></div>
 <nav class="side-drawer" id="sideDrawer" aria-label="Side Navigation">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
-        <h2 style="font-family:'Bebas Neue', sans-serif; color:var(--primary); margin:0; letter-spacing:1px; font-size: 24px;">RIYU NAVIGATION</h2>
-        <i class="fas fa-times" id="closeDrawer" style="cursor:pointer; font-size:18px; color:#fff;" role="button" aria-label="Close menu"></i>
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:22px;">
+        <h2 style="font-family:'Bebas Neue', sans-serif; color:#ffffff; margin:0; letter-spacing:1.5px; font-size: 24px;">RIYU NAVIGATION</h2>
+        <i class="fas fa-times" id="closeDrawer" style="cursor:pointer; font-size:18px; color:#94a3b8;" role="button" aria-label="Close menu"></i>
     </div>
     <a href="updates.html" class="drawer-link"><i class="fas fa-rss"></i> REGULAR UPDATES</a>
     <a href="pricelist.html" class="drawer-link"><i class="fas fa-file-invoice-dollar"></i> PRICE LIST</a>
-    <a href="https://t.me/RIYUAUTHSERVICES" class="drawer-link" target="_blank"><i class="fab fa-telegram"></i> TELEGRAM CHANNEL</a>
+    <a href="https://t.me/RIYUAUTHSERVICES" class="drawer-link" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TELEGRAM CHANNEL</a>
     <a href="#payment" class="drawer-link" id="drawerPaymentLink"><i class="fas fa-credit-card"></i> PAYMENT METHODS</a>
 </nav>
 
 <div class="king-bar">
     <button class="drawer-toggle" id="openDrawer" aria-label="Open menu"><i class="fas fa-bars"></i></button>
-    🔥 YOU ARE IN THE KING PLACE 🔥
+    OFFICIAL REMOTE SOFTWARE &amp; AUTHENTICATION PORTAL
 </div>
 
 <div class="top-info-bar">
@@ -234,8 +821,11 @@
 </div>
 
 <header>
-    <img src="profile.png" class="profile-pic" alt="RIYU Profile Portrait">
+    <div class="avatar-ring">
+        <img src="profile.png" class="profile-pic" alt="RIYU Profile Portrait">
+    </div>
     <h1 class="brand-name">RIYU THE FLASHER</h1>
+    <p class="hero-subtitle">Remote Firmware Flashing, Global ROM Conversion, Bootloader Unlock &amp; Authorized Unbrick Support</p>
     <div class="btn-group">
         <a href="https://wa.me/8801861845006" class="btn whatsapp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WHATSAPP</a>
         <a href="https://t.me/RIYUAUTHSERVICES" class="btn telegram" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TELEGRAM</a>
@@ -247,7 +837,7 @@
 </header>
 
 <main class="container">
-    
+
     <!-- SECTION 1: XIAOMI CHINA TO GLOBAL -->
     <section>
         <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA TO GLOBAL <span class="hot-badge">HOT</span></h2>
@@ -255,45 +845,45 @@
             <div class="model-horizontal-flex">
                 <div class="tile">
                     <h4 class="hl-red">XIAOMI 15 / 17 SERIES</h4>
-                    <p>Premium Flashing Support</p>
+                    <p>Global ROM &amp; Flash Support</p>
                     <a href="15convert.html" class="tile-action-btn"><i class="fas fa-microchip"></i> 15/17 CONVERT</a>
                 </div>
                 <div class="tile">
                     <h4 class="hl-red">XIAOMI 13 SERIES</h4>
-                    <p>13 / PRO / ULTRA</p>
+                    <p>Standard, Pro &amp; Ultra</p>
                     <a href="13seriesconvert.html" class="tile-action-btn"><i class="fas fa-download"></i> ROM FLASH</a>
                 </div>
                 <div class="tile">
                     <h4 class="hl-gold">REDMI NOTE 15 SERIES</h4>
-                    <p>15 / PRO / PLUS</p>
+                    <p>Note 15, Pro &amp; Pro+</p>
                     <a href="REDMINOTE15SERIES.html" class="tile-action-btn"><i class="fas fa-fire"></i> DISCOVER ROM</a>
                 </div>
                 <div class="tile">
                     <h4 class="hl-cyan">REDMI K &amp; F8 SERIES</h4>
-                    <p>K60 / K70 / K80 / F8</p>
+                    <p>K Series &amp; Global Conversion</p>
                     <a href="K_SERIES.html" class="tile-action-btn"><i class="fas fa-bolt"></i> GET CONVERT</a>
                 </div>
                 <div class="tile">
-                    <h4 style="color:#fff;">OTHER MODELS</h4>
-                    <p>Direct Support Lines</p>
+                    <h4 style="color:#ffffff;">OTHER MODELS</h4>
+                    <p>Direct Live Support</p>
                     <div class="flex-split-buttons">
                         <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TG</a>
                         <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WA</a>
                     </div>
                 </div>
             </div>
-            <div class="waiting-box" style="border-color: var(--primary);">✅ ALL CHINESE CONVERSIONS &amp; AUTH UNBRICK AVAILABLE via REMOTE FLASHING</div>
+            <div class="waiting-box" style="border-color: rgba(255, 0, 79, 0.35); color: #ff7597;">ALL CHINESE CONVERSIONS &amp; AUTH UNBRICK AVAILABLE VIA REMOTE FLASHING</div>
         </div>
     </section>
-    
+
     <!-- SECTION 2: REDMAGIC -->
     <section>
-        <h2 class="section-title" style="border-bottom-color: #ff003c; background: linear-gradient(90deg, rgba(255, 0, 60, 0.15) 0%, rgba(5,0,5,0) 100%);"><span class="redmagic-tag">REDMAGIC</span> INSTANT BOOTLOADER UNLOCK &amp; ROM CONVERT ⚡</h2>
+        <h2 class="section-title" style="border-bottom-color: #ff003c;"><span class="redmagic-tag">REDMAGIC</span> BOOTLOADER UNLOCK &amp; ROM CONVERT</h2>
         <div class="model-flex-container theme-redmagic">
             <div class="model-horizontal-flex">
                 <div class="tile">
                     <h4>REDMAGIC 11 SERIES</h4>
-                    <p>11 Pro | 11 Air<br>Unlock &amp; Repair</p>
+                    <p>11 Pro &amp; 11 Air<br>Unlock &amp; Repair</p>
                     <div class="flex-split-buttons">
                         <a href="https://youtube.com/@riyutheflasher" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> VIDEO 1</a>
                         <a href="https://youtube.com/@riyutheflasher" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> VIDEO 2</a>
@@ -301,77 +891,76 @@
                 </div>
                 <div class="tile">
                     <h4>REDMAGIC 9 SERIES</h4>
-                    <p>9 Pro / 9 Pro+ / 9S Pro<br>Instant Fast Switch</p>
+                    <p>9 Pro, 9 Pro+ &amp; 9S Pro<br>Fast Region Switch</p>
                     <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-unlock"></i> REQUEST SERVICE</a>
                 </div>
                 <div class="tile">
                     <h4>REDMAGIC 8 SERIES</h4>
-                    <p>8 Pro / 8 Pro+ / 8S Pro<br>Global ROM &amp; Network</p>
+                    <p>8 Pro, 8 Pro+ &amp; 8S Pro<br>Global ROM &amp; Network</p>
                     <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-wrench"></i> REPAIR FLASH</a>
                 </div>
                 <div class="tile">
                     <h4>REDMAGIC 7 &amp; OLDER</h4>
-                    <p>7 Pro / 7S Pro / 6 Series<br>Complete Brick Fix</p>
+                    <p>Legacy Models<br>Brick Recovery</p>
                     <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-life-ring"></i> RECOVER DEVICE</a>
                 </div>
                 <div class="tile">
-                    <h4 style="color:#fff;">REMOTE ACCESS</h4>
-                    <p>Instant Live Connect</p>
+                    <h4 style="color:#ffffff;">REMOTE ACCESS</h4>
+                    <p>Live PC Session</p>
                     <div class="flex-split-buttons">
                         <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TG</a>
                         <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WA</a>
                     </div>
                 </div>
             </div>
-            <div class="waiting-box" style="border-color: #ff003c; color: #ff003c; background: rgba(255, 0, 60, 0.04);">🔥 INSTANT NUBIA REDMAGIC CONVERSION — NO TIME WAITING | 100% SECURE 🔥</div>
+            <div class="waiting-box" style="border-color: rgba(255, 0, 60, 0.35); color: #ff6b8b;">INSTANT NUBIA REDMAGIC CONVERSION • SECURE REMOTE EXECUTION</div>
         </div>
     </section>
-    
-    <!-- SECTION 3: ONEPLUS -->
+
+    <!-- SECTION 3: ONEPLUS & OPPO GLOBAL ROM CONVERT + AUTH -->
     <section>
-        <h2 class="section-title" style="border-bottom-color: var(--accent); background: linear-gradient(90deg, rgba(0, 242, 255, 0.15) 0%, rgba(5,0,5,0) 100%);">🌐 ONEPLUS WORLDWIDE AUTH FLASH/UNBRICK 🌐</h2>
+        <h2 class="section-title" style="border-bottom-color: var(--accent);">ONEPLUS &amp; <span class="oppo-tag">OPPO</span> GLOBAL ROM CONVERT &amp; AUTH</h2>
         <div class="model-flex-container theme-cyan">
             <div class="model-horizontal-flex">
                 <div class="tile">
-                    <h4>ONEPLUS 15</h4>
-                    <p>Full EDL Security Fix</p>
-                    <a href="unbrick_oneplus_15.html" class="tile-action-btn"><i class="fas fa-bolt-lightning"></i> VIEW UNBRICK</a>
+                    <h4>ONEPLUS 15 SERIES</h4>
+                    <p>Global ROM Convert<br>&amp; EDL Unbrick</p>
+                    <a href="unbrick_oneplus_15.html" class="tile-action-btn"><i class="fas fa-shuffle"></i> GLOBAL CONVERT</a>
+                </div>
+                <div class="tile">
+                    <h4>OPPO X9 ULTRA / X9 PRO</h4>
+                    <p>Global ROM Convert<br>&amp; Region Fix</p>
+                    <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-globe"></i> OPPO X9 CONVERT</a>
                 </div>
                 <div class="tile">
                     <h4>OP12 / 13 SERIES</h4>
-                    <p>OnePlus 13 | 12 | 12R<br>Region Switch Logs</p>
+                    <p>OnePlus 13, 12 &amp; 12R<br>Region Switch Logs</p>
                     <div class="flex-split-buttons">
                         <a href="https://youtube.com/@riyutheflasher" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> VID 1</a>
                         <a href="https://youtube.com/@riyutheflasher" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> VID 2</a>
                     </div>
                 </div>
                 <div class="tile">
-                    <h4>ONEPLUS 11 / 10</h4>
-                    <p>11 | 11R | 10 Pro | 10T<br>OS Transformation</p>
-                    <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-shuffle"></i> SWAP ROM</a>
+                    <h4>ONEPLUS 11 / 10 &amp; NORD</h4>
+                    <p>Flagship, Nord &amp; Ace<br>OS Transformation</p>
+                    <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-bolt-lightning"></i> UNBRICK NOW</a>
                 </div>
                 <div class="tile">
-                    <h4>NORD &amp; ACE</h4>
-                    <p>Nord 3/4 | Ace 3/3V/3Pro<br>Global &amp; Chinese SKU</p>
-                    <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-globe"></i> UNBRICK NOW</a>
-                </div>
-                <div class="tile">
-                    <h4 style="color:#fff;">AUTH SERVICE</h4>
-                    <p>24/7 Server Direct</p>
+                    <h4 style="color:#ffffff;">AUTH SERVICE</h4>
+                    <p>Direct Server Auth</p>
                     <div class="flex-split-buttons">
                         <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-telegram"></i> TG</a>
                         <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WA</a>
                     </div>
                 </div>
             </div>
-            <div class="waiting-box" style="border-color: var(--accent); color: var(--accent); background: rgba(0, 242, 255, 0.04);">⚡ GLOBAL &amp; CHINA UNBRICKING | PERMANENT REGION LOCK REMOVAL AVAILABLE ⚡</div>
+            <div class="waiting-box">ONEPLUS 15 SERIES &amp; OPPO X9 ULTRA / X9 PRO GLOBAL ROM CONVERSION • AUTH UNBRICK</div>
         </div>
     </section>
-    
-    <!-- HIGH INTERACTIVE BRAND METRIC PANELS -->
+
+    <!-- TRUST & IDENTIFIER PANELS -->
     <section>
         <div class="trust-check-compact-bar">
-            <!-- Trustpilot Card -->
             <div class="trust-showcase-card">
                 <div class="trust-col-info">
                     <h4 class="trust-title"><i class="fas fa-star-half-stroke"></i> Verified Customer Reviews</h4>
@@ -389,7 +978,6 @@
                 </div>
             </div>
 
-            <!-- IMEI Card -->
             <div class="trust-showcase-card imei-showcase">
                 <div class="trust-col-info">
                     <h4 class="imei-title"><i class="fas fa-search"></i> Official Identifier Tool</h4>
@@ -399,64 +987,60 @@
             </div>
         </div>
     </section>
-    
-    <!-- SECTION 4: XIAOMI BOOTLOADER UNLOCK -->
+
+    <!-- SECTION 4: XIAOMI BOOTLOADER UNLOCK & AUTH (MINIMAL) -->
     <section>
-        <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA BOOTLOADER UNLOCK 🔓 <span class="hot-badge">HOT NOW</span></h2>
+        <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> BOOTLOADER UNLOCK &amp; AUTH <span class="hot-badge">LIVE</span></h2>
         <div class="model-flex-container">
-            <div style="text-align:center;"><div class="status-badge"><div class="pulse-dot"></div> AUTH SERVER ONLINE</div></div>
-            <div style="text-align: center; color: var(--accent); font-weight: 800; font-size: 13px; font-family: 'Space Grotesk', sans-serif; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 0.5px;">🔥 ALL MODELS &amp; ALL SECURITY PATCHES SUPPORTED (MTK AND QUALCOMM ALL) 🔥</div>
-            
+            <div><div class="status-badge"><div class="pulse-dot"></div> AUTH SERVER ONLINE</div></div>
+            <p style="color: var(--accent); font-weight: 700; font-size: 12px; font-family: 'Space Grotesk', sans-serif; margin: 4px 0 14px; text-transform: uppercase; letter-spacing: 0.8px;">
+                ALL SUPPORTED MTK &amp; QUALCOMM PLATFORMS • ALL SECURITY PATCHES
+            </p>
+
             <div class="model-horizontal-flex">
                 <div class="tile">
-                    <h4 class="hl-red">XIAOMI SERIES</h4>
-                    <p style="font-weight:600; font-size:10px;">Xiaomi 17/Pro/Max<br>15 | 15 Pro | 15 Ultra<br>13 | 13 Pro | 13 Ultra / Lite<br>12 | 12 Pro | 12S | 12S Ultra</p>
+                    <h4 class="hl-red">BOOTLOADER UNLOCK</h4>
+                    <p>Direct Server Unlock<br>No Downgrade Required</p>
+                    <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-unlock"></i> UNLOCK NOW</a>
                 </div>
                 <div class="tile">
-                    <h4 class="hl-gold">REDMI K &amp; POCO</h4>
-                    <p style="font-weight:600; font-size:10px;">K60 | K70 | K80 Series<br>K90 Series [annibale]<br>K50 Ultra | POCO F8 [🔥]<br>Redmi Turbo 3 / 4 Pro</p>
+                    <h4 class="hl-gold">GLOBAL ROM CONVERT</h4>
+                    <p>Xiaomi, OnePlus 15 Series<br>&amp; Oppo X9 Ultra / X9 Pro</p>
+                    <a href="pricelist.html" class="tile-action-btn"><i class="fas fa-file-invoice-dollar"></i> VIEW PRICING</a>
                 </div>
                 <div class="tile">
-                    <h4 class="hl-cyan">MIX, FOLD &amp; NOTE</h4>
-                    <p style="font-weight:600; font-size:10px;">Mix Fold 4 | 3 | 2<br>MIX Flip<br>Redmi Note 14 Pro+<br>Redmi 14R 5G [lake]</p>
+                    <h4 class="hl-cyan">AUTH FLASH &amp; UNBRICK</h4>
+                    <p>EDL / Fastboot Recovery<br>Remote Live Session</p>
+                    <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> BOOK SESSION</a>
                 </div>
             </div>
-            <div class="waiting-box">🚀 NO DOWNGRADE REQUIRED | INSTANT BYPASS SUCCESS 🚀</div>
+            <div class="waiting-box">INSTANT REMOTE EXECUTION • VERIFIED SERVER AUTH</div>
         </div>
     </section>
-    
-    <!-- SECTION 5: MI CLOUD PERMANENT REMOVAL & FLASH -->
+
+    <!-- SECTION 5: MI CLOUD PERMANENT REMOVAL & FLASH (MINIMAL) -->
     <section>
-        <h2 class="section-title">⚡ MI CLOUD PERMANENT REMOVAL &amp; FLASH ⚡</h2>
+        <h2 class="section-title">MI CLOUD PERMANENT REMOVAL &amp; FLASH</h2>
         <div class="model-flex-container">
-            <p style="font-weight:800; font-size:12px; margin-bottom:15px; text-transform:uppercase; letter-spacing: 1px; color:#fff;">
-                SUPPORTED FLASH, UNBRICK &amp; PERMANENT BYPASS MODELS
-            </p>
-            
             <div class="model-horizontal-flex">
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">MI 17+ Series [🆕]</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">Xiaomi 15 / Pro / Ultra</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">Xiaomi 13 Ultra / Pro / 13</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-gold" style="margin:0;">Xiaomi 12S [mayfly]</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-cyan" style="margin:0;">MIX Fold 3 / 4 / Flip</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">Redmi K80 / K80P / K70</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-cyan" style="margin:0;">POCO F8 Series [🆕]</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-cyan" style="margin:0;">POCO F7 / Turbo 4 Pro</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-gold" style="margin:0;">Redmi Turbo 3 / 4 Pro</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-gold" style="margin:0;">Redmi Turbo 12 Pro</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">Redmi Note 15 / Pro / +</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-red" style="margin:0;">Redmi Note 14 Pro+</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-gold" style="margin:0;">Redmi Note 13 Pro</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-gold" style="margin:0;">Redmi Note 12 5G</h4></div>
-                <div class="tile" style="min-width:160px; padding:10px;"><h4 class="hl-cyan" style="margin:0;">Redmi 14R [lake]</h4></div>
+                <div class="tile">
+                    <h4 class="hl-red">MI ACCOUNT REMOVAL</h4>
+                    <p>Server-Based Permanent Clear<br>Supported Global &amp; CN Devices</p>
+                    <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-shield-halved"></i> CHECK ELIGIBILITY</a>
+                </div>
+                <div class="tile">
+                    <h4 class="hl-gold">FIRMWARE &amp; UNBRICK</h4>
+                    <p>Clean Stock Flashing<br>&amp; Bootloop Recovery</p>
+                    <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-microchip"></i> REQUEST FLASH</a>
+                </div>
             </div>
-            
-            <div style="margin-top: 20px; border-top: 2px dashed rgba(255, 0, 79, 0.25); padding-top: 18px;">
-                <h3 style="text-transform:uppercase; font-family: 'Space Grotesk', sans-serif; font-weight:800; margin: 0; font-size: 16px; color: #ff004f; letter-spacing: 0.5px;">
-                    🛡️ MI ACCOUNT PERMANENT REMOVAL 🛡️
+
+            <div style="margin-top: 18px; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+                <h3 style="text-transform:uppercase; font-family: 'Space Grotesk', sans-serif; font-weight:700; margin: 0; font-size: 14px; color: #ff4d7d; letter-spacing: 0.8px;">
+                    SERVER-SIDE PROCESSING
                 </h3>
-                <p style="font-size:13px; color:#ffcc00; font-weight:800; font-family:'Space Grotesk', sans-serif; margin: 6px 0 0 0; letter-spacing: 0.5px;">
-                    ALL CHINESE + GLOBAL MODELS BY SERVER | 10-20 SEC DONE
+                <p style="font-size:12px; color:#fbbf24; font-weight:600; font-family:'Space Grotesk', sans-serif; margin: 6px 0 0 0; letter-spacing: 0.5px;">
+                    FAST TURNAROUND • REMOTE PC CONNECTION • 100% UPFRONT PAYMENT REQUIRED
                 </p>
             </div>
         </div>
@@ -464,13 +1048,13 @@
 
     <!-- EXCLUSIONS & DISCLAIMER BOX -->
     <div class="disclaimer-box">
-        <p>⚠️ <span>BUSINESS POLICY DISCLAIMER:</span> We do <b>NOT</b> provide IMEI Repair, CPID Services, or Installment Lock Removals under any circumstances.</p>
+        <p><span>BUSINESS POLICY DISCLAIMER:</span> We do <b>NOT</b> provide IMEI Repair, CPID Services, or Installment Lock Removals under any circumstances.</p>
         <p>Notice for Domestic Clients: MDM Bypass and Mi Cloud Bypass services are strictly unavailable for domestic clients within Bangladesh.</p>
     </div>
 
     <!-- REQUIREMENTS -->
     <section>
-        <h2 class="section-title">⚡ PRE-REQUISITES &amp; REQUIREMENTS ⚡</h2>
+        <h2 class="section-title">PRE-REQUISITES &amp; REQUIREMENTS</h2>
         <div class="requirements-section">
             <ul class="req-list">
                 <li><i class="fas fa-laptop"></i> Windows PC / Laptop</li>
@@ -483,7 +1067,7 @@
 
     <!-- PAYMENT METHODS -->
     <section id="payment" class="payment-methods">
-        <h2 class="section-title">💳 ACCEPTED PAYMENT METHODS 💳</h2>
+        <h2 class="section-title">ACCEPTED PAYMENT METHODS</h2>
         <div class="pay-icons">
             <div class="pay-item"><i class="fas fa-university"></i> Bank Transfer</div>
             <div class="pay-item"><i class="fab fa-bitcoin"></i> Crypto (USDT)</div>
@@ -493,7 +1077,7 @@
 
     <!-- RESTRICTION WARNING -->
     <div class="restriction-warning-box">
-        <h3>⚠️ CRITICAL NOTICE</h3>
+        <h3>CRITICAL NOTICE</h3>
         <p>Ensure your device drivers are properly installed before requesting remote service operations.</p>
     </div>
 </main>

@@ -14,14 +14,15 @@
             --secondary: #ff8a00;
             --accent: #00f2ff;
             --gold: #fbbf24;
+            --gold-bright: #fde047;
+            --emerald: #00d084;
             --bg-deep: #050508;
-            --surface: rgba(16, 17, 24, 0.78);
-            --surface-elevated: rgba(24, 26, 36, 0.92);
+            --surface: rgba(16, 17, 24, 0.82);
+            --surface-elevated: rgba(24, 26, 36, 0.94);
             --text: #f8fafc;
             --text-muted: #94a3b8;
             --border-subtle: rgba(255, 255, 255, 0.08);
-            --border-accent: rgba(255, 0, 79, 0.35);
-            --shadow-hd: 0 20px 50px -12px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+            --shadow-hd: 0 20px 50px -12px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(255, 255, 255, 0.05);
         }
 
         @keyframes gradientFlow {
@@ -38,6 +39,27 @@
         @keyframes shimmerText {
             0% { background-position: 200% center; }
             100% { background-position: -200% center; }
+        }
+
+        @keyframes nameplateShine {
+            0% { transform: translateX(-140%) skewX(-22deg); }
+            45%, 100% { transform: translateX(260%) skewX(-22deg); }
+        }
+
+        @keyframes nameplatePulse {
+            0%, 100% {
+                box-shadow: 0 0 18px rgba(251, 191, 36, 0.28), inset 0 0 12px rgba(251, 191, 36, 0.12);
+                border-color: var(--gold);
+            }
+            50% {
+                box-shadow: 0 0 32px rgba(253, 224, 71, 0.52), inset 0 0 18px rgba(251, 191, 36, 0.22);
+                border-color: var(--gold-bright);
+            }
+        }
+
+        @keyframes starWave {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-2px) scale(1.12); }
         }
 
         * {
@@ -157,22 +179,23 @@
             color: #ffffff;
         }
 
-        /* Info Pills */
+        /* Info Pills & Special Animated Nameplate */
         .top-info-bar {
             max-width: 1120px;
-            margin: 16px auto 0;
+            margin: 18px auto 0;
             padding: 0 16px;
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 10px;
+            align-items: center;
+            gap: 12px;
         }
 
         .info-pill {
             background: var(--surface);
             backdrop-filter: blur(14px);
             border: 1px solid var(--border-subtle);
-            padding: 7px 16px;
+            padding: 8px 16px;
             border-radius: 999px;
             font-size: 11.5px;
             color: #e2e8f0;
@@ -184,21 +207,53 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
         }
 
-        .info-pill.name-highlight {
-            background: rgba(251, 191, 36, 0.09);
-            border: 1.5px solid var(--gold);
-            color: #fef3c7;
-            box-shadow: 0 0 22px rgba(251, 191, 36, 0.2), 0 8px 24px rgba(0, 0, 0, 0.35);
+        .nameplate-special {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(66, 44, 6, 0.92), rgba(24, 18, 5, 0.96), rgba(74, 48, 7, 0.92));
+            border: 2.5px solid var(--gold);
+            border-radius: 12px;
+            padding: 9px 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 12.5px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--gold-bright);
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            animation: nameplatePulse 3.2s ease-in-out infinite;
         }
 
-        .info-pill.name-highlight i {
-            color: var(--gold);
+        .nameplate-special::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+            animation: nameplateShine 3.6s ease-in-out infinite;
+            pointer-events: none;
         }
 
-        .info-pill i { color: var(--primary); }
+        .nameplate-special::after {
+            content: "";
+            position: absolute;
+            inset: 3px;
+            border: 1px dashed rgba(253, 224, 71, 0.42);
+            border-radius: 8px;
+            pointer-events: none;
+        }
+
+        .nameplate-special i {
+            color: var(--gold-bright);
+            font-size: 13px;
+        }
 
         .clock-pill {
-            border-color: rgba(0, 242, 255, 0.25);
+            border-color: rgba(0, 242, 255, 0.28);
         }
 
         .clock-pill i { color: var(--accent); }
@@ -392,15 +447,22 @@
             box-shadow: 0 0 14px rgba(0, 242, 255, 0.2);
         }
 
-        /* Layout & Section Headers */
+        /* Layout & Thick Yellow Section Frames */
         .container {
             max-width: 1120px;
             margin: auto;
-            padding: 8px 16px 24px;
+            padding: 8px 16px 28px;
         }
 
-        section {
-            margin-bottom: 28px;
+        section.yellow-section {
+            margin-bottom: 30px;
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 3px solid var(--gold);
+            border-radius: 22px;
+            padding: 20px;
+            box-shadow: var(--shadow-hd), 0 0 28px rgba(251, 191, 36, 0.14);
         }
 
         .section-title {
@@ -413,51 +475,29 @@
             font-family: 'Space Grotesk', sans-serif;
             font-size: clamp(15px, 2.2vw, 18px);
             font-weight: 700;
-            margin: 0 0 14px;
+            margin: 0 0 16px;
             color: #ffffff;
             text-transform: uppercase;
             letter-spacing: 1.4px;
             padding: 11px 16px;
             border-radius: 12px;
-            background: linear-gradient(90deg, rgba(255, 0, 79, 0.11), rgba(255, 255, 255, 0.02), rgba(0, 242, 255, 0.07));
-            border: 1px solid rgba(255, 255, 255, 0.11);
-            border-bottom: 2px solid var(--primary);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-        }
-
-        .section-title.hl-redmagic {
-            background: linear-gradient(90deg, rgba(255, 0, 60, 0.14), rgba(255, 255, 255, 0.02));
-            border-color: rgba(255, 0, 60, 0.25);
-            border-bottom-color: #ff003c;
-        }
-
-        .section-title.hl-cyan {
-            background: linear-gradient(90deg, rgba(0, 242, 255, 0.12), rgba(255, 255, 255, 0.02));
-            border-color: rgba(0, 242, 255, 0.24);
-            border-bottom-color: var(--accent);
-        }
-
-        .section-title.hl-gold {
-            background: linear-gradient(90deg, rgba(251, 191, 36, 0.12), rgba(255, 255, 255, 0.02));
-            border-color: rgba(251, 191, 36, 0.25);
-            border-bottom-color: var(--gold);
+            background: linear-gradient(90deg, rgba(251, 191, 36, 0.16), rgba(255, 0, 79, 0.08), rgba(0, 242, 255, 0.08));
+            border: 1.5px solid rgba(251, 191, 36, 0.45);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
         }
 
         /* HOT NOW Monitor Billboard */
         .monitor-shell {
-            background: var(--surface);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid rgba(255, 0, 79, 0.35);
-            box-shadow: var(--shadow-hd), 0 0 36px rgba(255, 0, 79, 0.14);
-            border-radius: 20px;
-            padding: 20px;
+            background: rgba(10, 11, 16, 0.72);
+            border: 2px solid rgba(251, 191, 36, 0.45);
+            border-radius: 18px;
+            padding: 16px;
         }
 
         .monitor-bezel {
-            background: linear-gradient(145deg, #1a1d26, #0b0c10);
-            border: 2px solid rgba(255, 255, 255, 0.14);
-            border-radius: 18px 18px 12px 12px;
+            background: linear-gradient(145deg, #1e212b, #0b0c10);
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px 16px 10px 10px;
             padding: 12px 12px 16px;
             box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 24px 48px rgba(0, 0, 0, 0.85);
             position: relative;
@@ -470,7 +510,7 @@
             gap: 12px;
             flex-wrap: wrap;
             padding: 4px 8px 12px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
             margin-bottom: 12px;
         }
 
@@ -491,9 +531,9 @@
             font-weight: 800;
             letter-spacing: 0.8px;
             text-transform: uppercase;
-            background: rgba(255, 0, 79, 0.18);
-            color: #ff5c8a;
-            border: 1px solid rgba(255, 0, 79, 0.45);
+            background: rgba(251, 191, 36, 0.16);
+            color: var(--gold-bright);
+            border: 1px solid rgba(251, 191, 36, 0.5);
         }
 
         #billboardTitle {
@@ -532,9 +572,9 @@
         }
 
         .monitor-btn:hover {
-            background: rgba(0, 242, 255, 0.14);
-            border-color: rgba(0, 242, 255, 0.45);
-            color: var(--accent);
+            background: rgba(251, 191, 36, 0.16);
+            border-color: var(--gold);
+            color: var(--gold-bright);
         }
 
         .monitor-screen {
@@ -544,7 +584,7 @@
             background: #000000;
             border-radius: 10px;
             overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
         }
 
@@ -571,7 +611,7 @@
             width: 88px;
             height: 18px;
             margin: 0 auto;
-            background: linear-gradient(180deg, #1b1e29, #0d0e14);
+            background: linear-gradient(180deg, #222634, #0d0e14);
             border-left: 1px solid rgba(255, 255, 255, 0.08);
             border-right: 1px solid rgba(255, 255, 255, 0.08);
         }
@@ -581,37 +621,29 @@
             height: 8px;
             margin: 0 auto;
             border-radius: 999px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.04));
+            background: linear-gradient(90deg, rgba(251, 191, 36, 0.1), rgba(251, 191, 36, 0.55), rgba(251, 191, 36, 0.1));
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
         }
 
-        /* HD Cards & Tiles */
+        /* Inner Panels & Tiles */
         .model-flex-container {
-            background: var(--surface);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-            border: 1px solid var(--border-subtle);
-            box-shadow: var(--shadow-hd);
-            padding: 24px;
-            border-radius: 18px;
+            background: rgba(10, 11, 16, 0.62);
+            border: 1.5px solid rgba(251, 191, 36, 0.35);
+            padding: 18px;
+            border-radius: 16px;
             text-align: center;
-            transition: border-color 0.25s ease;
-        }
-
-        .model-flex-container:hover {
-            border-color: rgba(255, 255, 255, 0.14);
         }
 
         .model-horizontal-flex {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
             gap: 14px;
-            margin: 12px 0 18px;
+            margin: 10px 0 16px;
         }
 
         .model-horizontal-flex .tile {
             background: var(--surface-elevated);
-            border: 1px solid var(--border-subtle);
+            border: 1.5px solid rgba(251, 191, 36, 0.28);
             padding: 18px 16px;
             border-radius: 14px;
             display: flex;
@@ -626,7 +658,7 @@
 
         .model-horizontal-flex .tile:hover {
             transform: translateY(-4px);
-            border-color: rgba(255, 0, 79, 0.5);
+            border-color: var(--gold);
             box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55);
         }
 
@@ -653,7 +685,7 @@
             justify-content: center;
             gap: 6px;
             background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.14);
             padding: 8px 12px;
             border-radius: 8px;
             color: #ffffff;
@@ -684,18 +716,12 @@
             padding: 8px 8px;
         }
 
-        .theme-redmagic .tile:hover {
-            border-color: rgba(255, 0, 60, 0.55);
-        }
         .theme-redmagic .tile h4 { color: #ff2a5f; }
         .theme-redmagic .tile-action-btn:hover {
             background: linear-gradient(135deg, #ff003c, #ff0077);
             box-shadow: 0 6px 16px rgba(255, 0, 60, 0.35);
         }
 
-        .theme-cyan .tile:hover {
-            border-color: rgba(0, 242, 255, 0.5);
-        }
         .theme-cyan .tile h4 { color: var(--accent); }
         .theme-cyan .tile-action-btn:hover {
             background: linear-gradient(135deg, #00f2ff, #0077ff);
@@ -710,120 +736,178 @@
 
         .waiting-box {
             background: rgba(255, 255, 255, 0.025);
-            border: 1px solid rgba(0, 242, 255, 0.25);
+            border: 1.5px solid rgba(251, 191, 36, 0.38);
             padding: 12px 16px;
             text-align: center;
             border-radius: 10px;
             font-weight: 700;
-            color: var(--accent);
+            color: var(--gold-bright);
             font-size: 11.5px;
             letter-spacing: 0.6px;
         }
 
-        /* Trust & Identifier Cards */
-        .trust-check-compact-bar {
+        /* Distinct Trustpilot & Identifier Showcase */
+        .trust-distinct-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 16px;
-            background: var(--surface);
-            backdrop-filter: blur(18px);
-            border: 1px solid var(--border-subtle);
-            box-shadow: var(--shadow-hd);
-            border-radius: 18px;
-            padding: 18px;
+            grid-template-columns: 1.35fr 1fr;
+            gap: 18px;
+            align-items: stretch;
         }
 
-        .trust-showcase-card {
-            background: var(--surface-elevated);
-            border: 1px solid var(--border-subtle);
-            border-radius: 14px;
-            padding: 18px;
+        @media (max-width: 780px) {
+            .trust-distinct-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .trustpilot-spotlight {
+            background:
+                linear-gradient(135deg, rgba(0, 208, 132, 0.14) 0%, rgba(12, 22, 20, 0.92) 55%, rgba(16, 17, 24, 0.95) 100%);
+            border: 2px solid rgba(0, 208, 132, 0.55);
+            border-left: 6px solid var(--emerald);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+            box-shadow: inset 0 0 28px rgba(0, 208, 132, 0.08);
+        }
+
+        .tp-header-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tp-score-chip {
+            background: rgba(0, 208, 132, 0.16);
+            border: 1px solid rgba(0, 208, 132, 0.5);
+            color: #6ee7b7;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 5px 11px;
+            border-radius: 999px;
+            letter-spacing: 0.6px;
+            white-space: nowrap;
+        }
+
+        .trustpilot-spotlight h4 {
+            margin: 0 0 4px 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.4px;
+        }
+
+        .trustpilot-spotlight p {
+            margin: 0;
+            font-size: 12px;
+            color: #cbd5e1;
+        }
+
+        .tp-bottom-bar {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 14px;
-            transition: transform 0.25s ease, border-color 0.25s ease;
-        }
-
-        .trust-showcase-card:hover {
-            transform: translateY(-3px);
-            border-color: rgba(0, 182, 122, 0.45);
-        }
-
-        .trust-showcase-card.imei-showcase:hover {
-            border-color: rgba(0, 242, 255, 0.45);
-        }
-
-        .trust-col-info h4 {
-            margin: 0 0 4px 0;
-            font-size: 13px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .trust-title { color: #00d084; }
-        .imei-title { color: var(--accent); }
-
-        .trust-col-info p {
-            margin: 0;
-            font-size: 11.5px;
-            color: var(--text-muted);
+            gap: 12px;
+            flex-wrap: wrap;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0, 208, 132, 0.22);
         }
 
         .stars-container {
             display: flex;
-            gap: 4px;
-            margin-top: 6px;
+            align-items: center;
+            gap: 5px;
         }
 
         .stars-container i {
-            color: #00d084;
-            font-size: 11px;
+            color: var(--emerald);
+            font-size: 13px;
+            animation: starWave 2.2s ease-in-out infinite;
         }
 
+        .stars-container i:nth-child(2) { animation-delay: 0.12s; }
+        .stars-container i:nth-child(3) { animation-delay: 0.24s; }
+        .stars-container i:nth-child(4) { animation-delay: 0.36s; }
+        .stars-container i:nth-child(5) { animation-delay: 0.48s; }
+
         .tp-glow-btn {
-            background: linear-gradient(135deg, #00b67a, #00d690);
-            color: #ffffff;
+            background: linear-gradient(135deg, #00b67a, #00e699);
+            color: #04130d;
             font-weight: 800;
-            font-size: 10.5px;
-            padding: 8px 14px;
-            border-radius: 8px;
+            font-size: 11px;
+            padding: 9px 16px;
+            border-radius: 9px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
+            letter-spacing: 0.5px;
             white-space: nowrap;
+            box-shadow: 0 6px 20px rgba(0, 208, 132, 0.28);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .tp-glow-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 18px rgba(0, 182, 122, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px rgba(0, 208, 132, 0.45);
+        }
+
+        .identifier-sidecard {
+            background: linear-gradient(160deg, rgba(0, 242, 255, 0.08), rgba(20, 24, 36, 0.95));
+            border: 2px solid rgba(0, 242, 255, 0.42);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .identifier-sidecard h4 {
+            margin: 0 0 5px 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .identifier-sidecard p {
+            margin: 0;
+            font-size: 12px;
+            color: var(--text-muted);
         }
 
         .imei-glow-btn {
             background: linear-gradient(135deg, #00f2ff, #0077ff);
             color: #05080c;
             font-weight: 800;
-            font-size: 10.5px;
-            padding: 8px 14px;
-            border-radius: 8px;
+            font-size: 11px;
+            padding: 9px 16px;
+            border-radius: 9px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.4px;
-            white-space: nowrap;
+            letter-spacing: 0.5px;
+            width: 100%;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .imei-glow-btn:hover {
-            transform: scale(1.03);
-            box-shadow: 0 6px 18px rgba(0, 242, 255, 0.35);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 22px rgba(0, 242, 255, 0.35);
         }
 
         /* Status Badge */
@@ -853,15 +937,6 @@
         }
 
         /* Requirements & Payment */
-        .requirements-section {
-            background: var(--surface);
-            backdrop-filter: blur(18px);
-            border: 1px solid var(--border-subtle);
-            box-shadow: var(--shadow-hd);
-            padding: 22px;
-            border-radius: 18px;
-        }
-
         .req-list {
             list-style: none;
             padding: 0;
@@ -873,7 +948,7 @@
 
         .req-list li {
             background: var(--surface-elevated);
-            border: 1px solid var(--border-subtle);
+            border: 1.5px solid rgba(251, 191, 36, 0.28);
             padding: 13px 15px;
             border-radius: 12px;
             font-size: 12px;
@@ -889,16 +964,6 @@
             font-size: 14px;
         }
 
-        .payment-methods {
-            background: var(--surface);
-            backdrop-filter: blur(18px);
-            padding: 24px;
-            border-radius: 18px;
-            text-align: center;
-            border: 1px solid var(--border-subtle);
-            box-shadow: var(--shadow-hd);
-        }
-
         .pay-icons {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
@@ -908,7 +973,7 @@
 
         .pay-item {
             background: var(--surface-elevated);
-            border: 1px solid var(--border-subtle);
+            border: 1.5px solid rgba(251, 191, 36, 0.3);
             border-radius: 14px;
             padding: 18px 14px;
             font-size: 12px;
@@ -916,12 +981,13 @@
             text-transform: uppercase;
             letter-spacing: 0.6px;
             color: #e2e8f0;
+            text-align: center;
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
         .pay-item:hover {
             transform: translateY(-3px);
-            border-color: rgba(0, 242, 255, 0.35);
+            border-color: var(--gold);
         }
 
         .pay-item i {
@@ -933,11 +999,11 @@
 
         /* Notice & Disclaimer Boxes */
         .disclaimer-box {
-            background: rgba(245, 158, 11, 0.06);
-            border: 1px solid rgba(245, 158, 11, 0.28);
-            border-radius: 16px;
-            padding: 16px 20px;
-            margin: 24px 0;
+            background: rgba(245, 158, 11, 0.08);
+            border: 3px solid var(--gold);
+            border-radius: 18px;
+            padding: 18px 20px;
+            margin: 26px 0 30px;
             text-align: center;
         }
 
@@ -955,12 +1021,12 @@
         }
 
         .restriction-warning-box {
-            background: rgba(255, 0, 79, 0.06);
-            border: 1px solid rgba(255, 0, 79, 0.35);
-            border-radius: 16px;
+            background: rgba(255, 0, 79, 0.07);
+            border: 3px solid var(--gold);
+            border-radius: 18px;
             padding: 18px 20px;
             text-align: center;
-            margin-top: 24px;
+            margin-top: 26px;
         }
 
         .restriction-warning-box h3 {
@@ -986,7 +1052,7 @@
             color: var(--text-muted);
             background: #030305;
             text-align: center;
-            border-top: 1px solid var(--border-subtle);
+            border-top: 2px solid rgba(251, 191, 36, 0.35);
             line-height: 1.7;
         }
     </style>
@@ -1010,7 +1076,7 @@
 </div>
 
 <div class="top-info-bar">
-    <div class="info-pill name-highlight"><i class="fas fa-user-check"></i><span><b>SAJID AMAN AOPE</b></span></div>
+    <div class="nameplate-special"><i class="fas fa-award"></i><span>SAJID AMAN AOPE</span></div>
     <div class="info-pill clock-pill"><i class="far fa-clock"></i><span id="currentTime" class="digital-clock"></span></div>
 </div>
 
@@ -1033,7 +1099,7 @@
 <main class="container">
 
     <!-- SECTION 1: XIAOMI CHINA TO GLOBAL -->
-    <section>
+    <section class="yellow-section">
         <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> CHINA TO GLOBAL <span class="hot-badge">HOT</span></h2>
         <div class="model-flex-container">
             <div class="model-horizontal-flex">
@@ -1066,13 +1132,13 @@
                     </div>
                 </div>
             </div>
-            <div class="waiting-box" style="border-color: rgba(255, 0, 79, 0.35); color: #ff7597;">ALL CHINESE CONVERSIONS &amp; AUTH UNBRICK AVAILABLE VIA REMOTE FLASHING</div>
+            <div class="waiting-box">ALL CHINESE CONVERSIONS &amp; AUTH UNBRICK AVAILABLE VIA REMOTE FLASHING</div>
         </div>
     </section>
 
     <!-- SECTION 2: REDMAGIC -->
-    <section>
-        <h2 class="section-title hl-redmagic"><span class="redmagic-tag">REDMAGIC</span> BOOTLOADER UNLOCK &amp; ROM CONVERT <span class="live-badge">FAST</span></h2>
+    <section class="yellow-section">
+        <h2 class="section-title"><span class="redmagic-tag">REDMAGIC</span> BOOTLOADER UNLOCK &amp; ROM CONVERT <span class="live-badge">FAST</span></h2>
         <div class="model-flex-container theme-redmagic">
             <div class="model-horizontal-flex">
                 <div class="tile">
@@ -1107,13 +1173,13 @@
                     </div>
                 </div>
             </div>
-            <div class="waiting-box" style="border-color: rgba(255, 0, 60, 0.35); color: #ff6b8b;">INSTANT NUBIA REDMAGIC CONVERSION • SECURE REMOTE EXECUTION</div>
+            <div class="waiting-box">INSTANT NUBIA REDMAGIC CONVERSION • SECURE REMOTE EXECUTION</div>
         </div>
     </section>
 
     <!-- SECTION 3: ONEPLUS & OPPO GLOBAL ROM CONVERT + AUTH -->
-    <section>
-        <h2 class="section-title hl-cyan">ONEPLUS &amp; <span class="oppo-tag">OPPO</span> GLOBAL ROM CONVERT &amp; AUTH <span class="live-badge">VERIFIED</span></h2>
+    <section class="yellow-section">
+        <h2 class="section-title">ONEPLUS &amp; <span class="oppo-tag">OPPO</span> GLOBAL ROM CONVERT &amp; AUTH <span class="live-badge">VERIFIED</span></h2>
         <div class="model-flex-container theme-cyan">
             <div class="model-horizontal-flex">
                 <div class="tile">
@@ -1152,39 +1218,47 @@
         </div>
     </section>
 
-    <!-- TRUST & IDENTIFIER PANELS -->
-    <section>
-        <div class="trust-check-compact-bar">
-            <div class="trust-showcase-card">
-                <div class="trust-col-info">
-                    <h4 class="trust-title"><i class="fas fa-star-half-stroke"></i> Verified Customer Reviews</h4>
-                    <p>Live technical success scoring metrics</p>
-                    <div class="stars-container">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
+    <!-- DISTINCT TRUSTPILOT & IDENTIFIER SECTION -->
+    <section class="yellow-section">
+        <h2 class="section-title">CLIENT TRUST &amp; DEVICE VERIFICATION <span class="live-badge"><i class="fas fa-shield-check"></i> TRUSTPILOT</span></h2>
+        <div class="trust-distinct-grid">
+            <div class="trustpilot-spotlight">
+                <div class="tp-header-row">
+                    <div>
+                        <h4><i class="fas fa-star" style="color: var(--emerald); margin-right: 6px;"></i>Trustpilot Client Feedback</h4>
+                        <p>Verified remote flashing, ROM conversion &amp; bootloader unlock reputation</p>
                     </div>
+                    <span class="tp-score-chip"><i class="fas fa-check-circle"></i> RATED EXCELLENT</span>
                 </div>
-                <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69894830c5b7f0ff5cd41dcf" data-style-height="24px" data-style-width="120px">
-                    <a href="https://www.trustpilot.com/review/riyutheflasher.com" class="tp-glow-btn" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Trustpilot</a>
+
+                <div class="tp-bottom-bar">
+                    <div>
+                        <div class="stars-container" aria-label="5 out of 5 stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="trustpilot-widget" data-locale="en-US" data-template-id="56278e9abfbbba0bdcd568bc" data-businessunit-id="69894830c5b7f0ff5cd41dcf" data-style-height="22px" data-style-width="140px" style="margin-top: 6px;"></div>
+                    </div>
+                    <a href="https://www.trustpilot.com/review/riyutheflasher.com" class="tp-glow-btn" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> READ TRUSTPILOT REVIEWS</a>
                 </div>
             </div>
 
-            <div class="trust-showcase-card imei-showcase">
-                <div class="trust-col-info">
-                    <h4 class="imei-title"><i class="fas fa-search"></i> Official Identifier Tool</h4>
-                    <p>Check Region, Device &amp; Unlock Lock Status</p>
+            <div class="identifier-sidecard">
+                <div>
+                    <h4><i class="fas fa-barcode" style="margin-right: 6px;"></i>IMEI &amp; Region Checker</h4>
+                    <p>Verify model region, SKU status, and unlock eligibility before booking a remote session.</p>
                 </div>
-                <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="imei-glow-btn" target="_blank" rel="noopener"><i class="fas fa-magnifying-glass"></i> OPEN CHECKER</a>
+                <a href="https://iunlocker.com/en/check_imei_xiaomi.php" class="imei-glow-btn" target="_blank" rel="noopener"><i class="fas fa-magnifying-glass"></i> LAUNCH IDENTIFIER TOOL</a>
             </div>
         </div>
     </section>
 
     <!-- SECTION 4: XIAOMI BOOTLOADER UNLOCK & AUTH (MINIMAL) -->
-    <section>
-        <h2 class="section-title hl-gold"><span class="xiaomi-tag">XIAOMI</span> BOOTLOADER UNLOCK &amp; AUTH <span class="live-badge">ONLINE</span></h2>
+    <section class="yellow-section">
+        <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> BOOTLOADER UNLOCK &amp; AUTH <span class="live-badge">ONLINE</span></h2>
         <div class="model-flex-container">
             <div><div class="status-badge"><div class="pulse-dot"></div> AUTH SERVER ONLINE</div></div>
             <p style="color: var(--accent); font-weight: 700; font-size: 12px; font-family: 'Space Grotesk', sans-serif; margin: 4px 0 14px; text-transform: uppercase; letter-spacing: 0.8px;">
@@ -1213,8 +1287,8 @@
     </section>
 
     <!-- HOT NOW MONITOR BILLBOARD (LOWER SECTION) -->
-    <section id="hot-now">
-        <h2 class="section-title hl-gold">HOT NOW <span class="hot-badge"><i class="fas fa-tv"></i> MONITOR BILLBOARD</span></h2>
+    <section id="hot-now" class="yellow-section">
+        <h2 class="section-title">HOT NOW <span class="hot-badge"><i class="fas fa-tv"></i> MONITOR BILLBOARD</span></h2>
         <div class="monitor-shell">
             <div class="monitor-bezel">
                 <div class="monitor-topbar">
@@ -1233,128 +1307,4 @@
                     <iframe
                         id="billboardPlayer"
                         src="https://www.youtube.com/embed/ck9ghuy6lTU?autoplay=1&mute=1&loop=1&playlist=ck9ghuy6lTU&playsinline=1&rel=0"
-                        title="K100 PRO BOOTLOADER UNLOCK"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-
-                <div class="monitor-footer-bar">
-                    <span><i class="fas fa-display" style="color: var(--accent); margin-right: 6px;"></i>Autoplay starts muted per browser policy; click video controls for sound.</span>
-                    <span><i class="fas fa-bolt" style="color: var(--gold); margin-right: 5px;"></i>Remote Auth &amp; Unlock Showcase</span>
-                </div>
-            </div>
-            <div class="monitor-stand-neck"></div>
-            <div class="monitor-stand-base"></div>
-        </div>
-    </section>
-
-    <!-- SECTION 5: MI CLOUD PERMANENT REMOVAL & FLASH (MINIMAL) -->
-    <section>
-        <h2 class="section-title hl-cyan">MI CLOUD PERMANENT REMOVAL &amp; FLASH <span class="live-badge">SERVER</span></h2>
-        <div class="model-flex-container">
-            <div class="model-horizontal-flex">
-                <div class="tile">
-                    <h4 class="hl-red">MI ACCOUNT REMOVAL</h4>
-                    <p>Server-Based Permanent Clear<br>Supported Global &amp; CN Devices</p>
-                    <a href="https://t.me/RIYUAUTHSERVICES" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-shield-halved"></i> CHECK ELIGIBILITY</a>
-                </div>
-                <div class="tile">
-                    <h4 class="hl-gold">FIRMWARE &amp; UNBRICK</h4>
-                    <p>Clean Stock Flashing<br>&amp; Bootloop Recovery</p>
-                    <a href="https://wa.me/8801861845006" class="tile-action-btn" target="_blank" rel="noopener"><i class="fas fa-microchip"></i> REQUEST FLASH</a>
-                </div>
-            </div>
-
-            <div style="margin-top: 18px; border-top: 1px solid var(--border-subtle); padding-top: 16px;">
-                <h3 style="text-transform:uppercase; font-family: 'Space Grotesk', sans-serif; font-weight:700; margin: 0; font-size: 14px; color: #ff4d7d; letter-spacing: 0.8px;">
-                    SERVER-SIDE PROCESSING
-                </h3>
-                <p style="font-size:12px; color:#fbbf24; font-weight:600; font-family:'Space Grotesk', sans-serif; margin: 6px 0 0 0; letter-spacing: 0.5px;">
-                    FAST TURNAROUND • REMOTE PC CONNECTION • 100% UPFRONT PAYMENT REQUIRED
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- EXCLUSIONS & DISCLAIMER BOX -->
-    <div class="disclaimer-box">
-        <p><span>BUSINESS POLICY DISCLAIMER:</span> We do <b>NOT</b> provide IMEI Repair, CPID Services, or Installment Lock Removals under any circumstances.</p>
-        <p>Notice for Domestic Clients: MDM Bypass and Mi Cloud Bypass services are strictly unavailable for domestic clients within Bangladesh.</p>
-    </div>
-
-    <!-- REQUIREMENTS -->
-    <section>
-        <h2 class="section-title hl-cyan">PRE-REQUISITES &amp; REQUIREMENTS</h2>
-        <div class="requirements-section">
-            <ul class="req-list">
-                <li><i class="fas fa-laptop"></i> Windows PC / Laptop</li>
-                <li><i class="fas fa-wifi"></i> Stable Internet Connection</li>
-                <li><i class="fas fa-usb"></i> Original USB Cable</li>
-                <li><i class="fas fa-bolt"></i> Remote Connection Tools</li>
-            </ul>
-        </div>
-    </section>
-
-    <!-- PAYMENT METHODS -->
-    <section id="payment" class="payment-methods">
-        <h2 class="section-title hl-gold">ACCEPTED PAYMENT METHODS</h2>
-        <div class="pay-icons">
-            <div class="pay-item"><i class="fas fa-globe-americas"></i> Wise</div>
-            <div class="pay-item"><i class="fas fa-paper-plane"></i> TapTap Send</div>
-            <div class="pay-item"><i class="fas fa-mobile-screen-button"></i> bKash</div>
-            <div class="pay-item"><i class="fas fa-wallet"></i> Nagad</div>
-            <div class="pay-item"><i class="fas fa-university"></i> Bank Transfer</div>
-        </div>
-    </section>
-
-    <!-- RESTRICTION WARNING -->
-    <div class="restriction-warning-box">
-        <h3>CRITICAL NOTICE</h3>
-        <p>Ensure your device drivers are properly installed before requesting remote service operations.</p>
-    </div>
-</main>
-
-<footer>
-    <p>&copy; 2026 RIYU THE FLASHER. All Rights Reserved.</p>
-    <p>Official Xiaomi, OnePlus, RedMagic &amp; Oppo Remote Authentication &amp; Flashing Services.</p>
-</footer>
-
-<script>
-    const openDrawer = document.getElementById('openDrawer');
-    const closeDrawer = document.getElementById('closeDrawer');
-    const sideDrawer = document.getElementById('sideDrawer');
-    const overlay = document.getElementById('overlay');
-    const drawerPaymentLink = document.getElementById('drawerPaymentLink');
-
-    function toggleDrawer() {
-        sideDrawer.classList.toggle('active');
-        overlay.classList.toggle('active');
-    }
-
-    openDrawer.addEventListener('click', toggleDrawer);
-    closeDrawer.addEventListener('click', toggleDrawer);
-    overlay.addEventListener('click', toggleDrawer);
-    drawerPaymentLink.addEventListener('click', toggleDrawer);
-
-    function updateClock() {
-        const now = new Date();
-        document.getElementById('currentTime').innerText = now.toLocaleTimeString();
-    }
-    setInterval(updateClock, 1000);
-    updateClock();
-
-    const billboardPlayer = document.getElementById('billboardPlayer');
-    const replayBillboardBtn = document.getElementById('replayBillboardBtn');
-    const billboardEmbedUrl = 'https://www.youtube.com/embed/ck9ghuy6lTU?autoplay=1&mute=1&loop=1&playlist=ck9ghuy6lTU&playsinline=1&rel=0';
-
-    replayBillboardBtn.addEventListener('click', () => {
-        billboardPlayer.src = '';
-        requestAnimationFrame(() => {
-            billboardPlayer.src = billboardEmbedUrl;
-        });
-    });
-</script>
-</body>
-</html>
+                        title="K100 PRO BOOT

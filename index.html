@@ -13,6 +13,7 @@
             --primary: #ff004f;
             --secondary: #ff8a00;
             --accent: #00f2ff;
+            --gold: #fbbf24;
             --bg-deep: #050508;
             --surface: rgba(16, 17, 24, 0.78);
             --surface-elevated: rgba(24, 26, 36, 0.92);
@@ -183,6 +184,17 @@
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
         }
 
+        .info-pill.name-highlight {
+            background: rgba(251, 191, 36, 0.09);
+            border: 1.5px solid var(--gold);
+            color: #fef3c7;
+            box-shadow: 0 0 22px rgba(251, 191, 36, 0.2), 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .info-pill.name-highlight i {
+            color: var(--gold);
+        }
+
         .info-pill i { color: var(--primary); }
 
         .clock-pill {
@@ -306,7 +318,7 @@
             box-shadow: 0 14px 34px rgba(255, 0, 79, 0.48);
         }
 
-        /* Brand Badges */
+        /* Brand Badges & Section Highlights */
         .xiaomi-tag {
             background: linear-gradient(135deg, #ff5500, #ff9900);
             color: #ffffff;
@@ -347,17 +359,37 @@
         }
 
         .hot-badge {
-            background: rgba(255, 0, 79, 0.16);
-            color: #ff4d7d;
-            padding: 3px 8px;
+            background: rgba(255, 0, 79, 0.18);
+            color: #ff5c8a;
+            padding: 3px 9px;
             border-radius: 999px;
             font-size: 10px;
             font-weight: 800;
             letter-spacing: 0.8px;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
             vertical-align: middle;
             margin-left: 6px;
-            border: 1px solid rgba(255, 0, 79, 0.4);
+            border: 1px solid rgba(255, 0, 79, 0.5);
+            box-shadow: 0 0 14px rgba(255, 0, 79, 0.25);
+        }
+
+        .live-badge {
+            background: rgba(0, 242, 255, 0.14);
+            color: var(--accent);
+            padding: 3px 9px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            vertical-align: middle;
+            margin-left: 6px;
+            border: 1px solid rgba(0, 242, 255, 0.45);
+            box-shadow: 0 0 14px rgba(0, 242, 255, 0.2);
         }
 
         /* Layout & Section Headers */
@@ -387,9 +419,170 @@
             letter-spacing: 1.4px;
             padding: 11px 16px;
             border-radius: 12px;
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
-            border: 1px solid var(--border-subtle);
+            background: linear-gradient(90deg, rgba(255, 0, 79, 0.11), rgba(255, 255, 255, 0.02), rgba(0, 242, 255, 0.07));
+            border: 1px solid rgba(255, 255, 255, 0.11);
             border-bottom: 2px solid var(--primary);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .section-title.hl-redmagic {
+            background: linear-gradient(90deg, rgba(255, 0, 60, 0.14), rgba(255, 255, 255, 0.02));
+            border-color: rgba(255, 0, 60, 0.25);
+            border-bottom-color: #ff003c;
+        }
+
+        .section-title.hl-cyan {
+            background: linear-gradient(90deg, rgba(0, 242, 255, 0.12), rgba(255, 255, 255, 0.02));
+            border-color: rgba(0, 242, 255, 0.24);
+            border-bottom-color: var(--accent);
+        }
+
+        .section-title.hl-gold {
+            background: linear-gradient(90deg, rgba(251, 191, 36, 0.12), rgba(255, 255, 255, 0.02));
+            border-color: rgba(251, 191, 36, 0.25);
+            border-bottom-color: var(--gold);
+        }
+
+        /* HOT NOW Monitor Billboard */
+        .monitor-shell {
+            background: var(--surface);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255, 0, 79, 0.35);
+            box-shadow: var(--shadow-hd), 0 0 36px rgba(255, 0, 79, 0.14);
+            border-radius: 20px;
+            padding: 20px;
+        }
+
+        .monitor-bezel {
+            background: linear-gradient(145deg, #1a1d26, #0b0c10);
+            border: 2px solid rgba(255, 255, 255, 0.14);
+            border-radius: 18px 18px 12px 12px;
+            padding: 12px 12px 16px;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14), 0 24px 48px rgba(0, 0, 0, 0.85);
+            position: relative;
+        }
+
+        .monitor-topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            padding: 4px 8px 12px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            margin-bottom: 12px;
+        }
+
+        .monitor-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .billboard-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            background: rgba(255, 0, 79, 0.18);
+            color: #ff5c8a;
+            border: 1px solid rgba(255, 0, 79, 0.45);
+        }
+
+        #billboardTitle {
+            margin: 0;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(14px, 2vw, 17px);
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .monitor-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .monitor-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            color: #f8fafc;
+            padding: 6px 11px;
+            border-radius: 8px;
+            font-size: 10.5px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .monitor-btn:hover {
+            background: rgba(0, 242, 255, 0.14);
+            border-color: rgba(0, 242, 255, 0.45);
+            color: var(--accent);
+        }
+
+        .monitor-screen {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000000;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.9);
+        }
+
+        .monitor-screen iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .monitor-footer-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 12px 8px 2px;
+            font-size: 11.5px;
+            color: var(--text-muted);
+        }
+
+        .monitor-stand-neck {
+            width: 88px;
+            height: 18px;
+            margin: 0 auto;
+            background: linear-gradient(180deg, #1b1e29, #0d0e14);
+            border-left: 1px solid rgba(255, 255, 255, 0.08);
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .monitor-stand-base {
+            width: 190px;
+            height: 8px;
+            margin: 0 auto;
+            border-radius: 999px;
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.04));
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.8);
         }
 
         /* HD Cards & Tiles */
@@ -638,8 +831,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(16, 185, 129, 0.1);
-            border: 1px solid rgba(16, 185, 129, 0.35);
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.4);
             color: #34d399;
             padding: 6px 15px;
             border-radius: 999px;
@@ -647,6 +840,7 @@
             margin-bottom: 10px;
             font-weight: 800;
             letter-spacing: 0.8px;
+            box-shadow: 0 0 18px rgba(16, 185, 129, 0.16);
         }
 
         .pulse-dot {
@@ -707,7 +901,7 @@
 
         .pay-icons {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
             gap: 14px;
             margin-top: 14px;
         }
@@ -816,7 +1010,7 @@
 </div>
 
 <div class="top-info-bar">
-    <div class="info-pill"><i class="fas fa-user-check"></i><span><b>RIYAN MOHAMMAD SAJID AMAN AOPE</b></span></div>
+    <div class="info-pill name-highlight"><i class="fas fa-user-check"></i><span><b>SAJID AMAN AOPE</b></span></div>
     <div class="info-pill clock-pill"><i class="far fa-clock"></i><span id="currentTime" class="digital-clock"></span></div>
 </div>
 
@@ -878,7 +1072,7 @@
 
     <!-- SECTION 2: REDMAGIC -->
     <section>
-        <h2 class="section-title" style="border-bottom-color: #ff003c;"><span class="redmagic-tag">REDMAGIC</span> BOOTLOADER UNLOCK &amp; ROM CONVERT</h2>
+        <h2 class="section-title hl-redmagic"><span class="redmagic-tag">REDMAGIC</span> BOOTLOADER UNLOCK &amp; ROM CONVERT <span class="live-badge">FAST</span></h2>
         <div class="model-flex-container theme-redmagic">
             <div class="model-horizontal-flex">
                 <div class="tile">
@@ -919,7 +1113,7 @@
 
     <!-- SECTION 3: ONEPLUS & OPPO GLOBAL ROM CONVERT + AUTH -->
     <section>
-        <h2 class="section-title" style="border-bottom-color: var(--accent);">ONEPLUS &amp; <span class="oppo-tag">OPPO</span> GLOBAL ROM CONVERT &amp; AUTH</h2>
+        <h2 class="section-title hl-cyan">ONEPLUS &amp; <span class="oppo-tag">OPPO</span> GLOBAL ROM CONVERT &amp; AUTH <span class="live-badge">VERIFIED</span></h2>
         <div class="model-flex-container theme-cyan">
             <div class="model-horizontal-flex">
                 <div class="tile">
@@ -990,7 +1184,7 @@
 
     <!-- SECTION 4: XIAOMI BOOTLOADER UNLOCK & AUTH (MINIMAL) -->
     <section>
-        <h2 class="section-title"><span class="xiaomi-tag">XIAOMI</span> BOOTLOADER UNLOCK &amp; AUTH <span class="hot-badge">LIVE</span></h2>
+        <h2 class="section-title hl-gold"><span class="xiaomi-tag">XIAOMI</span> BOOTLOADER UNLOCK &amp; AUTH <span class="live-badge">ONLINE</span></h2>
         <div class="model-flex-container">
             <div><div class="status-badge"><div class="pulse-dot"></div> AUTH SERVER ONLINE</div></div>
             <p style="color: var(--accent); font-weight: 700; font-size: 12px; font-family: 'Space Grotesk', sans-serif; margin: 4px 0 14px; text-transform: uppercase; letter-spacing: 0.8px;">
@@ -1018,9 +1212,47 @@
         </div>
     </section>
 
+    <!-- HOT NOW MONITOR BILLBOARD (LOWER SECTION) -->
+    <section id="hot-now">
+        <h2 class="section-title hl-gold">HOT NOW <span class="hot-badge"><i class="fas fa-tv"></i> MONITOR BILLBOARD</span></h2>
+        <div class="monitor-shell">
+            <div class="monitor-bezel">
+                <div class="monitor-topbar">
+                    <div class="monitor-title-wrap">
+                        <span class="billboard-pill"><i class="fas fa-circle" style="font-size: 7px;"></i> CONTINUOUS LOOP</span>
+                        <!-- Edit the text inside #billboardTitle anytime to change the monitor title -->
+                        <h3 id="billboardTitle">K100 PRO BOOTLOADER UNLOCK</h3>
+                    </div>
+                    <div class="monitor-controls">
+                        <button type="button" class="monitor-btn" id="replayBillboardBtn"><i class="fas fa-rotate-right"></i> LOOP / RELOAD</button>
+                        <a href="https://youtu.be/ck9ghuy6lTU?si=ueWQFvMDWYiep_Jm" class="monitor-btn" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> WATCH ON YOUTUBE</a>
+                    </div>
+                </div>
+
+                <div class="monitor-screen">
+                    <iframe
+                        id="billboardPlayer"
+                        src="https://www.youtube.com/embed/ck9ghuy6lTU?autoplay=1&mute=1&loop=1&playlist=ck9ghuy6lTU&playsinline=1&rel=0"
+                        title="K100 PRO BOOTLOADER UNLOCK"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="monitor-footer-bar">
+                    <span><i class="fas fa-display" style="color: var(--accent); margin-right: 6px;"></i>Autoplay starts muted per browser policy; click video controls for sound.</span>
+                    <span><i class="fas fa-bolt" style="color: var(--gold); margin-right: 5px;"></i>Remote Auth &amp; Unlock Showcase</span>
+                </div>
+            </div>
+            <div class="monitor-stand-neck"></div>
+            <div class="monitor-stand-base"></div>
+        </div>
+    </section>
+
     <!-- SECTION 5: MI CLOUD PERMANENT REMOVAL & FLASH (MINIMAL) -->
     <section>
-        <h2 class="section-title">MI CLOUD PERMANENT REMOVAL &amp; FLASH</h2>
+        <h2 class="section-title hl-cyan">MI CLOUD PERMANENT REMOVAL &amp; FLASH <span class="live-badge">SERVER</span></h2>
         <div class="model-flex-container">
             <div class="model-horizontal-flex">
                 <div class="tile">
@@ -1054,7 +1286,7 @@
 
     <!-- REQUIREMENTS -->
     <section>
-        <h2 class="section-title">PRE-REQUISITES &amp; REQUIREMENTS</h2>
+        <h2 class="section-title hl-cyan">PRE-REQUISITES &amp; REQUIREMENTS</h2>
         <div class="requirements-section">
             <ul class="req-list">
                 <li><i class="fas fa-laptop"></i> Windows PC / Laptop</li>
@@ -1067,11 +1299,13 @@
 
     <!-- PAYMENT METHODS -->
     <section id="payment" class="payment-methods">
-        <h2 class="section-title">ACCEPTED PAYMENT METHODS</h2>
+        <h2 class="section-title hl-gold">ACCEPTED PAYMENT METHODS</h2>
         <div class="pay-icons">
+            <div class="pay-item"><i class="fas fa-globe-americas"></i> Wise</div>
+            <div class="pay-item"><i class="fas fa-paper-plane"></i> TapTap Send</div>
+            <div class="pay-item"><i class="fas fa-mobile-screen-button"></i> bKash</div>
+            <div class="pay-item"><i class="fas fa-wallet"></i> Nagad</div>
             <div class="pay-item"><i class="fas fa-university"></i> Bank Transfer</div>
-            <div class="pay-item"><i class="fab fa-bitcoin"></i> Crypto (USDT)</div>
-            <div class="pay-item"><i class="fas fa-wallet"></i> Mobile Banking</div>
         </div>
     </section>
 
@@ -1110,6 +1344,17 @@
     }
     setInterval(updateClock, 1000);
     updateClock();
+
+    const billboardPlayer = document.getElementById('billboardPlayer');
+    const replayBillboardBtn = document.getElementById('replayBillboardBtn');
+    const billboardEmbedUrl = 'https://www.youtube.com/embed/ck9ghuy6lTU?autoplay=1&mute=1&loop=1&playlist=ck9ghuy6lTU&playsinline=1&rel=0';
+
+    replayBillboardBtn.addEventListener('click', () => {
+        billboardPlayer.src = '';
+        requestAnimationFrame(() => {
+            billboardPlayer.src = billboardEmbedUrl;
+        });
+    });
 </script>
 </body>
 </html>
